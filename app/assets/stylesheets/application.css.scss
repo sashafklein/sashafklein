@@ -1,0 +1,96 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+/* mixins, variables, etc. */
+
+$lightGray: #E0E0E0;
+$linkRed: #9a393a;
+$heavyGray: #383838;
+$grayMediumLight: #eaeaea;
+$skyBlue: #3D5C99;
+$lightNavy: #0029A3;
+$navy: #001452;
+
+body {
+	background-color: $lightGray;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+p, ol, ul, td {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 15px;
+	line-heigh: 20px;
+}
+
+a {
+	a:link, a:active, a:visited {
+    color: $linkRed;
+  }
+  a:hover {
+    background:transparent;
+    text-decoration:underline;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+.field_with_errors {
+  input {
+    background-color:#f0f0f0;
+  }
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+.alert .close {
+position: relative;
+top: -2px;
+right: -21px;
+line-height: 20px;
+}
+
+button.close {
+padding: 0;
+cursor: pointer;
+background: transparent;
+border: 0;
+-webkit-appearance: none;
+}
