@@ -3,32 +3,25 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <link href='http://fonts.googleapis.com/css?family=Kreon' rel='stylesheet' type='text/css'>
-    <%= favicon_link_tag 'favicon.ico' %>
+    <%= favicon_link_tag 'pig_favicon.ico' %>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <meta name="google-site-verification" content="idIPkgRBikSL9PCS4rVkkZfRjxYbPxNbyF6tVymBWbc" />
     <%= render 'layouts/shim' %> 
   </head>
-  <body class="body">
-
-    <div class="container">
-      <div class="margin-it">
-       <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-        <% end %>
+  <body class="sky"> <!-- outer band -->
+      <div class="inner banded"> <!-- main container -->
+          <div class="bubble banded"> <!-- bubble for text/header/footer -->
+            <%= render 'layouts/header' %>
+          </div>
+          <div class="bubble banded">
+            <%= yield %>
+          </div>
+          <div class="bubble banded">
+            <%= render 'layouts/footer' %>
+          </div>
       </div>
-    </div>
-    <div class="inner_body">
-      <%= render 'layouts/header' %>
-      <div class="text_container">
-        <%= yield %>
-      </div>
-    </div>
-    
-    <%= debug(params) if Rails.env.development? %>
-    <%= render 'layouts/footer' %>
-  
+      <div class="dirt"></div>
   </body>
 </html>

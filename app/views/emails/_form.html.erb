@@ -1,0 +1,39 @@
+<%= form_for(@email) do |f| %>
+  <% if @email.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@email.errors.count, "error") %> prohibited this email from being saved:</h2>
+
+      <ul>
+      <% @email.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="field">
+    <%= f.label :name, "Your name:" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address, "Your email:" %>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :content, "Your message:" %>
+    <%= f.text_field :content %>
+  </div>
+
+  <h3>Human verification:</h3>
+  <div class="field">
+    <% x = rand(0..10) %>
+    <% y = rand(0..10) %>
+    <% method = "plus" %>
+    <%= f.label :math, "#{x} #{method} #{y} =" %>
+    <%= f.text_field :math %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>		

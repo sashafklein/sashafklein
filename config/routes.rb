@@ -2,7 +2,7 @@ Sashafklein::Application.routes.draw do
   match '/portfolio', to: 'statics#portfolio'
   match '/resume', to: 'statics#resume'
 
-  match '/email', to: 'email#compose'
+  resources :emails
 
   root to: 'statics#about'
 
