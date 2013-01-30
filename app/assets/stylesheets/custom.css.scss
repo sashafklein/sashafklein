@@ -193,6 +193,61 @@ p {
 }
 
 
+// Prettified error messages
+#error_exp {
+  color:#B94A48;
+  font-family:calibri, verdana, 'trebuchet ms';
+  font-size:100%;
+  background-color:#fff;
+}
+
+.gray_botton {
+  padding: 6px 6px;
+  color:#333;
+  font-family:calibri, verdana, 'trebuchet ms';
+  font-size:100%;
+  border: 1px solid #ddd;
+  text-shadow: none;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color:#eee;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+    li {
+      font-size: 120%;
+      color: #A00000;
+    }
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+ }
+
+.alert .close {
+position: relative;
+top: -2px;
+color: #FF0000;
+right: -21px;
+text-align: center;
+line-height: 20px;
+}
+
+button.close {
+padding: 0;
+cursor: pointer;
+background: transparent;
+border: 0;
+-webkit-appearance: none;
+}
+
 /* misc formatting & tricks */
 
 .piglet {
@@ -224,50 +279,12 @@ p {
   } 
 }
 
-.field_with_errors {
-  input {
-    background-color:#f0f0f0;
+.text-area {
+  textarea {
+    width: 90%;
+    padding-right: 15px;
   }
 }
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
-}
-
-.alert .close {
-position: relative;
-top: -2px;
-right: -21px;
-line-height: 20px;
-}
-
-button.close {
-padding: 0;
-cursor: pointer;
-background: transparent;
-border: 0;
--webkit-appearance: none;
-}
-
 .smaller_font {
   font-size: 0.6em;
 }

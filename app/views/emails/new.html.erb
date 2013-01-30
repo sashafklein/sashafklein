@@ -1,4 +1,35 @@
 <%= provide(:title, 'Email me!') %>
-<h2>Compose your message below:</h2>
-<b> 
-<div class="inset"><%= render 'form' %></div>
+
+<%= form_for(@email) do |f| %>
+
+	<h2>Compose your message below:</h2>
+	<b> 
+	<div class="inset">
+
+	   <div class="field">
+	    <%= f.label :name, "Your name:" %>
+	    <%= f.text_field :name %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :address, "Your email:" %>
+	    <%= f.text_field :address %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :address, "Your email:" %>
+	    <%= f.text_field :address %>
+	  </div>
+	  <div class="field text-area">
+	    <%= f.label :content, "Your message:" %>
+	    <%= f.text_area(:content, :size => '50x10') %>
+	  </div>
+
+	  <h3>Human verification:</h3>
+	    <%= hidden_field_tag :captcha_secret, @captcha.encrypt %>
+	    <%= label_tag :captcha, @captcha.question %>
+	    <%= text_field_tag :captcha, "" %>
+
+	  <div class="actions">
+	    <%= f.submit "Send" %>
+	  </div>
+		<% end %>		
+	</div>
