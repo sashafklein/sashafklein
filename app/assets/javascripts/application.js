@@ -14,7 +14,3 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
-
-jQuery ->
-	$('.alert').on "click", (e) ->
-		$(@).hide()
