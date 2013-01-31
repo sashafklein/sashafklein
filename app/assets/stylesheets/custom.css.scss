@@ -1,5 +1,6 @@
 @import "bootstrap";
 
+
 /* color variables */
 
 $lightGray: #e7e8e8;
@@ -19,6 +20,7 @@ $textGray: #dbe5e7;
 $blue_link: #1e3c89;
 $blue_hover: #0a679c;
 
+
 /* layout basics */
 
 body {
@@ -35,8 +37,6 @@ body {
 
 .inner {
   width: 70%;
-  // margin-right: 120px;
-  // margin-left: 120px;
   margin: auto;
   background-color: $innerGray;
   padding-top: 20px;
@@ -89,12 +89,6 @@ p, ol, li, a, td, ul, h1, h2, h3, h4, h5, h6, label {
   font-size: 15px;
   text-align: left;
 }
-
-        // p, ol, ul, td, a {
-        //   font-family: american typewriter;
-        //   font-size: 15px;
-        //   line-height: 20px;
-        // }
 
 
 /* typography specifics */
@@ -160,6 +154,7 @@ p {
   margin-left: 8px;
 }
 
+
 /* footer and header */
 .navbars {
   color: $grayLight;
@@ -193,7 +188,8 @@ p {
 }
 
 
-// Prettified error messages
+/* prettified error messages */
+
 #error_exp {
   color:#B94A48;
   font-family:calibri, verdana, 'trebuchet ms';
@@ -247,6 +243,7 @@ background: transparent;
 border: 0;
 -webkit-appearance: none;
 }
+
 
 /* misc formatting & tricks */
 
@@ -314,7 +311,6 @@ border: 0;
 
 
 /* photo placement */
-
 
 .port_photo {
   border: 5px solid;
