@@ -13,9 +13,9 @@ $lightNavy: #0029A3;
 $navy: #001452;
 $jeanBlue: #446588;
 $softBrown: #884544;
-$bgTeal: #cfe4e7;
-$innerGray: #4a6068;
-$textGray: #dbe5e7;
+$BGColor: #A0A0A0;
+$innerColor: #505050;
+$textBG: #E0E0E0;
 
 $blue_link: #1e3c89;
 $blue_hover: #0a679c;
@@ -29,7 +29,7 @@ body {
 }
 .sky {
   padding-top:70px;
-  background-color: $bgTeal;
+  background-color: $BGColor;
   background-image: url('sky.png');
   background-position:center top;
   background-repeat:repeat-x;
@@ -38,14 +38,14 @@ body {
 .inner {
   width: 70%;
   margin: auto;
-  background-color: $innerGray;
+  background-color: $innerColor;
   padding-top: 20px;
   padding-bottom: 5px;
   margin-bottom: 10px;
 }
 
 .bubble {
-  background-color: $textGray;
+  background-color: $textBG;
   margin-left: 60px;
   margin-right: 60px;
   margin-top: 35px;
@@ -56,7 +56,7 @@ body {
 }
 
 #header_bubble {
-  background-color: $textGray;
+  background-color: $textBG;
   margin-left: 60px;
   margin-right: 60px;
   margin-top: 35px;
@@ -75,7 +75,7 @@ body {
   padding-top: 50px;
   background-position: center bottom;
   padding-bottom: 60px;
-  background-color: $bgTeal;
+  background-color: $BGColor;
   background-image: url('dirt.png');
   background-repeat:repeat-x;
 }
@@ -118,7 +118,7 @@ a {
   a {
     color: $black;
     &:hover {
-      color: $innerGray;
+      color: $innerColor;
     }
   }
 }
