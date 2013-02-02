@@ -1,55 +1,63 @@
 <% provide(:title, 'Resume') %>
 
-<h1 class="squeeze">Skills</h1>
+<div class="span4 border-it">
+	<div style="padding:40px;"><%= image_tag('headshot.png') %></div>
+	<h1 class="squeeze">Professional Skills</h1>
 		<%= render partial: "skills" %>
+</div>
 
+<div class="span7 border-it">
+	<h1 class="squeeze">Education</h1>
 
-<h1 class="squeeze">Education</h1>
-
-	<div class="inset">
-		<%= render partial: "collapse_start", locals: { 
-							 title: "Harvard University", tag: "h2", sub: "(2007-2011)" } %>
-		<h4 style="font-weight:normal">Graduated (Cum Laude) May 2011</h4>
-		<h5 class="inset">Honors B.A. in English</h5>
-		</div></div></div></div>
-	</div>
-
-	<div class="inset">
-		<%= render partial: "collapse_start", locals: { title: "Bloc", tag: "h2", 
-							 sub: "(2012)" } %>
+		<div class="inset">
+			<%= render partial: "collapse_start", locals: { title: "Bloc", tag: "h2", 
+								 sub: "(2012)" } %>
 			<br><p class="blue_links"><%= link_to "Bloc", "https://www.bloc.io" %> is a 12-week (when I took it, 8) online web-development boot camp, designed to turn a small cohort of students into well-versed web developers over the course of a few months. <br><br>
 
 			The course starts in <em>Ruby</em>, then moves through mockup methodology to <em>HTML</em> and <em>CSS</em>, <em>Git</em>, <em>Sinatra</em>, <em>Rails</em>, and then, time willing, into <em>RSpec</em> testing, <em>Javascript/JQuery</em>, and more. Throughout, we focused on a final project of our choosing, learning and practicing through work on the project, helped along by a faculty of "mentor" coders.<br><br>
 
 			My project, <%= link_to "MeatUp", '/portfolio#meatup' %>, allowed me to integrate all these skills into a complex and user-friendly site for simplifying the process of direct-from-farmer meat purchasing.</p>
-		</div></div></div></div>
+		</div></div></div></div></div>
+
+		<div class="inset">
+			<%= render partial: "collapse_start", locals: { 
+								 title: "Harvard University", tag: "h2", sub: "(2007-2011)" } %>
+			<h4 style="font-weight:normal">Graduated (Cum Laude) May 2011</h4>
+			<h5 class="inset">Honors B.A. in English</h5>
+			</div></div></div></div>
+		</div>
+
+
+		<div class="border-it">
+			<h1 class="squeeze">Work Experience</h1>
+			<div class="inset">
+
+				<h2 class="squeeze blue_links">Web Experience <%= link_to ">>", portfolio_path %></h2>
+				<%= render partial: "collapse_start", 
+									 locals: { title: "Non-Web Experience", tag: "h2" } %>
+
+					<%= render partial: "collapse_start", locals: 
+						{ title: "Dipont Education", sub: "Shanghai, China (2011-2012)", tag: "h3", 
+							term: "+" } %>
+					</div></div></div></div>
+
+					<%= render partial: "collapse_start", locals: 
+						{ title: "Think Food Group", sub: "Washington, DC (2010)", tag: "h3", 
+							term: "+" } %>
+					</div></div></div></div>
+
+					<%= render partial: "collapse_start", locals: 
+						{ title: "Coproduction Office", sub: "Paris, France (2009)", tag: "h3", 
+							term: "+" } %>
+					</div></div></div></div>
+
+					<%= render partial: "collapse_start", locals: 
+						{ title: "UN High Commissioner for Refugees", sub: "Rabat, Morocco (2008)", tag: "h3", term: "+" } %>
+					</div></div></div></div>
+
+				</div></div></div></div>
+		</div>
 	</div>
-
-<h1 class="squeeze">Work Experience</h1>
-	<div class="inset">
-
-		<h2 class="squeeze blue_links">Web Experience <%= link_to ">>", portfolio_path %></h2>
-		<%= render partial: "collapse_start", 
-							 locals: { title: "Non-Web Experience", tag: "h2" } %>
-
-			<%= render partial: "collapse_start", locals: 
-				{ title: "Dipont Education", sub: "Shanghai, China (2011-2012)", tag: "h3", 
-					term: "+" } %>
-			</div></div></div></div>
-
-			<%= render partial: "collapse_start", locals: 
-				{ title: "Think Food Group", sub: "Washington, DC (2010)", tag: "h3", 
-					term: "+" } %>
-			</div></div></div></div>
-
-			<%= render partial: "collapse_start", locals: 
-				{ title: "Coproduction Office", sub: "Paris, France (2009)", tag: "h3", 
-					term: "+" } %>
-			</div></div></div></div>
-
-			<%= render partial: "collapse_start", locals: 
-				{ title: "UN High Commissioner for Refugees", sub: "Rabat, Morocco (2008)", tag: "h3", term: "+" } %>
-			</div></div></div></div>
-
-		</div></div></div></div>
-	</div>
+</div>
+	
+</div>

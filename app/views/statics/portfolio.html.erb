@@ -1,27 +1,46 @@
 <% provide(:title, 'Web Portfolio') %>
-  <h1 class="squeeze" id="meatup">MeatUp</h1><br>
-	  <div class="inset">
-	  	<p>My first web app. A tool for allowing groups of people to easily purchase part of a whole cow, pig, lamb, or goat, greatly simplifying the process of purchasing any quantity of meat directly from a farmer.</p>
 
-				<div class="black_links">
-					<%= link_to image_tag('meatup.png', class: "port_photo right_photo", alt: "MeatUp"), "https://meatup.in" %>
-				</div>
+	<!-- continuation of row/container div from app.html.erb -->
+		<div class="span4 black_links"><br>
+			
+			<%= link_to image_tag('meatup.png', class: "port_photo", alt: "MeatUp"), "https://meatup.in" %>
 
-			<p class="blue_links">An attempt to merge the monetary and transparency benefits of direct-from-farm CSA meat purchasing with the ease and choice of retail, <%= link_to "MeatUp", "https://meatup.in" %> allows users to purchase specific cuts -- prepared however desired -- from specific animals. It then handles all the back end of the purchasing process, contacting farmers and butchers and coordinating pricing and weight calculations in an attemptto sell off the whole animal in a quick and simple online "auction".</p>
+			<ul class="port_list">			
+				<li>First major web app.</li>
+				<li>Unique e-commerce solution.</li>
+				<li>Authorization, authentication.
+				<li>4 user types, custom security</li>
+				<li>Integrated email, JS plugins.</li>
+				<li>9 interrelated models.</li>
+			</ul>
 
-	  	<p class="blue_links">I began working on MeatUp during <%=link_to "Bloc", '/resume#bloc' %>, and tackled its wide range of coding difficulties as the curriculum progressed. The site involves five user types -- purchaser, admin, host, butcher, and rancher -- each with separate permissions to separate data and sub-pages. It requires a self-updating mechanism (the real proportions of each animal affect future calculations) for calculating animal cuts based on size and breed, which I had to create from available data and vary by animal type and weight. It has a custom e-commerce solution, built using Javascript and Rails and dependent on four interacting "models" representing the animal data. It has integrated email, purchase timers, blog, and more, all wrapped into a custom design scheme.</p>
+		</div>
+		<div class="span7 blue_links padded">
+			<h1 class="squeeze" id="meatup" style="display: inline-block">MeatUp</h1>
+			<h2>Outside-of-the-box thinking on meat CSAs</h2>
+	  	<p>My first web app. A tool for allowing groups of people to ea`sily purchase part of a whole cow, pig, lamb, or goat, greatly simplifying the process of purchasing any quantity of meat directly from a farmer.</p>
+
+			<p>An attempt to merge the monetary and transparency benefits of direct-from-farm CSA meat purchasing with the ease and choice of retail, <%= link_to "MeatUp", "https://meatup.in" %> allows users to purchase specific cuts -- prepared however desired -- from specific animals. It then handles all the back end of the purchasing process, contacting farmers and butchers and coordinating pricing and weight calculations in an attemptto sell off the whole animal in a quick and simple online "auction".</p>
+
+	  	<p>I began working on MeatUp during <%=link_to "Bloc", '/resume#bloc' %>, and tackled its wide range of coding difficulties as the curriculum progressed. The site involves five user types -- purchaser, admin, host, butcher, and rancher -- each with separate permissions to separate data and sub-pages. It requires a self-updating mechanism (the real proportions of each animal affect future calculations) for calculating animal cuts based on size and breed, which I had to create from available data and vary by animal type and weight. It has a custom e-commerce solution, built using Javascript and Rails and dependent on four interacting "models" representing the animal data. It has integrated email, purchase timers, blog, and more, all wrapped into a custom design scheme.</p>
 
 	  	<p>The site was a difficult and exciting first project, one which I feel represents not only my abilities but my excitement about tackling new and difficult problems and turning them into elegant solutions. </p>
 
-	  	<br>
-	  </div>
+		</div>
+	</div>
 
-  <h1 class="squeeze" id="china">The Shang Low</h1><br>
-  	<div class="inset black_links">
+	<br>
 
+	<div class="row container">
+
+  	<div class="span4  black_links">
+  		<%= link_to image_tag('shang_low.png', class: "port_photo", alt: "The Shang Low"), "shanglow.tumblr.com" %>
+  	</div>
+
+  	<div class="span7  blue_links">
+  		<h1 class="squeeze" id="china" style="dispaly: inline-block">The Shang Low</h1>
+  		<h2>A food and education blog written in Shanghai, China</h2>
   		<p>A blog I kept while teaching and college counseling in Shanghai, China. I kept track of both my work and my travel, for friends and family, and it occurs to me now that the blog might be an easy way to get a sense of the person behind the freelancing profile.</p>
-
-  			<%= link_to image_tag('shang_low.png', class: "port_photo right_photo", alt: "The Shang Low", style: "margin-top: -10px"), "shanglow.tumblr.com" %>
 
   		<p>In China, I taught (English writing, French, and Psychology) and counseled students looking to go to college in the US, in addition to doing small amounts of editing work for my company's educational quarterly. Additionally, I did lots of traveling and eating; those last two motivated the bulk of the writings on my blog.</p>
   	</div>

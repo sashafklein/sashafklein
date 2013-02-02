@@ -10,21 +10,25 @@
     <meta name="google-site-verification" content="idIPkgRBikSL9PCS4rVkkZfRjxYbPxNbyF6tVymBWbc" />
     <%= render 'layouts/shim' %> 
   </head>
-  <body class="sky"> <!-- outer band -->
-      <div class="inner banded"> <!-- main container -->
-          <div class="bubble banded"> <!-- bubble for text/header/footer -->
-            <%= render 'layouts/header' %>
-          </div>
-          <div class="bubble banded">
-            <% flash.each do |key, value| %>
-              <%= content_tag(:div, value, class: "alert alert-#{key} button.close") %>
-            <% end %>
-            <%= yield %>
-          </div>
-          <div class="bubble banded">
-            <%= render 'layouts/footer' %>
-          </div>
-      </div>
-      <div class="dirt"></div>
+  <body> <!-- outer band -->
+
+    <div class="navbars thin_lower_band navbar-fixed-top header">
+      <%= render 'layouts/header' %>
+    </div>
+    
+    <div class='top_buffer'></div>
+    
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "alert alert-#{key} button.close") %>
+    <% end %>
+    <div class="row container">
+        <%= yield %>      
+    </div> 
+
+    <div class='bottom_buffer'></div>
+    
+    <div class="navbars thin_upper_band footer">
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>

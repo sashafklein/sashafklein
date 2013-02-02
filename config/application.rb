@@ -54,7 +54,7 @@ module Sashafklein
     config.active_record.whitelist_attributes = true
 
     # To satisfy heroku's attempt to satisfy Rails. I don't get it. 
-    config.assets.initialize_on_precompile = false
+    # config.assets.initialize_on_precompile = false
 
     # Enable the asset pipeline
     config.assets.enabled = true

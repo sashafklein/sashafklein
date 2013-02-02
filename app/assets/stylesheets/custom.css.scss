@@ -13,9 +13,13 @@ $lightNavy: #0029A3;
 $navy: #001452;
 $jeanBlue: #446588;
 $softBrown: #884544;
-$BGColor: #A0A0A0;
-$innerColor: #505050;
-$textBG: #E0E0E0;
+$BGColor: #C0C0C0;
+$innerColor: #282828;
+$textBG: #fff;
+$navColor: #282828;
+$navLinks: #fff;
+$navHover: #fff;
+$pigPink: #ff8686;
 
 $blue_link: #1e3c89;
 $blue_hover: #0a679c;
@@ -36,7 +40,7 @@ body {
 }
 
 .inner {
-  width: 70%;
+  width: 85%;
   margin: auto;
   background-color: $innerColor;
   padding-top: 20px;
@@ -46,12 +50,12 @@ body {
 
 .bubble {
   background-color: $textBG;
-  margin-left: 60px;
-  margin-right: 60px;
-  margin-top: 35px;
-  margin-bottom: 45px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+  margin-bottom: 10px;
   padding: 10px;
-  a:hover { color: $linkHover }
+  a:hover { color: $pigPink }
   a { font-weight: bold; }
 }
 
@@ -61,7 +65,7 @@ body {
   margin-right: 60px;
   margin-top: 35px;
   margin-bottom: 45px;
-  a:hover { color: $linkHover }
+  a:hover { color: $pigPink }
   a { font-weight: bold; }
 }
 
@@ -69,6 +73,14 @@ body {
   border: 1px solid #75726c;
   border-radius: 3px 3px 3px 3px;
   box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
+}
+
+.thin_lower_band {
+  box-shadow: 0 0 0 5px rgba(0,0,0,0.4);
+}
+
+.thin_upper_band {
+  box-shadow: 0 0 5 0px rgba(0,0,0,0.4);
 }
 
 .dirt {
@@ -84,7 +96,7 @@ body {
 /* general typography */
 
 p, ol, li, a, td, ul, h1, h2, h3, h4, h5, h6, label {
-  font-family: american typewriter;
+  font-family: rockwell;
   line-height: 1;
   font-size: 15px;
   text-align: left;
@@ -94,12 +106,13 @@ p, ol, li, a, td, ul, h1, h2, h3, h4, h5, h6, label {
 /* typography specifics */
 
 a {
+  font-weight: bold;
   color: $linkRed;
   a:link, a:active, a:visited {
     color: $linkRed;
   }
   a:hover {
-    color: $linkHover;
+    color: $pigPink;
     background:transparent;
     text-decoration:underline;
   }
@@ -109,7 +122,7 @@ a {
   a {
     color: $blue_link;
     &:hover {
-      color: $blue_hover;
+      color: $pigPink;
     }
   }
 }
@@ -118,7 +131,7 @@ a {
   a {
     color: $black;
     &:hover {
-      color: $innerColor;
+      color: $pigPink;
     }
   }
 }
@@ -156,8 +169,20 @@ p {
 
 
 /* footer and header */
+
+.header {
+  padding-top: 5px;
+  padding-bottom: 2px;
+  margin-bottom: 10px;
+}
+
+.footer {
+  padding-bottom: 10px;
+}
+
 .navbars {
-  color: $grayLight;
+  font-size: 90%;
+  background-color: $navColor;
   ul {
     float: right;
     list-style: none;
@@ -169,22 +194,36 @@ p {
   img {
     vertical-align:middle;
     margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 5px;
-  }
-  a:link, a:visited {
-    font-size: 200%;
-    font-weight: bold;
-    color: $linkRed;
     margin-right: 15px;
+    margin-left: 20px;
   }
-  a:hover {
-    color: $linkHover;
-    text-decoration: underline;
+  a {
+    &:link, &:visited {
+      font-size: 200%;
+      font-weight: bold;
+      color: $navLinks;
+      margin-right: 15px;
+    }
+    &:hover {
+    color: $pigPink;
+    text-decoration: none;
+    }
+    &:active {
+    color: $lightGray;
+    }
   }
-  a:active{
-    color: $linkHover;
-  }
+}
+
+.top_buffer {
+  height: 120px;
+}
+
+.bottom_buffer {
+  height: 50px;
+}
+
+#right_header {
+  margin-right: 30px;
 }
 
 
@@ -289,18 +328,14 @@ border: 0;
 .skillz {
   text-align: center;
   table {
+    width: 100%;
     margin: auto;
   }
   font-size: 115%;
   font-weight: bold;
   td {
-    width: 50 px;
+    height: 30px;
     text-align: right;
-  }
-  img {
-    margin-right: 18px;
-    margin-left: 4px;
-    margin-bottom: 5px;
   }
 }
 
@@ -314,25 +349,57 @@ border: 0;
 
 .port_photo {
   border: 5px solid;
-}
-
-.right_photo {
-  position: relative;
-  margin-right: 70px;
-  margin-left: 30px;
-  margin-bottom: 15px;
-  // margin-top: 15px;
-  float: right;
-}
-
-.left_photo {
-  position: relative;
-  margin-left: 40px;
-  margin-top: 20 px;
   float: left;
+  margin-right: 15px;
+  margin-bottom: 10px;
 }
 
-#headshot {
-  margin-right: 50px;
-  margin-left: 15px;
+// .right_photo {
+//   position: relative;
+//   margin-right: 70px;
+//   margin-left: 30px;
+//   margin-bottom: 15px;
+//   // margin-top: 15px;
+//   float: right;
+// }
+
+// .left_photo {
+//   position: relative;
+//   margin-left: 40px;
+//   margin-top: 20 px;
+//   float: left;
+// }
+
+// #headshot {
+//   margin-right: 50px;
+//   margin-left: 15px;
+// }
+
+.padded {
+  padding-left: 10px;
+}
+
+.port_list {
+  li {
+    clear: left;
+    font-size: 130%;
+    line-height: 35px;
+    font-style: italic;
+  }
+}
+
+.stars {
+  img {
+    float: left;
+  }
+}
+
+.border-it {
+  border: solid 1px;
+}
+
+.bundle {
+  a:hover {
+    color: $pigPink;
+  }
 }
