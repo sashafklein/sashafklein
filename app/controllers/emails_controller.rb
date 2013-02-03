@@ -18,10 +18,10 @@ class EmailsController < ApplicationController
       if @email.save
         if ContactMailer.contact_message(@email).deliver
           flash.now[:success] = "Your email has sent! I'll try to get back to you shortly."
-          redirect_to root_path
+          render :new
         else
           flash.now[:error] = "Something isn't working, and I'll fix it shortly. Get in touch through oDesk."
-          redirect_to root_path
+          render :new
         end
       else
         flash.now[:error] = "Please correct the highlighted errors and try again."
