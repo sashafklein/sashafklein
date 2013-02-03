@@ -1,15 +1,22 @@
 <% provide(:title, 'Welcome') %>
   
-<p><strong>Well, hi there!</strong></p>
-
-<p>My name's Sasha Klein. I'm a freelance web developer and dilettante, excited to keep learning and creating online. I started web development with <%= link_to "Bloc", "www.bloc.io" %>, an intensive, online Ruby-on-Rails bootcamp, where I worked with a cohort and several mentors to cover the basics of Ruby, HTML, CSS, Rails, Javascript and more, and turn that knowledge into a functional final-project.</p>
-
-<div class="black_links">
-	<%= image_tag('headshot.png', class: "port_photo right_photo", id: "headshot", alt: "Me") %>
+<div style="text-align:center;">
+	<h1 style="display:inline-block; font-size:440%;">SASHA KLEIN</h1>
+	<h3 style="display:inline-block; color:#383838; font-size:220%;">FREELANCE DEVELOPER</h3>
 </div>
 
-<p>Mine, <%= link_to "MeatUp", 'portfolio#meatup' %>, ended up turning into both a mammoth one-man coding project and an introductory course to start ups, as I tried to turn my learning project into a functional real-world solution to the complications of buying whole-animal meat directly from a farmer.</p>
+<p>I'm a freelance web developer and dilettante, excited to keep learning and creating online. I started web development with <%= link_to "Bloc", "www.bloc.io" %>, an intensive, online Ruby-on-Rails bootcamp, where I worked with a cohort and several mentors to cover the basics of Ruby, HTML, CSS, Rails, Javascript and more, and turn that knowledge into a functional final-project.</p>
 
-<p>Before coding -- a fairly recent development in my life -- I was <%= link_to "teaching and college counseling in Shanghai", 'portfolio#china' %> and, before that, studying English Lit in Boston and odd jobbing around the world.</p>
+<p>I love tackling new, complex problems, climbing prohibitively steep learning curves, and doing solid work. If you've got a web project that needs coding, get in touch, either through <%= link_to "ODesk", 'https://www.odesk.com/users/~01e74747c979a7bfd6' %> or by <%= link_to "shooting me an email", '#email' %>.</p>
 
-<p>I love tackling new, complicated problems, and would love to hear about yours. If you've got a web project that needs coding, get in touch, either through <%= link_to "ODesk", 'https://www.odesk.com/users/~01e74747c979a7bfd6' %> or by <%= link_to "shooting me an email", '#email' %>.</p>
+<div class="row front-page-links">
+	<div class="span4 border-it">
+		<%= link_to "resume", resume_path %>
+	</div>
+	<div class="span4 border-it">
+		<%= link_to "portfolio", portfolio_path %>
+	</div>
+	<div class="span3 border-it">
+		<%= link_to "email", new_email_path %>
+	</div>
+</div>

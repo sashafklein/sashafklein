@@ -1,7 +1,7 @@
 <% provide(:title, 'Web Portfolio') %>
 
 	<!-- continuation of row/container div from app.html.erb -->
-		<div class="span4 black_links"><br>
+		<div class="span4 black_links">
 			
 			<%= link_to image_tag('meatup.png', class: "port_photo", alt: "MeatUp"), "https://meatup.in" %>
 
@@ -15,7 +15,7 @@
 			</ul>
 
 		</div>
-		<div class="span7 blue_links padded">
+		<div class="span7 blue_links left-bar move-right">
 			<h1 class="squeeze" id="meatup" style="display: inline-block">MeatUp</h1>
 			<h2>Outside-of-the-box thinking on meat CSAs</h2>
 	  	<p>My first web app. A tool for allowing groups of people to ea`sily purchase part of a whole cow, pig, lamb, or goat, greatly simplifying the process of purchasing any quantity of meat directly from a farmer.</p>
@@ -34,13 +34,15 @@
 	<div class="row container">
 
   	<div class="span4  black_links">
-  		<%= link_to image_tag('shang_low.png', class: "port_photo", alt: "The Shang Low"), "shanglow.tumblr.com" %>
+  		<%= link_to image_tag('shang_low.png', class: "port_photo", alt: "The Shang Low"), "http://shanglow.tumblr.com" %>
   	</div>
 
-  	<div class="span7  blue_links">
+  	<div class="span7 blue_links left-bar move-right">
   		<h1 class="squeeze" id="china" style="dispaly: inline-block">The Shang Low</h1>
   		<h2>A food and education blog written in Shanghai, China</h2>
   		<p>A blog I kept while teaching and college counseling in Shanghai, China. I kept track of both my work and my travel, for friends and family, and it occurs to me now that the blog might be an easy way to get a sense of the person behind the freelancing profile.</p>
 
   		<p>In China, I taught (English writing, French, and Psychology) and counseled students looking to go to college in the US, in addition to doing small amounts of editing work for my company's educational quarterly. Additionally, I did lots of traveling and eating; those last two motivated the bulk of the writings on my blog.</p>
   	</div>
+
+  <!-- div class="row container" closed in application.html.erb -->

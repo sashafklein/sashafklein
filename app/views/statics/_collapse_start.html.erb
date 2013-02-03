@@ -1,14 +1,14 @@
 <% sub ||= "" %>
 <% term ||= "(expand)" %>
+<% style ||= "" %>
 
 <div class="cl" style="text-align:center">
 <div class="collapse-group">
-	<<%=tag%> class="squeeze"> 
+	<<%=tag%> class="squeeze" style=<%="#{style}"%>> 
 		<%=title%> 
 		<% if sub != "" %> 
 			<small><%= sub %></small>
 		<% end %>
 		<a class="bundle" href='#'><%= term %></a> 
 	</<%=tag%>>
-<div class="collapse normalize inset">
-<div class="inset">
+<div class="collapse">

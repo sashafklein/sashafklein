@@ -4,7 +4,7 @@ Sashafklein::Application.routes.draw do
 
   resources :emails
 
-  root to: 'statics#about'
+  root to: 'statics#resume'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

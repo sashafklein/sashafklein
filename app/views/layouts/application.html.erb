@@ -18,10 +18,11 @@
     
     <div class='top_buffer'></div>
     
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "alert alert-#{key} button.close") %>
-    <% end %>
     <div class="row container">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "alert alert-#{key} button.close") %>
+        <% end %>
+        
         <%= yield %>      
     </div> 
 

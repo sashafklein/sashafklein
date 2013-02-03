@@ -6,7 +6,7 @@ class Contact < ActionMailer::Base
   	@address = email.address
   	@subject = email.subject
   	@content = email.content
-    mail(:to => "sashafklein@gmail", :subject => "Message from sashafklein.com")
+    mail(:to => ENV['EMAIL_ADDRESS'], :subject => "SFK: #{@subject}")
   end
 
 end
