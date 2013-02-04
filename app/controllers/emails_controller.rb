@@ -16,13 +16,9 @@ class EmailsController < ApplicationController
         render :new
     else
       if @email.save
-        if Contact.contact_message(@email).deliver
-          flash.now[:success] = "Your email has sent! I'll try to get back to you shortly."
-          render :new
-        else
-          flash.now[:error] = "Something isn't working, and I'll fix it shortly. Get in touch through oDesk."
-          render :new
-        end
+        Contact.contact_message(@email).deliver
+        flash.now[:success] = "Your email has sent! I'll try to get back to you shortly."
+        render :new
       else
         flash.now[:error] = "Please correct the highlighted errors and try again."
         render :new

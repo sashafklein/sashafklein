@@ -138,6 +138,14 @@ a {
 
 p {
   font-size: 1.05em;
+  &::selection {
+    background: $pigPink;
+    color: #fff;
+  }
+  &::moz-selection {
+    background: $pigPink;
+    color: #fff;
+  }
 }
 
 h1 {
