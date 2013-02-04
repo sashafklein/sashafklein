@@ -16,7 +16,7 @@
 
 		<div class="inset">
 			<%= render partial: "collapse_start", 
-									 locals: { title: "Bloc", tag: "h2", sub: "(2012)" } %><div class="inset">
+									 locals: { title: "Bloc", tag: "h2", sub: "(2012)", term: '+' } %><div class="inset">
 				<p class="blue_links"><%= link_to "Bloc", "https://www.bloc.io" %> is an online web-development boot camp designed to turn a small cohort of students into well-versed web developers over the course of 12 (when I took it, 8) intensive weeks.</p>
 
 				<p>A faculty of "mentor" coders guides us through <em>Ruby</em>, <em>HTML</em>, <em>CSS</em>, <em>Git</em>, <em>Sinatra</em>, <em>Rails</em>, and then, time willing, into <em>RSpec</em> testing, <em>Javascript/JQuery</em>, and more. The learning is focused through, and culminates in, a final project of our own design.</p>
@@ -25,7 +25,7 @@
 			</div></div></div></div>
 
 			<%= render partial: "collapse_start", 
-									 locals: { title: "Harvard University", tag: "h2", sub: "(2007-2011)" } %><div class="inset">
+									 locals: { title: "Harvard University", tag: "h2", sub: "(2007-2011)", term: '+' } %><div class="inset">
 					<p>After four years of debating which major to choose -- mostly torn between Psychology, Econ, Film, and Enligsh Lit -- I decided on the least relevant and graduated with an honors English degree and a screenplay for a thesis in May of 2011.</p>
 					<p>As a consequence, my undergraduate education has very little to do with my development work, but I feel the four years I spent studying, volunteering, and working instilled in me an excitement about learning that has translated neatly into web development.</p>
 					<p>Bloc aside, all of my development knowledge has been self-taught, and I credit both Bloc and college with turning me into a more effective learner, and, by extension, developer.</p>
@@ -35,23 +35,29 @@
 			<h1 class="squeeze">Work Experience</h1>
 			<div class="inset">
 
-				<h2 class="squeeze blue_links">
-					<%= link_to "Web Experience >>", portfolio_path, style: "font-size:100%; font-weight:normal;" %>
-				</h2>
-
-				<%= render partial: "collapse_start", 
-									 locals: { title: "Non-Web Experience", tag: "h2" } %><div class="inset">
+				<h2 class="squeeze blue_links">Web Experience</h2>
+					<div class="inset blue_links">
+						<h3>
+							MeatUp <small>(2012, San Francisco)</small>
+							<%= link_to ">>", '/portfolio' %>
+						</h3>
+						<h3>
+							Shanglow <small>(2011-2012, Shanghai, China)</small>
+							<%= link_to ">>", '/portfolio#china' %>
+						</h3>
+					</div>
+				<h2 class="squeeze">Non-Web Experience</h2><div class="inset">
 
 					<%= render partial: "collapse_start", locals: 
 						{ title: "Dipont Education", sub: "Shanghai, China (2011-2012)", tag: "h3", 
 							term: "+"} %><div class="inset">
-							<p class="blue_links">At Dipont, I taught (English exposition, French, and Psychology) to Chinese high school students and helped students applying to college in the US through the foreign application process. I also edited and briefly wrote for the Dipont quarterly, helped design the future of Dipont's counseling program and alumni outreach, and even participated in panel discussions on American education. I wrote <%= link_to "a blog", '/portfolio#china' %> about my time there. </p>
+							<p class="blue_links">At Dipont, I taught (English exposition, French, and Psychology) to Chinese high school students and helped students applying to college in the US through the foreign application process. I also edited and briefly wrote for the Dipont quarterly, helped design the future of Dipont's counseling program and alumni outreach, and even participated in panel discussions on American education. I wrote <%= link_to "a blog", '/portfolio#china' %> about my time there.</p>
 					</div></div></div></div>
 
 					<%= render partial: "collapse_start", locals: 
 						{ title: "Think Food Group", sub: "Washington, DC (2010)", tag: "h3", 
 							term: "+" } %><div class="inset">
-							<p class="blue_links">Food has long been my main passion, so I returned home to DC after several summers abroad to work for Jose Andres, the head chef of DC's main food empire (and, increasingly, one of the US's). At <%= link_to 'Think Food Group', 'http://www.thinkfoodgroup.com' %>, the organization in charge of Andres' restaurants and philanthropic projects, I worked on coordinating his work, philanthropic, and travel ("research") schedules, as well as drafting speeches and assisting marketing and publicity.</p>
+							<p class="blue_links">Food has long been my main passion, so I returned home to DC after several summers abroad to work for Jose Andres, the head chef of DC's main food empire (and, increasingly, one of the US's). At <%= link_to 'Think Food Group', 'http://www.thinkfoodgroup.com' %>, the organization in charge of Andres' restaurants and philanthropic projects, I worked on coordinating his philanthropic, culinary, and travel ("research") schedules, as well as drafting speeches and assisting marketing and publicity.</p>
 					</div></div></div></div>
 
 					<%= render partial: "collapse_start", locals: 
@@ -66,7 +72,7 @@
 						<p class="blue_links">The summer after freshman year of college, I went to practice my French and see if IR/social work was for me in Rabat, Morocco, where I worked for the <%= link_to "UNHCR", "http://en.wikipedia.org/wiki/United_Nations_High_Commissioner_for_Refugees" %>. There, I conducted aid interviews (in French), managed and reworked the Moroccan UNHCR's refugee record system, oversaw aid distribution, and developed a new strategy around shelter and schooling services for refugees in Morocco.</p>
 					</div></div></div></div>
 
-				</div></div></div></div>
+				</div>
 
 	</div>
 	
