@@ -136,7 +136,7 @@ a {
   }
 }
 
-p {
+p, li, h2, h1, h3, h4, ul{
   font-size: 1.05em;
   &::selection {
     background: $pigPink;
@@ -145,6 +145,17 @@ p {
   &::moz-selection {
     background: $pigPink;
     color: #fff;
+  }
+}
+
+a {
+  &::selection {
+    background: $pigPink;
+    color: $linkRed;
+  }
+  &::moz-selection {
+    background: $pigPink;
+    color: $linkRed;
   }
 }
 
