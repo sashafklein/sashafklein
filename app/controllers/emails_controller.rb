@@ -16,7 +16,7 @@ class EmailsController < ApplicationController
         render :new
     else
       if @email.save
-        if ContactMailer.contact_message(@email).deliver
+        if Contact.contact_message(@email).deliver
           flash.now[:success] = "Your email has sent! I'll try to get back to you shortly."
           render :new
         else

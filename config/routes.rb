@@ -3,6 +3,7 @@ Sashafklein::Application.routes.draw do
   match '/resume', to: 'statics#resume'
 
   resources :emails
+  match 'contact', to: 'emails#new'
 
   root to: 'statics#resume'
 

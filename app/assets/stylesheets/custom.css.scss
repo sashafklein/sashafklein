@@ -397,6 +397,10 @@ border: 0;
 }
 
 .bundle {
+  padding:2px;
+  &:hover{
+    color: $pigPink;    
+  }
   a:hover {
     color: $pigPink;
   }
