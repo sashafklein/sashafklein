@@ -1,4 +1,4 @@
-<%= provide(:title, 'Email me!') %>
+<%= provide(:title, 'Get in touch') %>
 
 <%= form_for(@email) do |f| %>
 
@@ -27,7 +27,7 @@
 	    <%= text_field_tag :captcha, "" %>
 
 	  <div class="actions">
-	    <%= f.submit "Send" %>
+	    <%= f.submit "Send", class: "btn" %>
 	  </div>
 		<% end %>		
 	</div>

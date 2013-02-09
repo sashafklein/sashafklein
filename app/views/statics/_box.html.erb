@@ -1,0 +1,9 @@
+<% lang ||= "" %>
+<% language = "lang='#{lang}'" %>
+
+<div class="codebox coderay">
+		<% if title %>
+			<h3><%= title %></h3>
+		<% end %>
+	<%= raw Pygments.highlight(text.unindent) %>
+</div>

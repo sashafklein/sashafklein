@@ -1,8 +1,15 @@
 Sashafklein::Application.routes.draw do
+
+  get 'access', to: 'sessions#new', as: 'login'  
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+  resources :users, :posts, :sessions, :emails
+
   match '/portfolio', to: 'statics#portfolio'
   match '/resume', to: 'statics#resume'
+  match '/devlog', to: 'statics#devlog'
+  match '/edit', to: 'sessions#new'
 
-  resources :emails
   match 'contact', to: 'emails#new'
 
   root to: 'statics#resume'

@@ -1,0 +1,14 @@
+<div class="center_login">
+	<h1>Log In</h1>
+	<%= form_tag sessions_path do %>
+	  <div class="field">
+	    <%= label_tag :name %>
+	    <%= text_field_tag :name, params[:name] %><br />
+	  </div>
+	  <div class="field">
+	    <%= label_tag :password %>
+	    <%= password_field_tag :password %><br />
+	  </div><br>
+	  <div class="actions"><%= submit_tag "Log In", class: "btn" %></div>
+	<% end %>
+</div>
