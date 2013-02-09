@@ -146,7 +146,7 @@ a {
   width: 530px;
 }
 
-p, em, small, strong, br, li, h2, h1, h3, h4, ul {
+p, em, small, strong, br, li, h2, h1, h3, h4, ul, span {
   font-size: 1.05em;
   &::selection {
     background: $pigPink;
