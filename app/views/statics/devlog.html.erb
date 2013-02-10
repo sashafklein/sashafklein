@@ -1,89 +1,20 @@
 <% provide(:title, 'On coding') %>
 
 	<div class="span4 sidebar-nav-fixed">
-		<h1 class="squeeze">Topics</h1>
+		<h1 class="squeeze">Recent Topics</h1>
 		<ul class="blog_list">
-			<li><a href='#'><%= @post.name %>2 <span class="manual_small">(<%= @post.created_at.strftime("%b %d, %Y") %>)</span></a></li>
-			<li><a href="#neat_boxes">Neat Code Boxes <span class="manual_small">(2/6/2013)</span></a></li>
-			<li><a href="#expand">Expand/Collapse <span class="manual_small">(2/5/2013)</span></a></li>
+			<% @postlist.last(10).each do |p| %>
+				<li><a href=<%="/devlog?page=#{p.id}\#" %> ><%= p.name %> <span class="manual_small">(<%= p.created_at.strftime("%b %d, %Y") %>)</span></a></li>
+			<% end %>
 		</ul>
+		<div class="center"><%= will_paginate @posts, previous_label: "<<", next_label: ">>", inner_window: 2 %></div>
 	</div>
-	<div class="span7 left-bar move-right">
-		<h1 class="squeeze"><%=@post.name %>2</h1>
-			<%= markdown @post.content %>
-	</div>
+
+		<% @posts.each do |p| %>
+			<div class="span7 left-bar move-right">
+				<h1 class="squeeze"><%= p.name %></h1>
+					<%= markdown p.content %>
+			</div>
+		<% end %>
 
 </div> <!-- Ending row div from app.html.erb -->
-<br><br>
-<div class="row container">
-	<div class="span4"><br></div>
-
-	<div class="span7 left-bar move-right blue_links">
-			<h1 class="squeeze" id="neat_boxes">Pretty(,) Simple Blogging</h1>
-				<p>Writing about coding inevitably (and pretty immediately) means displaying code. Doing so clearly, easily, and consistently is a good deal more complicated than it appears. Since I've now come up with a system I'm very happy with, I figured that documenting the process might prove helpful to anyone with similar goals who finds this post.</p>
-
-				<p>My original solution was to define a partial, similar to those I used for expand/collapsing, into which one could feed the title, content, and language of a code block, and which would wrap the above in both pre tags and a formatted div, to render the contents blue. For each code bit, I would call another partial and pass a large block of code into it.</p>
-
-				<%= render partial: 'box', locals: { title: "_box.html.erb", lang: 'erb', text: @pretty_simple1 } %>
-
-				<p>And I just call it like this:</p>
-
-				<%= render partial: 'box', locals: { title: "view.html.erb", lang: 'erb', text: @pretty_simple2 } %>
-
-				<p>There are a number of problems with this solution. For one, it is really not close to ideally <%= link_to "DRY", "http://en.wikipedia.org/wiki/Don't_repeat_yourself" %>. Every single time I coded text, I'd have to call a partial, although I would save myself from writing 6 tags each time. For another, the solution was extremely ugly, because in order to indent my code properly, I had to glom it to the left of my screen every time, otherwise, each line would begin heavily indented.</p>
-
-				<p>Then there's the problem of the inevitable size and mess of my blog view file. Typing blog posts in HTML is easy enough, but as I posted more and more, the file would bloat to extraordinary proportions and would become truly confusing to maintain and slow to load. A "fat" model and "thin" view is a Rails best practice for a reason, and ideally, I would push the posts into a model that could be called on to automatically paste and format each post -- otherwise, why use Rails?</p>
-
-				<p>I solved each of these problems individually. To automatically correct code indentation, I ended up scrapping a homebrewed ruby function for a beautiful string function I found on Stack Overflow which truncates each code snippet, removing all spaces and tabs before the lowest common indentation:</p>
-
-				<%= render partial: 'box', locals: { title: 'lib/ext/string.rb', lang: 'rb', text: @pretty_simple3 } %>
-
-				<p>Then, I removed the code segments and put them into my controller to avoid auto-rendering of Rails in the more complicated Embedded Ruby code segments. This was a temporary solution, but it let me experiment with formatting before moving onto a simple Post model, with a name, a timestamp, and content. I briefly considered a more complicated nested model solution -- Posts which had many code samples and images, each which would be associated through an AJAX-expandable Post-saving page and which would be inserted into the view at spots I designated in the body of the main post -- but this seemed inappropriately complicated for regular use.</p>
-
-				<p>To simplify my posting process, I decided on Markdown, using <%= link_to "Redcarpet", "https://github.com/vmg/redcarpet" %> to convert my posts into the Markdown format, outlining code in backticks (`) for codeboxes, and formatting the said boxes' content with the <%= link_to "Pygments.rb", "https://github.com/tmm1/pygments.rb" %> gem. Now, I just had to navigate to a new post page on my site, enter the name and content, and the post would automatically be saved in the database and displayed/formatted as I wanted it.</p>
-
-				<p>Only one rather hairy problem remained: Markdown made the rendering of HTML and ERB extremely difficult. The docs for markdown said to simply put a new line before each HTML tag, but when I did so, the tags would disappear from the view but not actually render what they were intended to accomplish. This meant no images (unless I followed Markdown's image format, which allowed for no image classes), and no formatting divs around the code boxes.</p>
-
-	</div>
-</div>
-<br>
-
-</div> 
-<br>
-<div class="row container">
-	<div class="span4"><br></div>
-
-	<div class="span7 left-bar move-right">
-			<h1 class="squeeze" id="expand">Expand/Collapse</h1>
-				
-				<p class="blue_links"><%= link_to "MeatUp", "https://meatup.in" %> involved lots of data. Certain pages, like the "log" page where butchers were to keep track of individual cuts, were completely oversaturated with information, and would take amounts of time to sort through that were simply prohibitive, given most butchers' lack of interest in computerizing their work flow.</p> 
-
-				<p>Take a look at the below strangely named cow, and imagine sorting through all 93 packages of ground meat.</p>
-				
-				<%= image_tag('MeatUp_Log.png', class: "blog_photo") %>
-				
-				<p class="blue_links"> Since every package was associated with a given user and had an expected and actual weight, butchers had to comb through long lists of cuts (for cows, as MeatUp broke them down, there were 22 different cuts, totaling hundreds of packages), to find the right one to update after they weighed it.</p>
-				
-				<p class="blue_links">To simplify the process both visually and practically, I looked into a simple Javascript expand/collapse function, and ended up homebrewing a neater, more adaptable version from something I found in a blog.</p>
-				
-				<%= render partial: 'box', locals: { title: "expand.js.coffee", lang: 'coffeescript', text: @expand_collapse1 } %>
-
-				<p>The idea is to use JQuery to define links as collapse triggers (identified through the "cl" and "bundle" classes), then use Bootstrap's smoothly animated collapse function to toggle hidden material in a "collapse group" back and forth when the link is clicked. For example:<p>
-
-				<%= render partial: 'box', locals: { title: "example.html.erb", lang: 'html', text: @expand_collapse2 } %>
-
-				<p>The code works like a charm on the browser. The problem, though, is lack of code legibility and, related, simple size. Moreover, any change you want to make to the display (links of different sizes, including subtitles, changing the expand/collapse term) is relatively labor intensive and messy.</p>
-
-				<p>So, for <%= link_to "my home page", root_path %>, I turned the function into a rails partial with variables for altering display specifics relegated to locals.</p>
-				<%= render partial: 'box', locals: { title: "_collapse_start.html.erb", lang: 'erb', text: @expand_collapse3 } %>
-
-				<p>It may look ugly, but the above code lets me turn any element into a neat, subtitled expand/collapse group of any tag type, with any term as the expand link. Calling the partial is as easy as the below, which produces the expand/collapse group right under it:</p>
-
-				<%= render partial: 'box', locals: { title: "example.html.erb", lang: 'erb', text: @expand_collapse4 } %>
-		<br>
-		<%= render partial: "collapse_start", 
-											 locals: { title: "Expandable", tag: "h3", sub: "(coded Feb 5th, 2013)", term: '(click me)' } %>
-		<h5><em>Here is the content.</em></h5><p>I can make it whatever I want.</p>
-		</div></div></div>
-			
-	</div>

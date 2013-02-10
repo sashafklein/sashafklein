@@ -1,4 +1,7 @@
 class StaticsController < ApplicationController
+	
+	before_filter :authorize, only: [:devlog]
+
 	def about
 	end
 
@@ -10,7 +13,8 @@ class StaticsController < ApplicationController
 	
 	def devlog
 
-		@post = Post.first
+		@postlist = Post.all
+		@posts = Post.paginate(:page => params[:page], :per_page => 1)
 
 		@expand_collapse1 = "
 		jQuery -> 

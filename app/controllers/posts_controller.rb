@@ -20,7 +20,7 @@ before_filter :authorize
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @post }
+      format.json { redirect_to '/devlog' }
     end
   end
 
@@ -31,7 +31,7 @@ before_filter :authorize
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @post }
+      format.json { redirect_to '/devlog' }
     end
   end
 
@@ -47,8 +47,8 @@ before_filter :authorize
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render json: @post, status: :created, location: @post }
+        format.html { redirect_to '/devlog', notice: 'Post was successfully created.' }
+        format.json { redirect_to '/devlog' }
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -83,4 +83,6 @@ before_filter :authorize
       format.json { head :no_content }
     end
   end
+
+
 end

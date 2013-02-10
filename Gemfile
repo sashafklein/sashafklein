@@ -5,6 +5,8 @@ gem 'bootstrap-sass', '2.1'
 gem 'newrelic_rpm'
 gem 'pygments.rb'
 gem 'redcarpet'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
