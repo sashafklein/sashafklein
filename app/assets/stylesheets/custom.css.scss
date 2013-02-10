@@ -362,7 +362,7 @@ border: 0;
   margin-top: -10px;
   margin-bottom: 20px;
   margin-right: 40px;
-  text-align: left;
+  text-align: center;
   a {
     color: $blue_link;
   }
@@ -511,12 +511,25 @@ pre {
 
 .codebox {
   margin: auto;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: -5px;
   padding-right: 8px;
   padding-left: 8px;
-  padding-top: 4px;
-  padding-bottom: 1px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-top: -20px;
   background-color: $codebox;
+  p {
+    font-weight: bold;
+    &::selection {
+      background: $pigPink;
+      color: #fff;
+    }
+    &::moz-selection {
+      background: $pigPink;
+      color: #fff;
+    }
+  }
 }
 
 /* blog sidebar */
@@ -582,4 +595,8 @@ pre {
       padding: 0.1em 0.25em;
     }
   }
+}
+
+.search {
+  width: 175px;
 }

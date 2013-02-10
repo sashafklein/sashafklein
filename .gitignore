@@ -16,3 +16,6 @@
 
 # Ignore public/assets, which makes asset pipeline a minefield of inexplicable errors
 /public/assets
+
+# Ignore psd files, which are for re-editing only
+*.psd
