@@ -1,6 +1,4 @@
 class StaticsController < ApplicationController
-	
-	before_filter :authorize, only: [:devlog]
 
 	def about
 	end
@@ -12,10 +10,8 @@ class StaticsController < ApplicationController
 	end
 	
 	def devlog
-
-		@postlist = Post.all
-		@posts = Post.paginate(:page => params[:page], :per_page => 1)
-
+		@post = Post.last
+		redirect_to @post
 	end
 
 end

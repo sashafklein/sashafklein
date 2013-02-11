@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-before_filter :authorize
+before_filter :authorize, only: [:new, :edit, :destroy, :index]
 
   # GET /posts
   # GET /posts.json
@@ -16,11 +16,17 @@ before_filter :authorize
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @posts = Post.all.reverse
     @post = Post.find(params[:id])
+    if @post != Post.last
+      @next_post = Post.find(@post.id + 1)
+    else
+      @next_post = nil
+    end
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { redirect_to '/devlog' }
+      format.json { redirect_to @post }
     end
   end
 
@@ -31,7 +37,7 @@ before_filter :authorize
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { redirect_to '/devlog' }
+      format.json { redirect_to @post }
     end
   end
 
@@ -47,8 +53,8 @@ before_filter :authorize
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to '/devlog', notice: 'Post was successfully created.' }
-        format.json { redirect_to '/devlog' }
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { redirect_to @post }
       else
         format.html { render action: "new" }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -63,7 +69,7 @@ before_filter :authorize
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to '/devlog', notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

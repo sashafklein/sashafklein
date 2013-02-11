@@ -1,0 +1,35 @@
+<% provide(:title, 'On coding') %>
+
+	<div class="span4 sidebar-nav-fixed">
+		<h1 class="squeeze">Recent Posts</h1>
+			<%= form_tag @post, class: "form-search", :method => 'get' do %>
+			  <p>
+			    <%= text_field_tag :search, params[:search], options = { class: "search-query search" } %>
+			    <%= submit_tag "Search", :name => nil, class: "btn" %>
+			  </p>
+			<% end %>
+			<ul class="blog_list">
+				<% @posts.each do |p| %>
+					<li><a href=<%="/posts/#{p.id}" %> ><%= p.name %> <span class="manual_small">(<%= p.created_at.strftime("%b %d, %Y") %>)</span></a></li>
+				<% end %>
+			</ul>
+			<div class="center">
+				<%# will_paginate @posts, previous_label: "<<", next_label: ">>", inner_window: 0, outer_window: 0 %>
+			</div>
+	</div>
+
+	<div class="span7 left-bar move-right">
+		<h1 class="squeeze"><%= @post.name %> <small>(<%= @post.created_at.strftime("%m/%d/%Y") %>)</h1>
+			<%= markdown @post.content %>
+			<div class="pagination">
+				<%= link_to "EDIT", "/posts/#{@post.id}/edit", style: "margin-right:10px;" if current_user %>
+					<% if @post.id != 1 %>
+						<%= link_to "<< PREVIOUS", post_path(@post.id - 1) %>
+					<% end %>
+					<% if @next_post %>
+						<%= link_to "NEXT >>", @next_post %>
+					<% end %>
+			</div>
+	</div>
+
+</div> <!-- Ending row div from app.html.erb -->
