@@ -50,7 +50,7 @@ before_filter :authorize, only: [:new, :edit, :destroy, :index]
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-
+    puts params
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }

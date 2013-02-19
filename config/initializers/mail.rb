@@ -8,4 +8,6 @@ ActionMailer::Base.smtp_settings = {
   :password       => ENV['SENDGRID_PASSWORD'],
   :domain         => 'sashafklein.com'
 }
-ActionMailer::Base.delivery_method = :smtp
+if Rails.env.production?
+	ActionMailer::Base.delivery_method = :smtp
+end

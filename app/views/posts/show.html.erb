@@ -1,21 +1,20 @@
-<% provide(:title, 'On coding') %>
+<% provide(:title, @post.name) %>
 
 	<div class="span4 sidebar-nav-fixed">
 		<h1 class="squeeze">Recent Posts</h1>
-			<%= form_tag @post, class: "form-search", :method => 'get' do %>
-			  <p>
-			    <%= text_field_tag :search, params[:search], options = { class: "search-query search" } %>
-			    <%= submit_tag "Search", :name => nil, class: "btn" %>
-			  </p>
-			<% end %>
+      <input type="text" ng-model="criteria" placeholder="Search posts:" class="search">
+      <h2>The list:</h2>
+      <ul>
+      	<li ng-repeat="post in posts | filter:criteria">
+      		{{post.name}}
+      	</li>
+      </ul>
+      <br>
 			<ul class="blog_list">
 				<% @posts.each do |p| %>
 					<li><a href=<%="/posts/#{p.id}" %> ><%= p.name %> <span class="manual_small">(<%= p.created_at.strftime("%b %d, %Y") %>)</span></a></li>
 				<% end %>
 			</ul>
-			<div class="center">
-				<%# will_paginate @posts, previous_label: "<<", next_label: ">>", inner_window: 0, outer_window: 0 %>
-			</div>
 	</div>
 
 	<div class="span7 left-bar move-right">
@@ -31,5 +30,4 @@
 					<% end %>
 			</div>
 	</div>
-
 </div> <!-- Ending row div from app.html.erb -->

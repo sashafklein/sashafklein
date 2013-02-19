@@ -16,18 +16,24 @@ group :production do
 end
 
 group :test do 
-	gem 'capybara', '1.1.2'
-  gem 'rb-fsevent', '0.9.1'
+	gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'capybara-screenshot'
+  gem 'rb-fsevent'
   gem 'growl', '1.0.3'
   gem 'guard-spork', '1.2.0'
   gem 'spork', '0.9.2'
-  gem 'factory_girl_rails', '4.1.0'
+  gem 'factory_girl_rails'
+  gem 'guard-rspec', '1.2.1'
+  gem 'ruby-debug19'
 end
 
 group :development do
 	gem 'sqlite3'
-	gem 'rspec-rails', '2.11.0'
-  gem 'guard-rspec', '1.2.1'
+end
+
+group :development, :test do
+  gem 'rspec-rails' 
 end
 
 # Gems used only for assets and not required
@@ -36,6 +42,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'ezcrypto'
+  gem 'angularjs-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

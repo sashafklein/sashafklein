@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html ng-app>
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= favicon_link_tag 'favicon.ico' %>
@@ -10,7 +10,7 @@
     <meta name="google-site-verification" content="idIPkgRBikSL9PCS4rVkkZfRjxYbPxNbyF6tVymBWbc" />
     <%= render 'layouts/shim' %> 
   </head>
-  <body> <!-- outer band -->
+  <body ng-controller="PostListCtrl"> <!-- outer band -->
 
     <div class="navbars thin_lower_band navbar-fixed-top header">
       <%= render 'layouts/header' %>
