@@ -7,6 +7,7 @@ gem 'pygments.rb'
 gem 'redcarpet'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'annotate'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

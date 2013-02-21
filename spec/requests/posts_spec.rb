@@ -1,12 +1,10 @@
 require 'spec_helper'
-require 'capybara/rspec'
-require 'capybara-screenshot/rspec'
 
 describe "Posts" do
 
   subject { page }
 
-  describe "Unauthorized post attempt - " do
+  describe "Unauthorized post attempt -" do
     
     it "should redirect to root path" do
       visit new_post_path
@@ -16,30 +14,62 @@ describe "Posts" do
 
   end
 
-  describe "Valid post submission - " do
-
-    it "should log in a user and redirect to new post" do
+  describe "Invalid post -" do
+    before do
+      # Sign in
       User.destroy_all
       visit '/access'
       user = FactoryGirl.create(:user)
       fill_in "sessions_name", with: "guest"
       fill_in "password", with: "pwordtest"
-      screenshot_and_save_page
+      click_on "Log In"
+      assert User.count == 1
+      current_path.should eq(new_post_path) 
+    end
+
+    it "should refresh with error if name empty" do
+      # Make an incomplete blogpost
+      Post.destroy_all
+      fill_in :post_name, with: ""
+      fill_in :post_content, with: "This is the content of a really short post."
+      click_on "Post It"
+
+      page.should have_selector 'h2', text: "prohibited this post from being saved:"
+    end
+
+    it "should refresh with error if content empty" do
+      # Make an incomplete blogpost
+      Post.destroy_all
+      fill_in :post_name, with: "Post Name Here"
+      fill_in :post_content, with: ""
+      click_on "Post It"
+
+      page.should have_selector 'h2', text: "prohibited this post from being saved:"
+    end
+  end
+
+  describe "Valid post submission --" do
+
+    it "should log in a user and redirect to new post" do
+
+      # Sign in
+      User.destroy_all
+      visit '/access'
+      user = FactoryGirl.create(:user)
+      fill_in "sessions_name", with: "guest"
+      fill_in "password", with: "pwordtest"
       click_on "Log In"
       assert User.count == 1
       current_path.should eq(new_post_path) 
 
+      # Make a blogpost
       Post.destroy_all
       fill_in :post_name, with: "Post Name Here"
       fill_in :post_content, with: "This is the content of a really short post."
-
-      # Take screenshot for debugging
-      screenshot_and_save_page
-
       click_on "Post It"
-      # Test for title of post?
+        # Test for title h1 of post?
       page.should have_selector('.alert', text: "Post was successfully created.")
-      # page.should have_selector('title', text: "Sasha Klein | Post Name Here")
+        # page.should have_selector 'title', text: full_title('Post Name Here')
 
     end
   	

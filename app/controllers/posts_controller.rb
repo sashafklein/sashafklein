@@ -16,6 +16,7 @@ before_filter :authorize, only: [:new, :edit, :destroy, :index]
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @link_num = 8
     @posts = Post.all.reverse
     @post = Post.find(params[:id])
     if @post != Post.last
@@ -50,7 +51,6 @@ before_filter :authorize, only: [:new, :edit, :destroy, :index]
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-    puts params
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -60,6 +60,10 @@ before_filter :authorize, only: [:new, :edit, :destroy, :index]
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def search(term)
+    Post.first.including(term)   
   end
 
   # PUT /posts/1

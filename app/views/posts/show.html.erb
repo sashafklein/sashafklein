@@ -1,26 +1,44 @@
 <% provide(:title, @post.name) %>
-
-	<div class="span4 sidebar-nav-fixed">
+	
+	<div class="span4 sidebar-nav-fixed blog_list">
 		<h1 class="squeeze">Recent Posts</h1>
-      <input type="text" ng-model="criteria" placeholder="Search posts:" class="search">
-      <h2>The list:</h2>
-      <ul>
-      	<li ng-repeat="post in posts | filter:criteria">
-      		{{post.name}}
-      	</li>
-      </ul>
-      <br>
-			<ul class="blog_list">
-				<% @posts.each do |p| %>
-					<li><a href=<%="/posts/#{p.id}" %> ><%= p.name %> <span class="manual_small">(<%= p.created_at.strftime("%b %d, %Y") %>)</span></a></li>
-				<% end %>
-			</ul>
-	</div>
-
-	<div class="span7 left-bar move-right">
-		<h1 class="squeeze"><%= @post.name %> <small>(<%= @post.created_at.strftime("%m/%d/%Y") %>)</h1>
-			<%= markdown @post.content %>
-			<div class="pagination">
+      <%= form_tag("/search", method: "get", class: "squeeze form-inline", style: "display:inline-block;") do %>
+  			<%= hidden_field_tag(:id, @post.id) %>
+  			<%= text_field_tag(:term, '', placeholder: "Beta -- doesn't yet work!", id: "search_field") %>
+  			<%= submit_tag("Search", class: "btn squeeze search", remote: true) %>
+			<% end %>
+			<div class="blog_links"
+	      <% if !@search%>
+	      	<ul>
+		      	<% @posts.first(@link_num).each do |p| %>
+		      		<li><a href=<%= p.id %> ><%= p.name %> <span class="manual_small">(<%= p.created_at.strftime("%b %d, %Y") %>)</span></a></li>
+		      	<% end %>
+		      	<% if @posts.length > @link_num + 2 %>
+							<div class="link_disclaimer">
+								<h6>---</h6>
+			      		<h5><%= "Only showing #{@link_num} most recent posts." %></h5>
+			      		<h5>Search to narrow results.</h5>
+			      	</div>
+		      	<% end %>
+		      </ul>
+	      <% elsif @search.empty? %>
+	      	<h3>Term not found!</h3>
+	      <% else %>
+		      <ul>
+		      	<% @search.first(@link_num).each do |p| %>
+		      		<li><a href=<%= p.id %> ><%= p.name %> <span class="manual_small">(<%= p.created_at.strftime("%b %d, %Y") %>)</span></a></li>
+		      	<% end %>
+		      	<% if @search.length > @link_num + 2%>
+		      		<div class="link_disclaimer">
+		      			<h6>---</h6>
+		      			<h5><%= "Only showing first #{@link_num} relevant hits." %></h5>
+		      			<h5>Narrow search for more specific results.</h5>
+		      		</div>
+		      	<% end %>
+		      </ul>
+      	<% end %>
+      </div>
+      <div class="pagination">
 				<%= link_to "EDIT", "/posts/#{@post.id}/edit", style: "margin-right:10px;" if current_user %>
 					<% if @post.id != 1 %>
 						<%= link_to "<< PREVIOUS", post_path(@post.id - 1) %>
@@ -29,5 +47,10 @@
 						<%= link_to "NEXT >>", @next_post %>
 					<% end %>
 			</div>
+	</div>
+
+	<div class="span7 left-bar move-right" id="blog_content">
+		<h1 class="squeeze"><%= @post.name %> <small>(<%= @post.created_at.strftime("%m/%d/%Y") %>)</small></h1>
+			<%= markdown @post.content %>
 	</div>
 </div> <!-- Ending row div from app.html.erb -->

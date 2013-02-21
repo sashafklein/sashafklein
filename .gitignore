@@ -19,3 +19,6 @@
 
 # Ignore psd files, which are for re-editing only
 *.psd
+
+# Ignore local bundler stub settings
+bundler_stubs/

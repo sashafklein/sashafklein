@@ -9,6 +9,8 @@ Sashafklein::Application.routes.draw do
   match '/resume', to: 'statics#resume'
   match '/devlog', to: 'statics#devlog'
   match '/edit', to: 'sessions#new'
+  
+  match '/search', to: 'posts#search'
 
   get '/contact', to: 'emails#new' 
   post '/contact', to: 'emails#create'

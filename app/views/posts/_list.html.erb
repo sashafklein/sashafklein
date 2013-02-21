@@ -1,0 +1,12 @@
+<ul>
+	<% @search.first(@link_num).each do |p| %>
+		<li><a href=<%= p.id %> ><%= p.name %> <span class="manual_small">(<%= p.created_at.strftime("%b %d, %Y") %>)</span></a></li>
+	<% end %>
+	<% if @search.length > @link_num + 2%>
+		<div class="link_disclaimer">
+			<h6>---</h6>
+			<h5><%= "Only showing first #{@link_num} relevant hits." %></h5>
+			<h5>Narrow search for more specific results.</h5>
+		</div>
+	<% end %>
+</ul>
