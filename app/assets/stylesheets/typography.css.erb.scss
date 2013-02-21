@@ -1,0 +1,165 @@
+/* colors */
+
+@import "bootstrap";
+
+$linkRed: #88290f;
+$linkHover: #a43112;
+$blue_link: #1e3c89;
+$blue_hover: #0a679c;
+$pigPink: #ff8686;
+$codebox: #88b0d2;
+$heavyGray: #383838;
+
+/* font families */
+
+@font-face {
+  font-family: 'Rockwell';
+  src: url('<%= asset_path("Rockwell.ttf") %>');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Rockwell Italic';
+  src: url('<%= asset_path("RockwellItalic.ttf") %>');
+}
+@font-face {
+  font-family: 'Rockwell Bold';
+  src: url('<%= asset_path("RockwellBold.ttf") %>');
+}
+
+/* basics */
+
+p, ol, span, a, ul, li, td, th, h1, h2, h3, h4, h5 ,h6, label {
+  text-align: left;
+  &::selection {
+    background: $pigPink;
+    color: #fff;
+  }
+  &::moz-selection {
+    background: $pigPink;
+    color: #fff;
+  }
+}
+
+p, ol, a, ul, span, li, th, h1, h2, h3, h4, h5 ,h6, label {
+  font-size: 1.05em;
+}
+
+p, ol, em, strong, small, ul, li, td, th, h1, h2, h3, h4, h5 ,h6, label {
+  font-family: Rockwell;
+}
+
+h1, h2, a {
+  font-family: 'Rockwell Bold';
+}
+
+li {
+  small {
+    font-family: 'Rockwell Bold';
+  }
+}
+
+/* links */
+
+a {
+  font-weight: bold;
+  color: $linkRed;
+  a:link, a:active, a:visited {
+    color: $linkRed;
+  }
+  a:hover {
+    color: $pigPink;
+    background:transparent;
+    text-decoration:underline;
+  }
+}
+
+.blue_links {
+  a {
+    color: $blue_link;
+    &:hover {
+      color: $pigPink;
+      background-color: #fff;
+    }
+  }
+  p {
+    a {
+      color: $blue_link;
+      &:hover {
+        color: $pigPink;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.black_links {
+  a {
+    color: $black;
+    &:hover {
+      color: $pigPink;
+    }
+  }
+}
+
+.blog_photo {
+  color: $heavyGray;
+  border: 5px solid;
+  float: left;
+  margin-bottom: 10px;
+  width: 530px;
+}
+
+.blog_links {
+  margin-left: 2px;
+  list-style-type: disc;
+  text-indent: -18px;
+  li {
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+.link_disclaimer {
+  h5, h4, h6 {
+    color: $blue_link;
+    text-align: center;
+  }
+  h6 {
+    margin-top: -5px;
+    margin-bottom: -2px;
+  }
+}
+
+/* specifics */
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+p {
+  line-height: 1.7em;
+}
+
+/* custom weight and style */
+
+.unbold {
+  font-family: 'Rockwell';
+}
+
+.bold {
+  font-family: 'Rockwell Bold';
+}
+
+.italic {
+  font-family: 'Rockwell Italic';
+}
