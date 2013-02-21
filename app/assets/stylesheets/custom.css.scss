@@ -90,19 +90,19 @@ body {
 
 p, ol, li, a, td, ul, h1, h2, h3, h4, h5, h6, label {
   font-family: rockwell;
-  src: url('Rockwell.TTF');
+  src: url('/app/assets/styleshseets/Rockwell.TTF');
   line-height: 1;
   font-size: 15px;
   text-align: left;
   em {
     font-family: rockwell;
     font-style: italic;
-    src: url('RockwellItalic.TTF');
+    src: url('/app/assets/styleshseetsRockwellItalic.TTF');
   }
   strong {
     font-family: rockwell;
     font-weight: bold;
-    src: url('RockwellBold.TTF');
+    src: url('/app/assets/styleshseetsRockwellBold.TTF');
   }
 }
 
@@ -619,6 +619,10 @@ pre {
 
 .search {
   width: 175px;
+}
+
+.blog_links {
+  list-style-type: none;
 }
 
 .link_disclaimer {
