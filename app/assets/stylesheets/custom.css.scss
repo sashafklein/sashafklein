@@ -90,19 +90,19 @@ body {
 
 p, ol, li, a, td, ul, h1, h2, h3, h4, h5, h6, label {
   font-family: rockwell;
-  src: url('/app/assets/styleshseets/Rockwell.TTF');
+  src: url('/assets/Rockwell.TTF');
   line-height: 1;
   font-size: 15px;
   text-align: left;
   em {
     font-family: rockwell;
     font-style: italic;
-    src: url('/app/assets/styleshseetsRockwellItalic.TTF');
+    src: url('/assets/RockwellItalic.TTF');
   }
   strong {
     font-family: rockwell;
     font-weight: bold;
-    src: url('/app/assets/styleshseetsRockwellBold.TTF');
+    src: url('/assets/RockwellBold.TTF');
   }
 }
 
