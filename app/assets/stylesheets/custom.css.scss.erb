@@ -94,6 +94,14 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Rockwell Italic';
+  src: url('<%= asset_path("RockwellItalic.ttf") %>');
+}
+@font-face {
+  font-family: 'Rockwell Bold';
+  src: url('<%= asset_path("RockwellBold.ttf") %>');
+}
 
 p, ol, li, a, td, ul, h1, h2, h3, h4, h5, h6, label {
   line-height: 1;
@@ -101,12 +109,10 @@ p, ol, li, a, td, ul, h1, h2, h3, h4, h5, h6, label {
   font-family: Rockwell;
   text-align: left;
   em {
-    font-family: Rockwell;
-    font-style: italic;
+    font-family: Rockwell Italic;
   }
   strong {
-    font-family: Rockwell;
-    font-weight: bold;
+    font-family: Rockwell Bold;
   }
 }
 
