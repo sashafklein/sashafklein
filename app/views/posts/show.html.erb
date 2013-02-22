@@ -2,11 +2,11 @@
 	
 	<div class="span4 sidebar-nav-fixed blog_list">
 		<h1 class="squeeze">Recent Posts</h1>
-      <%= form_tag("/search", method: "get", class: "squeeze form-inline", style: "display:inline-block;") do %>
-  			<%= hidden_field_tag(:id, @post.id) %>
-  			<%= text_field_tag(:term, '', placeholder: "Beta -- doesn't yet work!", id: "search_field") %>
-  			<%= submit_tag("Search", class: "btn squeeze search", remote: true) %>
+      <%= form_tag search_path, method: "get", class: "search_form squeeze form-inline", style: "display:inline-block;" do %>
+  			<%= text_field_tag :search, params[:search], placeholder: "Beta -- doesn't yet work!", id: "search_field" %>
+  			<%= submit_tag("Search", name: nil, class: "btn squeeze search", remote: true) %>
 			<% end %>
+			<div id="list"><%= render partial: 'list' %></div>
 			<div class="blog_links"
 	      <% if !@search%>
 	      	<ul>

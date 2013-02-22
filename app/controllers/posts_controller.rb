@@ -16,6 +16,7 @@ before_filter :authorize, only: [:new, :edit, :destroy, :index]
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @search = Post.search(params[:search])
     @link_num = 5
     @posts = Post.all.reverse
     @post = Post.find(params[:id])
@@ -29,10 +30,6 @@ before_filter :authorize, only: [:new, :edit, :destroy, :index]
       format.html # show.html.erb
       format.json { redirect_to @post }
     end
-  end
-
-  def search(term)
-    Post.first.including(term)   
   end
 
   # GET /posts/new

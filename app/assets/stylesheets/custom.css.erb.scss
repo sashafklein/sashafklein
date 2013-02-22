@@ -1,28 +1,14 @@
 @import "bootstrap";
+@import "typography";
 
+/* colors */
 
-/* color variables */
-
-$lightGray: #e7e8e8;
-$linkRed: #88290f;
-$linkHover: #a43112;
 $heavyGray: #383838;
 $grayMediumLight: #eaeaea;
-$skyBlue: #3D5C99;
-$lightNavy: #0029A3;
-$navy: #001452;
-$jeanBlue: #446588;
-$softBrown: #884544;
 $BGColor: #C0C0C0;
 $innerColor: #282828;
 $textBG: #fff;
 $navColor: #282828;
-$navLinks: #fff;
-$navHover: #fff;
-$pigPink: #ff8686;
-$codebox: #88b0d2;
-$blue_link: #1e3c89;
-$blue_hover: #0a679c;
 
 
 /* layout basics */
@@ -50,24 +36,22 @@ body {
 }
 
 .bubble {
-  background-color: $textBG;
+  background-color: $white;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 0px;
   margin-bottom: 10px;
   padding: 10px;
   a:hover { color: $pigPink }
-  a { font-weight: bold; }
 }
 
 #header_bubble {
-  background-color: $textBG;
+  background-color: $white;
   margin-left: 60px;
   margin-right: 60px;
   margin-top: 35px;
   margin-bottom: 45px;
   a:hover { color: $pigPink }
-  a { font-weight: bold; }
 }
 
 .banded {
@@ -86,141 +70,7 @@ body {
 }
 
 
-/* general typography */
 
-@font-face {
-  font-family: 'Rockwell';
-  src: url('<%= asset_path("Rockwell.ttf") %>');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Rockwell Italic';
-  src: url('<%= asset_path("RockwellItalic.ttf") %>');
-}
-@font-face {
-  font-family: 'Rockwell Bold';
-  src: url('<%= asset_path("RockwellBold.ttf") %>');
-}
-
-p, ol, li, td, ul, h2, h3, h4, h5, h6, label {
-  line-height: 1;
-  font-size: 15px;
-  font-family: Rockwell;
-  text-align: left;
-  em {
-    font-family: Rockwell Italic;
-  }
-  strong {
-    font-family: Rockwell Bold;
-  }
-}
-
-h1, a {
-  font-family: Rockwell Bold;
-}
-
-/* typography specifics */
-
-a {
-  font-weight: bold;
-  color: $linkRed;
-  a:link, a:active, a:visited {
-    color: $linkRed;
-  }
-  a:hover {
-    color: $pigPink;
-    background:transparent;
-    text-decoration:underline;
-  }
-}
-
-.blue_links {
-  a {
-    color: $blue_link;
-    &:hover {
-      color: $pigPink;
-      background-color: #fff;
-    }
-  }
-  p {
-    a {
-      color: $blue_link;
-      &:hover {
-        color: $pigPink;
-        background-color: #fff;
-      }
-    }
-  }
-}
-
-.black_links {
-  a {
-    color: $black;
-    &:hover {
-      color: $pigPink;
-    }
-  }
-}
-
-.blog_photo {
-  color: $heavyGray;
-  border: 5px solid;
-  float: left;
-  margin-bottom: 10px;
-  width: 530px;
-}
-
-p, em, small, strong, br, li, h2, h1, h3, h4, ul, span {
-  font-size: 1.05em;
-  &::selection {
-    background: $pigPink;
-    color: #fff;
-  }
-  &::moz-selection {
-    background: $pigPink;
-    color: #fff;
-  }
-}
-
-a {
-  &::selection {
-    background: $pigPink;
-    color: $linkRed;
-  }
-  &::moz-selection {
-    background: $pigPink;
-    color: $linkRed;
-  }
-}
-
-h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-}
-
-h2 {
-  font-size: 1.7em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  font-weight: normal;
-}
-
-p {
-  line-height: 1.7em;
-}
-
-h5, h6 {
-  &::selection {
-    background: $pigPink;
-    color: #fff;
-  }
-  &::moz-selection {
-    background: $pigPink;
-    color: #fff;
-  }
-}
 
 .normalize {
   text-align: left;
@@ -271,8 +121,7 @@ h5, h6 {
   a {
     &:link, &:visited {
       font-size: 200%;
-      font-weight: bold;
-      color: $navLinks;
+      color: $white;
       margin-right: 15px;
     }
     &:hover {
@@ -419,7 +268,6 @@ border: 0;
     margin: auto;
   }
   font-size: 115%;
-  font-weight: bold;
   td {
     height: 30px;
     text-align: right;
@@ -462,7 +310,10 @@ border: 0;
   }
   a {
     font-size: 100%;
-    font-weight: normal;
+    font-family: 'Rockwell'
+    small {
+      font-family: 'Rockwell Bold'
+    }
   }
 }
 
@@ -509,7 +360,6 @@ border: 0;
 
 #blog_content {
   margin-left: 320px;
-  margin-top: -30px;
 }
 
 .front-page-links {
@@ -564,7 +414,7 @@ pre {
   padding-top: -20px;
   background-color: $codebox;
   p {
-    font-weight: bold;
+    font-family: 'Rockwell Bold';
     &::selection {
       background: $pigPink;
       color: #fff;
@@ -574,12 +424,16 @@ pre {
       color: #fff;
     }
   }
+  pre {
+    span {
+      font-size: 90%;
+    }
+  }
 }
 
 
 /* blog sidebar */
 .sidebar-nav-fixed {
-    
 }
 
 .row-fluid > .span-fixed-sidebar {
@@ -609,11 +463,10 @@ pre {
   cursor: default;
   height: 22px;
   text-align: center;
-  a, span, em {
+  a {
     padding: 0.2em 0.5em;
-    display: block;
     margin-right: 1px;
-    text-align: center;
+    text-align: left;
     float: center;
   }
   
@@ -634,31 +487,10 @@ pre {
   width: 175px;
 }
 
-.blog_links {
-  margin-left: 2px;
-  list-style-type: disc;
-  text-indent: -20px;
-  li {
-    line-height: 14px;
-    margin-bottom: 8px;
-  }
-}
-
-.link_disclaimer {
-  h5, h4, h6 {
-    color: $blue_link;
-    text-align: center;
-  }
-  h6 {
-    margin-top: -5px;
-    margin-bottom: -2px;
-  }
-}
-
 .sidebar-nav-fixed {
     padding: 9px 0;
     position: fixed;
-    top: 78px;
+    margin-top: -10px;
     li, h4, h5, h6, .btn {
       padding-right: 15px;
     }
@@ -670,4 +502,19 @@ pre {
 #search_field {
   width: 160px; 
   margin-right:10px;
+}
+
+.collapse-group {
+  h2 {
+    a {
+      font-size: 70%;
+    }
+  }
+}
+
+.experience {
+  h3 {
+    line-height: 20px;
+    margin-top: 0px;
+  }
 }
