@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-before_filter :authorize, only: [:new, :edit, :destroy, :index]
+before_filter :authorize, only: [:new, :edit, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -16,9 +16,10 @@ before_filter :authorize, only: [:new, :edit, :destroy, :index]
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @search = Post.search(params[:search])
     @link_num = 5
-    @posts = Post.all.reverse
+    
+    @posts = Post.search(params[:search]).reverse
+
     @post = Post.find(params[:id])
     if @post != Post.last
       @next_post = Post.find(@post.id + 1)
@@ -30,6 +31,11 @@ before_filter :authorize, only: [:new, :edit, :destroy, :index]
       format.html # show.html.erb
       format.json { redirect_to @post }
     end
+  end
+
+  def search
+    @posts = Post.search(params[:search]).reverse
+    render json: { results: @posts }
   end
 
   # GET /posts/new

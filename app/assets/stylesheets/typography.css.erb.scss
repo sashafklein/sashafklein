@@ -9,6 +9,7 @@ $blue_hover: #0a679c;
 $pigPink: #ff8686;
 $codebox: #88b0d2;
 $heavyGray: #383838;
+$sexyBlue: #1871bc;
 
 /* font families */
 
@@ -29,7 +30,7 @@ $heavyGray: #383838;
 
 /* basics */
 
-p, ol, span, a, ul, li, td, th, h1, h2, h3, h4, h5 ,h6, label {
+body, div, img, p, ol, em, input, small, br, strong, pre, code, span, a, ul, li, td, th, h1, h2, h3, h4, h5, h6, label {
   text-align: left;
   &::selection {
     background: $pigPink;
@@ -111,11 +112,10 @@ a {
 }
 
 .blog_links {
-  margin-left: 2px;
+  margin-left: 10px;
   list-style-type: disc;
-  text-indent: -18px;
   li {
-    line-height: 20px;
+    line-height: 23px;
     margin-bottom: 10px;
   }
 }
@@ -124,6 +124,9 @@ a {
   h5, h4, h6 {
     color: $blue_link;
     text-align: center;
+    a {
+      color: $sexyBlue;
+    }
   }
   h6 {
     margin-top: -5px;

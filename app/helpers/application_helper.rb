@@ -28,4 +28,7 @@ module ApplicationHelper
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
+  def previous(post)
+    Post.find_by_id(post.id - 1)
+  end
 end

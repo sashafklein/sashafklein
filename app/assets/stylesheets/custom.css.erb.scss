@@ -272,6 +272,7 @@ border: 0;
     height: 30px;
     text-align: right;
   }
+
 }
 
 .squeeze {
@@ -318,8 +319,14 @@ border: 0;
 }
 
 .manual_small {
-  font-size: 80%;
-  color: #1871bc;
+  a {
+    color: $sexyBlue;
+    &:hover {
+      color: $sexyBlue;
+
+    }
+  }
+  font-size: 70%;
   &::selection {
     background: $pigPink;
     color: $linkRed;
@@ -330,10 +337,31 @@ border: 0;
   }
 }
 
+.total_hover {
+  &:hover {
+    text-decoration: underline;
+    .manual_small {
+      color: $sexyBlue;
+      a {
+        color: $sexyBlue;
+      }
+    }
+    #link_name {
+      color: $pigPink;
+    }
+  }
+}
+
 .stars {
   img {
     float: left;
+    width: 13px;
   }
+}
+
+.skillset {
+  text-align: right;
+  margin-right: 35px;
 }
 
 .border-it {
@@ -442,15 +470,44 @@ pre {
 
 .centerify {
   text-align: center;
-  label {
-    text-align: center;
-  }
-  h1 {
-    text-align: center;
+  p, ol, table, em, input, small, br, strong, pre, code, span, a, ul, li, td, th, h1, h2, h3, h4, h5, h6, label {
+    text-align:center;
   }
   table {
-    text-align: center;
-    margin: auto;
+    margin: 0;
+  }
+}
+
+.archive {
+  h2 {
+    margin-bottom: -10px;
+    a {
+      color: $codebox;
+    }
+    .red {
+      font-size: 50%;
+      color: $linkRed;
+    }
+    .blue {
+      font-size: 50%;
+      color: $blue_link;
+    }
+  }
+}
+
+.blue {
+  a {
+    font-size: 30%;
+    margin-bottom: 5px;
+    color: $blue_link;
+  }
+}
+
+.sexy_blue {
+  a {
+    font-size: 30%;
+    margin-bottom: 5px;
+    color: $sexyBlue;
   }
 }
 
@@ -463,12 +520,6 @@ pre {
   cursor: default;
   height: 22px;
   text-align: center;
-  a {
-    padding: 0.2em 0.5em;
-    margin-right: 1px;
-    text-align: left;
-    float: center;
-  }
   
   .disabled {
     display: none;
@@ -478,8 +529,10 @@ pre {
     text-decoration: none;
     color: $blue_link;
     border: 1px solid #9aafe5;
-    width: 100px;
+    width: 62px;
     display: inline-block;
+    margin: auto;
+    float: center;
   }
 }
 

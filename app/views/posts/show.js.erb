@@ -1,8 +1,1 @@
-jQuery(function() {
-  var results, term;
-  $('.search').on("click", function(e) {});
-  e.preventDefault();
-  term = $('#search_field').val();
-  results = jQuery.ajax("/posts/search", term);
-  return $('.blog_links').html("<%= j render partial: 'list', locals {search: results} %>");
-});
+$("#list").html("<%= escape_javascript(render("search")) %>");

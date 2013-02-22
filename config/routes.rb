@@ -3,10 +3,13 @@ Sashafklein::Application.routes.draw do
   get 'access', to: 'sessions#new', as: 'login'  
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :users, :posts, :sessions, :emails
+  resources :users, :sessions, :emails
+  resources :posts, except: [:index]
+  
+  get 'archive' => 'posts#index', as: :posts
 
+  match '/archive', to: 'posts#index'
   match '/portfolio', to: 'statics#portfolio'
-  match '/resume', to: 'statics#resume'
   match '/devlog', to: 'statics#devlog'
   match '/edit', to: 'sessions#new'
   

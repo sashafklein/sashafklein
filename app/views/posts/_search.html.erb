@@ -1,0 +1,19 @@
+<ul class="blog_links">
+	<% @posts.first(@link_num).each do |p| %>
+		<li class="total_hover">
+			<%= link_to "#{p.name} ", p, id: "link_name" %>
+			<span class='manual_small'>
+				<%= link_to "(#{p.created_at.strftime('%b %d, %Y')})", p %>
+			</span>
+		</li>
+	<% end %>
+	<% if @posts.length > @link_num + 2%>
+		<div class="link_disclaimer">
+			<h6>---</h6>
+			<h5><%= "Showing first #{@link_num} hits." %></h5>
+			<h5 class="blue_links">
+				Narrow search or see <%= link_to 'archive', archive_path %>.
+			</h5>
+		</div>
+	<% end %>
+</ul>

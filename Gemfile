@@ -5,9 +5,9 @@ gem 'bootstrap-sass', '2.1'
 gem 'newrelic_rpm'
 gem 'pygments.rb'
 gem 'redcarpet'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
 gem 'annotate'
+gem 'friendly_id'
+gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -50,8 +50,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

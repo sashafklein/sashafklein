@@ -1,52 +1,26 @@
 <% provide(:title, @post.name) %>
 	
 	<div class="span4 sidebar-nav-fixed blog_list">
-		<h1 class="squeeze">Recent Posts</h1>
-      <%= form_tag search_path, method: "get", class: "search_form squeeze form-inline", style: "display:inline-block;" do %>
-  			<%= text_field_tag :search, params[:search], placeholder: "Beta -- doesn't yet work!", id: "search_field" %>
-  			<%= submit_tag("Search", name: nil, class: "btn squeeze search", remote: true) %>
-			<% end %>
-			<div id="list"><%= render partial: 'list' %></div>
-			<div class="blog_links"
-	      <% if !@search%>
-	      	<ul>
-		      	<% @posts.first(@link_num).each do |p| %>
-		      		<li><a href=<%= p.id %> ><%= p.name %> <span class="manual_small">(<%= p.created_at.strftime("%b %d, %Y") %>)</span></a></li>
-		      	<% end %>
-		      	<% if @posts.length > @link_num + 2 %>
-							<div class="link_disclaimer">
-								<h6>---</h6>
-			      		<h5><%= "Only showing #{@link_num} most recent posts." %></h5>
-			      		<h5>Search to narrow results.</h5>
-			      	</div>
-		      	<% end %>
-		      </ul>
-	      <% elsif @search.empty? %>
-	      	<h3>Term not found!</h3>
-	      <% else %>
-		      <ul>
-		      	<% @search.first(@link_num).each do |p| %>
-		      		<li><a href=<%= p.id %> ><%= p.name %> <span class="manual_small">(<%= p.created_at.strftime("%b %d, %Y") %>)</span></a></li>
-		      	<% end %>
-		      	<% if @search.length > @link_num + 2%>
-		      		<div class="link_disclaimer">
-		      			<h6>---</h6>
-		      			<h5><%= "Only showing first #{@link_num} relevant hits." %></h5>
-		      			<h5>Narrow search for more specific results.</h5>
-		      		</div>
-		      	<% end %>
-		      </ul>
-      	<% end %>
-      </div>
-      <div class="pagination">
-				<%= link_to "EDIT", "/posts/#{@post.id}/edit", style: "margin-right:10px;" if current_user %>
-					<% if @post.id != 1 %>
-						<%= link_to "<< PREVIOUS", post_path(@post.id - 1) %>
-					<% end %>
-					<% if @next_post %>
-						<%= link_to "NEXT >>", @next_post %>
-					<% end %>
-			</div>
+		<h1 class="squeeze">Recent Posts 
+			<span class="sexy_blue"><%= link_to ">>", posts_path %></span>
+		</h1>
+    <%= form_tag @post, :method => 'get', :id => "posts_search", class: "serach_form squeeze form-inline" do %>
+		  <p>
+		    <%= text_field_tag :search, params[:search], 
+		    placeholder: "Search titles:", id: "search_field" %>
+		    <%= submit_tag "Search", name: nil, class: "btn squeeze search" %>
+		  </p>
+		  <div id="list"><%= render 'search' %></div>
+		<% end %>
+    <div class="pagination">
+			<%= link_to "EDIT", "/posts/#{@post.id}/edit", style: "margin-right:10px;" if current_user %>
+				<% if @post.id != 1 %>
+					<%= link_to "<< PREV", previous(@post) %>
+				<% end %>
+				<% if @next_post %>
+					<%= link_to "NEXT >>", @next_post %>
+				<% end %>
+		</div>
 	</div>
 
 	<div class="span7 left-bar move-right" id="blog_content">

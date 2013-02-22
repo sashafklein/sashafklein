@@ -1,28 +1,13 @@
-<div class="centerify">
-  <h1>Listing posts</h1>
-
-  <table class="table">
-    <tr>
-      <th>Name</th>
-      <th>Posted</th>
-      <th>Content</th>
-      <th></th>
-      <th></th>
-    </tr>
+<div class="centerify archive">
+  <h1>The Archives</h1>
 
   <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.name %></td>
-      <td><%= post.created_at.strftime("%b %d, %Y") %>
-      <td><%= post.content.first(50) %>...</td>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+      <h2>
+        <%= link_to post.name, post %> 
+        <small>(<%= post.created_at.strftime("%b %d, %Y") %>)</small>  
+        <%= link_to "EDIT", edit_post_path(post), class: "red" if current_user %> 
+        <%= link_to "DELETE", post, method: :delete, data: { confirm: '100% sure?' }, class: "blue" if current_user %>
+      </h2>
   <% end %>
-  </table>
-
-  <br />
-
-  <%= link_to 'New Post', new_post_path %>
 
 </div>
