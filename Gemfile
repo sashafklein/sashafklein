@@ -12,6 +12,7 @@ gem 'jquery-rails'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production do
+  gem 'Twitter'
 	gem 'pg'
 end
 
