@@ -4,27 +4,42 @@
 		<h1 class="squeeze">Recent Posts 
 			<span class="sexy_blue"><%= link_to ">>", posts_path %></span>
 		</h1>
-    <%= form_tag @post, :method => 'get', :id => "posts_search", class: "serach_form squeeze form-inline" do %>
-		  <p>
-		    <%= text_field_tag :search, params[:search], 
-		    placeholder: "Search titles:", id: "search_field" %>
-		    <%= submit_tag "Search", name: nil, class: "btn squeeze search" %>
-		  </p>
-		  <div id="list"><%= render 'search' %></div>
+	<ul>
+		<% @posts.first(@link_num).each do |p| %>
+			<li class="total_hover">
+				<%= link_to "#{p.name} ", p, id: "link_name" %>
+				<span class='manual_small'>
+					<%= link_to "(#{p.created_at.strftime('%b %d, %Y')})", p %>
+				</span>
+			</li>
 		<% end %>
+	</ul>
+	<% if @posts.length > @link_num + 2%>
+		<div class="link_disclaimer">
+			<h6>---</h6>
+			<h5>
+				<%= "Showing #{@link_num} most recent." %>
+			</h5>
+			<h5 class="blue_links">See <%= link_to 'archive', archive_path %> for more.</h5>
+		</div>
+	<% end %>
+
     <div class="pagination">
 			<%= link_to "EDIT", "/posts/#{@post.id}/edit", style: "margin-right:10px;" if current_user %>
-				<% if @post.id != 1 %>
-					<%= link_to "<< PREV", previous(@post) %>
+				<% if @post.prev %>
+					<%= link_to "<< PREV", @post.prev %>
 				<% end %>
-				<% if @next_post %>
-					<%= link_to "NEXT >>", @next_post %>
+				<% if @post.next %>
+					<%= link_to "NEXT >>", @post.next %>
 				<% end %>
 		</div>
 	</div>
 
 	<div class="span7 left-bar move-right" id="blog_content">
-		<h1 class="squeeze"><%= @post.name %> <small>(<%= @post.created_at.strftime("%m/%d/%Y") %>)</small></h1>
+		<h1 class="squeeze">
+			<%= @post.name %> 
+			<small>(<%= @post.created_at.strftime("%m/%d/%Y") %>)</small>
+		</h1>
 			<%= markdown @post.content %>
 	</div>
 </div> <!-- Ending row div from app.html.erb -->

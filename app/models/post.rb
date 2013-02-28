@@ -11,27 +11,13 @@
 #
 
 class Post < ActiveRecord::Base
-  extend FriendlyId
   attr_accessible :content, :name
+
+  before_validation :generate_slug
 
   validates :name, presence: true, uniqueness: true
   validates :content, presence: true
-  validates :slug, presence: true
-
-  friendly_id :name, use: :slugged
-
-  # A function for finding all posts containing the searched-for term in their title
-  def including(term)
-  	searched = []
-  	term.downcase!
-  	Post.all.each do |p|
-  		if p.name.downcase.include?(term)
-  			searched << p
-  		end
-  	end
-  	searched = Post.all unless !searched.empty?
-  	searched
-  end
+  validates :slug, presence: true, uniqueness: true
 
   def self.search(search)
     if search
@@ -39,6 +25,22 @@ class Post < ActiveRecord::Base
     else
       scoped
     end
+  end
+
+  def to_param
+    "#{id}-#{name}".parameterize
+  end
+
+  def generate_slug
+    self.slug ||= name.parameterize
+  end
+
+  def next
+    Post.find_by_id(self.id + 1)
+  end
+
+  def prev
+    Post.find_by_id(self.id - 1) 
   end
 
 end

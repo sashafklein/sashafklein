@@ -5,7 +5,7 @@ before_filter :authorize, only: [:new, :edit, :destroy]
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.search(params[:search]).reverse
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,16 +16,10 @@ before_filter :authorize, only: [:new, :edit, :destroy]
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find(params[:id])
     @link_num = 5
     
-    @posts = Post.search(params[:search]).reverse
-
-    @post = Post.find(params[:id])
-    if @post != Post.last
-      @next_post = Post.find(@post.id + 1)
-    else
-      @next_post = nil
-    end
+    @posts = Post.all.reverse
 
     respond_to do |format|
       format.html # show.html.erb
@@ -60,6 +54,7 @@ before_filter :authorize, only: [:new, :edit, :destroy]
     @post = Post.new(params[:post])
     respond_to do |format|
       if @post.save
+        Twitter.update("New post: #{@post.title}") if Rails.env.production?
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { redirect_to @post }
       else
@@ -96,6 +91,5 @@ before_filter :authorize, only: [:new, :edit, :destroy]
       format.json { head :no_content }
     end
   end
-
 
 end

@@ -6,7 +6,6 @@ gem 'newrelic_rpm'
 gem 'pygments.rb'
 gem 'redcarpet'
 gem 'annotate'
-gem 'friendly_id'
 gem 'jquery-rails'
 
 # Bundle edge Rails instead:

@@ -2,11 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$ -> 
-  $("#list").live "click", ->
-    $.getScript @href
-    false
+@search = ->
+  $.get $('#posts_search').attr("action"), $("#posts_search").serialize(), null, "script"
 
-  $("#posts_search input").keyup ->
-    $.get $("#posts_search").attr("action"), $("#posts_search").serialize(), null, "script"
-    false
+$ ->
+  $('#posts_search input').keypress -> search()
+
+  $('#posts_search').submit (e) ->
+    e.preventDefault()
+    search()
