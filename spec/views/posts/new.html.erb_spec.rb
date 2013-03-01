@@ -12,7 +12,7 @@ describe "posts/new" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => posts_path, :method => "post" do
+    assert_select "form", :action => archive_path, :method => "post" do
       assert_select "input#post_name", :name => "post[name]"
       assert_select "textarea#post_content", :name => "post[content]"
     end
