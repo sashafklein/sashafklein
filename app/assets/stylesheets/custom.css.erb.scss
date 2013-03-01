@@ -514,7 +514,8 @@ pre {
 
 /* pagination */
 
-.pagination {
+.prevnext {
+  margin-right: 10px;
   float: center;
   background: white;
   cursor: default;
@@ -526,6 +527,7 @@ pre {
   }
   
   a {
+    padding: 7px;
     text-decoration: none;
     color: $blue_link;
     border: 1px solid #9aafe5;
@@ -533,6 +535,9 @@ pre {
     display: inline-block;
     margin: auto;
     float: center;
+    &:hover {
+      background-color: $grayMediumLight;
+    }
   }
 }
 

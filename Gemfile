@@ -7,12 +7,12 @@ gem 'pygments.rb'
 gem 'redcarpet'
 gem 'annotate'
 gem 'jquery-rails'
+gem 'twitter'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production do
-  gem 'twitter'
 	gem 'pg'
 end
 

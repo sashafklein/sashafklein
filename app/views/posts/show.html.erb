@@ -1,30 +1,31 @@
 <% provide(:title, @post.name) %>
 	
 	<div class="span4 sidebar-nav-fixed blog_list">
+		
 		<h1 class="squeeze">Recent Posts 
 			<span class="sexy_blue"><%= link_to ">>", posts_path %></span>
 		</h1>
-	<ul>
-		<% @posts.first(@link_num).each do |p| %>
-			<li class="total_hover">
-				<%= link_to "#{p.name} ", p, id: "link_name" %>
-				<span class='manual_small'>
-					<%= link_to "(#{p.created_at.strftime('%b %d, %Y')})", p %>
-				</span>
-			</li>
-		<% end %>
-	</ul>
-	<% if @posts.length > @link_num + 2%>
-		<div class="link_disclaimer">
-			<h6>---</h6>
-			<h5>
-				<%= "Showing #{@link_num} most recent." %>
-			</h5>
-			<h5 class="blue_links">See <%= link_to 'archive', archive_path %> for more.</h5>
-		</div>
-	<% end %>
 
-    <div class="pagination">
+		<ul>
+			<% @posts.first(@link_num).each do |p| %>
+				<li class="total_hover">
+					<%= link_to "#{p.name} ", p, id: "link_name" %>
+					<span class='manual_small'>
+						<%= link_to "(#{p.created_at.strftime('%b %d, %Y')})", p %>
+					</span>
+				</li>
+			<% end %>
+		</ul>
+		
+		<% if @posts.length > @link_num + 2%>
+			<div class="link_disclaimer">
+				<h6>---</h6>
+				<h5><%= "Showing #{@link_num} most recent." %></h5>
+				<h5 class="blue_links">See <%= link_to 'archive', archive_path %> for more.</h5>
+			</div><br>
+		<% end %>
+
+    <div class="prevnext">
 			<%= link_to "EDIT", "/posts/#{@post.id}/edit", style: "margin-right:10px;" if current_user %>
 				<% if @post.prev %>
 					<%= link_to "<< PREV", @post.prev %>
@@ -33,6 +34,7 @@
 					<%= link_to "NEXT >>", @post.next %>
 				<% end %>
 		</div>
+
 	</div>
 
 	<div class="span7 left-bar move-right" id="blog_content">

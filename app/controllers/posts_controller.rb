@@ -4,14 +4,16 @@ before_filter :authorize, only: [:new, :edit, :destroy]
 
   # GET /posts
   # GET /posts.json
-  def index
+  def archive
     @posts = Post.search(params[:search]).reverse
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
+      format.js
     end
   end
+
 
   # GET /posts/1
   # GET /posts/1.json
@@ -54,7 +56,6 @@ before_filter :authorize, only: [:new, :edit, :destroy]
     @post = Post.new(params[:post])
     respond_to do |format|
       if @post.save
-        Twitter.update("New post: #{@post.title}") if Rails.env.production?
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { redirect_to @post }
       else
@@ -62,6 +63,7 @@ before_filter :authorize, only: [:new, :edit, :destroy]
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+    Twitter.update("New post on '#{@post.title}': #{@post.tinyfy}") if Rails.env.production?
   end
 
   # PUT /posts/1

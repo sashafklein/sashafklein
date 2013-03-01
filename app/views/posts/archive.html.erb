@@ -1,0 +1,13 @@
+<div class="centerify archive">
+  <h1 class="squeeze">The Archives</h1>
+ </div>
+
+  <%= form_tag '/archive', method: 'get', id: "posts_search", class: "search_form squeeze form-inline" do %>
+		  <p style="text-align: center">
+		  	Search:  
+		    <%= text_field_tag :search, params[:search], class: "search", autocomplete: "off" %>
+		  </p>
+		  <div class="centerify archive" id="list"><%= render 'search' %></div>
+	<% end %>
+
+</div>

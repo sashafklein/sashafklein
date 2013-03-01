@@ -4,11 +4,10 @@ Sashafklein::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :users, :sessions, :emails
-  resources :posts, except: [:index]
-  
-  get 'archive' => 'posts#index', as: :posts
+  resources :posts
 
-  match '/archive', to: 'posts#index'
+  match '/archive', to: 'posts#archive'
+
   match '/portfolio', to: 'statics#portfolio'
   match '/devlog', to: 'statics#devlog'
   match '/edit', to: 'sessions#new'

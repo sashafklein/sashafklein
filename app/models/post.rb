@@ -11,6 +11,10 @@
 #
 
 class Post < ActiveRecord::Base
+
+require 'net/http'
+require 'uri'
+
   attr_accessible :content, :name
 
   before_validation :generate_slug
@@ -41,6 +45,19 @@ class Post < ActiveRecord::Base
 
   def prev
     Post.find_by_id(self.id - 1) 
+  end
+
+  def tinyfy
+     url = URI.parse('http://tinyurl.com/')
+     res = Net::HTTP.start(url.host, url.port) {|http|
+     http.get('/api-create.php?url=' + "http://sashafklein.com/posts/#{self.id}-#{self.slug}")
+     }
+     if res.body.empty?
+        #tinyurl is not responding properly… Return the original url
+        return "http://sashafklein.com/posts/#{self.id}-#{self.slug}"
+     else
+        return res.body
+     end
   end
 
 end
