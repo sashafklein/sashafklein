@@ -19,7 +19,7 @@ before_filter :authorize, only: [:new, :edit, :destroy]
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @link_num = 5
+    @link_num = 6
     
     @posts = Post.all.reverse
 
