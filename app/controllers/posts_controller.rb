@@ -63,7 +63,7 @@ before_filter :authorize, only: [:new, :edit, :destroy]
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-    Twitter.update("New post on '#{@post.title}': #{@post.tinyfy}") if Rails.env.production?
+    Twitter.update("New post on '#{@post.name}': #{@post.tinyfy}") if Rails.env.production?
   end
 
   # PUT /posts/1
