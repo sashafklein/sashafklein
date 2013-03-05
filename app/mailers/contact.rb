@@ -1,6 +1,6 @@
 class Contact < ActionMailer::Base
   default from: "contact@sashafklein.com"
-  default to: "fake_address@gmail.com"
+  default to: ENV['GMAIL_ACCOUNT']
 
   def contact_message(email)
   	@name = email.name
