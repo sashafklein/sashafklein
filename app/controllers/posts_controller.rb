@@ -29,11 +29,6 @@ before_filter :authorize, only: [:new, :edit, :destroy]
     end
   end
 
-  def search
-    @posts = Post.search(params[:search]).reverse
-    render json: { results: @posts }
-  end
-
   # GET /posts/new
   # GET /posts/new.json
   def new

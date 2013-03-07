@@ -23,14 +23,6 @@ require 'uri'
   validates :content, presence: true
   validates :slug, presence: true, uniqueness: true
 
-  def self.search(search)
-    if search
-      where('name LIKE ?', "%#{search}%")
-    else
-      scoped
-    end
-  end
-
   def to_param
     "#{id}-#{name}".parameterize
   end

@@ -1,0 +1,7 @@
+- lang ||= ""
+- language = "lang='#{lang}'"
+
+.codebox.coderay
+	- if title
+		%h3= title
+	= raw Pygments.highlight(text.unindent)

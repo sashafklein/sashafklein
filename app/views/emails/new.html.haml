@@ -1,0 +1,21 @@
+- provide(:title, 'Get in touch')
+= form_for(@email) do |f|
+	%h2 Send me a message below:
+  .field
+    = f.label :name, "Your name:"
+    = f.text_field :name
+  .field
+    = f.label :address, "Your email address:"
+    = f.text_field :address
+  .field
+    = f.label :subject, "Subject:"
+    = f.text_field :subject
+  .field.text-area
+    = f.label :content, "Your message:"
+    = f.text_area(:content, :size => '50x10')
+  %h3 Human verification:
+  = hidden_field_tag :captcha_secret, @captcha.encrypt
+  = label_tag :captcha, @captcha.question
+  = text_field_tag :captcha, ""
+	.actions
+	  = f.submit "Send", class: "btn"

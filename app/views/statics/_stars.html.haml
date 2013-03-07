@@ -1,0 +1,8 @@
+.stars
+	- num.times do
+		= image_tag('star.png')
+
+	- empty = 7 - num
+
+	- empty.times do
+		= image_tag('empty_star.png')
