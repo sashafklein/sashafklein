@@ -12,6 +12,7 @@ gem 'pg'
 gem 'haml'
 gem 'mysql2',          '0.3.12b4'
 gem 'thinking-sphinx', '3.0.0'
+gem 'sass'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
