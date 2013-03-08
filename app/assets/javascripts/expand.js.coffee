@@ -1,5 +1,5 @@
 jQuery ->
-	$('.cl .bundle').on "click", (e) ->
+	$('.cl').on "click", (e) ->
 		e.preventDefault()
-		$collapse = $(@).closest('.collapse-group').find('.collapse')
+		$collapse = $(@).closest('.collapse')
 		$collapse.collapse 'toggle'

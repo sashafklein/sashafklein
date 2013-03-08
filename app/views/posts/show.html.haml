@@ -31,4 +31,5 @@
 	%h1.squeeze
 		= @post.name 
 		%small (#{@post.created_at.strftime('%m/%d/%Y')})
-	= markdown(@post.content)
+	.markdown
+		= markdown(@post.content)

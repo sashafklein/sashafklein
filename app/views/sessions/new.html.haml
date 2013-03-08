@@ -1,13 +1,14 @@
 .center_login
 	%h1 Log In
 	= form_tag sessions_path do
-	  .field
-	    = label_tag :name
-	    = text_field_tag :name, params[:name], id: "sessions_name"
-	    %br
-	  .field
-	    = label_tag :password
-	    = password_field_tag :password
-	    %br
-	  %br
-	  .actions= submit_tag "Log In", class: "btn"
+		.field
+			= label_tag :name
+			= text_field_tag :name, params[:name], id: "sessions_name"
+			%br
+		.field
+			= label_tag :password
+			= password_field_tag :password
+			%br
+		%br
+		.actions
+			= submit_tag "Log In", class: "btn"

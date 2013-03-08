@@ -24,19 +24,33 @@ require 'uri'
   validates :slug, presence: true, uniqueness: true
 
   def to_param
-    "#{id}-#{name}".parameterize
+    new_name = name.gsub(/['`]/, "")
+    "#{id}-#{new_name}".parameterize
   end
 
   def generate_slug
-    self.slug ||= name.parameterize
+    new_name = name.gsub(/['`]/, "").parameterize
+    self.slug ||= new_name
   end
 
   def next
-    Post.find_by_id(self.id + 1)
+    all = Post.all
+    current = all.index(self)
+    if self == all.last
+      return nil
+    else
+      all[current + 1]
+    end
   end
 
   def prev
-    Post.find_by_id(self.id - 1) 
+    all = Post.all
+    current = all.index(self)
+    if self == all.first
+      return nil
+    else
+      all[current - 1]
+    end
   end
 
   def tinyfy
@@ -51,5 +65,4 @@ require 'uri'
         return res.body
      end
   end
-
 end

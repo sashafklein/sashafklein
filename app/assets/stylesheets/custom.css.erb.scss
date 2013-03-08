@@ -1,6 +1,7 @@
 @import "bootstrap";
 @import "typography";
 
+
 /* colors */
 
 $heavyGray: #383838;
@@ -563,6 +564,13 @@ pre {
   width: 160px; 
   margin-right:10px;
 }
+.collapse {
+
+}
+
+.cl {
+  text-align: center;
+}
 
 .collapse-group {
   h2 {
@@ -570,11 +578,23 @@ pre {
       font-size: 70%;
     }
   }
+  a.bundle {
+    color: $linkRed;
+  }
 }
 
 .experience {
   h3 {
     line-height: 20px;
     margin-top: 0px;
+  }
+}
+
+.markdown {
+  a {
+    color: $blue_link
+  }
+  notextile {
+    font-family: 'Rockwell Bold';
   }
 }
