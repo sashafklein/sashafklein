@@ -1,9 +1,11 @@
-.centerify.archive
-	%h1.squeeze The Archives
+- provide(:title, 'Blog Archive')
+.row.container
+	.centerify.archive
+		%h1.squeeze The Archives
 
-	= form_tag '/archive', method: 'get', id: "posts_search", class: "search_form squeeze form-inline" do
-		%p{ :style => "text-align: center" } 
-			Whole term search:  
-			= text_field_tag :search, params[:search], class: "search", autocomplete: "off", style: "text-align: left"
-		.centerify.archive#list
-			= render 'search'
+		= form_tag '/archive', method: 'get', id: "posts_search", class: "search_form squeeze form-inline" do
+			%p{ :style => "text-align: center" } 
+				Whole term search:  
+				= text_field_tag :search, params[:search], class: "search", autocomplete: "off", style: "text-align: left"
+			.centerify.archive#list
+				= render 'search'

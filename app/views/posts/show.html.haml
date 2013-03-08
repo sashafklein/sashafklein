@@ -1,35 +1,36 @@
 - provide(:title, @post.name)
 
-.span4.sidebar-nav-fixed.blog_list
-	
-	%h1.squeeze 
-		Recent Posts 
-		%span.sexy_blue= link_to ">>", archive_path
+.row.container
+	.span4.sidebar-nav-fixed.blog_list
+		
+		%h1.squeeze 
+			Recent Posts 
+			%span.sexy_blue= link_to ">>", archive_path
 
-	%ul
-		- @posts.first(@link_num).each do |p|
-			%li.total_hover
-				= link_to "#{p.name} ", p, id: "link_name"
-				%span.manual_small= link_to "(#{p.created_at.strftime('%b %d, %Y')})", p
-	
-	- if @posts.length > @link_num + 2
-		.link_disclaimer
-			%h6 ---
-			%h5 Showing #{@link_num} most recent.
-			%h5.blue_links See #{link_to 'archive', archive_path} for more.
-			%br
+		%ul
+			- @posts.first(@link_num).each do |p|
+				%li.total_hover
+					= link_to "#{p.name} ", p, id: "link_name"
+					%span.manual_small= link_to "(#{p.created_at.strftime('%b %d, %Y')})", p
+		
+		- if @posts.length > @link_num + 2
+			.link_disclaimer
+				%h6 ---
+				%h5 Showing #{@link_num} most recent.
+				%h5.blue_links See #{link_to 'archive', archive_path} for more.
+				%br
 
-	.prevnext
-		- if current_user
-			= link_to "EDIT", "/posts/#{@post.id}/edit", style: "margin-right:10px;"
-		- if @post.prev
-			= link_to "<< PREV", @post.prev
-		- if @post.next
-			= link_to "NEXT >>", @post.next
+		.prevnext
+			- if current_user
+				= link_to "EDIT", "/posts/#{@post.id}/edit", style: "margin-right:10px;"
+			- if @post.prev
+				= link_to "<< PREV", @post.prev
+			- if @post.next
+				= link_to "NEXT >>", @post.next
 
-.span7.left-bar.move-right#blog_content
-	%h1.squeeze
-		= @post.name 
-		%small (#{@post.created_at.strftime('%m/%d/%Y')})
-	.markdown
-		= markdown(@post.content)
+	.span7.left-bar.move-right#blog_content
+		%h1.squeeze
+			= @post.name 
+			%small (#{@post.created_at.strftime('%m/%d/%Y')})
+		.markdown
+			= markdown(@post.content)

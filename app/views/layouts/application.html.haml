@@ -14,10 +14,9 @@
       = render 'layouts/header'
     .top_buffer
     
-    .row.container
-      - flash.each do |key, value|
-        = content_tag(:div, value, class: "alert alert-#{key} button.close")      
-      = yield
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: "alert alert-#{key} button.close")      
+    = yield
 
     .bottom_buffer
     .navbars.navbar-fixed-bottom.footer
