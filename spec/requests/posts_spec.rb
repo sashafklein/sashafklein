@@ -30,8 +30,8 @@ describe "Posts" do
     it "should refresh with error if name empty" do
       # Make an incomplete blogpost
       Post.destroy_all
-      fill_in :post_name, with: ""
-      fill_in :post_content, with: "This is the content of a really short post."
+      fill_in "Name", with: ""
+      fill_in "Content", with: "This is the content of a really short post."
       click_on "Post It"
 
       page.should have_selector 'h2', text: "prohibited this post from being saved:"
@@ -40,8 +40,8 @@ describe "Posts" do
     it "should refresh with error if content empty" do
       # Make an incomplete blogpost
       Post.destroy_all
-      fill_in :post_name, with: "Post Name Here"
-      fill_in :post_content, with: ""
+      fill_in "Name", with: "Post Name Here"
+      fill_in "Content", with: ""
       click_on "Post It"
 
       page.should have_selector 'h2', text: "prohibited this post from being saved:"
@@ -64,12 +64,12 @@ describe "Posts" do
 
       # Make a blogpost
       Post.destroy_all
-      fill_in :name_here, with: "Post Name Here"
-      fill_in :content_here, with: "This is the content of a really short post."
-      screenshot_and_open_image
+      fill_in "Name", with: "Post Name Here"
+      fill_in "Content", with: "This is the content of a really short post."
+      # screenshot_and_open_image
       click_on "Post It"
-      screenshot_and_open_image
-      puts current_path
+      # screenshot_and_open_image
+      # puts current_path
       page.should have_selector 'h2', text: "prohibited this post"
       page.should have_selector 'h1', text: "Post Name Here"
       page.should have_selector '.alert', text: "Post was successfully created."
