@@ -1,4 +1,0 @@
-development:
-  min_infix_len: 2
-production:
-  min_infix_len: 2
