@@ -13,9 +13,9 @@
     .navbars.thin_lower_band.navbar-fixed-top.header
       = render 'layouts/header'
     .top_buffer
-    
-    - flash.each do |key, value|
-      = content_tag(:div, value, class: "alert alert-#{key} button.close")      
+    .container
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: "alert alert-#{key} button.close")      
     = yield
 
     .bottom_buffer

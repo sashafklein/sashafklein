@@ -1,8 +1,9 @@
 = form_for(@post) do |f|
   - if @post.errors.any?
     .error_explanation
-      %h2= pluralize(@post.errors.count, "error") 
-      prohibited this post from being saved:
+      %h2
+        = pluralize(@post.errors.count, "error") 
+        prohibited this post from being saved:
       %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
@@ -10,11 +11,11 @@
   .field
     = f.label :name
     %br
-    = f.text_field :name, id: "post_name"
+    = f.text_field :name, id: "name_here"
   .field.text-area
     = f.label :content
     %br
-    = f.text_area(:content, :size => '50x20', id: "post_content")
+    = f.text_area(:content, :size => '50x20', id: "content_here")
 
   .actions.btn-group
     = f.submit 'Post It', class: "btn"

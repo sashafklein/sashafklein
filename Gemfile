@@ -11,13 +11,14 @@ gem 'twitter'
 gem 'pg'
 gem 'haml'
 gem 'sass-rails'
+gem 'launchy'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :test do 
-	gem 'capybara'
-  gem 'capybara-webkit'
+  gem 'capybara', '1.1.2'
+  # gem 'capybara-webkit'
   gem 'capybara-screenshot'
   gem 'rb-fsevent'
   gem 'growl', '1.0.3'

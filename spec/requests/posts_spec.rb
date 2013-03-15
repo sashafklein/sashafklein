@@ -64,12 +64,16 @@ describe "Posts" do
 
       # Make a blogpost
       Post.destroy_all
-      fill_in :post_name, with: "Post Name Here"
-      fill_in :post_content, with: "This is the content of a really short post."
+      fill_in :name_here, with: "Post Name Here"
+      fill_in :content_here, with: "This is the content of a really short post."
+      screenshot_and_open_image
       click_on "Post It"
-        # Test for title h1 of post?
-      page.should have_selector('.alert', text: "Post was successfully created.")
-        # page.should have_selector 'title', text: full_title('Post Name Here')
+      screenshot_and_open_image
+      puts current_path
+      page.should have_selector 'h2', text: "prohibited this post"
+      page.should have_selector 'h1', text: "Post Name Here"
+      page.should have_selector '.alert', text: "Post was successfully created."
+      page.should have_selector 'title', text: full_title('Post Name Here')
 
     end
   	

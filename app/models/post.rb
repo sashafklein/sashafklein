@@ -24,12 +24,12 @@ require 'uri'
   validates :slug, presence: true, uniqueness: true
 
   def to_param
-    new_name = name.gsub(/['`]/, "")
+    new_name = self.name.gsub(/['`]/, "")
     "#{id}-#{new_name}".parameterize
   end
 
   def generate_slug
-    new_name = name.gsub(/['`]/, "").parameterize
+    new_name = self.name.gsub(/['`]/, "").parameterize
     self.slug ||= new_name
   end
 

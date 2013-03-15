@@ -2,7 +2,7 @@
 
 .row.container
   = form_for(@email) do |f|
-  	%h2 Send me a message below:
+    %h2 Send me a message below:
     .field
       = f.label :name, "Your name:"
       = f.text_field :name
@@ -19,5 +19,5 @@
     = hidden_field_tag :captcha_secret, @captcha.encrypt
     = label_tag :captcha, @captcha.question
     = text_field_tag :captcha, ""
-  	.actions
-  	  = f.submit "Send", class: "btn"
+    .actions
+      = f.submit "Send", class: "btn"

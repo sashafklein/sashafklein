@@ -5,13 +5,13 @@ describe "Static pages" do
 	subject { page }
 
   describe "Home page (resume)" do
-    before do 
-  	 visit root_path
+  	before do  
+     visit root_path
     end
   	
   	it { should have_selector('h1', text: 'Skills') }
   	it { should have_selector('h2', text: 'Bloc') }
-  	it { should have_selector 'title', text: full_title('Resume') }
+  	it { should have_selector 'title', text: "Sasha Klein | Resume" }
     it { should have_selector 'td', text: 'Ruby-on-Rails'}
   end 
 

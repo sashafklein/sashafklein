@@ -11,8 +11,8 @@
 #  updated_at :datetime         not null
 #
 
-require 'spec_helper'
+# require 'spec_helper'
 
-describe Email do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+# describe Email do
+#   pending "add some examples to (or delete) #{__FILE__}"
+# end
