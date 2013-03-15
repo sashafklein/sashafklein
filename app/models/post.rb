@@ -65,4 +65,14 @@ require 'uri'
         return res.body
      end
   end
+
+  def self.search(query)
+    query ||=""
+    terms = query.split.map{ |w| w.downcase }
+    results = Post.all
+    terms.each do |t|
+      results.reject!{ |p| !p.name.downcase.include?(t) }
+    end
+    results
+  end
 end

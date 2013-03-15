@@ -10,8 +10,6 @@ gem 'jquery-rails'
 gem 'twitter'
 gem 'pg'
 gem 'haml'
-gem 'mysql2',          '0.3.12b4'
-gem 'thinking-sphinx', '3.0.0'
 gem 'sass-rails'
 
 # Bundle edge Rails instead:

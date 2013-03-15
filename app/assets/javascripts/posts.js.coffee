@@ -6,8 +6,6 @@
   $.get $('#posts_search').attr("action"), $("#posts_search").serialize(), null, "script"
 
 $ ->
-  $('#posts_search input').keypress -> search()
-
   $('#posts_search').submit (e) ->
     e.preventDefault()
     search()
