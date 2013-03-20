@@ -5,4 +5,6 @@
     .float-right
       = link_to "PORTFOLIO", portfolio_path
       = link_to "DEVLOG", devlog_path
-      = link_to image_tag('sign_out.png'), logout_path, class: "logout" if current_user
+      - if current_user
+        = link_to "", wikis_path, class: "icon-file"
+        = link_to "", logout_path, class: "icon-circle-blank"

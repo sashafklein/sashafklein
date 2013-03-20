@@ -12,6 +12,7 @@ gem 'pg'
 gem 'haml'
 gem 'sass-rails'
 gem 'launchy'
+gem 'font-awesome-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

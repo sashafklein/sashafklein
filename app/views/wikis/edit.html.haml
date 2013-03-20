@@ -1,0 +1,9 @@
+.row.container.wiki
+	%h1{ :style => 'margin-bottom: 40px'} Update the Wiki
+	.fake_center
+		= form_for @wiki do |w|
+			= w.fields_for :topics do |builder|
+				= render "topic_fields", f: builder
+			= link_to_add_fields "add topic", w, :topics
+			%br
+			= w.submit "Update", class: "btn"

@@ -1,7 +1,8 @@
 //= require_self
 //= require_tree .
 
-@import "bootstrap"
+@import bootstrap
+@import font-awesome
 
 /* colors */
 
@@ -626,3 +627,65 @@ p
 			margin-bottom: 10px
 			&:hover
 				border: 5px solid $pigPink
+
+.wiki
+	.fake_center
+		margin-left: 190px
+		.btn
+			margin-left: 235px
+
+	h1
+		color: darken($sexyBlue, 20)
+		margin-bottom: 5px
+		text-align: center
+	h2
+		color: darken($sexyBlue, 20)
+		margin-bottom: 0px
+	h4
+		color: gray
+		font-family: 'Rockwell'
+		b 
+			color: darken($sexyBlue, 10)
+			font-family: 'Rockwell Bold'
+	label
+		font-size: 150%
+		font-color: lighten($sexyBlue, 7)
+		margin-bottom: 10px
+	.field_inset
+		margin-left: 15px
+		.second_inset
+			margin-top: 15px
+			margin-left: 30px
+			display: inline-block
+			label
+				display: inline-block
+				margin-left: 15px
+				font-size: 100%
+			input
+				font-size: 100%
+				font-family: 'Rockwell'
+		.add_inset
+			margin-left 14px
+			input
+				margin-left: 30px
+			a 
+				display: block
+				margin-left: 30px
+				margin-bottom: 10px
+			input.no_margin
+				margin-left: 0px
+		.remove
+			display: inline-block
+			a
+				display: inline-block
+				margin-left: 5px
+		.add_inset
+			a
+				margin-left: 45px
+			.remove
+				a
+					margin-left: 5px
+
+	a
+		margin-left: 5px
+		color: darken($linkRed, 10)

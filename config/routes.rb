@@ -1,9 +1,10 @@
 Sashafklein::Application.routes.draw do
 
+  get 'wikis', to: 'wikis#show', as: 'home'
   get 'access', to: 'sessions#new', as: 'login'  
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :users, :sessions, :emails
+  resources :users, :sessions, :emails, :wikis
   resources :posts
 
   match '/archive', to: 'posts#archive'

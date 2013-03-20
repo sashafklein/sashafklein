@@ -69,6 +69,8 @@ GEM
     faraday (0.8.6)
       multipart-post (~> 1.1)
     ffi (1.4.0)
+    font-awesome-rails (3.0.2.0)
+      railties (>= 3.1)
     growl (1.0.3)
     guard (1.6.2)
       listen (>= 0.6.0)
@@ -217,6 +219,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   ezcrypto
   factory_girl_rails
+  font-awesome-rails
   growl (= 1.0.3)
   guard-rspec (= 1.2.1)
   guard-spork (= 1.2.0)

@@ -1,0 +1,7 @@
+.field_inset
+	.add_inset
+		.remove
+			= f.text_field :name
+			= f.text_field :info, class: "no_margin"
+			= f.hidden_field :_destroy
+			= link_to 'remove', '#', class: "remove_fields"

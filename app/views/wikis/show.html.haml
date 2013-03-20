@@ -1,0 +1,11 @@
+.row.container.wiki
+	.container.centerify
+		- @wiki.topics.each do |t|
+			%h2 #{t.name}
+			- t.notes.each do |n|
+				.inset
+					%h4
+						%b #{n.name}:
+						= n.info
+			%br
+		= link_to "Add/Edit", edit_wiki_path(@wiki)
