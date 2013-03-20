@@ -1,35 +1,46 @@
 .skillz
 	%table
 		%tr 
-			%td Ruby-on-Rails
+			%td 
+				%a.skill_links{ href:'#', title: "All my web development has been in RoR."} Ruby-on-Rails
 			%td= render partial: 'stars', locals: {num: 4}
 		%tr
-			%td HTML5
+			%td
+				%a.skill_links{ href:'#', title: "All over the place."} HTML5
 			%td= render partial: 'stars', locals: {num: 5}
 		%tr
-			%td Javascript/JQuery
+			%td
+				%a.skill_links{ href: "http://github.com/sashafklein/meatup2/assets/javascripts", title: "See Meatup and this site on Github for CS examples."} Javascript/Coffeescript
 			%td= render partial: 'stars', locals: {num: 4}
 		%tr 
-			%td CoffeeScript
+			%td 
+				%a.skill_links{ href:'#', title: "Expand/collapse and search here are JQuery enabled."} JQuery
 			%td= render partial: 'stars', locals: {num: 4}
 		%tr
-			%td RSpec
+			%td 
+				%a.skill_links{ href:'#', title: "All this site's capabilities are throroughly tested."} RSpec
 			%td= render partial: 'stars', locals: {num: 3}
 		%tr
-			%td PostgreSQL
+			%td 
+				%a.skill_links{ href:'#', title: "Working on learning more SQL syntax. Focused on efficiency."} PostgreSQL/SQL
 			%td= render partial: 'stars', locals: {num: 4}
 		%tr
-			%td Adobe Photoshop
-			%td= render partial: 'stars', locals: {num: 5}
-		%tr 
-			%td CSS
-			%td= render partial: 'stars', locals: {num: 5}
-		%tr
-			%td Ruby
-			%td= render partial: 'stars', locals: {num: 4}
-		%tr
-			%td Python
+			%td 
+				%a.skill_links{ href:'#', title: "All images/icons on Meatup and this site are mine."} Adobe Photoshop
 			%td= render partial: 'stars', locals: {num: 3}
 		%tr 
-			%td Git/Coordination
-			%td= render partial: 'stars', locals: {num: 4}
+			%td 
+				%a.skill_links{ href:'#', title: "Comfortable with all three, though SASS is my favorite."} CSS/SCSS/SASS
+			%td= render partial: 'stars', locals: {num: 5}
+		%tr
+			%td 
+				%a.skill_links{ href: "http://github.com/sashafklein/ruby_euler", title: "See my Project Euler repo for how I think in Ruby."} Ruby
+			%td= render partial: 'stars', locals: {num: 5}
+		%tr
+			%td 
+				%a.skill_links{ href:'#', title: "One of my weaker points, but Python just makes sense."} Python
+			%td= render partial: 'stars', locals: {num: 3}
+		%tr 
+			%td 
+				%a.skill_links{ href:'#', title: "I've frequenly worked in pairs and on collaborative repos."} Git/Coordination
+			%td= render partial: 'stars', locals: {num: 5}
