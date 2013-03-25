@@ -3,9 +3,15 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 @search = ->
-  $.get $('#posts_search').attr("action"), $("#posts_search").serialize(), null, "script"
+	$.get $('#posts_search').attr("action"), $("#posts_search").serialize(), null, "script"
 
 $ ->
-  $('#posts_search').submit (e) ->
-    e.preventDefault()
-    search()
+	$('#posts_search').submit (e) ->
+		e.preventDefault()
+		search()
+
+	$('#recent').hover ->
+		$('#recent_h1').toggle ->
+			hide(fast)
+		$('#archived').toggle ->
+			show(fast)
