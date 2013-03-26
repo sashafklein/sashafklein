@@ -21,7 +21,7 @@ before_filter :authorize, only: [:new, :edit, :destroy]
     @post = Post.find(params[:id])
     @link_num = 6
     
-    @posts = Post.all.reverse
+    @posts = Post.order('created_at DESC')
 
     respond_to do |format|
       format.html # show.html.erb
