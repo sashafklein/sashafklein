@@ -493,7 +493,7 @@ pre
 
 /* basic typography */
 
-body, div, img, p, ol, em, input, small, br, strong, pre, code, span, a, ul, li, td, th, h1, h2, h3, h4, h5, h6, label
+body, div, img, p, ol, em, input, small, br, strong, code, span, a, ul, li, td, th, h1, h2, h3, h4, h5, h6, label
 	text-align: left
 	&::selection
 		background: $pigPink
@@ -712,3 +712,9 @@ p
 	a:hover
 		color: black
 		text-decoration: none
+
+.highlight
+	pre
+		white-space: pre
+		overflow: scroll
+		word-wrap: normal
