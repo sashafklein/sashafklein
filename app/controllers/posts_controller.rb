@@ -5,7 +5,7 @@ before_filter :authorize, only: [:new, :edit, :destroy]
   # GET /posts
   # GET /posts.json
   def archive
-    @posts = Post.search(params[:search]).reverse
+    @posts = Post.order('created_at DESC').search(params[:search])
 
     respond_to do |format|
       format.html # index.html.erb
