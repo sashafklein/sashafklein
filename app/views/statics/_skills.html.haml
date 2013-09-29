@@ -1,46 +1,7 @@
 .skillz
 	%table
-		%tr 
-			%td 
-				%a.skill_links.not{ href:'#', title: "All my web development has been in RoR."} Ruby-on-Rails
-			%td= render partial: 'stars', locals: {num: 4}
-		%tr
-			%td
-				%a.skill_links.not{ href:'#', title: "All over the place."} HTML5
-			%td= render partial: 'stars', locals: {num: 5}
-		%tr
-			%td
-				%a.skill_links{ href: "http://github.com/sashafklein/meatup/tree/master/app/assets/javascripts", title: "See Meatup and this site on Github for CS examples."} Javascript/Coffeescript
-			%td= render partial: 'stars', locals: {num: 4}
-		%tr 
-			%td 
-				%a.skill_links{ href:'http://sashafklein.com/posts/5-instant-ajax-search', title: "Expand/collapse and search here are JQuery enabled."} JQuery/AJAX
-			%td= render partial: 'stars', locals: {num: 4}
-		%tr
-			%td 
-				%a.skill_links.not{ href:'#', title: "This site's capabilities are throroughly tested. I'm retroactively testing MeatUp."} RSpec
-			%td= render partial: 'stars', locals: {num: 3}
-		%tr
-			%td 
-				%a.skill_links.not{ href:'#', title: "Working on learning more SQL syntax. Focused on efficiency."} PostgreSQL/SQL
-			%td= render partial: 'stars', locals: {num: 4}
-		%tr
-			%td 
-				%a.skill_links.not{ href:'#', title: "All images/icons on Meatup and this site are mine."} Adobe Photoshop
-			%td= render partial: 'stars', locals: {num: 3}
-		%tr 
-			%td 
-				%a.skill_links.not{ href:'#', title: "Comfortable with all three, though SASS is my favorite."} CSS/SCSS/SASS
-			%td= render partial: 'stars', locals: {num: 5}
-		%tr
-			%td 
-				%a.skill_links{ href: "http://github.com/sashafklein/ruby_euler", title: "See my Project Euler repo for how I think in Ruby."} Ruby
-			%td= render partial: 'stars', locals: {num: 5}
-		%tr
-			%td 
-				%a.skill_links.not{ href:'#', title: "One of my weaker points, but Python just makes sense."} Python
-			%td= render partial: 'stars', locals: {num: 3}
-		%tr 
-			%td 
-				%a.skill_links.not{ href:'#', title: "I've frequenly worked in pairs and on collaborative repos."} Git/Coordination
-			%td= render partial: 'stars', locals: {num: 5}
+		- @skills.each do |skill|
+			%tr 
+				%td 
+					%a.skill_links{ class: has_link?(skill), href: link_value(skill), title: skill.tooltip}= skill.name 
+				%td= render 'stars', num: skill.stars

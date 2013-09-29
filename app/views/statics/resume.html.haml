@@ -2,11 +2,12 @@
 
 .row.container
   .span4.right-bar
-    .headshot= image_tag('headshot.png')
-    .link_icons
-      = link_to image_tag('github.png') + "github", 'https://www.github.com/sashafklein'
-      = link_to image_tag('odesk2.png') + "odesk", 'https://www.odesk.com/users/~01e74747c979a7bfd6'
-      = link_to image_tag('email.png') + "email", '/contact'
+    .headshot_box
+      .headshot= image_tag('headshot.png')
+      .link_icons
+        = link_to image_tag('github.png') + "github", 'https://www.github.com/sashafklein'
+        = link_to image_tag('odesk2.png') + "odesk", 'https://www.odesk.com/users/~01e74747c979a7bfd6'
+        = link_to image_tag('email.png') + "email", '/contact'
     %h1.squeeze.skillset Skillset
     = render partial: "skills"
   .span7
@@ -18,9 +19,9 @@
       .inset
         %p.blue_links
           = link_to "Bloc", "https://www.bloc.io/users/sasha-klein"
-          is an online web-development boot camp that turns a small cohort of students into well-versed web developers over the course of 2-3 intensive months.
+          is an online web-development apprenticeship that turns a small group of students into well-versed web developers over the course of 2-3 intensive months.
         %p
-          A faculty of "mentor" coders guides us through
+          A faculty of "mentor" coders guided us through
           = succeed "," do
             %em Ruby
           = succeed "," do
@@ -50,71 +51,5 @@
 
     %h1.squeeze Work Experience
     .inset.experience.blue_links
-      .cl  
-        .collapse-group
-          %h3.squeeze.bold 
-            Bloc Contract Work
-            %small San Francisco (2013)
-            %a.bundle.unbold{ href: '#'} +
-          .collapse.inset
-            %p.blue_links
-              I recently completed a two-week contract for Bloc, working with the team in Rails (using HAML and CoffeeScript, mostly) to remove bugs and expand functionality. Among many other things, I worked to create a referral interface, help build out a new "dashboard" for mentor notifications, rework the feedback system, build one-click unsubscribe into member emails, and timestamp and send appointment notifications more sensibly. 
-
-            %p I learned a variety of new skills, and got my first exposure to the inner workings of a much bigger and more complicated web app than those I'd worked at on my own.
-      %h3
-        %a.blue_links{:href => "/portfolio"}
-          %span{:style => "font-size:105%"} MeatUp
-          %small{:style => "color:#88b0d2;"} 
-            San Francisco (2012) 
-          >>
-      .cl  
-        .collapse-group
-          %h3.squeeze.bold 
-            Dipont Education
-            %small Shanghai, China (2011-2012)
-            %a.bundle.unbold{ href: '#'} +
-          .collapse.inset 
-            %p.blue_links
-              At Dipont, I taught (English exposition, French, and Psychology) to Chinese high schoolers and helped students applying to college in the US through the foreign application process. I also edited and briefly wrote for the Dipont quarterly, helped design the future of Dipont's counseling program and alumni outreach, and even participated in panel discussions on American education. I wrote #{ link_to "a blog", '/portfolio#china'} about my time there.
-      .cl  
-        .collapse-group
-          %h3.squeeze.bold 
-            Think Food Group
-            %small Washington, DC (2010)
-            %a.bundle.unbold{ href: '#'} +
-          .collapse.inset
-            %p.blue_links
-              Food has long been a passion of mine (see the restaurant, below), so I returned home to DC after several summers abroad to work in the central office of #{link_to "James Beard Award", "http://en.wikipedia.org/wiki/James_Beard_Foundation_Award"}-winning celebrity chef Jose Andres.
-            %p.blue_links
-              At #{ link_to 'Think Food Group', 'http://www.thinkfoodgroup.com'}, the organization in charge of Andres's businesses and brand, I coordinated his philanthropic, culinary, and travel ("research") schedules, as well as drafting speeches and assisting marketing and publicity.
-
-      .cl  
-        .collapse-group
-          %h3.squeeze.bold 
-            Coproduction Office
-            %small Paris, France (2009)
-            %a.bundle.unbold{ href: '#'} +
-          .collapse.inset
-            %p.blue_links
-              In the summer of 2009, after an academic year focused largely on film, I worked in the Paris branch of #{link_to "Coproduction Office", "http://coproductionoffice.eu"}, an international arthouse film rights/distribution company. There, I managed film-festival expenditure records, assisted in film post-production, and judged screenplays and finished films for production and purchasing.
-
-      .cl  
-        .collapse-group
-          %h3.squeeze.bold 
-            UN High Commissioner for Refugees
-            %small Rabat, Morocco (2008)
-            %a.bundle.unbold{ href: '#'} +
-          .collapse.inset
-            %p.blue_links
-              The summer after freshman year of college, I went to practice my French and see if IR/social work was for me in Rabat, Morocco, where I worked for the #{ link_to "UNHCR", "http://en.wikipedia.org/wiki/United_Nations_High_Commissioner_for_Refugees"}. There, I conducted aid interviews (in French), managed and reworked the Moroccan UNHCR's refugee record system, oversaw aid distribution, and developed a new strategy around shelter and schooling services for refugees in Morocco.
-
-      .cl  
-        .collapse-group
-          %h3.squeeze.bold 
-            Il Vecchio Forno Restaurant
-            %small Lago D'Orta, Italy (2007)
-            %a.bundle.unbold{ href: '#'} +
-          .collapse.inset
-            %p.blue_links
-              The summer before college, I worked as second chef in a #{ link_to "lakeside resort town", "http://en.wikipedia.org/wiki/Lago_d%27Orta"} near Milan, Italy. I prepared all appetizers and desserts (as well as some mains) for two seatings of up to 70 people a night. I also tried and failed to learn Italian from a chef who insisted on using me to practice his French.
-            %p Previous culinary experience includes three summers both assistant teaching at a cooking school and working at a cheese shop, in Colorado.
+      - @jobs.each do |job| 
+        = render 'job', job: job

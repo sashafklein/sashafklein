@@ -1,0 +1,36 @@
+- 
+  name: "Ruby on Rails"
+  tooltip: "I have worked on a variety of solo and collaborative Rails projects."
+  stars: 6
+- 
+  name: "HTML5"
+  stars: 5
+- 
+  name: "Javascript/JQuery"
+  tooltip: "I have wide experience with front-end javascript -- custom drag-and-drop, instant search, persistent timers, AJAX database integration -- and enjoy coffeescript's syntax in particular."
+  stars: 5
+- 
+  name: "RSpec"
+  tooltip: "Comfortable with TDD, debugging through tests, and Capybara."
+  stars: 6
+- 
+  name: "Photoshop"
+  stars: 3
+- 
+  name: "Responsive Design"
+  link: "https://bloc.io/mentors/ryan-mathews"
+  tooltip: "Comfortable with and without frameworks. Check out the Bloc mentor profiles for an early foray into flexible design."
+  stars: 5
+- 
+  name: "Ruby"
+  link: "http://github.com/sashafklein/ruby_euler"
+  tooltip: "See my Project Euler repo for how I think in Ruby (slightly out of date)."
+  stars: 5
+- 
+  name: "Git/Coordination"
+  tooltip: "Worked extensively on collaborative projects, both in person and remotely."
+  stars: 5
+- 
+  name: "AngularJS"
+  tooltip: "The next framework I would like to master. Still getting my bearings straight."
+  stars: 3

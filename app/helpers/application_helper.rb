@@ -40,4 +40,12 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def has_link?(skill)
+    link_value(skill) == "#" ? "not" : ""
+  end
+
+  def link_value(skill)
+    skill.link.present? ? skill.link : "#"
+  end
 end

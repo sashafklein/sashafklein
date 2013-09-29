@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'bootstrap-sass', '2.1'
-gem "newrelic_rpm", "~> 3.5.5.38"
+# gem 'newrelic_rpm', '~> 3.5.5.38'
 gem 'pygments.rb'
 gem 'redcarpet'
 gem 'annotate'
