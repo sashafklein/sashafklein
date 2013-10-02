@@ -1,8 +1,12 @@
 require 'ostruct'
 
 class StaticsController < ApplicationController
-
+	
 	def about
+	end
+
+	def landing
+		render layout: 'landing'
 	end
 
 	def resume

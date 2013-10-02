@@ -18,7 +18,7 @@ class EmailsController < ApplicationController
       if @email.save
         Contact.contact_message(@email).deliver
         flash[:success] = "Your email has sent! I'll try to get back to you shortly."
-        redirect_to root_path
+        redirect_to devlog_path
       else
         flash.now[:error] = "Please correct the highlighted errors and try again."
         render :new

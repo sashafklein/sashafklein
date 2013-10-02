@@ -21,8 +21,8 @@ describe "Contact email:" do
 	    click_on "Send"
 	    assert Email.count == 1, "Real count: #{Email.count}"
 
-	    # Redirects to root with banner
-			current_path.should eq(root_path)
+	    # Redirects to resume with banner
+			current_path.should eq(resume_path)
 			page.should have_selector '.alert', text: "Your email has sent! I'll try to get back to you shortly."
 
 			# Correct email actually sends

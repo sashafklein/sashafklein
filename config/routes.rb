@@ -11,6 +11,8 @@ Sashafklein::Application.routes.draw do
 
   match '/portfolio', to: 'statics#portfolio'
   match '/devlog', to: 'statics#devlog'
+  get '/landing', to: 'statics#landing'
+  get '/resume', to: 'statics#resume'
   match '/edit', to: 'sessions#new'
   
   match '/search', to: 'posts#search'
@@ -18,7 +20,7 @@ Sashafklein::Application.routes.draw do
   get '/contact', to: 'emails#new' 
   post '/contact', to: 'emails#create'
 
-  root to: 'statics#resume'
+  root to: 'statics#landing'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -8,6 +8,10 @@ module ApplicationHelper
     end
   end
 
+  def body_class
+    controller.controller_name == "statics" ? controller.action_name : controller.controller_name
+  end
+
   class HTMLwithPygments < Redcarpet::Render::HTML
     def block_code(code, language)
       Pygments.highlight(code, lexer: language)

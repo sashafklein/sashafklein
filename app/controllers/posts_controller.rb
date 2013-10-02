@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-before_filter :authorize, only: [:new, :edit, :destroy]
+  before_filter :authorize, only: [:new, :edit, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -19,7 +19,7 @@ before_filter :authorize, only: [:new, :edit, :destroy]
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @link_num = 6
+    @link_num = 5
     
     @posts = Post.order('created_at DESC')
 
