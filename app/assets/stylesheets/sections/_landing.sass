@@ -1,16 +1,22 @@
 $textAndBorder: lighten(#333333, 5)
 
-.landing
+body.landing
   height: 100%
+  width: 100%
+  position: absolute
+  top: 0
+  left: 0
   #landing_buttons
-    margin: 0 10% 0 10%
+    position: absolute
+    margin: auto
     width: 80%
-    height: 100%
+    height: 20%
+    top: 40vh
+    left: 10vw
     .landing_button
+      position: absolute
       background-color: $textAndBorder
-      width: 28.3%
-      height: 20%
-      margin: 20% 0 20% 0
+      width: 29%
       padding: 0.5vw
       display: inline-block
       text-align: center
@@ -27,8 +33,12 @@ $textAndBorder: lighten(#333333, 5)
           color: $textAndBorder
           vertical-align: middle
           text-align: center
-      &.first, &.second
-        margin-right: 5%
+      &.first
+        left: 0
+      &.second
+        left: 34.5%
+      &.third
+        left: 69%
       &:hover
         cursor: pointer
         .inner-text
