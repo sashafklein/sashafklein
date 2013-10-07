@@ -12,9 +12,11 @@ class StaticsController < ApplicationController
 	def resume
 		@skills = load_content("skills")
 		@jobs = load_content("jobs")
+		@education_items = load_content("education")
 	end
 
 	def portfolio
+		@portfolio_items = load_content("portfolio")
 	end
 	
 	def devlog

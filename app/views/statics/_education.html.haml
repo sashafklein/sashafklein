@@ -1,0 +1,11 @@
+%h1.squeeze Education
+- @education_items.each do |item|
+  - if item.collapse == "dont"
+    %h2.squeeze 
+      = item.title
+      %small= item.subtitle
+    .inset
+      - item.paragraphs.each do |paragraph|
+        %p.blue_links= raw paragraph
+  - else # item.collapse == "already"
+    = render "item_collapse", item: item

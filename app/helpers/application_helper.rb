@@ -52,4 +52,16 @@ module ApplicationHelper
   def link_value(skill)
     skill.link.present? ? skill.link : "#"
   end
+
+  def top?(index)
+    index > 0 ? "not-top" : "top"
+  end
+
+  def photo_margin_top?(index)
+    index > 0 ? "margin-top: 10px" : ""
+  end
+
+  def collapse_button(item)
+    item.collapse_button.present? ? item.collapse_button : "+"
+  end
 end

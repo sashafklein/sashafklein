@@ -1,0 +1,9 @@
+.cl  
+  .collapse-group
+    %h2.squeeze.bold
+      = item.title
+      %small= item.subtitle
+      %a.bundle.unbold{ href: '#'}= collapse_button(item)
+    .collapse.inset
+      - item.paragraphs.each do |paragraph|
+        %p= raw paragraph

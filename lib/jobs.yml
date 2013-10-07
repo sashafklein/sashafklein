@@ -1,5 +1,5 @@
 -
-  name: "Bloc"
+  title: "Bloc"
   subtitle: "San Francisco (2013)"
   paragraphs:
     - 
@@ -7,35 +7,35 @@
     - 
       "I learned a variety of new skills, and got my first exposure to the inner workings of a much bigger and more complicated web app than those I'd worked at on my own."
 -
-  name: "MeatUp"
+  title: "MeatUp"
   subtitle: "San Francisco (2012)"
   link: '/portfolio'
 -
-  name: "Dipont Education"
+  title: "Dipont Education"
   subtitle: "Shanghai, China (2011-2012)"
   paragraphs:
     - 
       "At Dipont, I taught (English exposition, French, and Psychology) to Chinese high schoolers and helped students applying to college in the US through the foreign application process. I also edited and briefly wrote for the Dipont quarterly, helped design the future of Dipont's counseling program and alumni outreach, and even participated in panel discussions on American education. I wrote <a href='/portfolio#china'>a blog</a> about my time there"
 -
-  name: "Think Food Group"
+  title: "Think Food Group"
   subtitle: "Washington, DC (2010)"
   paragraphs:
     - 
       "At <a href=''http://www.thinkfoodgroup.com'>Think Food Group</a>, the organization in charge of Andres's businesses and brand, I coordinated his philanthropic, culinary, and travel ('research') schedules, as well as drafting speeches and assisting marketing and publicity."
 -
-  name: Coproduction Office
+  title: Coproduction Office
   subtitle: "Paris, France (2009)"
   paragraphs:
     - 
       "In the summer of 2009, after an academic year focused largely on film, I worked in the Paris branch of <a href='http://coproductionoffice.eu'>Coproduction Office</a>, an international arthouse film rights/distribution company. There, I managed film-festival expenditure records, assisted in film post-production, and judged screenplays and finished films for production and purchasing."
 -
-  name: "UN High Commissioner for Refugees"
+  title: "UN High Commissioner for Refugees"
   subtitle: "Rabat, Morocco (2008)"
   paragraphs:
     - 
       "The summer after freshman year of college, I went to practice my French and see if IR/social work was for me in Rabat, Morocco, where I worked for the <a href='http://en.wikipedia.org/wiki/United_Nations_High_Commissioner_for_Refugees'>UNHCR</a>. There, I conducted aid interviews (in French), managed and reworked the Moroccan UNHCR's refugee record system, oversaw aid distribution, and developed a new strategy around shelter and schooling services for refugees in Morocco."
 -
-  name: "Il Vecchio Forno Restaurant"
+  title: "Il Vecchio Forno Restaurant"
   subtitle: "Lago D'Orta, Italy (2007)"
   paragraphs:
     - 
