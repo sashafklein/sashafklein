@@ -1,34 +1,32 @@
-- provide(:title, raw(@post.name))
+/ - provide(:title, raw(@post.name))
 
-.row.container
+.row.container{ ng_controller: 'PostCtrl', ng_init: 'init()', ng_cloak: true }
 	.span4.sidebar-nav-fixed.blog_list
 		
 		%h1.squeeze Recent Posts
 
 		%ul
-			- @posts.first(@link_num).each do |p|
-				%li.total_hover
-					= link_to "#{p.name} ", p, id: "link_name"
-					%span.manual_small= link_to "(#{p.created_at.strftime('%b %d, %Y')})", p
+			%li.total_hover{ ng_repeat: 'post in postList' }
+				%a#link_name{ ng_href: '/posts/{{post.slug}}' }
+					{{ post.name }}
+					%span.manual_small {{ post.created_at | date:'mediumDate' }}
 		
-		- if @posts.length > @link_num + 2
-			.link_disclaimer
-				%h6 ---
-				%h5 Showing #{@link_num} most recent.
-				%h5.blue_links See #{link_to 'archive', archive_path} for more.
-				%br
+		.link_disclaimer{ ng_if: '{postLimit > 5}' }
+			%h6 ---
+			%h5 Showing {{postLimit}} most recent.
+			%h5.blue_links See #{link_to 'archive', archive_path} for more.
 
 		.prevnext
 			- if current_user
-				= link_to "EDIT", "/posts/#{@post.id}/edit", style: "margin-right:10px;"
-			- if @post.prev
-				= link_to "<< PREV", @post.prev
-			- if @post.next
-				= link_to "NEXT >>", @post.next
+				%a{ ng_href: "{{ postEditPath(mainPost) }}", style: "margin-right:10px;" } EDIT 
+			.prev-post{ ng_hide: '!previousPost' }
+				%a{ ng_href: '{{ postShowPath(previousPost) }}' } << PREV
+			.next-post{ ng_hide: '!nextPost' }
+				%a{ ng_href: '{{ postShowPath(nextPost) }}' }NEXT >>
 
 	.span7.left-bar.move-right#blog_content
 		%h1.squeeze
-			= @post.name 
-			%small (#{@post.created_at.strftime('%m/%d/%Y')})
-		.markdown
-			= markdown(@post.content)
+			{{ mainPost.name }}
+			%small ({{mainPost.created_at | date:'shortDate' }})
+		
+		.markdown{ markdown: '{{mainPost.content}}' }

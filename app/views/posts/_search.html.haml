@@ -1,7 +1,10 @@
 %ul.blog_links
-	- @posts.sort_by {|p| p.created_at}.reverse.each do |post|
-		%h2
-			= link_to post.name, post
-			%small= post.created_at.strftime("%b %d, %Y")  
-			= link_to "EDIT", edit_post_path(post), class: "red" if current_user
-			= link_to "DELETE", post, method: :delete, data: { confirm: '100% sure?' }, class: "blue" if current_user
+  %input{ type: 'text', ng_model: 'query', style: 'text-align: left' }
+  .centerify.archive#list
+    %h2{ ng_repeat: 'post in postList | filter:query' }
+      %a{ ng_href: '{{postShowPath(post)}}' } {{ post.name }}
+      %small {{ post.created_at | date:'mediumDate' }} 
+      
+      - if current_user
+        %a.red{ ng_href: '{{postEditPath(post)}}' } EDIT
+        %a.blue{ ng_href: '{{postShowPath(post)}}', method: 'delete', data: { confirm: '100% sure?' } } DELETE

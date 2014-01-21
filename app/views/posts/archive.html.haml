@@ -1,10 +1,5 @@
 - provide(:title, 'Blog Archive')
-.row.container
-	.centerify.archive
-		%h1.squeeze The Archives
-
-		= form_tag '/archive', method: 'get', id: "posts_search", class: "search_form squeeze form-inline" do
-			= text_field_tag :search, params[:search], class: "search", autocomplete: "off", style: "text-align: left"
-			= submit_tag "Search", class: "btn"
-		.centerify.archive#list
-			= render 'search'
+.row.container{ ng_controller: 'PostCtrl', ng_init: 'getPostList()', ng_cloak: true}
+  .centerify.archive
+    %h1.squeeze The Archives
+    = render 'search'

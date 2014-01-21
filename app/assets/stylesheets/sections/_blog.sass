@@ -30,15 +30,10 @@
     
   /* code display */
   .codebox
-    margin: auto
-    margin-top: 15px
-    margin-bottom: -5px
     padding-right: 8px
     padding-left: 8px
-    padding-top: 5px
     padding-bottom: 5px
     padding-top: -20px
-    background-color: $codebox
     p
       font-family: 'Rockwell Bold'
       &::selection
@@ -114,10 +109,12 @@
   .prevnext
     margin-right: 10px
     float: center
-    background: white
+    background: transparent
     cursor: default
     height: 22px
     text-align: center
+    display: inline-block
+    margin: auto
     .disabled
       display: none
     a
@@ -132,6 +129,8 @@
       float: center
       &:hover
         background-color: $grayMediumLight
+    .next-post, .prev-post
+      display: inline-block
     
   .markdown
     a

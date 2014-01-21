@@ -16,6 +16,7 @@ Sashafklein::Application.configure do
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
+  config.assets.js_compressor = Sprockets::LazyCompressor.new { Uglifier.new(:mangle => false) }
 
   # Fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true

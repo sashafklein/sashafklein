@@ -53,14 +53,14 @@ require 'uri'
     end
   end
 
-  def tinyfy
+  def tinyfy(link)
      url = URI.parse('http://tinyurl.com/')
      res = Net::HTTP.start(url.host, url.port) {|http|
-     http.get('/api-create.php?url=' + "http://sashafklein.com/posts/#{self.id}-#{self.slug}")
+     http.get('/api-create.php?url=' + link)
      }
      if res.body.empty?
         #tinyurl is not responding properly… Return the original url
-        return "http://sashafklein.com/posts/#{self.id}-#{self.slug}"
+        return link
      else
         return res.body
      end
@@ -74,5 +74,11 @@ require 'uri'
       results.reject!{ |p| !p.name.downcase.include?(t) }
     end
     results
+  end
+
+  def self.find_by_slug_or_id(slug_or_id)
+    by_slug = find_by_slug(slug_or_id)
+    by_id = find_by_id(slug_or_id)
+    by_slug || by_id
   end
 end

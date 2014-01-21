@@ -22,6 +22,12 @@ Sashafklein::Application.routes.draw do
 
   root to: 'statics#landing'
 
+  namespace :api do
+    namespace :v1 do 
+      resources :posts, only: [:show, :index]
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
