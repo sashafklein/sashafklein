@@ -20,7 +20,8 @@ postModule.controller "PostCtrl", ($scope, $http, $location) ->
       "/posts/#{post.slug}"
 
   $s.postEditPath = (post) ->
-    "/posts/#{post.slug}/edit"
+    if post?
+      "/posts/#{post.slug}/edit"
 
   $s.apiPostPath = () ->
     "/api/v1/posts/#{$s._slug()}"
