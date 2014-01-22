@@ -1,5 +1,5 @@
-#= require libraries/showdown
-#= require libraries/highlight
+#= require lib/showdown
+#= require lib/highlight
 
 angular.module("markdown", []).directive "markdown", ->
   converter = new Showdown.converter()

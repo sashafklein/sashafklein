@@ -2,39 +2,36 @@ class PostsController < ApplicationController
 
   before_filter :authorize, only: [:new, :edit, :destroy]
 
-  # GET /posts
-  # GET /posts.json
-  def archive
-    # List fetched in angular
+  def index
+    render '/ng_templates/template'
   end
 
-
-  # GET /posts/1
-  # GET /posts/1.json
+  # Post and list fetched in angular
   def show
-    # Post and list fetched in angular
+    render '/ng_templates/template'
   end
 
-  # GET /posts/new
-  # GET /posts/new.json
+  def devlog
+    post = Post.order('created_at DESC').first
+    redirect_to "/posts#/#{post.slug}"
+  end
+
   def new
     @post = Post.new
   end
 
-  # GET /posts/1/edit
   def edit
     @post = Post.find_by_slug_or_id(params[:id])
   end
 
-  # POST /posts
-  # POST /posts.json
   def create
     @post = Post.new(params[:post])
-    Twitter.update("New post on '#{@post.name}' -- #{@post.tinyfy}") if Rails.env.production?
+    
+    if false && Rails.env.production?
+      Twitter.update("New post on '#{@post.name}' -- #{@post.tinyfy}")
+    end
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
 
@@ -49,8 +46,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post = Post.find(params[:id])
     @post.destroy

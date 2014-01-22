@@ -1,8 +1,9 @@
 #= require jquery
 #= require jquery_ujs
 #= require bootstrap
-#= require libraries/angular.min
-#= require libraries/angular-resource.min
-#= require libraries/underscore.min
+#= require lib/angular.min
+#= require lib/angular-resource.min
+#= require lib/angular-route.min
+#= require lib/angular-animate.min
+#= require lib/underscore.min
 #= require_tree .
-#= require main-ng

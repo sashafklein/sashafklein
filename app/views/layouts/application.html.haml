@@ -18,6 +18,12 @@
       - flash.each do |key, value|
         = content_tag(:div, value, class: "alert alert-#{key} button.close")      
     = yield
+    %div{ ng_view: true }
 
     .bottom_buffer
     .navbars.navbar-fixed-bottom.footer
+
+- if controller_path == 'posts'
+  %script{type: "text/ng-template", id: "show_post.html"}= render 'posts/show'
+
+  %script{type: "text/ng-template", id: "post_archive.html"}= render 'posts/archive'

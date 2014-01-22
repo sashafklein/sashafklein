@@ -11,4 +11,13 @@ class Api::V1::PostsController < ApiController
     posts = Post.order('created_at DESC').first(limit)
     render json: posts.to_json
   end
+
+  def test_user
+    puts 'here', current_user
+    if current_user
+      render json: {success: :true}
+    else 
+      render json: {error: :true}
+    end
+  end
 end
