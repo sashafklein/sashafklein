@@ -1,6 +1,7 @@
 -
   title: "Bloc"
   subtitle: "San Francisco (2013)"
+  starts_open: true
   paragraphs:
     - 
       "I recently completed a two-week contract for Bloc, working with the team in Rails (using HAML and CoffeeScript, mostly) to remove bugs and expand functionality. Among many other things, I worked to create a referral interface, help build out a new 'dashboard' for mentor notifications, rework the feedback system, build one-click unsubscribe into member emails, and timestamp and send appointment notifications more sensibly. "

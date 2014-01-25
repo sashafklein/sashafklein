@@ -11,22 +11,11 @@
     = render 'layouts/shim'
 
   %body{ class: body_class }
-    .navbars.thin_lower_band.navbar-fixed-top.header
-      = render 'layouts/header'
-    .top_buffer
-    .container
-      - flash.each do |key, value|
-        = content_tag(:div, value, class: "alert alert-#{key} button.close")      
-    
     = render 'layouts/content-yields'
-
-    %div{ ng_view: true }
-
 
     .bottom_buffer
     .navbars.navbar-fixed-bottom.footer
 
 - if controller_path == 'posts'
   %script{type: "text/ng-template", id: "show_post.html"}= render 'posts/show'
-
   %script{type: "text/ng-template", id: "post_archive.html"}= render 'posts/archive'

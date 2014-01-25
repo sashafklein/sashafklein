@@ -1,16 +1,14 @@
 -
-  title: "Bloc"
-  subtitle: "2012"
-  collapse: "dont"
+  title: Bloc
+  subtitle: 2012
   paragraphs: 
-    - "<a href='https://www.bloc.io/users/sasha-klein'>Bloc</a> is an online web-development apprenticeship that turns a small group of students into well-versed Rails developers over the course of 2-3 intensive months."
-    - "A faculty of 'mentor' coders guided us through <em>Ruby</em>, <em>HTML</em>, <em>CSS</em>, <em>Git</em>, <em>RSpec</em>, testing, <em>Javascript/JQuery</em>, and more. The learning is focused through, and culminates in, a final project of our own design."
-    - "Bloc got my developing feet wet and helped teach me how to teach myself to tackle any coding obstacle thrown my way."
+    - <a href='https://www.bloc.io/users/sasha-klein'>Bloc</a> is an online web-development apprenticeship that turns a small group of students into well-versed Rails developers over the course of 2-3 intensive months.
+    - A faculty of 'mentor' coders guided us through <em>Ruby</em>, <em>HTML</em>, <em>CSS</em>, <em>Git</em>, <em>RSpec</em>, testing, <em>Javascript/JQuery</em>, and more. The learning is focused through, and culminates in, a final project of our own design.
+    - Bloc got my developing feet wet and helped teach me how to teach myself to tackle any coding obstacle thrown my way.
 - 
-  title: "Harvard University"
-  subtitle: "Cum Laude (2011)"
-  collapse: "already"
+  title: Harvard University
+  subtitle: Cum Laude (2011)
   paragraphs: 
-    - "After four years of debating which major to choose -- mostly torn between Psychology, Econ, Film, and English Lit -- I decided on the least relevant and graduated with an honors English degree and a screenplay for a thesis in May of 2011."
-    - "As a consequence, my undergraduate education has very little to do with my development work, but I feel the four years I spent studying, volunteering, and working instilled in me an excitement about learning that has translated neatly into web development."
-    - "Bloc aside, all of my development knowledge has been self-taught, and I credit both Bloc and college with turning me into a more effective learner, and, by extension, developer."
+    - After four years of debating which major to choose -- mostly torn between Psychology, Econ, Film, and English Lit -- I decided on the least relevant and graduated with an honors English degree and a screenplay for a thesis in May of 2011.
+    - As a consequence, my undergraduate education has very little to do with my development work, but I feel the four years I spent studying, volunteering, and working instilled in me an excitement about learning that has translated neatly into web development.
+    - Bloc aside, all of my development knowledge has been self-taught, and I credit both Bloc and college with turning me into a more effective learner, and, by extension, developer.

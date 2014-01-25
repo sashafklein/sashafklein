@@ -4,6 +4,8 @@ MainApp = angular.module("MainApp", [
   # modules the app depends on
   "ngRoute"
   "Posts"
+  'ui.bootstrap'
+  'Main'
 ])
 
 MainApp.config ($routeProvider) ->

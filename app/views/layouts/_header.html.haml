@@ -1,19 +1,20 @@
-.piglet.navbars.header
-  .container.undecorated
-    .big-screen
-      .seven.columns.left-section
-        = link_to image_tag('pig3.png') + "SASHA KLEIN", resume_path, class: 'pig-link'
-        .only-show-big
-          %p.web-dev WEB DEVELOPER
-      .nine.columns.right-section
-        = link_to "PORTFOLIO", portfolio_path
-        = link_to "DEVLOG", devlog_path
-        - if current_user
-          .only-show-big.inline
-            = link_to "", wikis_path, class: "icon-file"
-            = link_to "", logout_path, class: "icon-circle-blank"
-    .mobile
-      .inline-mobile.mobile-header-links
-        = link_to "RESUME", resume_path
-        = link_to "PORTFOLIO", portfolio_path
-        = link_to "DEVLOG", devlog_path
+.navbars.thin_lower_band.navbar-fixed-top.header
+  .piglet.navbars.header
+    .container.undecorated
+      .big-screen
+        .seven.columns.left-section
+          = link_to image_tag('pig3.png') + "SASHA KLEIN", resume_path, class: 'pig-link'
+          .only-show-big
+            %p.web-dev WEB DEVELOPER
+        .nine.columns.right-section
+          = link_to "PORTFOLIO", portfolio_path
+          = link_to "DEVLOG", devlog_path
+          - if current_user
+            .only-show-big.inline
+              = link_to "", wikis_path, class: "icon-file"
+              = link_to "", logout_path, class: "icon-circle-blank"
+      .mobile
+        .inline-mobile.mobile-header-links
+          = link_to "RESUME", resume_path
+          = link_to "PORTFOLIO", portfolio_path
+          = link_to "DEVLOG", devlog_path

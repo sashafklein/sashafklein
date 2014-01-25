@@ -1,2 +1,4 @@
-= yield
+= render 'layouts/header' 
+%div{ style: 'margin-top: 120px' }= yield
+%div{ ng_view: true }
 = render 'layouts/mobile_footer'

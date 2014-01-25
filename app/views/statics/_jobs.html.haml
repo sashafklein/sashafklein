@@ -1,20 +1,14 @@
+- styles = 'font-size: 100%;height:35px'
 %h1.squeeze Work Experience
 .inset.experience.blue_links
-  - @jobs.each do |job| 
-    - if job.link.present?
-      %h3
-        %a.blue_links{:href => job.link }
-          %span{:style => "font-size:105%"}= job.title
-          %small{:style => "color:#88b0d2;"} 
-            = job.subtitle 
-          >>
-    - else
-      .cl
-        .collapse-group
-          %h3.squeeze.bold
-            = job.title
-            %small= job.subtitle
-            %a.bundle.unbold{ href: '#' } +
-          .collapse.inset
-            - job.paragraphs.each do |paragraph|
-              %p.blue_links= raw paragraph
+  %accordion
+    - @jobs.each do |job| 
+      - if job.link.present?
+        .collapse-title{ style: styles + ';margin-top:7px'}
+          %a.blue_links{ href: job.link }
+            %span{style: "font-size:105%"}= job.title
+            %small{style: "color:#88b0d2;"} 
+              = job.subtitle 
+            >>
+      - else
+        = render 'item_collapse', { item: job, styles: styles, isopen: job.starts_open }

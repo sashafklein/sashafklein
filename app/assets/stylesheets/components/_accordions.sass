@@ -1,0 +1,25 @@
+@mixin no-border
+  background: transparent !important
+  border-radius: 0 !important
+  border: none !important
+  border-color: transparent !important
+  box-shadow: none !important
+
+.panel-group
+  margin-bottom: 15px
+.panel
+  +no-border
+  .panel-heading
+    +no-border
+    padding: 0
+    .panel-title
+      .collapse-title
+        color: #000
+        cursor: pointer
+        i
+          margin-left: 5px
+  .panel-collapse
+    +no-border
+    .panel-body
+      padding-bottom: 0px
+      +no-border

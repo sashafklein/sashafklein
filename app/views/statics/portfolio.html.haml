@@ -19,7 +19,7 @@
   .mobile-only
     - @portfolio_items.each_with_index do |item, index|
     
-      %h1= item.title
+      %h1{ class: "#{'buffer-top' if index == 0}" }= item.title
       %h2= item.subtitle
       .six.columns.right-bar.black_links{ class: top?(index) }
         = link_to image_tag(item.image, class: "port_photo", alt: item.title), item.link, style: photo_margin_top?(index)
