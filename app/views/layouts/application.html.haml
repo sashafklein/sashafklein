@@ -17,8 +17,11 @@
     .container
       - flash.each do |key, value|
         = content_tag(:div, value, class: "alert alert-#{key} button.close")      
-    = yield
+    
+    = render 'layouts/content-yields'
+
     %div{ ng_view: true }
+
 
     .bottom_buffer
     .navbars.navbar-fixed-bottom.footer

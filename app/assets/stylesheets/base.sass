@@ -4,6 +4,12 @@ body
   font-family: helvetica, sans-serif
   font-size: 15px
 
+.inline-mobile
+  display: none
+
+.inline
+  display: inline-block
+
 .inner
   width: 85%
   margin: auto
@@ -62,7 +68,11 @@ body
   padding-top: 5px
   padding-bottom: 2px
   margin-bottom: 10px
-
+  .left-section
+    .only-show-big
+      display: inline-block
+  .right-section
+    text-align: right
 
 .logout
   margin-left: -20px
@@ -94,7 +104,7 @@ body
       color: $codebox
 
 .top_buffer
-  height: 120px
+  height: 60px
 
 .bottom_buffer
   height: 50px
@@ -288,3 +298,29 @@ button.close
 .row
   a:hover
     color: $pigPink
+
+.no-side-margins
+  margins: 0 0 20px 0 !important
+
+.big-icons
+  font-size: 150% !important
+  img
+    width: 90% !important
+
+p.web-dev
+  color: #ffcece
+  display: inline-block
+  margin-left: -5px
+
+.mobile-footer
+  margin-top: 0
+  font-size: 200%
+  line-height: 1.6
+  text-align: center
+  a
+    color: black
+    &:hover
+      color: $pigPink
+
+.mobile-only
+  display: none

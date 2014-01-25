@@ -1,33 +1,13 @@
-.row.container{ ng_init: 'init()', ng_cloak: true }
+.row.container.sixteen.columns{ ng_init: 'init()', ng_cloak: true }
+	.six.columns.right-bar.med-and-up
+		= render 'sidebar'
 
-	.sidebar-nav-fixed.blog_list.four.columns
-		
-		%h1.squeeze Recent Posts
-
-		%ul
-			%li.total_hover{ ng_repeat: 'post in postList' }
-				%a#link_name{ ng_href: '{{postShowPath(post)}}' }
-					{{ post.name }}
-					%span.manual_small {{ post.created_at | date:'mediumDate' }}
-		
-		.link_disclaimer{ ng_if: 'postLimit > 5' }
-			%h6 ---
-			%h5 Showing {{postLimit}} most recent.
-			%h5.blue_links 
-				See
-				%a{ ng_href: '{{postArchivePath}}' }archive 
-				for more.
-
-		.prevnext 
-			.prev-post{ ng_hide: '!previousPost' }
-				%a{ ng_href: '{{ postShowPath(previousPost) }}' } << PREV
-			%a{ ng_if: 'userSignedIn', ng_href: "{{ postEditPath(mainPost) }}", style: "margin-right:10px;" } EDIT
-			.next-post{ ng_hide: '!nextPost' }
-				%a{ ng_href: '{{ postShowPath(nextPost) }}' }NEXT >>
-
-	.seven.columns.left-bar.move-right#blog_content
+	.nine.columns.mobile-only.blog_list#blog_content
 		%h1.squeeze
 			{{ mainPost.name }}
 			%small ({{mainPost.created_at | date:'shortDate' }})
 		
 		.markdown{ markdown: '{{mainPost.content}}' }
+
+.sixteen.columns.mobile-only.bottom-sidebar
+	= render 'sidebar'

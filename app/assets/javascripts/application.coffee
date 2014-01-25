@@ -1,6 +1,5 @@
 #= require jquery
 #= require jquery_ujs
-#= require bootstrap
 #= require lib/angular.min
 #= require lib/angular-resource.min
 #= require lib/angular-route.min

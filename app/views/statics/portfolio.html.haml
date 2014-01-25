@@ -1,17 +1,33 @@
 - provide(:title, 'Web Portfolio')
 
-.portstuff
-  - @portfolio_items.each_with_index do |item, index|
-    .row.container{ class: top?(index) }
-      .span4.black_links
+.portstuff.row.container.sixteen.columns
+  .med-and-up
+    - @portfolio_items.each_with_index do |item, index|
+      .six.columns.right-bar.black_links{ class: top?(index) }
         = link_to image_tag(item.image, class: "port_photo", alt: item.title), item.link, style: photo_margin_top?(index)
         - if item.bullets
           %ul.port_list
             - item.bullets.each do |bullet|
               %li= bullet
 
-      .span7.left-bar.move-right#meatup
+      .nine.columns
         %h1= item.title
         %h2= item.subtitle
+        - item.paragraphs.each do |paragraph|
+          %p= raw paragraph
+
+  .mobile-only
+    - @portfolio_items.each_with_index do |item, index|
+    
+      %h1= item.title
+      %h2= item.subtitle
+      .six.columns.right-bar.black_links{ class: top?(index) }
+        = link_to image_tag(item.image, class: "port_photo", alt: item.title), item.link, style: photo_margin_top?(index)
+        - if item.bullets
+          %ul.port_list
+            - item.bullets.each do |bullet|
+              %li.mobile= bullet
+
+      .nine.columns
         - item.paragraphs.each do |paragraph|
           %p= raw paragraph

@@ -1,11 +1,10 @@
 - provide(:title, 'Resume')
 
 .row.container.sixteen.columns.undecorated
-
-  .six.columns.right-bar
+  .six.columns.right-bar.med-and-up
     = render "headshot"
     = render "skills"
 
-  .nine.columns
+  .nine.columns.mobile-section
     = render "education"
     = render 'jobs'

@@ -1,0 +1,23 @@
+.mobile-only.thick-bar
+%h1.squeeze Recent Posts
+
+%ul
+  %li.total_hover{ ng_repeat: 'post in postList' }
+    %a#link_name{ ng_href: '{{postShowPath(post)}}' }
+      {{ post.name }}
+      %span.manual_small {{ post.created_at | date:'mediumDate' }}
+
+.link_disclaimer{ ng_if: 'postLimit > 5' }
+  %h6 ---
+  %h5 Showing {{postLimit}} most recent.
+  %h5.blue_links 
+    See
+    %a{ ng_href: '{{postArchivePath}}' }archive 
+    for more.
+
+.prevnext 
+  .prev-post{ ng_hide: '!previousPost' }
+    %a{ ng_href: '{{ postShowPath(previousPost) }}' } << PREV
+  .next-post{ ng_hide: '!nextPost' }
+    %a{ ng_href: '{{ postShowPath(nextPost) }}' }NEXT >>
+  %a{ ng_if: 'userSignedIn', ng_href: "{{ postEditPath(mainPost) }}" } EDIT

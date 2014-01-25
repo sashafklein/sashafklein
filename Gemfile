@@ -40,6 +40,7 @@ group :assets do
   gem 'ezcrypto'
   gem 'ngmin-rails'
   gem 'compass-rails'
+  gem 'compass-flexbox'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

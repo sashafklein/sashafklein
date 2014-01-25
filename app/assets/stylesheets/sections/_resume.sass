@@ -6,14 +6,23 @@
     h1.squeeze
       margin-top: -3px
   .skillz
-    text-align: center
-    table
-      width: 100%
-      margin: auto
-    font-size: 115%
-    td
-      height: 30px
+    margin-left: 38px
+    text-align: right
+    .three
       text-align: right
+    .two
+      margin-top: 4px
+  @media only screen and (max-width: 960px)
+    .skillz
+      margin-left: 0px
+      .two
+        width: 100px
+    .headshot_box
+      .link_icons
+        a
+          font-size: 85%
+
+    
   .stars
     img
       float: left
@@ -22,6 +31,7 @@
   .skillset
     text-align: right
     margin-right: 20px
+
   .skill_links
     color: black
     font-family: 'Rockwell'
@@ -39,18 +49,24 @@
       margin-top: 0px
   
   .headshot_box
-    padding: 0px 0 20px 2px
-    margin-right: 20px
+    padding: 0px 0 20px 60px
     .link_icons
-      font-size: 90%
-      margin: 10px 0 20px 0
-      text-align: right
+      font-size: 110%
+      margin: 0px 0 20px 0
+      +display-flex
+      +justify-content(center)
       a
-        color: $blue_link
+        margin: 10px
+        color: black
+        &:hover
+          color: $pigPink
+        i
+          margin-right: 0px
+          font-size: 120%
       img
         margin: 0 4px 0 8px
     .headshot
-      text-align: right
+      text-align: center
       img
         width: 85%
         border: 5px solid $heavyGray

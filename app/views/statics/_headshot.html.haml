@@ -1,6 +1,9 @@
 .headshot_box
-  .headshot.only-show-big= image_tag('headshot.png')
+  .headshot= image_tag('headshot.png')
   .link_icons
-    = link_to image_tag('github.png') + "github", 'https://www.github.com/sashafklein'
-    = link_to image_tag('odesk2.png') + "odesk", 'https://www.odesk.com/users/~01e74747c979a7bfd6'
-    = link_to image_tag('email.png') + "email", '/contact'
+    %a{ href: 'https://www.github.com/sashafklein' }
+      %i.icon-github
+      Github
+    %a{ href: '/contact' }
+      %i.icon-envelope-alt
+      Contact

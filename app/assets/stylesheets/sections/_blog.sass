@@ -1,6 +1,5 @@
 .posts
   #blog_content
-    margin-left: 320px
   .blog_list
     li
       clear: left
@@ -94,7 +93,7 @@
     border: 5px solid
     float: left
     margin-bottom: 10px
-    width: 530px
+    width: 100%
 
   .blog_links
     margin-left: 10px
@@ -107,30 +106,23 @@
 
   /* pagination */
   .prevnext
-    margin-right: 10px
-    float: center
     background: transparent
     cursor: default
-    height: 22px
     text-align: center
-    display: inline-block
-    margin: auto
-    .disabled
-      display: none
+    +display-flex
+    +justify-content(center)
     a
+      margin: 0 5px 0 5px
       font-size: 90%
       padding: 7px
       text-decoration: none
       color: $blue_link
       border: 1px solid #9aafe5
-      width: 65px
       display: inline-block
-      margin: auto
-      float: center
       &:hover
         background-color: $grayMediumLight
-    .next-post, .prev-post
-      display: inline-block
+      &.disabled
+        display: none
     
   .markdown
     a
