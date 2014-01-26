@@ -1,7 +1,7 @@
-.navbars.thin_lower_band.navbar-fixed-top.header
-  .piglet.navbars.header
-    .container.undecorated
-      .big-screen
+.header
+  .navbars.top-bar.fix-to-top
+    .container.undecorated.sixteen.columns
+      .big-screen.piglet
         .seven.columns.left-section
           = link_to image_tag('pig3.png') + "SASHA KLEIN", resume_path, class: 'pig-link'
           .only-show-big
@@ -18,3 +18,4 @@
           = link_to "RESUME", resume_path
           = link_to "PORTFOLIO", portfolio_path
           = link_to "DEVLOG", devlog_path
+  .navbar-spacer

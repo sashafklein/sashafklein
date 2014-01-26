@@ -1,0 +1,65 @@
+.header
+
+  // For both mobile and not
+  .fix-to-top
+    position: fixed
+    opacity: .95
+    z-index: 99
+    width: 100%
+    margin-top: -5px
+
+  .navbar-spacer
+    height: 80px
+
+  .navbars.top-bar
+    box-shadow: 0 0 0 5px rgba(0,0,0,0.4)
+    font-size: 90%
+    background-color: $navColor
+    .pig-link
+      img
+        vertical-align: middle
+        margin: -15px 15px -5px 20px
+    a
+      &:link, &:visited
+        font-size: 200%
+        color: white
+        margin-right: 15px
+      &:hover
+        color: $pigPink
+        text-decoration: none
+      &:active
+        color: $codebox
+
+    // For large screens
+    .big-screen
+      padding-top: 10px
+      .left-section
+        float: left
+        padding: 10px 0 20px
+      .right-section
+        float: right
+        display: inline-block
+        padding: 10px 0 20px
+      .inline
+        display: inline-block
+
+    // For Mobile (max 767)
+    @media only screen and (max-width: 767px)
+      .mobile
+        .inline-mobile.mobile-header-links
+          display: inline-block
+          text-align: center
+          a
+            line-height: 1.6
+            font-size: 200%
+
+  // Resizing of the spacer on small screens          
+  @media only screen and (max-width: 767px)
+    .navbar-spacer
+      height: 100px
+  @media only screen and (max-width: 480px)
+    .navbar-spacer
+      height: 0px
+    .fix-to-top
+      position: static
+      margin-bottom: 20px
