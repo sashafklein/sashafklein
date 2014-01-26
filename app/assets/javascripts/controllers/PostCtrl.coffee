@@ -6,9 +6,10 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
 
   $s = $scope
 
-  $s.postLimit = 5
+  $s.postLimit = 8
   $s.apiPostsPath = '/api/v1/posts'
   $s.postArchivePath = '#/'
+  $s.postsAreLimited = -> $s.postList?.length == $s.postLimit
 
   $s.init = ->
     $s.getPost().then ->
@@ -42,6 +43,7 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
         console.log "Something went wrong!"
 
   $s.getPostList = ->
+    console.log 'postList', $s.postList
     unless $s.postList?
       $http.get($s.apiPostsPath, params: { limit: $s.postLimit })
         .success (response) ->

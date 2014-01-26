@@ -2,7 +2,7 @@
 	.six.columns.right-bar.med-and-up.sidebar
 		= render 'sidebar'
 
-	.nine.columns.mobile-only.blog_list#blog_content
+	.nine.columns.mobile-only.blog_list#blog_content{ ng_if: 'mainPost' }
 		%h1.squeeze.small-buffer-top
 			{{ mainPost.name }}
 			%small ({{mainPost.created_at | date:'shortDate' }})

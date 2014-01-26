@@ -1,5 +1,5 @@
 %ul.blog_links
-  %input{ type: 'text', ng_model: 'query', style: 'text-align: left' }
+  %input{ type: 'text', ng_model: 'query', style: 'text-align: left; margin: auto' }
   .centerify.archive#list
     %h2{ ng_repeat: 'post in postList | filter:query' }
       %a{ ng_href: '{{postShowPath(post)}}' } {{ post.name }}
