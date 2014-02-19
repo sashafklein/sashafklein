@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319171116) do
+ActiveRecord::Schema.define(:version => 20140219220026) do
 
   create_table "emails", :force => true do |t|
     t.string   "subject"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(:version => 20130319171116) do
     t.integer  "topic_id"
   end
 
+  create_table "portfolio_items", :force => true do |t|
+    t.string "title"
+    t.string "subtitle"
+    t.string "image"
+    t.string "link"
+    t.text   "bullet_blob"
+    t.text   "text_blob"
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "name"
     t.text     "content"
@@ -39,6 +48,22 @@ ActiveRecord::Schema.define(:version => 20130319171116) do
   end
 
   add_index "posts", ["slug"], :name => "index_posts_on_slug", :unique => true
+
+  create_table "resume_items", :force => true do |t|
+    t.string  "title"
+    t.string  "kind"
+    t.string  "subtitle"
+    t.string  "link"
+    t.boolean "starts_open", :default => false
+    t.text    "description"
+  end
+
+  create_table "skills", :force => true do |t|
+    t.string  "name"
+    t.string  "tooltip"
+    t.integer "stars"
+    t.string  "link"
+  end
 
   create_table "topics", :force => true do |t|
     t.string   "name"

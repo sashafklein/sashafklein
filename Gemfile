@@ -31,6 +31,10 @@ group :development, :test do
   gem 'rspec-rails' 
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-nav'
 end
 
 # Gems used only for assets and not required
