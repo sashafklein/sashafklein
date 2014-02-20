@@ -21,7 +21,7 @@ Sashafklein::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do 
-      resources :posts, only: [:show, :index] do 
+      resources :posts, only: [:new, :create, :update, :show, :index] do 
         get :test_user, on: :collection
       end
     end

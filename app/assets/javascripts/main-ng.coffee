@@ -15,9 +15,19 @@ MainApp.config ($routeProvider) ->
         templateUrl: 'post_archive.html'
         controller: 'PostCtrl'
       }
+    .when '/new', 
+      {
+        templateUrl: 'new_post.html'
+        controller: 'PostCtrl'
+      }
     .when '/:postSlug', 
       {
         templateUrl: 'show_post.html'
+        controller: 'PostCtrl'
+      }
+    .when '/:postSlug/edit', 
+      {
+        templateUrl: 'edit_post.html'
         controller: 'PostCtrl'
       }
     .otherwise

@@ -1,0 +1,7 @@
+- provide(:title, 'Edit')
+.row.container{ ng_init: 'initEdit()'}
+	%h1 Editing post
+
+	= render 'form'
+
+	%a{ ng_href: '{{postArchivePath}}' } Back

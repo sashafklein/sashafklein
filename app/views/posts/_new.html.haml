@@ -1,0 +1,7 @@
+- provide(:title, 'New Post')
+.row.container{ ng_init: 'initNew()'}
+  %h1 New post
+
+  = render 'form'
+
+  %a{ ng_href: '{{postArchivePath}}' } Back

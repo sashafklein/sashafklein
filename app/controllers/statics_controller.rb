@@ -1,8 +1,4 @@
 class StaticsController < ApplicationController
-	
-	def about
-	end
-
 	def landing
 		render layout: 'landing'
 	end
@@ -15,11 +11,6 @@ class StaticsController < ApplicationController
 
 	def portfolio
 		@portfolio_items = PortfolioItem.all
-	end
-	
-	def devlog
-		@post = Post.last
-		redirect_to @post
 	end
 
 end

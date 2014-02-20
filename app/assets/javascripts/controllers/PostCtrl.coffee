@@ -11,12 +11,23 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
   $s.postArchivePath = '#/'
   $s.postsAreLimited = -> $s.postList?.length == $s.postLimit
 
+  $s.initEdit = -> $s.getPost()
+  $s.initNew = ->
+    $s.mainPost = {}
+
   $s.init = ->
     $s.getPost().then ->
       $s.getPostList().then ->
         $s._testUser().then ->
           $s.getPreviousPost()
           $s.getNextPost()
+
+  $s.createOrUpdate = ->
+    $http.put( $s.apiPostPath(), $s._neatPostParams() )
+      .success (response) -> 
+        console.log response
+      .error (response) -> 
+        alert(response)
   
   $s.postShowPath = (post) ->
     if post?
@@ -24,7 +35,7 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
 
   $s.postEditPath = (post) ->
     if post?
-      "/posts/#{post.slug}/edit"
+      "/posts#/#{post.slug}/edit"
 
   $s.apiPostPath = () -> "/api/v1/posts/#{$routeParams.postSlug}"
 
@@ -43,7 +54,6 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
         console.log "Something went wrong!"
 
   $s.getPostList = ->
-    console.log 'postList', $s.postList
     unless $s.postList?
       $http.get($s.apiPostsPath, params: { limit: $s.postLimit })
         .success (response) ->
@@ -60,5 +70,11 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
     list = _($s.postList).select (post) -> post.id > $s.mainPost.id
     if list.length
       $s.nextPost = list[list.length - 1]
+
+  $s._neatPostParams = ->
+    post: 
+      name: $s.mainPost.name
+      content: $s.mainPost.content
+      id: $s.mainPost.id
 
   $s._testUserPath = '/api/v1/posts/test_user'

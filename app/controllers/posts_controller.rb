@@ -17,11 +17,13 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    render '/ng_templates/template'
+    # @post = Post.new
   end
 
   def edit
-    @post = Post.find_by_slug_or_id(params[:id])
+    render '/ng_templates/template'
+    # @post = Post.find_by_slug_or_id(params[:id])
   end
 
   def create

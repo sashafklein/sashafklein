@@ -1,21 +1,10 @@
-= form_for(@post) do |f|
-  - if @post.errors.any?
-    .error_explanation
-      %h2
-        = pluralize(@post.errors.count, "error") 
-        prohibited this post from being saved:
-      %ul
-        - @post.errors.full_messages.each do |msg|
-          %li= msg
+%form{ ng_submit: 'createOrUpdate()'} 
 
-  .field
-    = f.label :name
-    %br
-    = f.text_field :name, id: "name"
-  .field.text-area
-    = f.label :content
-    %br
-    = f.text_area(:content, :size => '50x20', id: "content")
+  %label Post Title
+  %input{ type: 'text', ng_model: 'mainPost.name', placeholder: 'New Post'}
+
+  %label Post content
+  %textarea#content{ rows: 15, style: 'width:100%', ng_model: 'mainPost.content' }
 
   .actions.btn-group
-    = f.submit 'Post It', class: "btn"
+    %input{ type: 'submit' }
