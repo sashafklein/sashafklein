@@ -23,7 +23,7 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
           $s.getNextPost()
 
   $s.createOrUpdate = ->
-    $http.put( $s.apiPostPath(), $s._neatPostParams() )
+    $http.put( $s.apiPostPath($s.mainPost.id || 0), $s._neatPostParams() )
       .success (response) -> 
         window.location = $s.postShowPath(response.post)
       .error (response) -> 
@@ -39,7 +39,12 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
 
   $s.newPostPath = "/posts#/new"
 
-  $s.apiPostPath = () -> "/api/v1/posts/#{$routeParams.postSlug}"
+  
+  $s.apiPostPath = (post_id) -> 
+    if post_id?
+      "/api/v1/posts/#{post_id}"
+    else
+      "/api/v1/posts/#{$routeParams.postSlug}"
 
   $s._testUser = ->
     $http.get( $s._testUserPath )
@@ -77,6 +82,6 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
     post: 
       name: $s.mainPost.name
       content: $s.mainPost.content
-      id: $s.mainPost.id
+      id: $s.mainPost.id || 0 
 
   $s._testUserPath = '/api/v1/posts/test_user'

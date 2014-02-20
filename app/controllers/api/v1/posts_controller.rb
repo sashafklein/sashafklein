@@ -25,7 +25,8 @@ class Api::V1::PostsController < ApiController
   end
 
   def update
-    post = Post.find_by_slug_or_id(params[:post].delete(:id)) || Post.new
+    id = params[:post].delete :id
+    post = id == 0 ? Post.new : Post.find_by_slug_or_id(id)
     
     if post.update_attributes(params[:post])
       render json: {post: post}
