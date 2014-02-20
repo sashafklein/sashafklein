@@ -15,4 +15,9 @@ class User < ActiveRecord::Base
 
   validates :name, uniqueness: {case_sensitive: false}
 
+  def parsed
+    {
+      name: name
+    }
+  end
 end

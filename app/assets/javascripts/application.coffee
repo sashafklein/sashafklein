@@ -8,3 +8,5 @@
 #= require lib/ui-bootstrap.min
 #= require lib/underscore.min
 #= require_tree .
+
+MainApp = window.MainApp

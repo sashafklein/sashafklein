@@ -15,12 +15,13 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
   $s.initNew = ->
     $s.mainPost = {}
 
+  window.s = $s
+
   $s.init = ->
     $s.getPost().then ->
       $s.getPostList().then ->
-        $s._testUser().then ->
-          $s.getPreviousPost()
-          $s.getNextPost()
+        $s.getPreviousPost()
+        $s.getNextPost()
 
   $s.createOrUpdate = ->
     $http.put( $s.apiPostPath($s.mainPost.id || 0), $s._neatPostParams() )
@@ -46,12 +47,9 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
     else
       "/api/v1/posts/#{$routeParams.postSlug}"
 
-  $s._testUser = ->
-    $http.get( $s._testUserPath )
-      .success -> 
-        $s.userSignedIn = true
-      .error -> 
-        $s.userSignedIn = false
+  $s.app = window.MainApp
+
+  $s.userSignedIn = -> $s.app.current_user == 'sashafklein'
 
   $s.getPost = ->
     $http.get( $s.apiPostPath() )
@@ -83,5 +81,3 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
       name: $s.mainPost.name
       content: $s.mainPost.content
       id: $s.mainPost.id || 0 
-
-  $s._testUserPath = '/api/v1/posts/test_user'

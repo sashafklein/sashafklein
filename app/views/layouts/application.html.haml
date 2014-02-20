@@ -16,6 +16,9 @@
     .bottom_buffer
     .navbars.navbar-fixed-bottom.footer
 
+  :javascript
+    window.MainApp = { current_user: "#{ current_user ? current_user.name : nil }" }
+
 - if controller_path == 'posts'
   %script{type: "text/ng-template", id: "show_post.html"}= render 'posts/show'
   %script{type: "text/ng-template", id: "post_archive.html"}= render 'posts/archive'
