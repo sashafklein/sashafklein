@@ -21,4 +21,6 @@
   %a{ ng_if: '!postsAreLimited()', ng_href: "{{postArchivePath}}"} MORE
   .next-post{ ng_hide: '!nextPost' }
     %a{ ng_href: '{{ postShowPath(nextPost) }}' }NEXT >>
-  %a{ ng_if: 'userSignedIn', ng_href: "{{ postEditPath(mainPost) }}" } EDIT
+  .admin{ ng_show: 'userSignedIn'}
+    %a{ ng_href: "{{ postEditPath(mainPost) }}" } EDIT
+    %a{ ng_href: '{{ newPostPath }}' } NEW

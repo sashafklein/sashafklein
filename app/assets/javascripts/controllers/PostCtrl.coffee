@@ -37,6 +37,8 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
     if post?
       "/posts#/#{post.slug}/edit"
 
+  $s.newPostPath = "/posts#/new"
+
   $s.apiPostPath = () -> "/api/v1/posts/#{$routeParams.postSlug}"
 
   $s._testUser = ->
