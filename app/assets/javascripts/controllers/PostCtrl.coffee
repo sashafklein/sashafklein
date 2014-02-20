@@ -25,7 +25,7 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
   $s.createOrUpdate = ->
     $http.put( $s.apiPostPath(), $s._neatPostParams() )
       .success (response) -> 
-        console.log response
+        window.location = $s.postShowPath(response.post)
       .error (response) -> 
         alert(response)
   
