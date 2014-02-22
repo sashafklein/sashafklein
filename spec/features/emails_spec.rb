@@ -2,12 +2,9 @@ require 'spec_helper'
 
 describe "Contact email:" do
 
-	subject { page }
-
-	before { visit new_email_path }
-
 	describe "Valid email - go to root" do
 		it "should send a message if filled out correctly" do
+			visit new_email_path
 			current_path.should eq(new_email_path)
 			Email.destroy_all
 			assert Email.count == 0, "Real count: #{Email.count}"
