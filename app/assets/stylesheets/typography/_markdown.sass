@@ -3,19 +3,34 @@
   font-size: 105%
   .codebox
     margin: 20px 0
-    width: 100% // Maybe make 130?
-    background-color: lighten($codebox, 15)
+  h4
+    margin-top: 20px
+    margin-bottom: 5px
     +box-shadow(0.5px 0.5px 5px #333)
+    background-color: lighten($codebox, 8)
+    padding-left: 10px
+    z-index: 99
+    font-weight: bold
+    code
+      background-color: lighten($codebox, 8)
+      color: black
   pre
+    +box-shadow(0.5px 0.5px 5px #333)
+    border-top: none
+    background-color: lighten($codebox, 8)
+    margin-bottom: 20px
+    padding: 7px
     white-space: pre
     overflow: scroll
     word-wrap: normal
-    background-color: lighten(#333, 2)
     code
+      white-space: pre
+      overflow-x: scroll
+      word-wrap: normal
+      background-color: lighten(#333, 2)
       font-family: 'Rockwell'
       display: block
       padding: 0.5em
-      font-size: 1.1em
       span
         font-size: 100%
   a:hover
