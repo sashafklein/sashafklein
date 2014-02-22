@@ -6,5 +6,9 @@
   %label Post content
   %textarea#content{ rows: 15, style: 'width:100%', ng_model: 'mainPost.content' }
 
+  %div{ ng_if: '!mainPost.id'}
+    %label Post Date
+    %input{ type: 'text', ng_model: 'mainPost.date', placeholder: '1988-08-13'}
+
   .actions.btn-group
     %input{ type: 'submit' }

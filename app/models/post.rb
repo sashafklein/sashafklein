@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
 require 'net/http'
 require 'uri'
 
-  attr_accessible :content, :name
+  attr_accessible :content, :name, :created_at
 
   before_validation :generate_slug
 

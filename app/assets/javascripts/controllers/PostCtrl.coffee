@@ -15,8 +15,6 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
   $s.initNew = ->
     $s.mainPost = {}
 
-  window.s = $s
-
   $s.init = ->
     $s.getPost().then ->
       $s.getPostList().then ->
@@ -24,11 +22,17 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
         $s.getNextPost()
 
   $s.createOrUpdate = ->
-    $http.put( $s.apiPostPath($s.mainPost.id || 0), $s._neatPostParams() )
+    postAction = if $s.mainPost.id? then $s._updatePost else $s._createPost
+
+    postAction()
       .success (response) -> 
         window.location = $s.postShowPath(response.post)
       .error (response) -> 
         alert(response)
+
+  $s._createPost = -> $http.post( $s.apiPostsPath, $s._neatPostParams() )
+
+  $s._updatePost = -> $http.put( $s.apiPostPath($s.mainPost.id), $s._neatPostParams() )
   
   $s.postShowPath = (post) ->
     if post?
@@ -77,7 +81,11 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
       $s.nextPost = list[list.length - 1]
 
   $s._neatPostParams = ->
-    post: 
+    params = post: 
       name: $s.mainPost.name
       content: $s.mainPost.content
-      id: $s.mainPost.id || 0 
+    if $s.mainPost.id?
+      params.post = _(params.post).extend {id: $s.mainPost.id}
+    if $s.mainPost.date?
+      params.post = _(params.post).extend {date: $s.mainPost.date}
+    return params
