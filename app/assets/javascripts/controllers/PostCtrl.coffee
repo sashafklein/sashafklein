@@ -24,6 +24,8 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
   $s.apiPostPath = (post_id) -> if post_id? then "/api/v1/posts/#{post_id}" else "/api/v1/posts/#{$routeParams.postSlug}"
   
   $s.createOrUpdate = ->
+    _postAction = if $s.mainPost.id? then $s._updatePost else $s._createPost
+
     _postAction()
       .success (response) -> 
         window.location = $s.postShowPath(response.post)
@@ -66,4 +68,3 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
 
   $s._createPost = -> $http.post( $s.apiPostsPath, $s._neatPostParams() )
   $s._updatePost = -> $http.put( $s.apiPostPath($s.mainPost.id), $s._neatPostParams() )
-  $s._postAction = -> if $s.mainPost.id? then $s._updatePost() else $s._createPost()
