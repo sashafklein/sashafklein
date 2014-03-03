@@ -6,6 +6,9 @@
   %label Post content
   %textarea#content{ rows: 15, style: 'width:100%', ng_model: 'mainPost.content' }
 
+  %label Post example
+  %textarea#example{ rows: 5, style: 'width:100%', ng_model: 'mainPost.example' }
+
   %div{ ng_if: '!mainPost.id'}
     %label Post Date
     %input{ type: 'text', ng_model: 'mainPost.date', placeholder: '1988-08-13'}

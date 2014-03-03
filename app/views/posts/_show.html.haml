@@ -8,6 +8,6 @@
 			%small ({{mainPost.created_at | date:'shortDate' }})
 		
 		.markdown{ markdown: '{{mainPost.content}}' }
-
+		.example{ render_html: '{{mainPost.example}}' }
 .sixteen.columns.mobile-only.bottom-sidebar
 	= render 'sidebar'

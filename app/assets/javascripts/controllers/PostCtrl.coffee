@@ -2,7 +2,7 @@
 
 postModule = angular.module('Posts', ['markdown'])
 
-postModule.controller "PostCtrl", ($scope, $http, $routeParams) -> 
+postModule.controller "PostCtrl", ($scope, $http, $routeParams, $sce) -> 
 
   $s = $scope
 
@@ -62,6 +62,7 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams) ->
     params = post: 
       name: $s.mainPost.name
       content: $s.mainPost.content
+      example: $s.mainPost.example
     if $s.mainPost.id? then params.post = _(params.post).extend {id: $s.mainPost.id}
     if $s.mainPost.date? then params.post = _(params.post).extend {date: $s.mainPost.date}
     return params

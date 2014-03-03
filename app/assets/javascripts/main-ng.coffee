@@ -1,4 +1,11 @@
-#= require_tree ./controllers
+#= require_self
+#= require controllers/PostCtrl
+#= require controllers/ResumeCtrl
+#= require controllers/example
+
+#= require directives/markdown
+#= require directives/preview
+#= require directives/render_html
 
 MainApp = angular.module("MainApp", [
   # modules the app depends on
@@ -6,6 +13,9 @@ MainApp = angular.module("MainApp", [
   "Posts"
   'ui.bootstrap'
   'Main'
+  'Example'
+  'Preview'
+  'RenderHtml'
 ])
 
 MainApp.config ($routeProvider) ->
