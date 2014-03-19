@@ -2,7 +2,7 @@
 
 postModule = angular.module('Posts', ['markdown'])
 
-postModule.controller "PostCtrl", ($scope, $http, $routeParams, $sce) -> 
+postModule.controller "PostCtrl", ($scope, $http, $routeParams, $sce, $rootScope) -> 
 
   $s = $scope
 
@@ -42,7 +42,7 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams, $sce) ->
   $s.getPostList = ->
     $http.get($s.apiPostsPath, params: { limit: $s.postLimit })
       .success (response) -> 
-        $s.postList = response
+        $rootScope.postList = response
       .error (response) -> 
         console.log "Something went wrong!"
 
