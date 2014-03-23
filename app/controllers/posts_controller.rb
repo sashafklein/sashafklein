@@ -18,20 +18,15 @@ class PostsController < ApplicationController
 
   def new
     render '/ng_templates/template'
-    # @post = Post.new
   end
 
   def edit
     render '/ng_templates/template'
-    # @post = Post.find_by_slug_or_id(params[:id])
   end
 
   def create
     @post = Post.new(params[:post])
-    
-    if false && Rails.env.production?
-      Twitter.update("New post on '#{@post.name}' -- #{@post.tinyfy}")
-    end
+    @post.save!
   end
 
   def update

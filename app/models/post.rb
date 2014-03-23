@@ -23,9 +23,17 @@ require 'uri'
   validates :content, presence: true
   validates :slug, presence: true, uniqueness: true
 
-  def to_param
-    new_name = self.name.gsub(/['`]/, "")
-    "#{id}-#{new_name}".parameterize
+  after_create :tweet!
+
+  def self.find_by_slug_or_id(slug_or_id)
+    is_id = slug_or_id.to_i != 0
+    is_id ? find_by_id(slug_or_id.to_i) : find_by_slug(slug_or_id)
+  end
+
+  private
+
+  def tweet!
+    Tweet.new("New post on '#{name}'", slug).send_if_production!
   end
 
   def generate_slug
@@ -33,51 +41,8 @@ require 'uri'
     self.slug ||= new_name
   end
 
-  def next
-    all = Post.all
-    current = all.index(self)
-    if self == all.last
-      return nil
-    else
-      all[current + 1]
-    end
-  end
-
-  def prev
-    all = Post.all
-    current = all.index(self)
-    if self == all.first
-      return nil
-    else
-      all[current - 1]
-    end
-  end
-
-  def tinyfy(link)
-     url = URI.parse('http://tinyurl.com/')
-     res = Net::HTTP.start(url.host, url.port) {|http|
-     http.get('/api-create.php?url=' + link)
-     }
-     if res.body.empty?
-        #tinyurl is not responding properly… Return the original url
-        return link
-     else
-        return res.body
-     end
-  end
-
-  def self.search(query)
-    query ||=""
-    terms = query.split.map{ |w| w.downcase }
-    results = Post.all
-    terms.each do |t|
-      results.reject!{ |p| !p.name.downcase.include?(t) }
-    end
-    results
-  end
-
-  def self.find_by_slug_or_id(slug_or_id)
-    is_id = slug_or_id.to_i != 0
-    is_id ? find_by_id(slug_or_id.to_i) : find_by_slug(slug_or_id)
+  def to_param
+    new_name = self.name.gsub(/['`]/, "")
+    "#{id}-#{new_name}".parameterize
   end
 end

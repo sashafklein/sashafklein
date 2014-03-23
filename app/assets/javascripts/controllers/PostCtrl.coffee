@@ -5,7 +5,7 @@ postModule = angular.module('Posts', ['markdown'])
 postModule.controller "PostCtrl", ($scope, $http, $routeParams, $sce, $rootScope) -> 
 
   $s = $scope
-
+  window.s = $scope
   $s.init = ->
     $s.getPost().then ->
       $s.getPostList() unless $s.postList
