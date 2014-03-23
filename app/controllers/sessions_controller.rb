@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	user = User.find_by_name(params[:name])
   	if user && user.authenticate(params[:password])
   		session[:user_id] = user.id
-  		redirect_to new_post_path
+  		redirect_to Post.last
   	else
   		flash.now[:error] = "Invalid password/username combo."
   		render 'new' 
