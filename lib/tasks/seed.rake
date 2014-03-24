@@ -1,21 +1,23 @@
 task seed: :environment do 
   url = `heroku pgbackups:url`
-  return "URL copied incorrectly!" if url.blank?
+  raise "URL copy failed!" if url.blank?
 
   Dir['temporarybackup*'].each do |backup|
+    puts "Removing backup #{backup}"
     `rm #{backup}`
   end
 
   backup_name = "temporarybackup-#{Date.today.strftime('%Y-%m-%d')}.dump"
-  `curl #{url} > #{backup_name}`
+  `curl '#{url}' > #{backup_name}`
 
-  puts "dropping db..."
-  `dropdb sashafklein_development`
+  puts "Dropping old db..."
+  raise "Close database connections" unless `dropdb sashafklein_development`
 
-  puts "adding new db..."
+  puts "Creating new db..."
   `createdb sashafklein_development`
-  `pg_restore --no-acl --no-owner -d sashafklein_development #{backup_name}`
-
-  `pg_restore #{backup_name}`
+  
+  puts "Restoring..."
+  `pg_restore --no-owner -c -d sashafklein_development #{backup_name} 2>&1`
+  
   puts "Seed successful. Backup location: #{backup_name}"
 end
