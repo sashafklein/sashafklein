@@ -11,8 +11,7 @@ class Api::V1::PostsController < ApiController
   end
 
   def index
-    limit = params[:limit] ? params[:limit].to_i : 5
-    posts = Post.order('created_at DESC').first(limit)
+    posts = Post.order('created_at DESC')
     render json: posts.to_json
   end
 

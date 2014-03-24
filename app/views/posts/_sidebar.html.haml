@@ -2,7 +2,7 @@
 %h1.squeeze Recent Posts
 
 %ul
-  %li.total_hover{ ng_repeat: 'post in postList' }
+  %li.total_hover{ ng_repeat: 'post in postList | limitTo:postLimit' }
     %a#link_name{ ng_href: '{{postShowPath(post)}}' }
       {{ post.name }}
       %span.manual_small {{ post.created_at | date:'mediumDate' }}

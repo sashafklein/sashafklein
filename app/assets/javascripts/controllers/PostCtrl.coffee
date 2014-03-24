@@ -40,8 +40,7 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams, $sce, $rootScope
         console.log "Something went wrong!"
 
   $s.getPostList = (limit) ->
-    postLimit = if limit? then limit else $s.postLimit
-    $http.get($s.apiPostsPath, params: { limit: postLimit })
+    $http.get($s.apiPostsPath)
       .success (response) -> 
         $rootScope.postList = response
       .error (response) -> 
