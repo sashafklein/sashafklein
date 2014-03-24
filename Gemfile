@@ -23,7 +23,7 @@ group :test do
   gem 'spork', '0.9.2'
   gem 'factory_girl_rails'
   gem 'guard-rspec', '1.2.1'
-  gem 'ruby-debug19'
+  # gem 'ruby-debug19'
 end
 
 group :development, :test do

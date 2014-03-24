@@ -57,6 +57,7 @@ module Sashafklein
     # To satisfy heroku's attempt to satisfy Rails. I don't get it. 
     # config.assets.initialize_on_precompile = false
 
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
     # Enable the asset pipeline
     config.assets.enabled = true
 

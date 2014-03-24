@@ -1,3 +1,6 @@
+require 'net/http'
+require 'uri'
+
 class Tweet
 
   attr_accessor :msg, :link
@@ -6,7 +9,7 @@ class Tweet
     @link = link
   end
 
-  def tweet_if_production!
+  def send_if_production!
     return unless  Rails.env.production?
 
     Twitter.update(full_message)
