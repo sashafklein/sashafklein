@@ -40,8 +40,9 @@ class Api::V1::PostsController < ApiController
 
   def date_from_string(date_string)
     specified_date = Date.parse(date_string)
-    date = specified_date > Date.today ? specified_date : Date.today
-    { created_at: date }
+    date = specified_date < Date.today ? specified_date : Date.today
+
+    return { created_at: date }
   rescue
     return {}
   end
