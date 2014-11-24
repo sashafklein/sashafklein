@@ -2,7 +2,7 @@
 %h1.squeeze Work Experience
 .inset.experience.blue_links
   %accordion
-    - @jobs.each do |job| 
+    - @jobs.order("'order' ASC").each do |job| 
       - if job.link.present?
         .collapse-title{ style: styles + ';margin-top:7px'}
           %a.blue_links{ href: job.link }
