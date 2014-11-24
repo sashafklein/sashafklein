@@ -1,7 +1,7 @@
 - styles = 'font-size: 150%'
 %h1.squeeze Education
 %accordion
-  - @education_items.order("'order' ASC").each do |item|
+  - @education_items.ordered.each do |item|
     - if item.collapse == "dont"
       .collapse-title{ style: styles }
         = item.title

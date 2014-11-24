@@ -3,6 +3,7 @@ class ResumeItem < ActiveRecord::Base
   
   scope :education, -> { where(kind: 'education') }
   scope :jobs, -> { where(kind: 'jobs') }
+  scope :ordered, -> { order("resume_items.order ASC") }
 
   def paragraphs
     description.split("\n")
