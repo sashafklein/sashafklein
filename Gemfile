@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '~> 4.2'
+
 gem 'pygments.rb'
 gem 'redcarpet'
 gem 'annotate'
@@ -11,18 +12,19 @@ gem 'haml'
 gem 'sass-rails'
 gem 'launchy'
 gem 'font-awesome-rails'
+gem 'responders'
 
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# gem 'rails'
 
 group :test do 
-  gem 'capybara', '1.1.2'
+  gem 'capybara'
   gem 'rb-fsevent'
-  gem 'growl', '1.0.3'
-  gem 'guard-spork', '1.2.0'
-  gem 'spork', '0.9.2'
+  gem 'growl'
+  gem 'guard-spork'
+  gem 'spork'
   gem 'factory_girl_rails'
-  gem 'guard-rspec', '1.2.1'
+  gem 'guard-rspec'
   # gem 'ruby-debug19'
 end
 
@@ -39,17 +41,17 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'coffee-rails'
   gem 'ezcrypto'
   gem 'ngmin-rails'
   gem 'compass-rails'
   gem 'compass-flexbox'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  # gem 'therubyracer'
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby'

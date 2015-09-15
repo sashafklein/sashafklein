@@ -1,5 +1,4 @@
 class ResumeItem < ActiveRecord::Base
-  attr_accessible :title, :subtitle, :link, :description, :starts_open, :kind
   
   scope :education, -> { where(kind: 'education') }
   scope :jobs, -> { where(kind: 'jobs') }

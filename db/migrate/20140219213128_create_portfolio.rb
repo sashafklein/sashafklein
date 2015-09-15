@@ -9,9 +9,9 @@ class CreatePortfolio < ActiveRecord::Migration
       t.text :text_blob
     end
 
-    yml_file = YAML.load_file( File.join( Rails.root, 'lib', 'portfolio.yml') )
+    return unless File.exists?( path = File.join( Rails.root, 'lib', 'portfolio.yml') )
     
-    yml_file.each do |item|
+    YAML.load_file( path ).each do |item|
       PortfolioItem.create!(
         title: item['title'],
         subtitle: item['subtitle'],

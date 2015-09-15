@@ -6,13 +6,13 @@ Sashafklein::Application.routes.draw do
 
   resources :users, :sessions, :emails, :wikis, :posts
 
-  match '/portfolio', to: 'statics#portfolio'
-  match '/devlog', to: 'posts#devlog'
+  get '/portfolio', to: 'statics#portfolio'
+  get '/devlog', to: 'posts#devlog'
   get '/landing', to: 'statics#landing'
   get '/resume', to: 'statics#resume'
-  match '/edit', to: 'sessions#new'
+  get '/edit', to: 'sessions#new'
   
-  match '/search', to: 'posts#search'
+  get '/search', to: 'posts#search'
 
   get '/contact', to: 'emails#new' 
   post '/contact', to: 'emails#create'

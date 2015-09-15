@@ -7,7 +7,7 @@ class CreateSkills < ActiveRecord::Migration
       t.string :link
     end
 
-    skillz = YAML.load_file( File.join( Rails.root, 'lib', 'skills.yml') )
-    skillz.each { |s| Skill.create!(s) }
+    return unless File.exists?( skillz = File.join( Rails.root, 'lib', 'skills.yml') )
+    YAML.load_file( skillz ).each { |s| Skill.create!(s) }
   end
 end

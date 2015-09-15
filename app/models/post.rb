@@ -12,8 +12,6 @@
 
 class Post < ActiveRecord::Base
 
-  attr_accessible :content, :name, :created_at, :example
-
   before_validation :generate_slug
 
   validates :name, presence: true, uniqueness: true

@@ -23,3 +23,4 @@
 
 # Ignore local bundler stub settings
 bundler_stubs/
+config/secrets.yml

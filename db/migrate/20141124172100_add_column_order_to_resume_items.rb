@@ -5,11 +5,13 @@ class AddColumnOrderToResumeItems < ActiveRecord::Migration
     add_column :resume_items, :updated_at, :datetime
 
     ['Bloc', 'MeatUp', 'Dipont Education', 'Think Food Group', 'Coproduction Office', 'UN High Commissioner for Refugees', 'Il Vecchio Forno Restaurant'].each_with_index do |title, index|
-      ResumeItem.jobs.find_by_title(title).update_attribute(:order, index + 1)
+      item = ResumeItem.jobs.find_by_title(title)
+      item.update_attribute(:order, index + 1) if item
     end
 
     ['Bloc', 'Harvard University'].each_with_index do |title, index|
-      ResumeItem.education.find_by_title(title).update_attribute(:order, index + 1)
+      item = ResumeItem.education.find_by_title(title)
+      item.update_attribute(:order, index + 1) if item
     end
   end
 end

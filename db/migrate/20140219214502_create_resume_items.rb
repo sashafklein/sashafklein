@@ -9,11 +9,13 @@ class CreateResumeItems < ActiveRecord::Migration
       t.text :description
     end
 
-    edu_file = YAML.load_file( File.join( Rails.root, 'lib', 'education.yml' ) )
-    job_file = YAML.load_file( File.join( Rails.root, 'lib', 'jobs.yml' ) )
+    if File.exists?( edu_file = File.join( Rails.root, 'lib', 'education.yml' ) )
+      YAML.load_file( edu_file ).each{ |i| create_item(i, 'education') } 
+    end
 
-    edu_file.each{ |i| create_item(i, 'education') }
-    job_file.each{ |i| create_item(i, 'jobs') }
+    if File.exists?( job_file = File.join( Rails.root, 'lib', 'jobs.yml' ) )
+      YAML.load_file( job_file ).each{ |i| create_item(i, 'jobs') }
+    end
   end
 
   def create_item(item, kind)
