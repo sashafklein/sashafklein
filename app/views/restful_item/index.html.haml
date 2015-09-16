@@ -1,0 +1,17 @@
+.row.container
+  %table.table
+    %tr
+      - controller.open_attrs.each do |attr|
+        %th= attr.to_s.humanize
+      %th
+      %th
+    
+    - @items.each do |item|
+      %tr
+        - controller.open_attrs.each do |attr|
+          %td= item[attr].to_s.truncate(150)
+        %td= link_to "Edit", item_edit_path(item)
+        %td= link_to "Delete", item, method: :delete, data: { confirm: "Are you sure?" }
+
+  = link_to "Create", item_new_path(controller), class: 'btn'
+

@@ -1,0 +1,10 @@
+.row.container
+  %h1= "Edit #{ @item.class.to_s.underscore.humanize }"
+
+  = form_for @item do |f|
+
+    - controller.open_attrs.each do |att|
+      = f.label att
+      = field(f, @item, att)
+    
+    = f.submit

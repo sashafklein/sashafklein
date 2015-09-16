@@ -4,13 +4,12 @@ class StaticsController < ApplicationController
 	end
 
 	def resume
-		@skills = Skill.all
+		@skills = Skill.order('stars DESC').all
 		@jobs = ResumeItem.jobs
 		@education_items = ResumeItem.education
 	end
 
 	def portfolio
-		@portfolio_items = PortfolioItem.all
+		@portfolio_items = PortfolioItem.order(id: :asc)
 	end
-
 end

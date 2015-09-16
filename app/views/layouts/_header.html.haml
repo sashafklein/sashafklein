@@ -19,3 +19,5 @@
           = link_to "PORTFOLIO", portfolio_path
           = link_to "DEVLOG", devlog_path
   .navbar-spacer
+  - if flash.first
+    .alert.center{ class: "alert-#{flash.first.first}" }= flash.first.last

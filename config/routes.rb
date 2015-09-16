@@ -4,7 +4,7 @@ Sashafklein::Application.routes.draw do
   get 'access', to: 'sessions#new', as: 'login'  
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :users, :sessions, :emails, :wikis, :posts
+  resources :users, :sessions, :emails, :wikis, :posts, :skills, :resume_items, :portfolio_items
 
   get '/portfolio', to: 'statics#portfolio'
   get '/devlog', to: 'posts#devlog'

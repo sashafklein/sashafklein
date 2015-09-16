@@ -64,4 +64,28 @@ module ApplicationHelper
   def collapse_button(item)
     item.collapse_button.present? ? item.collapse_button : "+"
   end
+
+  def field(form, obj, att)
+    val = obj[att]
+    if val.is_a? String
+      if obj == 'education' || val == 'jobs'
+        form.select att, options_for_select(['education', 'jobs'])
+      else
+        val.length > 100 ? form.text_area(att) : form.text_field(att)
+      end
+    elsif val == true || val == false
+      form.select att, options_for_select([true, false])
+    else
+      form.text_field att
+    end
+  end
+  
+  def item_edit_path(obj)
+    send( "edit_#{obj.class.to_s.underscore}_path", obj )
+  end
+
+  def item_new_path(controller)
+    send( "new_#{ controller.object_class.to_s.downcase }_path" )
+  end
+
 end
