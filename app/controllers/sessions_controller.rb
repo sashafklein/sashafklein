@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   		redirect_to devlog_path
   	else
   		flash.now[:error] = "Invalid password/username combo."
-  		render 'new' 
+  		render 'new'
   	end
   end
 

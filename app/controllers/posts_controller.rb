@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = Post.new( post_params )
     @post.save!
   end
 
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if @post.update_attributes( post_params )
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
@@ -51,6 +51,12 @@ class PostsController < ApplicationController
       format.html { redirect_to archive_path }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:name, :content, :example)
   end
 
 end

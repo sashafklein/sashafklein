@@ -13,11 +13,16 @@ class WikisController < ApplicationController
   def update
     @wiki = Wiki.find(params[:id])
     respond_to do |format|
-      if @wiki.update_attributes(params[:wiki])
+      if @wiki.update_attributes( wiki_params )
         format.html { redirect_to wikis_path, notice: 'Wiki was successfully updated.' }
         format.json { head :no_content }
       end
     end
   end
 
+  private
+
+  def wiki_params
+    params[:wiki].permit!
+  end
 end

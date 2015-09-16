@@ -9,7 +9,7 @@ class EmailsController < ApplicationController
 
 	def create
     @captcha = MathCaptcha.decrypt(params[:captcha_secret])
-  	@email = Email.new(params[:email])
+  	@email = Email.new( email_params )
 
     unless @captcha.correct?(params[:captcha]) || params[:captcha] == "21261"
         flash.now[:error] = "Please make sure you answered the math question correctly."
@@ -26,5 +26,11 @@ class EmailsController < ApplicationController
     end
 
 	end
+
+  private
+
+  def email_params
+    params.require(:email).permit(:subject, :content, :name, :address)
+  end
 
 end
