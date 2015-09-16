@@ -1,10 +1,21 @@
 #landing_buttons
-  .landing_button.first{ onclick: "location.href='#{resume_path}'" }
-    .inner-text
-      %a Resume
-  .landing_button.second{ onclick: "location.href='#{portfolio_path}'" }
-    .inner-text
-      %a Portfolio
-  .landing_button.third{ onclick: "location.href='#{devlog_path}'" }
-    .inner-text
-      %a DevLog
+  - if current_user
+    .landing_button.first{ onclick: "location.href='#{wikis_path}'" }
+      .inner-text
+        %a Wiki
+    .landing_button.second{ onclick: "location.href='#{devlog_path}'" }
+      .inner-text
+        %a Devlog
+    .landing_button.third{ onclick: "location.href='#{resume_path}'" }
+      .inner-text
+        %a Resume
+  - else
+    .landing_button.first{ onclick: "location.href='#{resume_path}'" }
+      .inner-text
+        %a Resume
+    .landing_button.second{ onclick: "location.href='#{portfolio_path}'" }
+      .inner-text
+        %a Portfolio
+    .landing_button.third{ onclick: "location.href='#{devlog_path}'" }
+      .inner-text
+        %a DevLog
