@@ -85,7 +85,7 @@ module ApplicationHelper
   end
 
   def item_new_path(controller)
-    send( "new_#{ controller.object_class.to_s.downcase }_path" )
+    send( "new_#{ controller.object_class.to_s.underscore }_path" )
   end
 
 end
