@@ -16,7 +16,7 @@ Sashafklein::Application.configure do
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
-  config.assets.js_compressor = Uglifier.new(:mangle => false)
+  config.assets.js_compressor = Uglifier.new(:mangle => false) if defined?(Uglifier)
 
   # Fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
