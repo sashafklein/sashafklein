@@ -20,6 +20,7 @@ module ApplicationHelper
 
   def markdown(text)
     renderer = HTMLwithPygments.new(hard_wrap: true)
+
     options = {
       nowrap: true,
       autolink: true,
@@ -29,7 +30,7 @@ module ApplicationHelper
       strikethrough: true,
       superscript: true
     }
-    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
+    Redcarpet::Markdown.new(renderer, options).render( text ).html_safe
   end
 
   def previous(post)

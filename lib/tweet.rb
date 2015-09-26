@@ -10,7 +10,7 @@ class Tweet
   end
 
   def send_if_production!
-    return unless  Rails.env.production?
+    return # unless Rails.env.production?
 
     Twitter.update(full_message)
   end
