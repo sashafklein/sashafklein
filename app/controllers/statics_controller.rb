@@ -5,11 +5,12 @@ class StaticsController < ApplicationController
 
 	def resume
 		@skills = Skill.order('stars DESC').all
-		@jobs = ResumeItem.jobs
-		@education_items = ResumeItem.education
+		roles = Role.order(started: :desc)
+		@jobs = ResumeItem.where( id: roles.pluck(:resume_item_id) ).jobs
+		@education_items = ResumeItem.where( id: roles.pluck(:resume_item_id) ).education
 	end
 
 	def portfolio
-		@portfolio_items = PortfolioItem.order(id: :asc)
+		@portfolio_items = PortfolioItem.order(order: :asc)
 	end
 end

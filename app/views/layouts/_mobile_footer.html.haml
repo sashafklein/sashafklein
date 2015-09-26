@@ -1,6 +1,6 @@
 .sixteen.columns.mobile-only.mobile-footer
   - if current_user
-    = link_to "", wikis_path, class: "icon-file"
-    = link_to "", logout_path, class: "icon-circle-blank"
-  = link_to '', 'https://www.github.com/sashafklein', class: 'icon-github'
-  = link_to "", '/contact', class: 'icon-envelope-alt'
+    = safe_link_to "", wikis_path, class: "icon-file"
+    = safe_link_to "", logout_path, class: "icon-circle-blank"
+  = safe_link_to '', 'https://www.github.com/sashafklein', class: 'icon-github'
+  = safe_link_to "", '/contact', class: 'icon-envelope-alt'

@@ -11,7 +11,8 @@
     .three
       text-align: right
     .two
-      margin-top: 4px
+      margin-left: 0px
+      margin-right: 0px
   @media only screen and (max-width: 960px)
     .skillz
       margin-left: 0px
@@ -24,9 +25,14 @@
 
     
   .stars
-    img
-      float: left
-      width: 13px
+    i
+      display: inline
+      font-size: 95%
+      margin-right: -1px
+      &.fa-circle
+        color: $sexyBlue
+      &.fa-circle-o
+        color: $pigPink
 
   .skillset
     text-align: right
@@ -34,9 +40,10 @@
 
   .skill_links
     color: black
-    font-family: 'Rockwell'
+    font-family: Futura Bold
     font-size: 90%
     font-weight: normal
+    letter-spacing: 1.1px
   .skill_links.not
     &:hover
       color: black

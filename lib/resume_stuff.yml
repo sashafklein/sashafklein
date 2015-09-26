@@ -1,0 +1,109 @@
+- 
+  title: Bloc
+  kind: education
+  starts_open: false
+  roles:
+    - 
+      location: 'San Francisco'
+      name: Web Development Student
+      started: "January 2012"
+      show_months: false
+      description: "[Bloc](https://www.bloc.io/users/sasha-klein) is an online web-development apprenticeship that turns students into well-versed developers over the course of 2-3 intensive months. I learned **Ruby**, **Rails**, **HTML**, **CSS**, **Git**, **RSpec**, **Javascript/JQuery**, and more. The mentor-guided learning is focused through, and culminates in, a final project of our own design; mine morphed into [MeatUp](/portfolio#meatup). Bloc got my developing feet wet and helped teach me how to teach myself to tackle any coding obstacle thrown my way."
+- 
+  title: Harvard University
+  kind: education
+  starts_open: false
+  roles:
+    -
+      location: 'Cambridge, MA'
+      name: "BA in English, Cum Laude"
+      started: "September 2007"
+      ended: "June 2011"
+      description: "After jumping between Psychology, Econ, Film, and English Lit, I picked the least applicable and graduated with an honors English degree and a screenplay for a thesis. My four years at Harvard instilled in me a broad excitement about learning and growth that I've continued to apply to teaching myself. The bulk of my coding expertise has been self-taught, and I largely credit college with turning me into a voracious autodidact."
+      show_months: true
+- 
+  title: PlanIt
+  kind: jobs
+  starts_open: true
+  link: "/portfolio#planit"
+  roles:
+    -
+      name: 'Co-Founder and CTO'
+      started: 'January 2015'
+      ended: 'August 2015'
+      show_months: true
+- 
+  title: Bloc
+  kind: jobs
+  starts_open: false
+  roles:
+    - 
+      name: "Web Developer"
+      location: 'San Francisco'
+      started: 'May 2013'
+      ended: 'May 2014'
+      show_months: true
+      description: "As one of Bloc's 3 main developers, working primarily in Rails and AngularJS, I was generally responsible for a huge number of major codebase changes. I built Bloc's **authentication framework**, overhauled its **curriculum tools**, including the **roadmap interface** and complete **Github and PR integration**, jointly constructed its cross-timezone, recurrent **mentor-appointment scheduler**, co-built our [integrated Meteor office-hours chat application](/portfolio#tweed), and orchestrated our backend switch from **group classes** to **one-on-one mentorship**, as well as our switches from one total course offering to 5 courses (and counting) and from one to multiple 'track lengths'."
+    - 
+      name: "Full Stack Course Director"
+      location: 'San Francisco'
+      started: "May 2014"
+      ended: "October 2014"
+      show_months: true
+      description: "In my roughly half year as Full Stack Course Director, I incorporated **test-driven development** and **debugging skills** into the curriculum, reworked our **Ruby 'fundamentals'** section, and pushed multiple curricular overhauls. I worked in a marketing capacity, running a number of Full Stack info sessions for the sales team, and also as a manager, **hiring, managing, and building training systems** for several dozen international mentors. I also proposed, coded, and oversaw the movement to a more sustainable Stack-Overflow based **Q&A system**, and a **resource library** to increase cooperation among course directors."
+- 
+  title: MeatUp
+  kind: jobs
+  link: "/portfolio#meatup"
+  starts_open: false
+  roles:
+    -
+      name: 'Founder and Coder'
+      started: "January 2012"
+      show_months: false
+      location: 'San Francisco'
+-
+  title: Dipont Education
+  kind: jobs
+  starts_open: false
+  roles:
+    - 
+      location: "Shanghai, China"
+      name: "Dipont Fellow"
+      started: 'August 2011'
+      ended: 'June 2012'
+      description: "At Dipont, I taught (English exposition, French, and Psychology) to Chinese high schoolers and helped students applying to college in the US through the foreign application process. I also edited and briefly wrote for the Dipont quarterly, helped design the future of Dipont's counseling program and alumni outreach, and even had the pleasure to participate in panel discussions on American education. I wrote [a blog](http://shanglow.tumblr.com/) about my experience (and all the eating I did) there."
+      show_months: true
+-
+  title: Internships
+  kind: jobs
+  starts_open: false
+  roles:
+    - 
+      name: Marketing
+      location: "Think Food Group - Washington, DC"
+      started: 'June 2010'
+      ended: 'August 2010'
+      description: "At [Think Food Group](http://www.thinkfoodgroup.com), the organization in charge of celebrity chef Jose Andres's businesses and brand, I coordinated his philanthropic, culinary, and travel ('research') schedules, as well as drafting speeches and assisting marketing and publicity."
+      show_months: true
+    - 
+      name: Film Production
+      location: "Coproduction Office - Paris, France"
+      started: 'June 2009'
+      ended: 'August 2009'
+      description: "After an academic year focused largely on film, I worked in the Paris branch of <a href='http://coproductionoffice.eu'>Coproduction Office</a>, an international arthouse film rights/distribution company. There, I managed film-festival expenditure records, assisted in film post-production, and judged screenplays and finished films for production and purchasing."
+      show_months: true
+    - 
+      name: Aid
+      description: "The summer after freshman year of college, I worked for the [UNHCR](http://en.wikipedia.org/wiki/United_Nations_High_Commissioner_for_Refugees) in Rabat, capital of Morocco. There, I conducted aid interviews (in French), managed and reworked the Moroccan UNHCR's refugee record system, oversaw aid distribution, and developed a new strategy around shelter and schooling services for refugees in the country."
+      location: "UNHCR - Rabat, Morocco"
+      started: 'June 2008'
+      ended: 'August 2008'
+      show_months: true
+    - 
+      name: Chef
+      location: "Vecchio Forno Restaurant - Lago D'Orta, Italy"
+      description: "The summer before college, I worked as second chef in a [lakeside resort town](http://en.wikipedia.org/wiki/Lago_d%27Orta) near Milan, Italy. I prepared all appetizers and desserts (as well as some mains) for two seatings of up to 70 people a night. I also tried and failed to learn Italian from a chef who insisted on using me to practice his French. Previous culinary experience includes three summers both assistant teaching at a cooking school and working at a cheese shop, in Colorado."
+      started: 'June 2007'
+      ended: 'August 2007'
+      show_months: true

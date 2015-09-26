@@ -1,0 +1,83 @@
+- 
+  order: 0
+  title: "PlanIt"
+  subtitle: "Friend-approved travel"
+  image: "planit-gif.gif"
+  bullets:
+    - "Seamless Angular/Rails integration."
+    - "Hand-rolled Angular Single-Page Application."
+    - "Universal scraper bookmarklet for travel information."
+    - "Intelligent script for guessing and completing insufficient data."
+    - "Integrated Angular, Leaflet, and Geonames."
+    - "Address and language internationalization."
+    - "Backgrounded data completion, with Pusher integration."
+    - "Angular testing with Teaspoon and Jasmine."
+    - "Large scale Ruby/Rails best practices - rich PORO object backend."
+    - "Foursquare, Yelp, and Google Maps API integration."
+    - "Automated, auto-growing scraper test suite."
+  text_blob: |
+    My brother and I worked on PlanIt for roughly 9 months, during which the concept evolved considerably. Originally conceived of as a tool for ordering and displaying travel itineraries, it morphed into a tool for bookmarking and sharing wishlists of places at home or abroad. Shortly before we let go of the idea, we began working towards another version: An app for browsing friends' and other trusted sources' recommendations, bookmarking the exciting ones, and then taking the final location-based list offline for use abroad.
+    I wrote [a post](/posts/planit-post-mortem) about what I think we did wrong, and why we dropped the idea, but a considerable amount also went right. The two of us (one of whom had no coding experience at the start of the project) planned, designed, and built a substantial amount of pretty nifty software. 
+    Our final application included a **bookmarklet** which could be used to scrape relevant travel data from nearly any website (including ordered multi-location narrative data like the [New York Times' 36-Hours series](http://www.nytimes.com/column/36-hours)), and then send that data back to our site, where it would be parsed for its locational components, "completed" by running selective portions of it through a **series of APIs**, and then added to the user's relevant lists. 
+    We streamlined the list concept by **auto-clustering locational data** by Geonames units, which we further abstracted into more sensible **colloquial location units**, and then displayed this data for browsing in an **interactive world map** (powered by Angular/Leaflet) that allowed for **differential interactive behavior** at a high-level (country-wide browsing), and a low-level (location-centered browsing/addition of individual restaurants, museums, etc).
+    We layered on top of all of this a robust and completely **hand-rolled Angular SPA** architecture, which allowed users to move from world-level browsing to city-level note-addition or bookmarking, without ever reloading the page. Users could toggle between map and list views, take a large variety of actions, and manipulate a large and growing body of frontend data, all of which was **lazily cached** and shared between the "horizontal" and "vertical" layers of our SPA.
+    ![planit-gif](/assets/planit-gif.gif)
+    To spare our server and keep the user experience fast, we backgrounded a large number of application tasks -- place addition, bookmarklet functions, note-taking, bulk actions -- while maintaining the interactiveness of the platform by opening a line of communication between backgrounded and current tasks using **Pusher** and an **internal API**.
+    Throughout, we maintained Rails/Angular **best practices**. Our largest model file (by a mile) was less than 200 lines long (and our largest controller roughly 100). Instead, we consistently moved our logic into serializers, decorators, and a large number of interrelated, namespaced, and extensively unit-tested POROs, which isolated data completion, scraping, information interpretation/display, internationalization, and more. 
+    Our **extensive test suite** was just short of 100 feature, request, controller, and unit tests, and was optimized to run in roughly 1 minute. It included automatically changing tests (for the scraper, which would periodically re-scrape data to test whether our expectations were current with external changes), and several meta-coded site-wide tests, including one which automatically made requests under a variety of user roles to every page and API endpoint in our website and set expectations for the response.
+    Although we eventually dropped our idea rather than pour additional time and capital into it ([more about that decision](/posts/planit-post-mortem)), I am extremely proud of the quality of the work we did on PlanIt, and I know we both learned a huge amount in the process of testing and building it out.
+    > Unfortunately, we stopped working on PlanIt in buggy mid-stream, and I've since stopped paying for hosting the non-functional site. If you're interested in walking through a demo, [let me know](/contact). 
+-
+  order: 3
+  title: 'Quote Owl'
+  subtitle: 'Simple daily email-based inspiration'
+  image: 'owl.gif'
+  bullets: 
+    - Basic bi-directional Sendgrid integration.
+    - Simple task scheduling.
+    - Subscriptions/community lists.
+  text_blob: |
+    A dead simple app built in a day, Quote Owl was a simple response to my desire to be regularly, simply reminded of the quotations I found meaningful.
+    Rather than buying into a preexisting quote list, or dealing with a clunky interface, users can build a list of their own, through a simple email interface. Every day, a quote is sent out by email, and that same address can be responded to to add any new quotes.
+    ![owl-image](/assets/owl.png)
+    A simple point tracker ensures that you don't see the same quote too frequently, and a basic subscription system allows multiple people (ex: me, my brother, and my uncle) to subscribe and add to the same list of quotes.
+    Lightweight and straightforward, this one-day Rails app has added a lot of happiness to my life.
+-
+  order: 4
+  title: 'BookTrail'
+  subtitle: 'Straightforward and private book tracking'
+  image: 'booktrail.png'
+  bullets: 
+  text_blob: |
+    BookTrail has nothing fancy going on. It's a vanilla Rails app I put together one day to create a place where people could keep track of their reading.
+    The interface allows you to "start" a book and then update ratings, notes, description, and finishing time, allowing you to track your reading experiences and opinions over the years.
+    ![booktrail-gif](/assets/booktrail-gif.gif)
+    Unlike Goodreads, its main correlate, BookTrail is automatically private; nobody can see your "book trail" except yourself, making it a tool for personal growth and tracking rather than social recommendation.
+    I intend to soon round the service out with an spreadsheet exporting tool, liberating the data so that anyone can share it with whoever they want, or back up their reading history explicitly or automatically.
+-
+  order: 2
+  title: 'Tweed'
+  subtitle: 'Polished and feature-rich Meteor-powered chat'
+  image: 'tweed-gif.gif'
+  bullets: 
+    - Mongo-based data storage.
+    - Visual and auditory message notifications.
+    - Multiple rooms and private messages.
+    - "Three roles: students, mentors, and admins."
+    - Integration with hand-rolled event tracker.
+    - Authentication with the main Bloc app.
+    - Markdown support with code snippets.
+  text_blob: |
+    Nicknamed Tweed, the Bloc Office Hours chat room was built over the course of a few days by fellow developer [Christian Schlensker](https://www.github.com/wordofchristian) and me.
+    We built it to address a wide variety of concerns elucidated at length in [this post](/posts/blocchat-part-1).
+    We'd been using a private HipChat app, but found that no option -- paid or free -- allowed us all of the funcationality we needed to offer functional and trackable office hours. So we decided to build our own.
+    Tweed was built on the foundation of a basic Meteor chat app like that described in [Tom Coleman and Sacha Greif's wonderful tutorial](https://www.discovermeteor.com/). But then we layered on considerable additional functionality:
+    - We had each chat message and entrance/exit of rooms send out individualized event notifications to a Bloc-built event tracker, to enable us to identify peak and trough hours and effectively triage mentor hours.
+    - We integrated with a meteor Markdown plugin to render code snippets.
+    - We added audible and visual notifications for messages.
+    - We built a variety of rooms -- one for each course -- and a permissions system that varied room visibility/entrance by student/mentor type and role (student/mentor/admin)
+    - We set up secure cross-site authentication, so that each Bloc user had unique Tweed login information, which would automatically sign them in and out, and which passively expired at the end of the course, but could be extended on command.
+    - We added private chat, exclusively at the command of mentors, so that mentors could keep track of the "queue" of questions while addressing them with minimal confusion one (or multiple) at a time.
+    ![tweed-gif2](/assets/tweed-gif2.gif)
+    The app was my first foray into Meteor, as well as Christian's first major Meteor app. It immediately saved considerable amounts of time and money, as well as improving student experience and admin insight. And it taught me a good deal about Meteor and server-side JavaScript frameworks.
+    > Unfortunately, Tweed is no longer up to demo or record live (which would, at any rate, invade student privacy). I pushed to replace the Tweed Office Hours with a Stack-Overflow-integrated Q&A system (for a variety of reasons, mostly focused on learning quality) shortly before I left Bloc. So all I can share is this GIF I made locally.

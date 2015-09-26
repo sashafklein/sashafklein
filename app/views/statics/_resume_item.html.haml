@@ -1,0 +1,23 @@
+- if item.link.present?
+  .collapse-title{ style: 'margin-top: 5px'}
+    %a{ href: item.link, target: '_self' }
+      %span= item.title
+      %small
+        = item.subtitle.html_safe
+        %i.glyphicon.glyphicon-arrow-right
+      
+- else
+  %accordion_group
+    %accordion_heading
+      .collapse-title
+        = item.title
+        %small
+          = item.subtitle.html_safe
+          %i.glyphicon.glyphicon-plus-sign
+    - item.roles.each do |role|
+      - if item.roles.count > 1
+        .role-subtitle= role.subtitle.html_safe
+        .paragraph= markdown( role.description )
+        %br
+      - else
+        .paragraph= markdown( role.description )

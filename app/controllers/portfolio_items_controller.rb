@@ -1,10 +1,10 @@
 class PortfolioItemsController < RestfulItemController
   
   def index
-    @items = PortfolioItem.all
+    @items = PortfolioItem.order(order: :asc)
   end
 
   def open_attrs
-    [:title, :subtitle, :text_blob, :link, :bullet_blob]
+    [:title, :subtitle, :text_blob, :bullets, :link]
   end
 end

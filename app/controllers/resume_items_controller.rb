@@ -1,7 +1,7 @@
 class ResumeItemsController < RestfulItemController
   
   def index
-    @items = ResumeItem.order(kind: :asc, order: :asc)
+    @items = ResumeItem.order(kind: :asc)
   end
 
   def open_attrs

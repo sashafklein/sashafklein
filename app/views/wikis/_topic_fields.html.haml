@@ -1,7 +1,7 @@
 .field_inset
 	= f.text_field :name
 	= f.hidden_field :_destroy
-	= link_to "remove", '#', class: "remove_fields"
+	= safe_link_to "remove", '#', class: "remove_fields"
 		
 	= f.fields_for :notes do |builder|
 		= render 'note_fields', f: builder

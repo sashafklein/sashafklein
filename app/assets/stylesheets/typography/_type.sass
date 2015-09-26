@@ -16,6 +16,18 @@
   font-family: 'Rockwell Bold'
   src: url('<%= asset_path("RockwellBold.ttf") %>')
 
+@font-face
+  font-family: 'Futura'
+  src: url('<%= asset_path("Futura Oblique.ttf") %>')
+
+@font-face
+  font-family: 'Futura Bold'
+  src: url('<%= asset_path("Futura Extended.ttf") %>')
+
+@font-face
+  font-family: 'Futura Italic'
+  src: url('<%= asset_path("Futura Italic.ttf") %>')
+
 /****************************************************************************/
 /****************************************************************************/
 /****************************************************************************/
@@ -88,9 +100,10 @@ a
 .blue_links
   a
     color: $blue_link
+    strong
+      color: $sexyBlue
     &:hover
       color: $pigPink
-      background-color: #fff
   p
     a
       color: $blue_link

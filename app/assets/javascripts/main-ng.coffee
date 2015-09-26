@@ -18,7 +18,10 @@ MainApp = angular.module("MainApp", [
   'RenderHtml'
 ])
 
-MainApp.config ($routeProvider) ->
+MainApp.config ($routeProvider, $locationProvider) ->
+  
+  $locationProvider.html5Mode(true)
+
   $routeProvider
     .when '/', 
       {

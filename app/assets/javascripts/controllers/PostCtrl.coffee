@@ -3,9 +3,9 @@
 postModule = angular.module('Posts', ['markdown'])
 
 postModule.controller "PostCtrl", ($scope, $http, $routeParams, $sce, $rootScope) -> 
-
+  
   $s = $scope
-  window.s = $scope
+  
   $s.init = ->
     $s.getPost().then ->
       $s.getPostList() unless $s.postList
@@ -17,10 +17,10 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams, $sce, $rootScope
   $s.app = window.MainApp
   $s.userSignedIn = -> $s.app.current_user == 'sashafklein'
 
-  $s.postShowPath = (post) -> if post? then "#/#{post.slug}"
-  $s.postEditPath = (post) -> if post? then "/posts#/#{post.slug}/edit"
-  $s.newPostPath = "/posts#/new"
-  $s.apiPostsPath = '/api/v1/posts'
+  $s.postShowPath = (post) -> if post? then "/posts/#{post.slug}"
+  $s.postEditPath = (post) -> if post? then "/posts/#{post.slug}/edit"
+  $s.newPostPath = "/posts/new"
+  $s.apiPostsPath = "/api/v1/posts"
   $s.apiPostPath = (post_id) -> if post_id? then "/api/v1/posts/#{post_id}" else "/api/v1/posts/#{$routeParams.postSlug}"
   
   $s.createOrUpdate = ->
@@ -37,14 +37,15 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams, $sce, $rootScope
       .success (response) -> 
         $s.mainPost = response
       .error (response) -> 
-        console.log "Something went wrong!"
+        console.log "Something went wrong in getPost!"
 
   $s.getPostList = (limit) ->
+
     $http.get($s.apiPostsPath)
       .success (response) -> 
         $rootScope.postList = response
       .error (response) -> 
-        console.log "Something went wrong!"
+        console.log "Something went wrong in getPostList !"
 
   $s.getPreviousPost = ->
     list = _($s.postList).select (post) -> post.id < $s.mainPost.id
@@ -55,7 +56,7 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams, $sce, $rootScope
     if list.length then $s.nextPost = list[list.length - 1]
 
   $s.postLimit = 8
-  $s.postArchivePath = '#/'
+  $s.postArchivePath = '/posts'
   $s.postsAreLimited = -> $s.postList?.length == $s.postLimit
 
   $s._neatPostParams = ->

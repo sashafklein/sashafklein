@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def devlog
     post = Post.order('created_at DESC').first
-    redirect_to "/posts#/#{post.slug}"
+    redirect_to "/posts/#{post.slug}"
   end
 
   def new

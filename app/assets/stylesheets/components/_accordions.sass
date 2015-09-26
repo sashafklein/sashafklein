@@ -5,8 +5,18 @@
   border-color: transparent !important
   box-shadow: none !important
 
+@mixin futura
+  font-family: 'Futura'
+  strong
+    letter-spacing: 1.2px
+    font-family: 'Futura Bold'
+  em
+    font-family: 'Futura Italic'
+
 .panel-group
   margin-bottom: 15px
+.panel, .collapse-title
+  margin-bottom: 10px
 .panel
   +no-border
   .panel-heading
@@ -14,12 +24,35 @@
     padding: 0
     .panel-title
       .collapse-title
-        color: #000
-        cursor: pointer
-        i
-          margin-left: 5px
+        &:hover
+          color: darken( $sexyBlue, 22 )
+          small strong
+            color: darken( $sexyBlue, 10 )
   .panel-collapse
     +no-border
     .panel-body
       padding-bottom: 0px
+      padding-top: 0px
       +no-border
+      p
+        margin-bottom: 0px
+  .role-subtitle
+    margin-bottom: 10px
+    text-decoration: underline
+
+.collapse-title i
+  color: $pigPink
+  margin-left: 5px
+
+.collapse-title, .collapse-title a
+  color: black
+  cursor: pointer
+  &:hover
+    i
+      color: darken( $pigPink, 20 )
+    small strong 
+      color: darken( $sexyBlue, 10 )
+
+.collapse-title a 
+  &:hover 
+    color: darken( $pigPink, 20 )

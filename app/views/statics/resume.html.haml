@@ -5,6 +5,17 @@
     = render "headshot"
     = render "skills"
 
-  .nine.columns.mobile-section
-    = render "education"
-    = render 'jobs'
+  .nine.columns.mobile-section.blue_links
+    %h1.squeeze Work Experience
+    %accordion
+      .inset.experience
+        - @jobs.each do |job|
+          = render 'resume_item', item: job
+
+      %br
+      
+      %h1.squeeze Education
+      %accordion
+        .inset.education
+        - @education_items.each do |school|
+          = render 'resume_item', item: school

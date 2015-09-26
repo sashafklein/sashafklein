@@ -3,31 +3,39 @@
 .portstuff.row.container.sixteen.columns
   .med-and-up
     - @portfolio_items.each_with_index do |item, index|
-      .six.columns.right-bar.black_links{ class: top?(index) }
-        = link_to image_tag(item.image, class: "port_photo", alt: item.title), item.link, style: photo_margin_top?(index)
-        - if item.bullets
-          %ul.port_list
-            - item.bullets.each do |bullet|
-              %li= bullet
+      .portfolio-item
+        .six.columns.right-bar.black_links{ class: top?(index) }
+          = safe_link_to image_tag(item.image, class: "port_photo", alt: item.title), item.link_path, style: photo_margin_top?(index)
+          - if item.bullets
+            %ul.port_list
+              - item.bullets.each do |bullet|
+                %li= bullet
 
-      .nine.columns
-        %h1= item.title
-        %h2= item.subtitle
-        - item.paragraphs.each do |paragraph|
-          %p= raw paragraph
+        .nine.columns
+          %h1= item.title
+          %h2= item.subtitle
+          .markdown-container
+            - item.paragraphs.each do |paragraph|
+              %p= markdown( paragraph ).html_safe
+          
+          - if next_item = @portfolio_items[index + 1]
+            .hidden-anchor{ id: next_item.title.downcase.split(" ").join("-") }
+            .header-spacer
+
 
   .mobile-only
     - @portfolio_items.each_with_index do |item, index|
-    
-      %h1{ class: "#{'buffer-top' if index == 0}" }= item.title
-      %h2= item.subtitle
-      .six.columns.right-bar.black_links{ class: top?(index) }
-        = link_to image_tag(item.image, class: "port_photo", alt: item.title), item.link, style: photo_margin_top?(index)
-        - if item.bullets
-          %ul.port_list
-            - item.bullets.each do |bullet|
-              %li.mobile= bullet
+      .portfolio-item
+        %h1{ class: "#{'buffer-top' if index == 0}" }= item.title
+        %h2= item.subtitle
+        .six.columns.right-bar.black_links{ class: top?(index) }
+          = safe_link_to image_tag(item.image, class: "port_photo", alt: item.title), item.link_path, style: photo_margin_top?(index)
+          - if item.bullets
+            %ul.port_list
+              - item.bullets.each do |bullet|
+                %li.mobile= bullet
 
-      .nine.columns
-        - item.paragraphs.each do |paragraph|
-          %p= raw paragraph
+        .nine.columns
+          .markdown-container
+            - item.paragraphs.each do |paragraph|
+              %p= raw paragraph

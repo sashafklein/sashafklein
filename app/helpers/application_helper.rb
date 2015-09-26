@@ -42,7 +42,7 @@ module ApplicationHelper
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
       render(association.to_s.singularize + "_fields", f: builder)
     end
-    link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
+    safe_link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
 
   def has_link?(skill)
@@ -73,6 +73,8 @@ module ApplicationHelper
       else
         val.length > 100 ? form.text_area(att) : form.text_field(att)
       end
+    elsif val.is_a? Array
+      form.text_area att, value: val.join("\n")
     elsif val == true || val == false
       form.select att, options_for_select([true, false])
     else
@@ -86,6 +88,17 @@ module ApplicationHelper
 
   def item_new_path(controller)
     send( "new_#{ controller.object_class.to_s.underscore }_path" )
+  end
+
+  # To foil the Angular bullshit caused by HTML5 Mode
+  def safe_link_to(text, link, options={})
+    link_to text, link, options.merge( { target: '_self'} )
+  end
+
+  def safe_block_link_to(link, options={}, &block)
+    content_tag :a, options.merge( { href: link, target: '_self'} ) do
+      yield
+    end
   end
 
 end

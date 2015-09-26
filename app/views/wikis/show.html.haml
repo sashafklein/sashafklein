@@ -8,4 +8,4 @@
 						%b #{n.name}:
 						= n.info
 			%br
-		= link_to "Add/Edit", edit_wiki_path(@wiki)
+		= safe_link_to "Add/Edit", edit_wiki_path(@wiki)

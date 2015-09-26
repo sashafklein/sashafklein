@@ -1,7 +1,7 @@
-%h1.squeeze.skillset Skillset
+%h1.squeeze.skillset Tech Skills
 .skillz
   - @skills.each do |skill|
     .three.columns
-      %a.skill_links{ class: has_link?(skill), href: link_value(skill), title: skill.tooltip}= skill.name 
+      %a.skill_links.not= skill.name 
     .two.columns  
       = render 'stars', num: skill.stars

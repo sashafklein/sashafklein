@@ -41,7 +41,6 @@ class Post < ActiveRecord::Base
   end
 
   def generate_slug
-    new_name = self.name.gsub(/['`]/, "").parameterize
-    self.slug ||= new_name
+    self.slug ||= name.parameterize
   end
 end
