@@ -1,0 +1,13 @@
+%h1.squeeze.center-mobile Work Experience
+%accordion
+  .inset.experience
+    - @jobs.each do |job|
+      = render 'resume_item', item: job
+
+%br
+
+%h1.squeeze.center-mobile Education
+%accordion
+  .inset.education
+  - @education_items.each do |school|
+    = render 'resume_item', item: school

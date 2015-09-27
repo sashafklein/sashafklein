@@ -14,10 +14,10 @@
               = safe_link_to "", wikis_path, class: "icon-file"
               = safe_link_to "", logout_path, class: "icon-circle-blank"
       .mobile
-        .inline-mobile.mobile-header-links
-          = safe_link_to "RESUME", resume_path
-          = safe_link_to "PORTFOLIO", portfolio_path
-          = safe_link_to "DEVLOG", devlog_path
+        .mobile-section.mobile-header-links.mobile-only
+          .sixteen.columns= safe_link_to "RESUME", resume_path
+          .sixteen.columns= safe_link_to "PORTFOLIO", portfolio_path
+          .sixteen.columns= safe_link_to "DEVLOG", devlog_path
   - if flash.first
     .alert.center{ class: "alert-#{flash.first.first}" }= flash.first.last
   .navbar-spacer

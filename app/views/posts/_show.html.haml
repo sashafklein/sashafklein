@@ -2,12 +2,22 @@
 	.six.columns.right-bar.med-and-up.sidebar
 		= render 'sidebar'
 
-	.nine.columns.mobile-only.blog_list#blog_content{ ng_if: 'mainPost' }
+	.nine.columns.blog_list.med-and-up#blog_content{ ng_if: 'mainPost' }
 		%h1.squeeze.small-buffer-top
 			{{ mainPost.name }}
 			%small ({{mainPost.created_at | date:'shortDate' }})
 		
 		.markdown.markdown-container{ markdown: '{{mainPost.content}}' }
 		.example{ render_html: '{{mainPost.example}}' }
-.sixteen.columns.mobile-only.bottom-sidebar
-	= render 'sidebar'
+
+	.mobile-only.mobile-section
+		.sixteen.columns
+			.blog_list#blog_content{ ng_if: 'mainPost' }
+			%h1.squeeze.small-buffer-top
+				{{ mainPost.name }}
+				%small ({{mainPost.created_at | date:'shortDate' }})
+
+				.markdown.markdown-container{ markdown: '{{mainPost.content}}' }
+				.example{ render_html: '{{mainPost.example}}' }
+
+		.sixteen.columns.bottom-sidebar= render 'sidebar'
