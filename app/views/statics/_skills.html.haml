@@ -1,8 +1,16 @@
 %h1.squeeze.skillset.center-mobile Tech Skills
-.skillz
+.skillz.med-and-up
   - @skills.each do |skill|
     .skill
       .three.columns
         %a.skill_links.not= skill.name 
       .two.columns  
+        = render 'stars', num: skill.stars
+
+.skillz.mobile-only
+  - @skills.each do |skill|
+    .skill
+      .seven.columns
+        %a.skill_links.not= skill.name 
+      .seven.columns  
         = render 'stars', num: skill.stars

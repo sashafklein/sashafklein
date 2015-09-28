@@ -1,21 +1,6 @@
-#landing_buttons
-  - if current_user
-    .landing_button.first{ onclick: "location.href='#{wikis_path}'" }
-      .inner-text
-        %a Wiki
-    .landing_button.second{ onclick: "location.href='#{devlog_path}'" }
-      .inner-text
-        %a Devlog
-    .landing_button.third{ onclick: "location.href='#{resume_path}'" }
-      .inner-text
-        %a Resume
-  - else
-    .landing_button.first{ onclick: "location.href='#{resume_path}'" }
-      .inner-text
-        %a Resume
-    .landing_button.second{ onclick: "location.href='#{portfolio_path}'" }
-      .inner-text
-        %a Portfolio
-    .landing_button.third{ onclick: "location.href='#{devlog_path}'" }
-      .inner-text
-        %a DevLog
+.landing-buttons.mobile.mobile-only.mobile-landing-buttons
+  - landing_links( current_user ).each do |link|
+    = landing_button( link )
+.landing-buttons.med-and-up
+  - landing_links( current_user ).each do |link|
+    = landing_button( link )

@@ -1,6 +1,6 @@
 - provide(:title, 'Resume')
 
-.row.container.sixteen.columns.undecorated{ ng_controller: 'ResumeCtrl' }
+.resume-container.row.container.sixteen.columns.undecorated{ ng_controller: 'ResumeCtrl' }
   .six.columns.right-bar.med-and-up
     = render "headshot"
     = render "skills"
@@ -9,5 +9,6 @@
     = render 'education_and_work'
 
   .mobile-only.sixteen-columns.mobile-section.blue_links
+    = render 'headshot'
     = render 'education_and_work'
     = render 'skills'

@@ -1,4 +1,4 @@
-.header
+.header.med-and-up
   .navbars.top-bar.fix-to-top
     .container.undecorated.sixteen.columns
       .big-screen.piglet
@@ -8,16 +8,18 @@
             %p.web-dev WEB DEVELOPER
         .nine.columns.right-section
           = safe_link_to "PORTFOLIO", portfolio_path
-          = safe_link_to "DEVLOG", devlog_path
+          = safe_link_to "BLOG", devlog_path
           - if current_user
             .only-show-big.inline
               = safe_link_to "", wikis_path, class: "icon-file"
               = safe_link_to "", logout_path, class: "icon-circle-blank"
-      .mobile
-        .mobile-section.mobile-header-links.mobile-only
-          .sixteen.columns= safe_link_to "RESUME", resume_path
-          .sixteen.columns= safe_link_to "PORTFOLIO", portfolio_path
-          .sixteen.columns= safe_link_to "DEVLOG", devlog_path
   - if flash.first
     .alert.center{ class: "alert-#{flash.first.first}" }= flash.first.last
   .navbar-spacer
+
+.header.mobile.mobile-only
+  .mobile-section.mobile-header-links
+    .sixteen.header-row.columns.border-bottom= safe_link_to "RESUME", resume_path
+    .sixteen.header-row.columns.border-bottom= safe_link_to "PORTFOLIO", portfolio_path
+    .sixteen.header-row.columns= safe_link_to "BLOG", devlog_path
+

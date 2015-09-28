@@ -26,16 +26,16 @@
   .mobile-only
     - @portfolio_items.each_with_index do |item, index|
       .portfolio-item
-        %h1{ class: "#{'buffer-top' if index == 0}" }= item.title
+        %h1{ style: 'margin-top: 30px; margin-bottom: 30px' }= item.title
         %h2= item.subtitle
-        .six.columns.right-bar.black_links{ class: top?(index) }
+        .sixteen.columns.right-bar.black_links{ class: top?(index) }
           = safe_link_to image_tag(item.image, class: "port_photo", alt: item.title), item.link_path, style: photo_margin_top?(index)
           - if item.bullets
             %ul.port_list
               - item.bullets.each do |bullet|
                 %li.mobile= bullet
 
-        .nine.columns
+        .sixteen.columns{ style: 'margin-bottom: 80px' }
           .markdown-container
             - item.paragraphs.each do |paragraph|
               %p= markdown paragraph

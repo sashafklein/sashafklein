@@ -102,4 +102,24 @@ module ApplicationHelper
     end
   end
 
+  def landing_links( current_user )
+    if current_user
+      array = [[wikis_path, 'Wiki'], [devlog_path, 'Blog'], [resume_path, 'Resume']]
+    else
+      array = [[resume_path, 'Resume'], [portfolio_path, 'Portfolio'], [devlog_path, 'Blog']]
+    end
+
+    ordinals = ['first', 'second', 'third']
+    array.each_with_index.map{ |e, i| { class: ordinals[i], path: e[0], name: e[1] } }
+  end
+
+  def landing_button( link )
+    content_tag :div, class: "landing_button #{link[:class]}", onclick: "location.href='#{link[:path]}'" do 
+      content_tag :div, class: 'inner-text' do
+        content_tag :a, href: link[:path] do
+          link[:name].to_s.upcase
+        end
+      end
+    end
+  end
 end

@@ -20,16 +20,8 @@
         vertical-align: middle
         margin: -15px 15px -5px 20px
     a
-      &:link, &:visited
-        font-size: 200%
-        color: white
-        margin-right: 15px
-      &:hover
-        color: $pigPink
-        text-decoration: none
-      &:active
-        color: $codebox
-
+      font-size: 200%
+      margin-right: 15px
     // For large screens
     .big-screen
       padding-top: 10px
@@ -43,13 +35,27 @@
       .inline
         display: inline-block
 
+  a
+    &:link, &:visited
+      color: white
+    &:hover
+      color: $pigPink
+      text-decoration: none
+    &:active
+      color: $codebox
+
   // Resizing of the spacer on small screens          
   @media only screen and (max-width: 767px)
     .navbar-spacer
       height: 100px
-  @media only screen and (max-width: 480px)
-    .navbar-spacer
-      height: 0px
-    .fix-to-top
-      position: static
-      margin-bottom: 20px
+
+  &.mobile
+    box-shadow: 0 0 0 5px rgba(0,0,0,0.4)
+    background-color: black
+    position: static
+    .sixteen.header-row.border-bottom
+      border-bottom: 1px solid darken( gray, 20 )
+    a
+      text-decoration: none
+      line-height: 2em
+      color: white
