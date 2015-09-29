@@ -5,6 +5,6 @@ class ResumeItemsController < RestfulItemController
   end
 
   def open_attrs
-    [:title, :subtitle, :description, :kind, :link, :starts_open]
+    [:title, :kind, :link, :starts_open]
   end
 end

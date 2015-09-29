@@ -30,7 +30,7 @@ postModule.controller "PostCtrl", ($scope, $http, $routeParams, $sce, $rootScope
       .success (response) -> 
         window.location = $s.postShowPath(response.post)
       .error (response) -> 
-        alert(response)
+        console.log( response )
   
   $s.getPost = ->
     $http.get( $s.apiPostPath() )

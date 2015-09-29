@@ -9,10 +9,16 @@ class ApiController < ApplicationController
     error(403, 'Permission Denied!')
   end
 
-  def error(status, message = 'Something went wrong')
+  def error(status: 500, message: 'Something went wrong', meta: {}, line: nil)
     response = {
       response_type: "ERROR",
-      message: message
+      message: message,
+      meta: meta,
+      error: true,
+      controller: self.class.to_s,
+      line: line,
+      code: status,
+      params: params.except(:controller, :action).to_json
     }
 
     render json: response.to_json, status: status

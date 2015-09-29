@@ -68,17 +68,25 @@ module ApplicationHelper
 
   def field(form, obj, att)
     val = obj[att]
-    if val.is_a? String
+    if att.to_s.include?("_id") && ( begin; model = Object.const_get( att.to_s.gsub("_id", '').camelize ); rescue; false; end )
+      collection = model.all
+      chooser = [:title, :name, :id].first{ |f| model.column_names.include?(f.to_s) }
+      form.select att, options_for_select( model.all.map{ |e| [ e[chooser], e[:id] ] }, obj[att] )
+    elsif val.is_a? String
       if obj == 'education' || val == 'jobs'
         form.select att, options_for_select(['education', 'jobs'])
       else
         val.length > 100 ? form.text_area(att) : form.text_field(att)
       end
+    elsif obj.class.columns_hash[att.to_s].try(:type) == :datetime
+      form.date_field att
     elsif val.is_a? Array
       form.text_area att, value: val.join("\n")
     elsif val == true || val == false
       form.select att, options_for_select([true, false])
-    else
+    elsif val.is_a? String
+      form.text_field att
+    elsif val.nil?
       form.text_field att
     end
   end
