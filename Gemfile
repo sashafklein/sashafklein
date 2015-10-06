@@ -14,6 +14,7 @@ gem 'sass-rails'
 gem 'launchy'
 gem 'font-awesome-rails'
 gem 'responders'
+gem 'newrelic_rpm'
 
 # Bundle edge Rails instead:
 # gem 'rails'

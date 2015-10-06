@@ -165,6 +165,7 @@ GEM
     multipart-post (2.0.0)
     naught (1.1.0)
     nenv (0.2.0)
+    newrelic_rpm (3.11.2.286)
     ngmin-rails (0.4.0)
       rails (>= 3.1)
     nokogiri (1.6.6.2)
@@ -313,6 +314,7 @@ DEPENDENCIES
   haml
   jquery-rails
   launchy
+  newrelic_rpm
   ngmin-rails
   pg
   pry-nav
