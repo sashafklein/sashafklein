@@ -11,23 +11,24 @@ class EmailsController < ApplicationController
     @captcha = MathCaptcha.decrypt(params[:captcha_secret])
   	@email = Email.new( email_params )
 
-    unless @captcha.correct?(params[:captcha]) || params[:captcha] == "21261"
-        flash.now[:error] = "Please make sure you answered the math question correctly."
-        render :new
+    if !@captcha.correct?(params[:captcha])
+      rerender "Please make sure you answered the math question correctly."
     else
-      if @email.save
-        Contact.contact_message(@email).deliver
+      if @email.save_and_send
         flash[:success] = "Your email has sent! I'll try to get back to you shortly."
         redirect_to devlog_path
       else
-        flash.now[:error] = "Please correct the highlighted errors and try again."
-        render :new
+        rerender "Please correct the highlighted errors and try again."
       end
     end
-
 	end
 
   private
+
+  def rerender(message)
+    flash.now[:error] = message
+    render :new
+  end
 
   def email_params
     params.require(:email).permit(:subject, :content, :name, :address)

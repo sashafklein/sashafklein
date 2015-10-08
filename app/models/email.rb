@@ -17,5 +17,8 @@ class Email < ActiveRecord::Base
   validates :address, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX }
   validates :subject, presence: true
-  validates :content, presence: true
+  
+  def save_and_send
+    save && Contact.contact_message( self ).deliver_now
+  end
 end
