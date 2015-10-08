@@ -17,6 +17,7 @@ gem 'responders'
 gem 'newrelic_rpm'
 gem 'rails_12factor'
 gem 'devise'
+gem 'figaro'
 
 # Bundle edge Rails instead:
 # gem 'rails'

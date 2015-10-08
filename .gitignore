@@ -28,3 +28,5 @@ bundler_stubs/
 
 # Keep em hid
 config/secrets.yml
+# Ignore application configuration
+/config/application.yml
