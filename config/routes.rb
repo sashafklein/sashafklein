@@ -1,10 +1,13 @@
 Sashafklein::Application.routes.draw do
 
+  devise_for :users, skip: [:registrations] 
+  
   get 'wikis', to: 'wikis#show', as: 'home'
-  get 'access', to: 'sessions#new', as: 'login'  
-  get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :users, :sessions, :emails, :wikis, :posts, :skills, :resume_items, :portfolio_items, :roles
+  resources :users, only: [:show] 
+  resources :emails, only: [:new, :create]
+
+  resources :wikis, :posts, :skills, :resume_items, :portfolio_items, :roles
 
   get '/portfolio', to: 'statics#portfolio'
   get '/devlog', to: 'posts#devlog'

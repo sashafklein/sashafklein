@@ -15,6 +15,8 @@ gem 'launchy'
 gem 'font-awesome-rails'
 gem 'responders'
 gem 'newrelic_rpm'
+gem 'rails_12factor'
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails'

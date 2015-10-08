@@ -19,8 +19,12 @@
 
 # Ignore psd files, which are for re-editing only
 *.psd
+
+# Ignore DB dumps
 *.dump
 
 # Ignore local bundler stub settings
 bundler_stubs/
+
+# Keep em hid
 config/secrets.yml

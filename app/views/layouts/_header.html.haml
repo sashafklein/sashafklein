@@ -11,8 +11,10 @@
           = safe_link_to "BLOG", devlog_path
           - if current_user
             .only-show-big.inline
-              = safe_link_to "", wikis_path, class: "icon-file"
-              = safe_link_to "", logout_path, class: "icon-circle-blank"
+              = safe_block_link_to wikis_path do
+                = fa_icon "file", style: 'font-size: 80%'
+              = safe_block_link_to destroy_user_session_path, method: :delete do
+                = fa_icon "circle-o", style: 'font-size: 80%'
   - if flash.first
     .alert.center{ class: "alert-#{flash.first.first}" }= flash.first.last
   .navbar-spacer
