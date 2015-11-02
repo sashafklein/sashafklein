@@ -1,8 +1,8 @@
 = form_for @item, html: { class: 'restful-item-form' } do |f|
   
   .fields
-    - controller.open_attrs.each do |att|
-      = f.label att
+    - controller.open_attr_hash.each do |att|
+      = f.label att.keys.first
       = field(f, @item, att)
   
   = f.submit

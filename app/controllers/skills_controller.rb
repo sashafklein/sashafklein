@@ -5,6 +5,10 @@ class SkillsController < RestfulItemController
   end
 
   def open_attrs
-    [:name, :tooltip, :stars]
+    [
+      :name, 
+      :tooltip, 
+      { stars: (1..7).to_a }
+    ]
   end
 end

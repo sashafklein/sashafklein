@@ -5,6 +5,13 @@ class PortfolioItemsController < RestfulItemController
   end
 
   def open_attrs
-    [:title, :subtitle, :text_blob, :bullets, :link, :image]
+    [
+      :title, 
+      :subtitle, 
+      { text_blob: :text }, 
+      { bullets: :text }, 
+      :link, 
+      :image
+    ]
   end
 end

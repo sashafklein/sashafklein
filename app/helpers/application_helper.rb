@@ -66,29 +66,17 @@ module ApplicationHelper
     item.collapse_button.present? ? item.collapse_button : "+"
   end
 
-  def field(form, obj, att)
+  def field(form, obj, pair)
+    att, type = pair.keys.first, pair.values.first
     val = obj[att]
 
-    if model = model_from_foreign_key(att)
-      collection = model.all
-      chooser = [:title, :name, :id].first{ |f| model.column_names.include?(f.to_s) }
-      form.select att, options_for_select( model.all.map{ |e| [ e[chooser], e[:id] ] }, obj[att] )
-    elsif val.is_a? String
-      if obj == 'education' || val == 'jobs'
-        form.select att, options_for_select(['education', 'jobs'])
-      else
-        val.length > 100 ? form.text_area(att) : form.text_field(att)
-      end
-    elsif obj.class.columns_hash[att.to_s].try(:type) == :datetime
-      form.date_field att
-    elsif val.is_a? Array
-      form.text_area att, value: val.join("\n")
-    elsif val == true || val == false
-      form.select att, options_for_select([true, false])
-    elsif val.is_a? String
-      form.text_field att
-    else
-      form.text_field att
+    return form.select( att, options_for_select( type, val ) ) if type.is_a?(Array)
+
+    case type
+      when :id then model_field(att, form, obj)
+      when :text then val.is_a?(Array) ? form.text_area(att, { value: val.join("\n") }) : form.text_area(att)
+      when :datetime then form.date_field att
+      else form.text_field att
     end
   end
   
@@ -134,10 +122,13 @@ module ApplicationHelper
 
   private
 
-  def model_from_foreign_key(att)
-    return false unless att.to_s.include?("_id")
-    Object.const_get( att.to_s.gsub("_id", '').camelize )
-  rescue
-    false
+  def model_field(att, form, obj)
+    return '' unless att.to_s.include?("_id")
+    model = Object.const_get( att.to_s.gsub("_id", '').camelize )
+    collection = model.all
+    chooser = [:title, :name, :id].first{ |f| model.column_names.include?(f.to_s) }
+    form.select att, options_for_select( model.all.map{ |e| [ e[chooser], e[:id] ] }, obj[att] )
+  rescue => e
+    ''
   end
 end

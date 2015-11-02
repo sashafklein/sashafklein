@@ -2,16 +2,16 @@
   %table.table.table-striped
     %thead
       %tr
-        - controller.open_attrs.each do |attr|
-          %th= attr.to_s.humanize
+        - controller.open_attr_keys.each do |key|
+          %th= key.to_s.humanize
         %th
         %th
     
     %tbody
       - @items.each do |item|
         %tr
-          - controller.open_attrs.each do |attr|
-            %td= item[attr].to_s.truncate(150)
+          - controller.open_attr_keys.each do |key|
+            %td= item[key].to_s.truncate(80)
           %td= safe_link_to "Edit", item_edit_path(item)
           %td= safe_link_to "Delete", item, method: :delete, data: { confirm: "Are you sure?" }
 

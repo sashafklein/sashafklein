@@ -5,6 +5,14 @@ class RolesController < RestfulItemController
   end
 
   def open_attrs
-    [:started, :ended, :name, :show_months, :description, :location, :resume_item_id]
+    [
+      { started: :datetime }, 
+      { ended: :datetime }, 
+      :name, 
+      { show_months: [true, false] }, 
+      { description: :text }, 
+      :location, 
+      { resume_item_id: :id }
+    ]
   end
 end

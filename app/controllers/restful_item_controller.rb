@@ -33,6 +33,16 @@ class RestfulItemController < ApplicationController
     self.class.to_s.split("sController").first.constantize
   end
 
+  def open_attr_keys
+    open_attrs.map{ |a| a.is_a?(Hash) ? a.keys.first : a }
+  end
+
+  def open_attr_hash
+    open_attrs.map do |a|
+      a.is_a?(Hash) ? a : { a => :string }
+    end
+  end
+
   private
 
   def name(object)
@@ -56,10 +66,11 @@ class RestfulItemController < ApplicationController
   end
 
   def item_params
-    params.require(singular).permit( open_attrs )
+    params.require(singular).permit( open_attr_keys )
   end
 
   def open_attrs
     raise StandardError.new("The open_attrs method must be defined in each inheriting controller!")
   end
+
 end
