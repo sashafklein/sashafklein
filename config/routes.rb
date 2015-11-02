@@ -2,6 +2,10 @@ Sashafklein::Application.routes.draw do
 
   devise_for :users, skip: [:registrations] 
   
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+  end
+  
   get 'wikis', to: 'wikis#show', as: 'home'
 
   resources :users, only: [:show] 

@@ -68,7 +68,8 @@ module ApplicationHelper
 
   def field(form, obj, att)
     val = obj[att]
-    if att.to_s.include?("_id") && ( begin; model = Object.const_get( att.to_s.gsub("_id", '').camelize ); rescue; false; end )
+
+    if model = model_from_foreign_key(att)
       collection = model.all
       chooser = [:title, :name, :id].first{ |f| model.column_names.include?(f.to_s) }
       form.select att, options_for_select( model.all.map{ |e| [ e[chooser], e[:id] ] }, obj[att] )
@@ -86,7 +87,7 @@ module ApplicationHelper
       form.select att, options_for_select([true, false])
     elsif val.is_a? String
       form.text_field att
-    elsif val.nil?
+    else
       form.text_field att
     end
   end
@@ -129,5 +130,14 @@ module ApplicationHelper
         end
       end
     end
+  end
+
+  private
+
+  def model_from_foreign_key(att)
+    return false unless att.to_s.include?("_id")
+    Object.const_get( att.to_s.gsub("_id", '').camelize )
+  rescue
+    false
   end
 end
