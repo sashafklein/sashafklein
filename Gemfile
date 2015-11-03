@@ -18,6 +18,7 @@ gem 'newrelic_rpm'
 gem 'rails_12factor'
 gem 'devise'
 gem 'figaro'
+gem 'pgclone', git: "git://github.com/sashafklein/pgclone.git"
 
 # Bundle edge Rails instead:
 # gem 'rails'
