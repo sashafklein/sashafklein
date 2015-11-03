@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/sashafklein/pgclone.git
+  revision: a2bd4ad5339a2fc11595dbf8d970d77351379eee
+  specs:
+    pgclone (0.1.1)
+      trollop (= 2.1.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -285,6 +292,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    trollop (2.1.2)
     twitter (5.15.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
@@ -336,6 +344,7 @@ DEPENDENCIES
   newrelic_rpm
   ngmin-rails
   pg
+  pgclone!
   pry-nav
   pry-rails
   pry-remote
