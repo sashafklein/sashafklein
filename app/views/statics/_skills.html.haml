@@ -3,7 +3,7 @@
   - @skills.each do |skill|
     .skill
       .three.columns
-        %a.skill_links.not= skill.name 
+        = link_to skill.name, '', skill.link_options
       .two.columns  
         = render 'stars', num: skill.stars
 
@@ -11,6 +11,6 @@
   - @skills.each do |skill|
     .skill
       .seven.columns
-        %a.skill_links.not= skill.name 
+        = link_to skill.name, '', skill.link_options
       .seven.columns  
         = render 'stars', num: skill.stars

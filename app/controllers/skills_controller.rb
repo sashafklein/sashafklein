@@ -8,7 +8,8 @@ class SkillsController < RestfulItemController
     [
       :name, 
       :tooltip, 
-      { stars: (1..7).to_a }
+      { stars: (1..7).to_a },
+      :link
     ]
   end
 end
