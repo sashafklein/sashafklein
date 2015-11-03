@@ -2,8 +2,19 @@
   .portstuff
     a 
       color: $blue_link
+    .port-header
+      &.linked
+        cursor: pointer
+        &:hover
+          h1
+            color: $linkRed
+          h2
+            color: $pigPink
     h1
       margin-bottom: 0px
+      &.for-mobile
+        margin-top: 30px
+        margin-bottom: 30px
     h2
       margin-bottom: 12px
     .not-top

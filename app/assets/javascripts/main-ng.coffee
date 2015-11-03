@@ -1,6 +1,7 @@
 #= require_self
+
 #= require controllers/PostCtrl
-#= require controllers/ResumeCtrl
+#= require controllers/MainCtrls
 #= require controllers/example
 
 #= require directives/markdown

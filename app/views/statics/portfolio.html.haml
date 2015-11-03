@@ -1,6 +1,6 @@
 - provide(:title, 'Web Portfolio')
 
-.portstuff.row.container.sixteen.columns
+.portstuff.row.container.sixteen.columns{ ng_controller: 'PortCtrl' }
   .med-and-up
     - @portfolio_items.each_with_index do |item, index|
       .portfolio-item
@@ -12,8 +12,9 @@
                 %li= bullet
 
         .nine.columns
-          %h1= item.title
-          %h2= item.subtitle
+          .port-header{ ng_click: "takeToLink('#{ item.link_path }')", ng_class: "h1Class('#{ item.link_path }')" }
+            %h1= item.title
+            %h2= item.subtitle
           .markdown-container
             - item.paragraphs.each do |paragraph|
               %p= markdown( paragraph ).html_safe
@@ -26,8 +27,9 @@
   .mobile-only
     - @portfolio_items.each_with_index do |item, index|
       .portfolio-item
-        %h1{ style: 'margin-top: 30px; margin-bottom: 30px' }= item.title
-        %h2= item.subtitle
+        .port-header{ ng_click: "takeToLink('#{ item.link_path }')", ng_class: "h1Class('#{ item.link_path }')" }
+          %h1.for-mobile= item.title
+          %h2= item.subtitle
         .sixteen.columns.right-bar.black_links{ class: top?(index) }
           = safe_link_to image_tag(item.image, class: "port_photo", alt: item.title), item.link_path, style: photo_margin_top?(index)
           - if item.bullets
