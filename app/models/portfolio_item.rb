@@ -1,5 +1,8 @@
 class PortfolioItem < ActiveRecord::Base
 
+  scope :reversed, -> { order("portfolio_items.order DESC") }
+  scope :ordered, -> { order('portfolio_items.order ASC') }
+
   def paragraphs
     text_blob.split("\n")
   end
@@ -16,4 +19,7 @@ class PortfolioItem < ActiveRecord::Base
     link || portfolio_path
   end
 
+  def insert_before!(other_item)
+    Reorder.new( PortfolioItem.all ).insert_a_before_b!(self, other_item)
+  end
 end

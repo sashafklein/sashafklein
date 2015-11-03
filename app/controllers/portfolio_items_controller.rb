@@ -14,4 +14,5 @@ class PortfolioItemsController < RestfulItemController
       :image
     ]
   end
+
 end
