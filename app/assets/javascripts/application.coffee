@@ -7,6 +7,7 @@
 #= require lib/bootstrap.min
 #= require lib/ui-bootstrap.min
 #= require lib/underscore.min
+#= require lib/angular-spinkit
 #= require_tree .
 
 MainApp = window.MainApp

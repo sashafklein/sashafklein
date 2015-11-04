@@ -5,7 +5,7 @@
     - @portfolio_items.each_with_index do |item, index|
       .portfolio-item
         .six.columns.right-bar.black_links{ class: top?(index) }
-          = safe_link_to image_tag(item.image, class: "port_photo", alt: item.title), item.link_path, style: photo_margin_top?(index)
+          = safe_link_to image_tag(item.image, class: "port_photo spinner-wrapper", alt: item.title, spinkit_image_preloader: 'rotating-plane-spinner'), item.link_path, style: photo_margin_top?(index)
           - if item.bullets
             %ul.port_list
               - item.bullets.each do |bullet|
@@ -31,7 +31,7 @@
           %h1.for-mobile= item.title
           %h2= item.subtitle
         .sixteen.columns.right-bar.black_links{ class: top?(index) }
-          = safe_link_to image_tag(item.image, class: "port_photo", alt: item.title), item.link_path, style: photo_margin_top?(index)
+          = safe_link_to image_tag(item.image, class: "port_photo spinner-wrapper", alt: item.title, spinkit_image_preloader: 'rotating-plane-spinner'), item.link_path, style: photo_margin_top?(index)
           - if item.bullets
             %ul.port_list
               - item.bullets.each do |bullet|
