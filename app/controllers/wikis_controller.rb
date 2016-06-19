@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
 
-	before_filter :authorize
+	before_filter :authorize_or_redirect_to_login
 
   def show
     @wiki = Wiki.first
@@ -24,5 +24,11 @@ class WikisController < ApplicationController
 
   def wiki_params
     params[:wiki].permit!
+  end
+
+  def authorize_or_redirect_to_login
+    if current_user.nil?
+      return redirect_to login_path, danger: 'You must sign in to do that.'
+    end
   end
 end

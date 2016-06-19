@@ -1,19 +1,22 @@
-- provide(:title, 'Sign In')
-.row.container
-  .center_login
-    %h1 Log In
-    = form_for(resource, as: resource_name, url: user_session_path) do |f|
-      .field
-        = f.label :email
-        = f.email_field :email, autofocus: true
+- if current_user
+  - redirect_to wiki_path(Wiki.first)
+- else
+  - provide(:title, 'Sign In')
+  .row.container
+    .center_login
+      %h1 Log In
+      = form_for(resource, as: resource_name, url: user_session_path) do |f|
+        .field
+          = f.label :email
+          = f.email_field :email, autofocus: true
+          %br
+        .field
+          = f.label :password
+          = f.password_field :password, autocomplete: 'off'
+          %br
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
         %br
-      .field
-        = f.label :password
-        = f.password_field :password, autocomplete: 'off'
-        %br
-      .field
-        = f.check_box :remember_me
-        = f.label :remember_me
-      %br
-      .actions
-        = f.submit "Log In", class: "btn"
+        .actions
+          = f.submit "Log In", class: "btn"
