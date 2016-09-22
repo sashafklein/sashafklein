@@ -5,9 +5,9 @@ class StaticsController < ApplicationController
 
 	def resume
 		@skills = Skill.order('stars DESC').all
-		roles = Role.order(started: :desc)
-		@jobs = ResumeItem.where( id: roles.pluck(:resume_item_id) ).jobs
-		@education_items = ResumeItem.where( id: roles.pluck(:resume_item_id) ).education
+		items = ResumeItem.joins(:roles).order('roles.started DESC')
+		@jobs = items.jobs.to_a.uniq
+		@education_items = items.education.to_a.uniq
 	end
 
 	def portfolio
