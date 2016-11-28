@@ -2,31 +2,31 @@
 
 /* font families */
 
-@font-face
-  font-family: 'Rockwell'
-  src: url('Rockwell.ttf')
-  font-weight: normal
-  font-style: normal
+// @font-face
+//   font-family: 'Rockwell'
+//   src: url('Rockwell.ttf')
+//   font-weight: normal
+//   font-style: normal
 
-@font-face
-  font-family: 'Rockwell Italic'
-  src: url('RockwellItalic.ttf')
+// @font-face
+//   font-family: 'Rockwell Italic'
+//   src: url('RockwellItalic.ttf')
 
-@font-face
-  font-family: 'Rockwell Bold'
-  src: url('RockwellBold.ttf')
+// @font-face
+//   font-family: 'Rockwell Bold'
+//   src: url('RockwellBold.ttf')
 
-@font-face
-  font-family: 'Futura'
-  src: url('Futura Oblique.ttf')
+// @font-face
+//   font-family: 'Futura'
+//   src: url('Futura Oblique.ttf')
 
-@font-face
-  font-family: 'Futura Bold'
-  src: url('Futura Extended.ttf')
+// @font-face
+//   font-family: 'Futura Bold'
+//   src: url('Futura Extended.ttf')
 
-@font-face
-  font-family: 'Futura Italic'
-  src: url('Futura Italic.ttf')
+// @font-face
+//   font-family: 'Futura Italic'
+//   src: url('Futura Italic.ttf')
 
 /****************************************************************************/
 /****************************************************************************/
@@ -37,48 +37,48 @@
 body, div, img, p, ol, em, input, small, br, strong, code, span, a, ul, li, td, th, h1, h2, h3, h4, h5, h6, label
   text-align: left
   &::selection
-    background: $pigPink
+    background: $lightPink
     color: #fff
   &::moz-selection
-    background: $pigPink
+    background: $lightPink
     color: #fff
 
-p, ol, a, ul, span, li, th, h1, h2, h3, h4, h5 ,h6, label
-  font-size: 1.05em
+p
+  font-family: Gotham-Light
 
-p, ol, em, small, ul, li, td, th, h1, h2, h3, h4, h5 ,h6, label
-  font-family: Rockwell
+ol, em, small, ul, li, td, th, h1, h2, h3, h4, h5 ,h6, label, a
+  font-family: Gotham
 
-h1, h2, a, strong
-  font-family: 'Rockwell Bold'
+h1, h2
+  font-family: Gotham-Ultra
+strong
+  font-family: 'Gotham-Bold'
 
 li
   small
-    font-family: 'Rockwell Bold'
+    font-family: 'Gotham-Bold'
 
 /* custom weight and style */
 
 .unbold
-  font-family: 'Rockwell'
+  font-family: 'Gotham'
 
 
 .bold
-  font-family: 'Rockwell Bold'
+  font-family: 'Gotham-Bold'
 
 
 .italic
-  font-family: 'Rockwell Italic'
+  font-family: 'Gotham-Italic'
 
 /* specifics */
 
 h1
   font-size: 3em
-  letter-spacing: -2px
   margin-bottom: 30px
 
 h2
   font-size: 1.7em
-  letter-spacing: -1px
   margin-bottom: 30px
   font-weight: normal
 
@@ -89,47 +89,30 @@ p
 
 a
   font-weight: bold
-  color: $linkRed
-  a:link, a:active, a:visited
-    color: $linkRed
-  a:hover
-    color: $pigPink
+  color: #1e3c89
+  &:hover
+    color: $lightPink
     background: transparent
     text-decoration: underline
-  
-.blue_links
-  a
-    color: $blue_link
-    strong
-      color: $sexyBlue
-    &:hover
-      color: $pigPink
+
+.paragraph
   p
+    font-family: 'Gotham-Light'
     a
-      color: $blue_link
-      &:hover
-        color: $pigPink
-        background-color: #fff
-
-.black_links
+      font-family: 'Gotham'
+      font-weight: normal
+.blue-links
   a
-    color: $black
+    strong
+      color: $electricBlue
+
+.black-links
+  a
+    color: black
     &:hover
-      color: $pigPink
+      color: $lightPink
 
-.link_disclaimer
-  h5, h4, h6
-    margin-right: auto
-    float: center
-    color: $blue_link
-    text-align: center
-    a
-      color: $sexyBlue
-  h6
-    margin-top: -5px
-    margin-bottom: -2px
-
-a.undecorated  
+a.undecorated
   text-decoration: none
 .undecorated
   a

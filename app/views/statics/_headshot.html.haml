@@ -1,11 +1,2 @@
-.headshot_box
+.headshot-box
   .headshot= image_tag('headshot.png')
-  .link_icons
-    = safe_block_link_to 'https://git.io/sasha', tooltip: 'Github' do
-      = fa_icon 'github'
-    = safe_block_link_to 'https://www.linkedin.com/pub/sasha-klein/34/595/1b5', tooltip: 'LinkedIn' do
-      = fa_icon 'linkedin-square'
-    = safe_block_link_to 'http://stackoverflow.com/users/1408935/sasha', tooltip: 'Stack Overflow' do
-      = fa_icon 'stack-overflow'
-    = safe_block_link_to '/contact', tooltip: 'Contact' do
-      = fa_icon 'envelope-o'

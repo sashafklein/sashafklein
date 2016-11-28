@@ -11,3 +11,7 @@
 #= require_tree .
 
 MainApp = window.MainApp
+
+$ ->
+  $('.hamburger').on 'click', ->
+    $('.header-bar').toggleClass('hamburger-open')

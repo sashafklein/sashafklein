@@ -1,43 +1,23 @@
 - provide(:title, 'Web Portfolio')
 
-.portstuff.row.container.sixteen.columns{ ng_controller: 'PortCtrl' }
-  .med-and-up
-    - @portfolio_items.each_with_index do |item, index|
-      .portfolio-item
-        .six.columns.right-bar.black_links{ class: top?(index) }
-          = safe_link_to image_tag(item.image, class: "port_photo spinner-wrapper", alt: item.title, spinkit_image_preloader: 'rotating-plane-spinner'), item.link_path, style: photo_margin_top?(index)
-          - if item.bullets
-            %ul.port_list
-              - item.bullets.each do |bullet|
-                %li= bullet
+.portfolio-show{ ng_controller: 'PortCtrl' }
+  - @portfolio_items.each_with_index do |item, index|
+    .portfolio-item.container
+      .sidebar.black-links{ class: top?(index) }
+        = safe_link_to image_tag(item.image, class: "port-photo spinner-wrapper", alt: item.title, spinkit_image_preloader: 'rotating-plane-spinner'), item.link_path, style: photo_margin_top?(index)
+        .show-medium{ style: 'margin-top: 30px'}
+        - if item.bullets
+          %ul.port-list.hide-medium
+            - item.bullets.each do |bullet|
+              %li= bullet
 
-        .nine.columns
-          .port-header{ ng_click: "takeToLink('#{ item.link_path }')", ng_class: "h1Class('#{ item.link_path }')" }
-            %h1= item.title
-            %h2= item.subtitle
-          .markdown-container
-            - item.paragraphs.each do |paragraph|
-              %p= markdown( paragraph ).html_safe
-          
-          - if next_item = @portfolio_items[index + 1]
-            .hidden-anchor{ id: next_item.title.downcase.split(" ").join("-") }
-            .header-spacer
-
-
-  .mobile-only
-    - @portfolio_items.each_with_index do |item, index|
-      .portfolio-item
+      .content-section
         .port-header{ ng_click: "takeToLink('#{ item.link_path }')", ng_class: "h1Class('#{ item.link_path }')" }
-          %h1.for-mobile= item.title
+          %h1= item.title
           %h2= item.subtitle
-        .sixteen.columns.right-bar.black_links{ class: top?(index) }
-          = safe_link_to image_tag(item.image, class: "port_photo spinner-wrapper", alt: item.title, spinkit_image_preloader: 'rotating-plane-spinner'), item.link_path, style: photo_margin_top?(index)
-          - if item.bullets
-            %ul.port_list
-              - item.bullets.each do |bullet|
-                %li.mobile= bullet
+        .markdown-container
+          - item.paragraphs.each do |paragraph|
+            %p= markdown( paragraph ).html_safe
 
-        .sixteen.columns{ style: 'margin-bottom: 80px' }
-          .markdown-container
-            - item.paragraphs.each do |paragraph|
-              %p= markdown paragraph
+        - if next_item = @portfolio_items[index + 1]
+          .header-spacer.hidden-anchor{ id: next_item.title.downcase.split(" ").join("-") }

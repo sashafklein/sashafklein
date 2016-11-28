@@ -1,0 +1,15 @@
+.skills-tab
+  %h1.name
+    Skills
+    = image_tag('carrot.png')
+
+.experience-tab
+  %h1.name
+    = image_tag('carrot.png')
+    Experience
+
+.skills-overlay.closed
+  .container
+    .skills
+      - @skills.each do |skill|
+        .skill{ style: "font-size:#{skill.stars * 9}px; opacity: #{0.3 + (skill.stars / 10.0)}"}= skill.name

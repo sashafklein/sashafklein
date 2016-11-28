@@ -1,14 +1,12 @@
 .education-and-work-container
-  %h1.squeeze.center-mobile Work Experience
-  %accordion
-    .inset.experience
-      - @jobs.each do |job|
-        = render 'resume_item', item: job
+  %h1.section-header Work Experience
+  .inset.experience
+    - @jobs.each do |job|
+      = render 'resume_item', item: job
 
   %br
 
-  %h1.squeeze.center-mobile Education
-  %accordion
-    .inset.education
-    - @education_items.each do |school|
-      = render 'resume_item', item: school
+  %h1.section-header Education
+  .inset.education
+  - @education_items.each do |school|
+    = render 'resume_item', item: school

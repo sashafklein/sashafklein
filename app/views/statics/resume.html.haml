@@ -1,14 +1,29 @@
 - provide(:title, 'Resume')
 
-.resume-container.row.container.sixteen.columns.undecorated{ ng_controller: 'ResumeCtrl' }
-  .six.columns.right-bar.med-and-up
-    = render "headshot"
-    = render "skills"
+.resume-container.undecorated{ ng_controller: 'ResumeCtrl' }
+  = render 'skills_overlay'
+  .header-area
+    .container.med-and-up.header-container
+      = render "headshot"
+      .header-text-section
+        .name-and-icons
+          %h1.name Sasha Klein
+          .link-icons
+            = safe_block_link_to 'https://git.io/sasha' do
+              = fa_icon 'github'
+            = safe_block_link_to 'https://www.linkedin.com/pub/sasha-klein/34/595/1b5' do
+              = fa_icon 'linkedin-square'
+            = safe_block_link_to 'http://stackoverflow.com/users/1408935/sasha' do
+              = fa_icon 'stack-overflow'
+            = safe_block_link_to '/contact' do
+              = fa_icon 'envelope-o'
+        %h2.self-description Web and Mobile Developer
 
-  .nine.columns.mobile-section.blue_links.med-and-up
+  .main-resume-body.container.blue-links
     = render 'education_and_work'
 
-  .mobile-only.sixteen-columns.mobile-section.blue_links
-    = render 'headshot'
-    = render 'education_and_work'
-    = render 'skills'
+    .show-medium
+      %h1.section-header Skills
+      .skills
+        - @skills.each do |skill|
+          .skill{ style: "font-size:#{skill.stars * 5}px; opacity: #{0.3 + (skill.stars / 10.0)}"}= skill.name

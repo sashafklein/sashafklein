@@ -1,14 +1,23 @@
-.markdown
+.markdown-container
   width: 100%
+  p, li
+    font-size: 16px
+    line-height: 1.5
   +monokai-syntax-highlight
-  font-size: 105%
   blockquote
+    margin: 20px 0
     border-left: 4px solid #777
-    padding-top: 0
+    padding: 5px 20px
+    background-color: #fdfdfd
+    font-style: italic
+    &:hover
+      border-left: 4px solid $lightPink
+      background-color: lighten($lightPink, 20)
   li
     list-style: initial
-    margin-left: 20px
-    font-size: 100%
+    font-family: 'Gotham-Light'
+    &:not(:first-child)
+      margin-top: 10px
   code
     background-color: transparent
     font-weight: bold
@@ -16,36 +25,51 @@
     color: #333
   .codebox
     margin: 20px 0
+  img
+    border: 5px solid black
+    margin: 20px 0
+    width: 100%
+    &:hover
+      width: 200%
+      margin-left: -80%
+  h2, h3, h5
+    margin-bottom: 10px
+    margin-top: 30px
+
   h4
-    margin: 20px 0 -5px 0
-    +border-top-radius(3px)
-    background-color: lighten($codebox, 8)
-    padding: 3px 0 0 10px
+    margin-top: 20px
+    margin-bottom: -15px
+    padding: 3px 0
     z-index: 99
     font-weight: bold
     code
-      background-color: lighten($codebox, 8)
-      color: black
+      background-color: #424141
+      color: darken(white, 20)
+      padding: 5px
+
+  p
+    code
+      font-weight: lighter
+      font-size: 16px
+
   pre
     border-top: none
     +border-radius(3px)
-    background-color: lighten($codebox, 8)
-    margin-bottom: 20px
-    padding: 10px
+    background-color: #424141
+    margin: 20px 0
     white-space: pre
     overflow: scroll
     word-wrap: normal
+    font-size: 16px
     code
-      padding: 0.75em
       white-space: pre
       overflow-x: scroll
       word-wrap: normal
-      background-color: lighten(#333, 2)
-      font-family: 'Rockwell'
+      background-color: #424141
       display: block
       line-height: 1.5
-      font-weight: bold
       span
         font-size: 100%
+
   a:hover
-    color: $pigPink !important
+    color: $lightPink !important

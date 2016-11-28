@@ -1,11 +1,11 @@
-%ul.blog_links
-  %input{ type: 'text', ng_model: 'query', style: 'text-align: left; margin: auto' }
+%ul.blog-links
+  %input{ type: 'text', ng_model: 'query', style: 'text-align: left; margin: auto; font-size:30px' }
 
   .centerify.archive#list
     %h2{ ng_repeat: 'post in postList | filter:query' }
       %a.post-link{ ng_href: '{{postShowPath(post)}}' } {{ post.name }}
-      %small {{ post.created_at | date:'mediumDate' }} 
-      
+      %small {{ post.created_at | date:'mediumDate' }}
+
       - if current_user
-        %a.red{ ng_href: '{{postEditPath(post)}}' } EDIT
-        %a.blue{ ng_href: '{{postShowPath(post)}}', method: 'delete', data: { confirm: '100% sure?' } } DELETE
+        %a{ ng_href: '{{postEditPath(post)}}' } EDIT
+        %a{ ng_href: '{{postShowPath(post)}}', method: 'delete', data: { confirm: '100% sure?' } } DELETE

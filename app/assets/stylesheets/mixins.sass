@@ -1,0 +1,34 @@
+@mixin mixed-link-base
+  margin-bottom: 0
+  font-family: Gotham-Bold
+  cursor: pointer
+  color: black
+  small
+    color: $electricBlue
+  i
+    color: $lightPink
+    margin-left: 5px
+
+@mixin mixed-link
+  +mixed-link-base
+  .fa
+    color: $lightPink
+  &:hover
+    color: darken( $electricBlue, 22 )
+    small strong
+      color: darken( $electricBlue, 10 )
+    i
+      color: $darkPink
+    a
+      color: $darkPink
+
+@mixin mixed-colored-link
+  +mixed-link-base
+  color: $maroon
+  small
+    color: $electricBlue
+  &:hover
+    color: $darkPink
+    small
+      color: $lightBlue
+

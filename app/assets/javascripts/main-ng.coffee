@@ -20,26 +20,26 @@ MainApp = angular.module("MainApp", [
 ])
 
 MainApp.config ($routeProvider, $locationProvider) ->
-  
+
   $locationProvider.html5Mode(true)
 
   $routeProvider
-    .when '/', 
+    .when '/',
       {
         templateUrl: 'post_archive.html',
         controller: 'PostCtrl'
       }
-    .when '/new', 
+    .when '/new',
       {
         templateUrl: 'new_post.html',
         controller: 'PostCtrl'
       }
-    .when '/:postSlug', 
+    .when '/:postSlug',
       {
         templateUrl: 'show_post.html',
         controller: 'PostCtrl'
       }
-    .when '/:postSlug/edit', 
+    .when '/:postSlug/edit',
       {
         templateUrl: 'edit_post.html',
         controller: 'PostCtrl'

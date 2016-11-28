@@ -1,25 +1,23 @@
 .posts
+  h1
+    small
+      font-size: 45%
   .blog-content
-    a
-      font-size: 100%
-      font-family: 'Rockwell'
-      small
-        font-family: 'Rockwell Bold'
   .o
     margin-left: 7px
-    
+
   /* code display */
 
   pre
     font-family: monospace
     text-align: left
     &::selection
-      background-color: $pigPink
+      background-color: $lightPink
       color: white
     &::moz-selection
-      background-color: $pigPink
+      background-color: $lightPink
       color: white
-    
+
   /* code display */
   .codebox
     padding-right: 8px
@@ -29,14 +27,11 @@
     p
       font-family: 'Rockwell Bold'
       &::selection
-        background: $pigPink
+        background: $lightPink
         color: #fff
       &::moz-selection
-        background: $pigPink
+        background: $lightPink
         color: #fff
-    pre
-      font-family: 'Rockwell Bold'
-      font-size: 90%
 
     .highlight
       pre
@@ -61,47 +56,37 @@
     text-align: left
 
   #search_field
-    width: 160px 
+    width: 160px
     margin-right: 10px
-  
+
   .archive
     ul
+      list-style: none
       margin-top: 30px
+      margin-left: 0
+      padding: 0
       input
         margin-bottom: 30px !important
+        color: $lightPink
     h2
       margin-bottom: 5px
-      a.post-link
-        color: $codebox
       .red
         font-size: 50%
-        color: $linkRed
-      .blue
-        font-size: 50%
-        color: $blue_link
-      small
-        font-family: Futura Bold
+        color: $maroon
 
   #recent_h1
     a:hover
       color: black
       text-decoration: none
 
-  .blog_photo
-    color: $heavyGray
-    border: 5px solid
-    float: left
-    margin-bottom: 10px
-    width: 100%
-
-  .blog_links
+  .blog-links
     margin-left: 10px
     list-style-type: disc
     li
       line-height: 23px
       margin-bottom: 10px
     a:hover
-      color: $pigPink
+      color: $lightPink
 
   /* pagination */
   .prevnext
@@ -115,16 +100,16 @@
       font-size: 90%
       padding: 7px
       text-decoration: none
-      color: $blue_link
       border: 1px solid #9aafe5
       display: inline-block
       &:hover
-        background-color: $grayMediumLight
+        background-color: #eaeaea
       &.disabled
         display: none
-    
-  .markdown
-    a
-      color: $blue_link
-  
-  .sidebar
+
+  .blog-sidebar
+    li
+      list-style: none
+      padding-left: 0
+      +mixed-colored-link
+      line-height: 2.5

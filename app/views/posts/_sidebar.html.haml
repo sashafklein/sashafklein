@@ -1,22 +1,22 @@
-%h1.squeeze Recent Posts
+%h1 Recent Posts
 
-%ul
-  %li.total_hover{ ng_repeat: 'post in postList | limitTo:postLimit' }
-    %a#link_name{ ng_href: '{{postShowPath(post)}}' }
+%ul.blog-sidebar.link-list
+  %li{ ng_repeat: 'post in postList | limitTo:postLimit' }
+    %span{ ng_href: '{{postShowPath(post)}}' }
       {{ post.name }}
-      %span.manual_small {{ post.created_at | date:'mediumDate' }}
+      %small {{ post.created_at | date:'mediumDate' }}
 
-.link_disclaimer
+.centerify
   %h6 ---
   %h5 Showing {{postLimit}} most recent.
-  %h5.blue_links 
+  %h5.blue-links
     See
-    %a{ ng_href: '{{postArchivePath}}' }archive 
+    %a{ ng_href: '{{postArchivePath}}' }archive
     for more.
 
 %br
 
-.prevnext 
+.prevnext
   .prev-post{ ng_hide: '!previousPost' }
     %a{ ng_href: '{{ postShowPath(previousPost) }}' } << PREV
   .next-post{ ng_hide: '!nextPost' }

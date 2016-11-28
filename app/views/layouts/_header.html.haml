@@ -1,27 +1,25 @@
-.header.med-and-up
-  .navbars.top-bar.fix-to-top
-    .container.undecorated.sixteen.columns
-      .big-screen.piglet
-        .seven.columns.left-section
+.header-bar
+  .container.undecorated.top-section
+    .header-content
+      .left-section
+        .flex-link
           = safe_link_to image_tag('pig3.png') + "SASHA KLEIN", resume_path, class: 'pig-link'
-          .only-show-big
-            %p.web-dev WEB DEVELOPER
-        .nine.columns.right-section
+      .right-section
+        .flex-link.hamburger
+          = image_tag('hamburger.png')
+        .flex-link.full-link
           = safe_link_to "PORTFOLIO", portfolio_path
+        .flex-link.full-link
           = safe_link_to "BLOG", devlog_path
-          - if current_user
-            .only-show-big.inline
-              = safe_block_link_to wikis_path do
-                = fa_icon "file", style: 'font-size: 80%'
-              = safe_block_link_to destroy_user_session_path, method: :delete do
-                = fa_icon "circle-o", style: 'font-size: 80%'
-  - if flash.first
-    .alert.center{ class: "alert-#{flash.first.first}" }= flash.first.last
-  .navbar-spacer
+        - if current_user
+          .flex-link.full-link
+            = safe_block_link_to wikis_path do
+              = fa_icon "file"
+          .flex-link.full-link
+            = safe_block_link_to destroy_user_session_path, method: :delete do
+              = fa_icon "circle-o"
+.header-spacer
 
-.header.mobile.mobile-only
-  .mobile-section.mobile-header-links
-    .sixteen.header-row.columns.border-bottom= safe_link_to "RESUME", resume_path
-    .sixteen.header-row.columns.border-bottom= safe_link_to "PORTFOLIO", portfolio_path
-    .sixteen.header-row.columns= safe_link_to "BLOG", devlog_path
-
+- if flash.first
+  .alert.center
+    %p= flash.first.last

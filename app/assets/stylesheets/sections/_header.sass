@@ -1,61 +1,125 @@
-.header
+.header-bar
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  background-color: rgba(1, 1, 1, 0.9)
+  box-shadow: 0 0 0 5px rgba(0,0,0,0.4)
+  z-index: $headerZ
 
-  // For both mobile and not
-  .fix-to-top
-    position: fixed
-    opacity: .95
-    z-index: 99
-    width: 100%
-    margin-top: -5px
-
-  .navbar-spacer
-    height: 80px
-
-  .navbars.top-bar
-    box-shadow: 0 0 0 5px rgba(0,0,0,0.4)
-    font-size: 90%
-    background-color: $navColor
-    .pig-link
+  .flex-link
+    display: flex
+    flex: 1
+  &.hamburger-open
+    display: flex
+    flex-direction: column
+    height: calc(#{$headerHeight} * 2)
+    .container.top-section
+      position: static
+      flex: 1
+      display: flex
+    .container.mobile-option
+      flex: 1
+      display: flex
+      flex-direction: column
+      height: 100%
+      justify-content: center
+    .hamburger
+      opacity: 0.3
       img
-        vertical-align: middle
-        margin: -15px 15px -5px 20px
-    a
-      font-size: 200%
-      margin-right: 15px
-    // For large screens
-    .big-screen
-      padding-top: 10px
-      .left-section
-        float: left
-        padding: 10px 0 20px
-      .right-section
-        float: right
-        display: inline-block
-        padding: 10px 0 20px
-      .inline
-        display: inline-block
+        margin-bottom: 0
+    .left-section, .right-section
+      flex: 1
+      justify-content: center
+      display: flex
+      opacity: 1
+      transition: all 1s ease
+    .left-section
+      align-self: flex-start
+    .right-section
+      align-self: flex-end
 
+  .hamburger
+    display: inline-block
+    transition: all 1s ease
+    opacity: 1
+    cursor: pointer
+
+  .container.top-section
+    position: relative
+    top: 30%
+
+  .pig-link
+    img
+      margin: -15px 15px -5px 0
+      vertical-align: middle
+      @media (max-width: $medium)
+        display: none
+
+  .header-content
+    display: flex
+    flex: 1
+    flex-direction: row
+    padding: 30px 0
+
+  .left-section, .right-section
+    display: flex
+
+    .flex-link
+      display: flex
+      flex: 1
+      align-items: flex-end
+
+  .left-section
+    flex: 1
+    align-self: center
+    justify-content: flex-start
+
+
+  .right-section
+    flex: 0.5
+    align-self: center
+    justify-content: flex-end
+    .flex-link
+      justify-content: flex-end
+
+    @media (min-width: $medium)
+      .hamburger
+        display: none
+    @media (max-width: $medium)
+      .full-link
+        display: none
+
+  .hamburger, .header-content, .left-section, .right-section, .full-link
+    transition: all 1s ease
+  &.hamburger-open
+    @media (max-width: $medium)
+      .hamburger:
+        opacity: 0.3
+        flex: 0.5
+      .header-content
+        flex-direction: column
+        padding-top: 0
+      .left-section
+        display: none
+        flex: 0
+      .right-section
+        flex-direction: column
+        align-items: flex-end
+        justify-content: space-between
+        flex: 1
+        .full-link
+          display: flex
+          a
+            margin-right: 0
   a
+    font-size: 200%
     &:link, &:visited
       color: white
     &:hover
-      color: $pigPink
+      color: $lightPink
       text-decoration: none
-    &:active
-      color: $codebox
+    margin-right: 15px
 
-  // Resizing of the spacer on small screens          
-  @media only screen and (max-width: 767px)
-    .navbar-spacer
-      height: 100px
-
-  &.mobile
-    box-shadow: 0 0 0 5px rgba(0,0,0,0.4)
-    background-color: black
-    position: static
-    .sixteen.header-row.border-bottom
-      border-bottom: 1px solid darken( gray, 20 )
-    a
-      text-decoration: none
-      line-height: 2em
-      color: white
+.header-spacer
+  height: $headerHeight

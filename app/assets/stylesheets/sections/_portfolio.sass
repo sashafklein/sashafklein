@@ -1,15 +1,16 @@
 .portfolio
-  .portstuff
-    a 
-      color: $blue_link
+  .portfolio-show
+    margin-top: 50px
     .port-header
+      h1
+        margin-top: 0
       &.linked
         cursor: pointer
         &:hover
           h1
-            color: $linkRed
+            color: $electricBlue
           h2
-            color: $pigPink
+            color: lighten($electricBlue, 10)
     h1
       margin-bottom: 0px
       &.for-mobile
@@ -22,24 +23,21 @@
         margin-top: 30px
         h1
           margin-top: -3px
-      .black_links
-        margin-top: 20px
-    .black_links
-      .port_photo
+    .black-links
+      .port-photo
         border: 5px solid black
-        margin-bottom: 10px
-        width: 90%
+        width: 100%
         min-height: 150px
+        margin-bottom: 10px
         &:hover
-          border: 5px solid $pigPink
-    .port_list
+          border: 5px solid $lightPink
+    .port-list
       li
-        font-family: Futura Bold
-        clear: left
-        font-size: 110%
-        line-height: 35px
-        font-style: italic
-        text-align: right
-        margin-right: 10%
+        text-align: center
+        padding: 10px 0
+        font-family: Gotham-Bold
+        font-size: 14px
+        &:hover
+          background-color: lighten($electricBlue, 53)
     .header-spacer
       height: 90px

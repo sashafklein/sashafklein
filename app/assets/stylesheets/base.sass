@@ -3,87 +3,32 @@
 body
   font-family: helvetica, sans-serif
   font-size: 15px
+  margin: 0
 
-.inline-mobile
-  display: none
+.container
+  width: $large
+  display: block
+  margin: auto
+  @media (max-width: $large)
+    width: $medium
+  @media (max-width: $medium)
+    width: $small
+  @media (max-width: $small)
+    width: 90%
+    margin: 0 5%
 
 .inline
   display: inline-block
 
-.inner
-  width: 85%
-  margin: auto
-  background-color: $innerColor
-  padding-top: 20px
-  padding-bottom: 5px
-  margin-bottom: 10px
-
-.bubble
-  background-color: white
-  margin-left: 20px
-  margin-right: 20px
-  margin-top: 0px
-  margin-bottom: 10px
-  padding: 10px
-  a:hover
-    color: $pigPink 
-
-#header_bubble
-  background-color: white
-  margin-left: 60px
-  margin-right: 60px
-  margin-top: 35px
-  margin-bottom: 45px
-  a:hover
-    color: $pigPink
-
-.banded
-  border: 1px solid #75726c
-  border-radius: 3px 3px 3px 3px
-  box-shadow: 0 0 0 10px rgba(0,0,0,0.1)
-
-.footer
-  box-shadow: 0 0 5 0px rgba(0,0,0,0.4)
-  padding-bottom: 5px
-
-.normalize
-  text-align: left
-  font-size: 100%
-  font-color: #000
-  line-height: 1em
 
 .inset
   margin-left: 8px
 
-.move-right
-  padding-left: 30px
-
 
 /* footer and header */
-
-.header
-  padding-top: 5px
-  padding-bottom: 2px
-  margin-bottom: 30px
-  .left-section
-    .only-show-big
-      display: inline-block
-  .right-section
-    text-align: right
-
 .logout
   margin-left: -20px
   margin-bottom: -40px
-
-.top_buffer
-  height: 60px
-
-.bottom_buffer
-  height: 50px
-
-#right_header
-  margin-right: 30px
-
 
 /* prettified error messages */
 
@@ -93,18 +38,6 @@ body
   font-size: 100%
   background-color: #fff
 
-.gray_botton
-  padding: 6px 6px
-  color: #333
-  font-family: calibri, verdana, 'trebuchet ms'
-  font-size: 100%
-  border: 1px solid #ddd
-  text-shadow: none
-  border-radius: 3px
-  -moz-border-radius: 3px
-  -webkit-border-radius: 3px
-  background-color: #eee
-
 #error_explanation
   color: #f00
   ul
@@ -113,14 +46,17 @@ body
     li
       font-size: 120%
       color: #A00000
- 
-.alert .close
-  position: relative
-  top: -2px
-  color: #FF0000
-  right: -21px
+
+.alert
+  background-color: darken(#ccc, 20)
   text-align: center
-  line-height: 20px
+  p
+    color: white
+    font-family: Gotham-Bold
+    padding: 25px 0
+    margin: 0
+    text-align: center
+    font-size: 25px
 
 button.close
   padding: 0
@@ -132,14 +68,6 @@ button.close
 
 /* misc formatting & tricks */
 
-.float-right
-  float: right
-  margin: 0
-
-.float-over
-  color: $grayMediumLight
-  opacity: 0.6
-
 .center
   text-align: center
   h1
@@ -149,32 +77,6 @@ button.close
   textarea
     width: 90%
     padding-right: 15px
-
-.squeeze
-  margin-bottom: 12px
-  margin-top: 0px
-
-.cl
-  text-align: center
-
-.collapse-group
-  h2
-    a
-      font-size: 70%
-  a.bundle
-    color: $linkRed
-
-.blue
-  a
-    font-size: 30%
-    margin-bottom: 5px
-    color: $blue_link
-
-.sexy_blue
-  a
-    font-size: 30%
-    margin-bottom: 5px
-    color: $sexyBlue
 
 .sidebar-nav-fixed
   padding: 9px 0
@@ -195,7 +97,7 @@ button.close
     text-align: center
   table
     margin: 0
-    
+
 table.table thead tr th
   font-weight: bold
 
@@ -221,45 +123,15 @@ form.restful-item-form
 .padded
   padding-left: 10px
 
-.right-bar
-  border-right: 1px solid $barColor
-
-.left-bar
-  border-left: 1px solid $barColor
-
-.total_hover
-  .manual_small
-    color: $sexyBlue
-  &:hover
-    text-decoration: none
-    .manual_small, a
-      color: $sexyBlue
-      text-decoration: none
-    #link_name
-      color: $pigPink
-
-.manual_small
-  a
-    color: $sexyBlue
-    &:hover
-      color: $sexyBlue
-  font-size: 70%
-  &::selection
-    background: $pigPink
-    color: $linkRed
-  &::moz-selection
-    background: $pigPink
-    color: $linkRed
-
 .border-it
   border: solid 1px
 
 .bundle
   padding: 2px
   &:hover
-    color: $pigPink   
+    color: $lightPink
   a:hover
-    color: $pigPink
+    color: $lightPink
 
 .front-page-links
   border: 1px solid
@@ -269,7 +141,7 @@ form.restful-item-form
 
 .row
   a:hover
-    color: $pigPink
+    color: $lightPink
 
 .no-side-margins
   margin: 0 0 20px 0 !important
@@ -279,11 +151,6 @@ form.restful-item-form
   img
     width: 90% !important
 
-p.web-dev
-  color: #ffcece
-  display: inline-block
-  margin-left: -5px
-
 .mobile-footer
   margin-top: 0
   font-size: 200%
@@ -292,7 +159,7 @@ p.web-dev
   a
     color: black
     &:hover
-      color: $pigPink
+      color: $lightPink
 
 .mobile-only
   display: none
@@ -303,28 +170,6 @@ p.web-dev
   .only-show-big
     p
       margin-bottom: 0
-
-
-.markdown-container
-  img
-    border: 5px solid black
-    width: 100%
-    &:hover
-      width: 200%
-      margin-left: -80%
-  li
-    list-style: initial
-  h3, h2
-    font-family: Futura Bold
-  h3
-    font-size: 120%
-  h2
-    margin-bottom: 5px
-    margin-top: 10px
-  p, li
-    line-height: 1.5
-  li
-    margin-left: 20px
 
 .mobile-markdown
   padding-left: 10px
@@ -349,12 +194,14 @@ p.web-dev
       font-size: 3em
       width: 100%
 
+.light-gray-bg
+  background-color: $lightGray
 .bottom-sidebar
   margin-top: 40px
   .prevnext a
     font-size: 200% !important
 
-.skillz.mobile-only 
+.skillz.mobile-only
   width: 90%
   .skill
     font-size: 200%
@@ -372,3 +219,44 @@ p.web-dev
     margin-bottom: -80px
     a
       font-size: 150%
+
+.portfolio-show
+  display: block
+
+ul.link-list
+  padding-left: 0
+  list-style: none
+
+.posts-show, .portfolio-item
+  display: flex
+  flex-direction: row
+  .sidebar
+    padding-right: 3%
+    flex: 3
+    ul
+      list-style: none
+      padding-left: 0
+      line-height: 2
+  .content-section
+    display: inline-block
+    padding-left: 3%
+    flex: 6
+
+  @media (max-width: $medium)
+    flex-direction: column
+
+.show-small
+  @media (min-width: $small)
+    display: none
+
+.hide-small
+  @media (max-width: $small)
+    display: none
+
+.hide-medium
+  @media (max-width: $medium)
+    display: none
+
+.show-medium
+  @media (min-width: $medium)
+    display: none
