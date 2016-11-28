@@ -50,6 +50,7 @@ body
 .alert
   background-color: darken(#ccc, 20)
   text-align: center
+  transition: all 1s ease
   p
     color: white
     font-family: Gotham-Bold
@@ -57,7 +58,8 @@ body
     margin: 0
     text-align: center
     font-size: 25px
-
+  &.closed
+    height: 0
 button.close
   padding: 0
   cursor: pointer

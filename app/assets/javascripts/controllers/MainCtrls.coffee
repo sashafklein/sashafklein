@@ -3,7 +3,6 @@ mainModule = angular.module('Main', [])
 mainModule.controller "ResumeCtrl", ($scope) ->
   $s = $scope
 
-  $("[data-toggle=popover]").popover({html: true});
   $('.skills-tab, .experience-tab').on 'click', ->
     $('.skills-overlay').toggleClass('closed')
     $('.skills-tab').toggleClass('closed')

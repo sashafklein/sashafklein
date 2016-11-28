@@ -8,7 +8,6 @@ class StaticsController < ApplicationController
 		items = ResumeItem.joins(:roles).order('roles.started DESC')
 		@jobs = items.jobs.to_a.uniq
 		@education_items = items.education.to_a.uniq
-		flash[:alert] = "This is a message"
 	end
 
 	def portfolio
