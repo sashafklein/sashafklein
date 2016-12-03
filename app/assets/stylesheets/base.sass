@@ -2,7 +2,7 @@
 
 body
   font-family: helvetica, sans-serif
-  font-size: 15px
+  font-size: 1em
   margin: 0
 
 .container
@@ -22,13 +22,13 @@ body
 
 
 .inset
-  margin-left: 8px
+  margin-left: 0.5em
 
 
 /* footer and header */
 .logout
-  margin-left: -20px
-  margin-bottom: -40px
+  margin-left: -1.5em
+  margin-bottom: -2.5em
 
 /* prettified error messages */
 
@@ -54,10 +54,10 @@ body
   p
     color: white
     font-family: Gotham-Bold
-    padding: 25px 0
+    padding: 1.5em 0
     margin: 0
     text-align: center
-    font-size: 25px
+    font-size: 1.5em
   &.closed
     height: 0
 button.close
@@ -247,8 +247,11 @@ ul.link-list
   @media only screen and (max-width: $medium)
     flex-direction: column
 
+  @media only screen and (min-device-width: 480px)
+    flex-direction: column
+
 .show-small
-  @media (min-width: $small)
+  @media only screen and (min-width: $small)
     display: none
 
 .hide-small
