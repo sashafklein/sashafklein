@@ -2,7 +2,7 @@
 
 %ul.blog-sidebar.link-list
   %li{ ng_repeat: 'post in postList | limitTo:postLimit' }
-    %span{ ng_href: '{{postShowPath(post)}}' }
+    %a{ ng_href: '{{postShowPath(post)}}' }
       {{ post.name }}
       %small {{ post.created_at | date:'mediumDate' }}
 

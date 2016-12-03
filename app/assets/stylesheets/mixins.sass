@@ -7,12 +7,17 @@
     color: $electricBlue
   i
     color: $lightPink
-    margin-left: 5px
+    margin-left: 10px
 
 @mixin mixed-link
   +mixed-link-base
   .fa
     color: $lightPink
+    font-size: 17px
+    vertical-align: text-top
+  a
+    span
+      color: black
   &:hover
     color: darken( $electricBlue, 22 )
     small strong

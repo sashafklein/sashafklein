@@ -1,5 +1,7 @@
 .resume
 
+  .main-resume-body
+    margin-bottom: 100px
   .header-area
     margin-bottom: 50px
     background-color: $lightGray
@@ -32,10 +34,11 @@
   .link-icons
     font-size: 110%
     display: inline-block
-    margin: 0 0 10px 20px
+    margin: 0 0 15px 20px
     a
       margin-right: 10px
       color: black
+      cursor: pointer
       &:hover
         color: $lightPink
       i
@@ -81,6 +84,9 @@
           color: $electricBlue
     .roles
       margin-top: 20px
+      .paragraph:first-child
+        p
+          margin-top: 0
     .roles, .fa
       overflow: hidden
       max-height: $medium
@@ -96,20 +102,24 @@
         transform: rotate(0deg)
 
   .skills-overlay
-    position: absolute
+    position: fixed
     top: 0
     right: 0
-    min-height: 100%
     background-color: white
     z-index: $skillsZ
     width: 100%
     transition: all 0.7s ease
-    height: auto
+    height: 100%
+    .skills
+      margin: 100px 50px 50px 150px
     &.closed
-      height: 2000px
+      position: absolute
       right: -100%
     .container
-      margin-top: 100px
+      height: 100%
+      width: calc(100% - 100px)
+      margin-left: 100px
+      overflow: scroll
 
   .skill
     font-family: 'Gotham-Ultra'
@@ -178,6 +188,9 @@
         @media (max-width: $large)
           left: -12%
 
+  .collapse-title
+    i.fa
+      margin-top: -1px
   .headshot-box
     flex: 2
     margin-right: 5%
