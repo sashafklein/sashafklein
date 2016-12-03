@@ -6,48 +6,36 @@ body.landing
   position: absolute
   top: 0
   left: 0
+  display: flex
+  flex-direction: column
+  justify-content: center
   .landing-buttons
-    position: absolute
-    margin: auto
-    width: 80%
-    height: 20%
-    top: 40vh
-    left: 10vw
-    &.mobile-only
-      top: 18%
-      .landing_button
-        width: 100%
-        position: static
-        margin-bottom: 40px
-        .inner-text a
-          font-size: 4.5vw
-
-    .landing_button
-      position: absolute
-      background-color: $textAndBorder
-      width: 29%
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    margin: 0
+    .landing-button
+      display: flex
+      flex: 1
+      border: 8px solid $textAndBorder
+      border-radius: 4px
       padding: 0.5vw
-      display: inline-block
       text-align: center
       vertical-align: middle
+      margin: 2%
       .inner-text
         text-align: center
         background-color: white
         padding: 18% 0 18% 0
+        width: 100%
         a
           text-decoration: none
-          font-size: 2.5vw
-          font-weight: bold
+          font-size: 3vw
+          font-family: Gotham-Ultra
           padding: 4vw 0 4vw 0
           color: $textAndBorder
           vertical-align: middle
           text-align: center
-      &.first
-        left: 0
-      &.second
-        left: 34.5%
-      &.third
-        left: 69%
       &:hover
         cursor: pointer
         .inner-text
@@ -59,3 +47,14 @@ body.landing
           background-color: lighten($electricBlue, 25)
           a
             color: white
+
+  @media only screen and (min-device-width: 300px)
+    .landing-buttons
+      flex-direction: column
+      .landing-button
+        margin: 2.5% 6%
+        a
+          font-size: 4vw
+  @media only screen and (min-device-width: 800px)
+    .landing-buttons
+      flex-direction: row

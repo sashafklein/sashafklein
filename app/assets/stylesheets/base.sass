@@ -241,16 +241,17 @@ ul.link-list
       line-height: 2
   .content-section
     display: inline-block
-    padding-left: 3%
     flex: 6
+    @media only screen and (min-device-width: 800px)
+      padding-left: 3%
+    @media only screen and (min-device-width: 300px)
+      padding-left: 0
+      margin-top: 20px
 
-  @media only screen and (max-width: $medium)
+  @media only screen and (max-width: $medium) and (min-device-width: 300px)
     flex-direction: column
 
-  @media only screen and (min-device-width: 300px)
-    flex-direction: column
-
-  @media only screen and (min-device-width: 1024px)
+  @media only screen and (min-width: $medium) and (min-device-width: 1024px)
     flex-direction: row
 
 .show-small
@@ -260,11 +261,15 @@ ul.link-list
 .hide-small
   @media only screen and (max-width: $small)
     display: none
-
-.hide-medium
-  @media only screen and (max-width: $medium)
+  @media only screen and (min-device-width: 300px)
     display: none
 
 .show-medium
   @media only screen and (min-width: $medium)
+    display: none
+
+.hide-medium
+  @media only screen and (max-width: $medium)
+    display: none
+  @media only screen and (min-device-width: 300px)
     display: none

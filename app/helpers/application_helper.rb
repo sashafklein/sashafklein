@@ -79,7 +79,7 @@ module ApplicationHelper
       else form.text_field att
     end
   end
-  
+
   def item_edit_path(obj)
     send( "edit_#{obj.class.to_s.underscore}_path", obj )
   end
@@ -111,7 +111,7 @@ module ApplicationHelper
   end
 
   def landing_button( link )
-    content_tag :div, class: "landing_button #{link[:class]}", onclick: "location.href='#{link[:path]}'" do 
+    content_tag :div, class: "landing-button", onclick: "location.href='#{link[:path]}'" do
       content_tag :div, class: 'inner-text' do
         content_tag :a, href: link[:path] do
           link[:name].to_s.upcase
