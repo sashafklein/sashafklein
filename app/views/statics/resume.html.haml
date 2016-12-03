@@ -27,5 +27,5 @@
       .skills
         - @skills.in_groups_of(2).each do |skill_group|
           .skills-row
-            - skill_group.each do |skill|
+            - skill_group.compact.each do |skill|
               .skill{ style: "font-size:#{skill.stars * 5}px; opacity: #{0.3 + (skill.stars / 10.0)}"}= skill.name
