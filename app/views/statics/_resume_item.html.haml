@@ -1,18 +1,20 @@
 - if item.link.present?
   .collapse-title.top-level
     %a{ href: item.link, target: '_self' }
+      %span.icon
+        %i.fa.fa-arrow-right
       %span= item.title
       %small
         = item.subtitle.html_safe
-        %i.fa.fa-arrow-right
 
 - else
   .panel.closed
     %span.collapse-title.expandable-panel-title
+      %span.icon
+        %i.fa.fa-plus-circle
       = item.title
       %small
         = item.subtitle.html_safe
-        %i.fa.fa-plus-circle
     .roles
       - many_roles = item.roles.count > 1
       - item.roles.each_with_index do |role, index|

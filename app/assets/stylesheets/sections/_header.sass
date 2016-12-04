@@ -43,6 +43,8 @@
 
   @media only screen and (min-device-width: 300px)
     min-height: 100px
+    .container
+      margin-top: 1%
     .hamburger
       display: flex
       transition: all 1s ease
@@ -69,6 +71,8 @@
         display: inline-block
 
   @media only screen and (min-device-width: 800px)
+    .container
+      margin-top: 0
     .header-content
       display: flex
       flex: 1
@@ -109,6 +113,8 @@
       .hamburger:
         opacity: 0.3
         flex: 0.5
+        height: 24px
+        width: 40px
       .header-content
         flex-direction: column
         padding-top: 0
@@ -120,6 +126,7 @@
         align-items: flex-end
         justify-content: space-between
         flex: 1
+        margin-top: 10px
         .flex-link
           display: flex
           margin: 10px 0

@@ -242,13 +242,14 @@ ul.link-list
   .content-section
     display: inline-block
     flex: 6
-    @media only screen and (min-device-width: 800px)
-      padding-left: 3%
     @media only screen and (min-device-width: 300px)
       padding-left: 0
       margin-top: 20px
+    @media only screen and (min-device-width: 800px)
+      padding-left: 3%
+      margin-top: 0
 
-  @media only screen and (max-width: $medium) and (min-device-width: 300px)
+  @media only screen and (max-width: $large) and (min-device-width: 300px)
     flex-direction: column
 
   @media only screen and (min-width: $medium) and (min-device-width: 1024px)
@@ -273,3 +274,5 @@ ul.link-list
     display: none
   @media only screen and (min-device-width: 300px)
     display: none
+  @media only screen and (min-device-width: 800px)
+    display: block

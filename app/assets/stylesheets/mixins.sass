@@ -5,10 +5,14 @@
   color: black
   small
     color: $electricBlue
+  span.icon
+    display: inline-block
+    margin-right: 5px
+    i.fa
+      vertical-align: text-bottom
+      font-size: 1.8em
   i
     color: $lightPink
-    margin-left: 10px
-    width: 30px
 
 @mixin mixed-link
   +mixed-link-base
@@ -19,6 +23,8 @@
   a
     span
       color: black
+      font-weight: normal
+      font-family: Gotham-Bold
   &:hover
     color: darken( $electricBlue, 22 )
     small strong
