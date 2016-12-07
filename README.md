@@ -93,3 +93,36 @@ These are global variables available to you anywhere in your source code. If you
 |`__DEV__`|True when `process.env.NODE_ENV` is `development`|
 |`__PROD__`|True when `process.env.NODE_ENV` is `production`|
 |`__TEST__`|True when `process.env.NODE_ENV` is `test`|
+
+#### How we adapted this to deploy on Heroku
+
+Loosely following the instructions [here](https://github.com/davezuko/react-redux-starter-kit/wiki/FAQ:-Frequently-Asked-Questions), we adapted this for Heroku deployment by taking the following steps:
+
+- Replaced/added the following commands in `package.json`:
+
+```
+...
+"start": "better-npm-run start:prod",
+"serve": "better-npm-run start",
+"postinstall": "npm run deploy:prod",
+"betterScripts": {
+  ...
+  "deploy:prod": {
+    "command": "npm run clean && npm run compile",
+    "env": {
+      "NODE_ENV": "production",
+      "DEBUG": "app:*"
+    }
+  },
+  "start:prod": {
+    "command": "node bin/server",
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
+  ...
+},
+```
+
+- Added a `bin/server` file (equivalent to `bin/dev-server`, except without the `debug` import or usage -- used `console.info` instead).
+- Ran `heroku config:set NPM_CONFIG_PRODUCTION=false` to make sure Heroku installs necessary dev dependencies such as `express` etc.
