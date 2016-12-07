@@ -1,7 +1,7 @@
 {
-  "name": "noon-app",
+  "name": "rs-starter",
   "version": "3.0.0-alpha.2",
-  "description": "Noon's web app",
+  "description": "RS Starter app",
   "main": "index.js",
   "engines": {
     "node": ">=4.5.0",

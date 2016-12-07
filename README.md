@@ -1,4 +1,4 @@
-# Noon
+# RS React Redux Starter Kit
 
 This app is based off of [React Redux Starter Kit](https://github.com/davezuko/react-redux-starter-kit), which provides all the core technologies for our app, including:
 
