@@ -9,7 +9,7 @@ class Title extends React.Component{
   componentDidMount() {
     setTimeout(() => {
       this.setState({ text: 'Counter' })
-    }, 400)
+    }, 1000)
   }
   render() {
     return (<h2>{this.state.text}: {this.props.counter}</h2>)
