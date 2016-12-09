@@ -18,7 +18,8 @@ const mapDispatchToProps = {
 }
 
 const mapStateToProps = (state) => ({
-  counter : state.counter
+  counter : state.counter,
+  delay   : state.location && state.location.query
 })
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:

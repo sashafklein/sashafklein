@@ -7,12 +7,18 @@ class Title extends React.Component{
   }
 
   componentDidMount() {
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+    const delay = getRandomInt(20, 60) * 100
     setTimeout(() => {
-      this.setState({ text: 'Counter' })
-    }, 2000)
+      this.setState({ text: 'Counter', delay })
+    }, delay)
   }
   render() {
-    return (<h2>{this.state.text}: {this.props.counter}</h2>)
+    return (<h2>{this.state.text} ({this.state.delay}): {this.props.counter}</h2>)
   }
 }
 
