@@ -1,17 +1,25 @@
 import React from 'react'
 
-const Title = (props) =>(
-  <h2>{props.text}: {props.counter}</h2>
-)
+class Title extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state = { text: 'Hello' }
+  }
 
-let text = ''
-setTimeout(() => {
-  text = 'Counter'
-}, 200)
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ text: 'Counter' })
+    }, 400)
+  }
+  render() {
+    return (<h2>{this.state.text}: {this.props.counter}</h2>)
+  }
+}
+
 
 export const Counter = (props) => (
   <div style={{ margin: '0 auto' }} >
-    <Title text={ text } counter={ props.counter } />
+    <Title counter={ props.counter } />
     <button className='btn btn-default' onClick={props.increment}>
       Increment
     </button>
