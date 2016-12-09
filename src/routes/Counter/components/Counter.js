@@ -13,8 +13,9 @@ class Title extends React.Component{
       return Math.floor(Math.random() * (max - min)) + min;
     }
     const delay = getRandomInt(20, 60) * 100
+    this.setState({ delay: delay })
     setTimeout(() => {
-      this.setState({ text: 'Counter', delay })
+      this.setState({ text: 'Counter' })
     }, delay)
   }
   render() {
