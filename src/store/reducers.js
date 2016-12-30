@@ -1,31 +1,23 @@
-import { combineReducers } from 'redux'
-import { constructReducers } from './boilerplate'
+import { constructReducers, curryMakeRootReducer, curryInjectReducer } from './boilerplate'
 
+// HANDLERS
 // Handlers map actions to reducing functions.
 // Init and default states are added by constructReducers function.
-const counterHandler = {
-  INCREMENT_COUNTER: (state, action) => state + action.value
+const counter = {
+  INCREMENT_COUNTER: (state, action) => state + action.value,
+  DECREMENT_COUNTER: (state, action) => state - action.value
 }
 
-const locationHandler = {
+const location = {
   LOCATION_CHANGE: (state, action) => action.location
 }
 
+// DEFINE INIT STATES AND HANDLERS OBJ HERE
 const initStates = { counter: 1, location: '/' }
-const handlers = { counterHandler, locationHandler }
+const handlers = { counter, location }
 
-export const makeRootReducer = (asyncReducers) => {
-  return combineReducers({
-    ...constructReducers(handlers, initStates),
-    ...asyncReducers
-  })
-}
-
-export const injectReducer = (store, { key, reducer }) => {
-  if (Object.hasOwnProperty.call(store.asyncReducers, key)) return
-
-  store.asyncReducers[key] = reducer
-  store.replaceReducer(makeRootReducer(store.asyncReducers))
-}
+// EXPORTS
+export const makeRootReducer = curryMakeRootReducer(constructReducers(handlers, initStates))
+export const injectReducer = curryInjectReducer(makeRootReducer)
 
 export default makeRootReducer

@@ -1,4 +1,6 @@
-const reducerObjFromHandlerWrapper = handlers => (handlerName, initStates) => {
+import { combineReducers } from 'redux'
+
+const reducerObjFromHandlerWrapper = (handlers, initStates) => handlerName => {
   const handler = handlers[handlerName]
   const reducerName = handlerName.replace('Handler', '')
 
@@ -10,9 +12,23 @@ const reducerObjFromHandlerWrapper = handlers => (handlerName, initStates) => {
 }
 
 export const constructReducers = (handlers, initStates) => {
-  const reducerObjFromHandler = reducerObjFromHandlerWrapper(handlers)
+  const reducerObjFromHandler = reducerObjFromHandlerWrapper(handlers, initStates)
   return Object.keys(handlers)
     .reduce((obj, name) => Object.assign(
-      obj, reducerObjFromHandler(name, initStates)),
+      obj, reducerObjFromHandler(name)),
     {})
+}
+
+export const curryMakeRootReducer = mainReducers => asyncReducers => {
+  return combineReducers({
+    ...mainReducers,
+    ...asyncReducers
+  })
+}
+
+export const curryInjectReducer = makeRootReducer => (store, { key, reducer }) => {
+  if (Object.hasOwnProperty.call(store.asyncReducers, key)) return
+
+  store.asyncReducers[key] = reducer
+  store.replaceReducer(makeRootReducer(store.asyncReducers))
 }
