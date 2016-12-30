@@ -1,6 +1,15 @@
-import HomeView from './components/HomeView'
+import React from 'react'
+import DuckImage from './Duck.jpg'
+import './style.scss'
 
-// Sync route definition
-export default {
-  component : HomeView
-}
+export const Home = () => (
+  <div>
+    <h4>Welcome!</h4>
+    <img
+      alt='This is a duck, because Redux!'
+      className='duck'
+      src={DuckImage} />
+  </div>
+)
+
+export default Home

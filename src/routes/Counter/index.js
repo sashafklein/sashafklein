@@ -1,24 +1,25 @@
-import { injectReducer } from '../../store/reducers'
+import React from 'react'
+import { connect } from 'react-redux'
+import { incrementCounter } from 'store/actions'
 
-export default (store) => ({
-  path : 'counter',
-  /*  Async getComponent is only invoked when route matches   */
-  getComponent (nextState, cb) {
-    /*  Webpack - use 'require.ensure' to create a split point
-        and embed an async module loader (jsonp) when bundling   */
-    require.ensure([], (require) => {
-      /*  Webpack - use require callback to define
-          dependencies for bundling   */
-      const Counter = require('./containers/CounterContainer').default
-      const reducer = require('./modules/counter').default
+export const Counter = ({ dispatch, counter }) => (
+  <div style={{ margin: '0 auto' }} >
+    <h2>Counter Value: {counter}</h2>
+    <button className='btn btn-default' onClick={ () => { dispatch(incrementCounter()) } }>
+      Increment
+    </button>
+  </div>
+)
 
-      /*  Add the reducer to the store on key 'counter'  */
-      injectReducer(store, { key: 'counter', reducer })
+const { number, func } = React.PropTypes
+Counter.propTypes = {
+  counter: number.isRequired,
+  dispatch: func.isRequired
+}
 
-      /*  Return getComponent   */
-      cb(null, Counter)
-
-    /* Webpack named bundle   */
-    }, 'counter')
-  }
+const mapStateToProps = (state) => ({
+  counter : state.counter,
+  delay   : state.location && state.location.query
 })
+
+export default connect(mapStateToProps)(Counter)

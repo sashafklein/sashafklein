@@ -1,6 +1,6 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
-import { Counter } from 'routes/Counter/components/Counter'
+import { Counter, Title } from 'routes/Counter/components/Counter'
 import { shallow } from 'enzyme'
 
 describe('(Component) Counter', () => {
@@ -23,7 +23,7 @@ describe('(Component) Counter', () => {
   })
 
   it('Should render with an <h2> that includes Sample Counter text.', () => {
-    expect(_wrapper.find('h2').text()).to.match(/Counter:/)
+    expect(_wrapper.find(Title).props().counter).to.eq(5)
   })
 
   it('Should render props.counter at the end of the sample counter <h2>.', () => {
