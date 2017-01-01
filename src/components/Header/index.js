@@ -1,6 +1,8 @@
 import React from 'react'
-import { IndexLink, Link } from 'react-router'
-import './Header.scss'
+import { connect } from 'react-redux';
+import { Link } from 'react-router'
+
+import Pig from './pig.png'
 
 const userLinks = null; // TODO
 
@@ -19,7 +21,7 @@ const MainHeader = () => (
         <div className="left-section">
           <div className="flex-link">
             <Link to="/resume" className="pig-link">
-              <img src="pig3.png" />
+              <img src={ Pig } />
               SASHA KLEIN
             </Link>
           </div>
@@ -41,18 +43,20 @@ const MainHeader = () => (
   </div>
 )
 
-const flash = []; // TODO
-
-export const Header = () => (
+export const Header = ({ flash }) => (
   <div>
     <MainHeader />
     <div className="header-spacer" />
-    { flash.length &&
+    { flash &&
       <div className="alert center">
-        <p}{ flash[0] }</p>
+        <p>{ flash }</p>
       </div>
     }
   </div>
 )
 
-export default Header
+const mapStateToProps = state => ({
+  flashes: state.settings.flash
+});
+
+export default connect(mapStateToProps)(Header)

@@ -1,0 +1,139 @@
+body, div, img, p, ol, em, input, small, br, strong, code, span, a, ul, li, td, th, h1, h2, h3, h4, h5, h6, label {
+  text-align: left;
+  transition: color 0.2s ease;
+  &::selection {
+    background: $lightPink;
+    color: white;
+  }
+  &::moz-selection {
+    background: $lightPink;
+    color: white;
+  }
+}
+
+p {
+  font-family: Gotham-Light;
+}
+
+ol, em, small, ul, li, td, th, h1, h2, h3, h4, h5, h6, label, a {
+  font-family: Gotham;
+}
+
+h1, h2 {
+  font-family: Gotham-Ultra;
+}
+
+strong {
+  font-family: "Gotham-Bold";
+}
+
+li {
+  small {
+    font-family: "Gotham-Bold";
+  }
+}
+
+/* custom weight and style */
+
+.unbold {
+  font-family: "Gotham";
+}
+
+.bold {
+  font-family: "Gotham-Bold";
+}
+
+.italic {
+  font-family: "Gotham-Italic";
+}
+
+/* specifics */
+
+h1 {
+  @media only screen and (min-device-width: 300px) {
+    font-size: 5rem;
+    margin-bottom: 3rem;
+  }
+  @media only screen and (min-device-width: 800px) {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+}
+
+h2 {
+  @media only screen and (min-device-width: 300px) {
+    font-size: 2rem;
+  }
+  @media only screen and (min-device-width: 800px) {
+    font-size: 1.7rem;
+    margin-bottom: 3rem;
+    font-weight: normal;
+  }
+}
+
+p {
+  line-height: 1.8rem;
+  @media only screen and (min-device-width: 300px) {
+    font-size: 1.8rem;
+  }
+  @media only screen and (min-device-width: 800px) {
+    font-size: 1rem;
+  }
+}
+
+/* links */
+
+a, span, strong {
+  font-size: 1rem;
+}
+
+small {
+  font-size: 0.8rem;
+}
+
+a {
+  font-weight: bold;
+  color: #1e3c89;
+  &:hover {
+    color: $lightPink;
+    background: transparent;
+    text-decoration: underline;
+  }
+}
+
+.paragraph {
+  p {
+    font-family: "Gotham-Light";
+    a {
+      font-family: "Gotham";
+      font-weight: normal;
+    }
+  }
+}
+
+.blue-links {
+  a {
+    strong {
+      color: $electricBlue;
+    }
+  }
+}
+
+.black-links {
+  a {
+    color: black;
+    &:hover {
+      color: $lightPink;
+    }
+  }
+}
+
+a.undecorated {
+  text-decoration: none;
+}
+
+.undecorated {
+  a {
+    text-decoration: none;
+  }
+}

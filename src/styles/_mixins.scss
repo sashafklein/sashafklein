@@ -1,0 +1,76 @@
+@mixin mixed-link-base {
+  margin-bottom: 0;
+  font-family: Gotham-Bold;
+  cursor: pointer;
+  color: black;
+  small {
+    color: $electricBlue;
+  }
+  span.icon {
+    display: inline-block;
+    width: 30px;
+    i.fa {
+      vertical-align: text-bottom;
+      @media only screen and (min-device-width: 300px) {
+        font-size: 1.8em;
+      }
+      @media only screen and (min-device-width: 800px) {
+        font-size: 1.1em;
+      }
+    }
+  }
+  i {
+    color: $lightPink;
+    padding: 1px;
+  }
+}
+
+@mixin mixed-link {
+  @include mixed-link-base;
+  .fa {
+    color: $lightPink;
+    font-size: 17px;
+    vertical-align: text-top;
+  }
+  a {
+    span {
+      color: black;
+      font-weight: normal;
+      font-family: Gotham-Bold;
+    }
+  }
+  &:hover {
+    color: darken($electricBlue, 22);
+    small strong {
+      color: darken($electricBlue, 10);
+    }
+    i {
+      color: $darkPink;
+    }
+    a {
+      color: $darkPink;
+    }
+  }
+}
+
+@mixin mixed-colored-link {
+  @include mixed-link-base;
+  color: $maroon;
+  small {
+    color: $electricBlue;
+  }
+  &:hover {
+    color: $darkPink;
+    small {
+      color: $lightBlue;
+    }
+  }
+}
+
+@mixin no-border {
+  background: transparent !important;
+  border-radius: 0 !important;
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}

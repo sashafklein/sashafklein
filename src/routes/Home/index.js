@@ -1,15 +1,24 @@
-import React from 'react'
-import DuckImage from './Duck.jpg'
-import './style.scss'
+import React from 'react';
+import { Link } from 'react-router';
+
+import 'styles/core.scss';
+
+const paths = ['Resume', 'Portfolio', 'Blog'];
 
 export const Home = () => (
-  <div>
-    <h4>Welcome!</h4>
-    <img
-      alt='This is a duck, because Redux!'
-      className='duck'
-      src={DuckImage} />
+  <div className="landing">
+    <div className="landing-buttons">
+      {
+        paths.map((path, index) => (
+          <div className="landing-button" key={ index }>
+            <div className="inner-text">
+              <Link to={ path.toLowerCase() }>{ path }</Link>
+            </div>
+          </div>
+        ))
+      }
+    </div>
   </div>
-)
+);
 
-export default Home
+export default Home;

@@ -1,12 +1,370 @@
-/*
-Application Settings Go Here
-------------------------------------
-This file acts as a bundler for all variables/mixins/themes, so they
-can easily be swapped out without `core.scss` ever having to know.
+/* layout basics */
 
-For example:
+body {
+  font-family: helvetica, sans-serif;
+  font-size: 1em;
+  margin: 0;
+}
 
-@import './variables/colors';
-@import './variables/components';
-@import './themes/default';
-*/
+.container {
+  width: $large;
+  display: block;
+  margin: auto;
+  @media (max-width: $large) {
+    width: $medium;
+  }
+  @media (max-width: $medium) {
+    width: $small;
+  }
+  @media (max-width: $small) {
+    width: 90%;
+    margin: 0 5%;
+  }
+}
+
+.inline {
+  display: inline-block;
+}
+
+.inset {
+  margin-left: 0.5em;
+}
+
+/* footer and header */
+.logout {
+  margin-left: -1.5em;
+  margin-bottom: -2.5em;
+}
+
+/* prettified error messages */
+
+#error_exp {
+  color: #b94a48;
+  font-family: calibri, verdana, "trebuchet ms";
+  font-size: 100%;
+  background-color: white;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+    li {
+      font-size: 120%;
+      color: #a00000;
+    }
+  }
+}
+
+.alert {
+  background-color: darken(#cccccc, 20);
+  text-align: center;
+  transition: all 1s ease;
+  p {
+    color: white;
+    font-family: Gotham-Bold;
+    padding: 1.5em 0;
+    margin: 0;
+    text-align: center;
+    font-size: 1.5em;
+  }
+  &.closed {
+    height: 0;
+  }
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+
+/* misc formatting & tricks */
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.text-area {
+  textarea {
+    width: 90%;
+    padding-right: 15px;
+  }
+}
+
+.sidebar-nav-fixed {
+  padding: 9px 0;
+  position: fixed;
+  margin-top: -10px;
+  li, h4, h5, h6, .btn {
+    padding-right: 15px;
+  }
+  h4, h5, h6, .btn {
+    margin-right: 30px;
+  }
+}
+
+.row-fluid > .span-fixed-sidebar {
+  margin-left: 290px;
+}
+
+.centerify {
+  text-align: center;
+  p, ol, table, em, input, small, br, strong, pre, code, span, a, ul, li, td, th, h1, h2, h3, h4, h5, h6, label {
+    text-align: center;
+  }
+  table {
+    margin: 0;
+  }
+}
+
+table.table thead tr th {
+  font-weight: bold;
+}
+
+form.restful-item-form {
+  width: 100%;
+  .fields {
+    input, textarea {
+      width: 100%;
+    }
+    textarea {
+      min-height: 100px;
+    }
+  }
+}
+
+.center_login {
+  label, h1 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  form {
+    .field, .actions {
+      text-align: center;
+      input {
+        margin: auto;
+      }
+    }
+  }
+}
+
+/* photo placement */
+
+.padded {
+  padding-left: 10px;
+}
+
+.border-it {
+  border: solid 1px;
+}
+
+.bundle {
+  padding: 2px;
+  &:hover {
+    color: $lightPink;
+  }
+  a:hover {
+    color: $lightPink;
+  }
+}
+
+.front-page-links {
+  border: 1px solid;
+  a {
+    font-size: 200%;
+    text-align: right;
+  }
+}
+
+.row {
+  a:hover {
+    color: $lightPink;
+  }
+}
+
+.no-side-margins {
+  margin: 0 0 20px 0 !important;
+}
+
+.big-icons {
+  font-size: 150% !important;
+  img {
+    width: 90% !important;
+  }
+}
+
+.mobile-footer {
+  margin-top: 0;
+  font-size: 200%;
+  line-height: 1.6;
+  text-align: center;
+  a {
+    color: black;
+    &:hover {
+      color: $lightPink;
+    }
+  }
+}
+
+.mobile-only {
+  display: none;
+}
+
+.big-screen {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  .only-show-big {
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.mobile-markdown {
+  padding-left: 10px;
+  padding-right: 10px;
+  h1, h2, h3, h4, h5, h6, pre {
+    font-size: 175%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  a {
+    font-size: 90%;
+  }
+  p {
+    margin-bottom: 25px;
+  }
+}
+
+.mobile-navbar-spacer {
+  height: 100px;
+}
+
+.mobile-header-links {
+  .sixteen.border-bottom {
+    border-bottom: 1px solid darken(gray, 20);
+    a {
+      display: block;
+      font-size: 3em;
+      width: 100%;
+    }
+  }
+}
+
+.light-gray-bg {
+  background-color: $lightGray;
+}
+
+.bottom-sidebar {
+  margin-top: 40px;
+  .prevnext a {
+    font-size: 200% !important;
+  }
+}
+
+.skillz.mobile-only {
+  width: 90%;
+  .skill {
+    font-size: 200%;
+    .skill_links {
+      font-weight: bold;
+    }
+    .stars {
+      text-align: right;
+    }
+  }
+}
+
+.resume .mobile-only {
+  .headshot_box {
+    padding: 100px;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: -50px;
+    margin-bottom: -80px;
+    a {
+      font-size: 150%;
+    }
+  }
+}
+
+.portfolio-show {
+  display: block;
+}
+
+ul.link-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.posts-show, .portfolio-item {
+  display: flex;
+  flex-direction: row;
+  .sidebar {
+    padding-right: 3%;
+    flex: 3;
+    ul {
+      list-style: none;
+      padding-left: 0;
+      line-height: 2;
+    }
+  }
+  .content-section {
+    display: inline-block;
+    flex: 6;
+    @media only screen and (min-device-width: 300px) {
+      padding-left: 0;
+      margin-top: 20px;
+    }
+    @media only screen and (min-device-width: 800px) {
+      padding-left: 3%;
+      margin-top: 0;
+    }
+  }
+  @media only screen and (max-width: $large) and (min-device-width: 300px) {
+    flex-direction: column;
+  }
+  @media only screen and (min-width: $medium) and (min-device-width: 1024px) {
+    flex-direction: row;
+  }
+}
+
+.show-small {
+  @media only screen and (min-width: $small) {
+    display: none;
+  }
+}
+
+.hide-small {
+  @media only screen and (max-width: $small) {
+    display: none;
+  }
+  @media only screen and (min-device-width: 300px) {
+    display: none;
+  }
+}
+
+.show-medium {
+  @media only screen and (min-width: $medium) {
+    display: none;
+  }
+}
+
+.hide-medium {
+  @media only screen and (max-width: $medium) {
+    display: none;
+  }
+  @media only screen and (min-device-width: 300px) {
+    display: none;
+  }
+  @media only screen and (min-device-width: 800px) {
+    display: block;
+  }
+}

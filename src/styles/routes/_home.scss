@@ -1,0 +1,95 @@
+$textAndBorder: lighten(#333333, 5);
+
+.landing {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .landing-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    .landing-button {
+      display: flex;
+      flex: 1;
+      border-radius: 10px;
+      text-align: center;
+      vertical-align: middle;
+      background-color: $textAndBorder;
+      transition: background-color 0.5s ease;
+      .inner-text {
+        text-align: center;
+        padding: 5% 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          cursor: pointer;
+        }
+        a {
+          text-decoration: none;
+          text-transform: lowercase;
+          font-family: Gotham-Ultra;
+          padding: 8% 0;
+          vertical-align: middle;
+          text-align: center;
+          color: white;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: $lightPink;
+      }
+      &:active {
+        background-color: lighten($electricBlue, 25);
+      }
+    }
+  }
+  @media only screen and (min-device-width: 300px) {
+    .landing-buttons {
+      flex-direction: column;
+      .landing-button {
+        margin: 4%;
+        &:first-child {
+          margin-top: 8%;
+        }
+        &:last-child {
+          margin-bottom: 8%;
+        }
+        a {
+          font-size: 12vw;
+        }
+      }
+    }
+  }
+  @media only screen and (min-device-width: 800px) {
+    .landing-buttons {
+      flex-direction: row;
+    }
+    .landing-button {
+      margin-left: 1.5% !important;
+      margin-right: 1.5% !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      &:first-child {
+        margin-left: 3% !important;
+      }
+      &:last-child {
+        margin-right: 3% !important;
+      }
+      a {
+        font-size: 5vw !important;
+      }
+    }
+  }
+}

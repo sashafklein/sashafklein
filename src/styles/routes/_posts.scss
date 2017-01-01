@@ -1,0 +1,154 @@
+.posts {
+  h1 {
+    small {
+      font-size: 45%;
+    }
+  }
+  .blog-content {}
+  .o {
+    margin-left: 7px;
+  }
+  /* code display */
+  .show-medium {
+    @media only screen and (min-device-width: 300px) {
+      display: block;
+    }
+  }
+  pre {
+    font-family: monospace;
+    text-align: left;
+    &::selection {
+      background-color: $lightPink;
+      color: white;
+    }
+    &::moz-selection {
+      background-color: $lightPink;
+      color: white;
+    }
+  }
+  /* code display */
+  .codebox {
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 5px;
+    padding-top: -20px;
+    p {
+      &::selection {
+        background: $lightPink;
+        color: white;
+      }
+      &::moz-selection {
+        background: $lightPink;
+        color: white;
+      }
+    }
+    .highlight {
+      pre {
+        white-space: pre;
+        overflow: scroll;
+        word-wrap: normal;
+        .o {
+          margin-left: 0px;
+        }
+        .si {
+          font-style: normal;
+        }
+      }
+    }
+  }
+  /* archive */
+  #archived {
+    display: none;
+    margin-bottom: -10px;
+    a {
+      font-size: 90%;
+      margin-bottom: -15px;
+    }
+  }
+  .search {
+    width: 175px;
+    text-align: left;
+  }
+  #search_field {
+    width: 160px;
+    margin-right: 10px;
+  }
+  .archive {
+    ul {
+      list-style: none;
+      margin-top: 30px;
+      margin-left: 0;
+      padding: 0;
+      input {
+        margin-bottom: 30px !important;
+        color: $lightPink;
+      }
+    }
+    h2 {
+      margin-bottom: 5px;
+      .red {
+        font-size: 50%;
+        color: $maroon;
+      }
+    }
+  }
+  #recent_h1 {
+    a:hover {
+      color: black;
+      text-decoration: none;
+    }
+  }
+  .blog-links {
+    margin-left: 10px;
+    list-style-type: disc;
+    li {
+      line-height: 23px;
+      margin-bottom: 10px;
+    }
+    a:hover {
+      color: $lightPink;
+    }
+  }
+  /* pagination */
+  .prevnext {
+    background: transparent;
+    cursor: default;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    a {
+      margin: 0 5px 0 5px;
+      font-size: 90%;
+      padding: 7px;
+      text-decoration: none;
+      border: 1px solid #9aafe5;
+      display: inline-block;
+      &:hover {
+        background-color: #eaeaea;
+      }
+      &.disabled {
+        display: none;
+      }
+    }
+  }
+  .blog-sidebar {
+    li {
+      list-style: none;
+      padding-left: 0;
+      @include mixed-colored-link;
+      line-height: 2.5;
+    }
+  }
+  .link-list {
+    li {
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+    a {
+      color: $maroon;
+      &:hover {
+        color: $darkPink;
+      }
+    }
+  }
+}

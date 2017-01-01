@@ -1,18 +1,20 @@
 import { combineReducers } from 'redux'
 
-const reducerObjFromHandlerWrapper = (handlers, initStates) => handlerName => {
+const reducerObjFromHandlerWrapper = (handlers) => handlerName => {
   const handler = handlers[handlerName]
-  const reducerName = handlerName.replace('Handler', '')
+  const initState = handler._init
 
-  const reducerFunc = (state = initStates[reducerName], action) => handler[action.type]
+  delete handler['_init']
+
+  const reducerFunc = (state = initState, action) => handler[action.type]
     ? handler[action.type](state, action)
     : state
 
-  return { [reducerName]: reducerFunc }
+  return { [handlerName]: reducerFunc }
 }
 
-export const constructReducers = (handlers, initStates) => {
-  const reducerObjFromHandler = reducerObjFromHandlerWrapper(handlers, initStates)
+export const constructReducers = (handlers) => {
+  const reducerObjFromHandler = reducerObjFromHandlerWrapper(handlers)
   return Object.keys(handlers)
     .reduce((obj, name) => Object.assign(
       obj, reducerObjFromHandler(name)),

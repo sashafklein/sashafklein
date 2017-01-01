@@ -1,0 +1,257 @@
+.panel-group {
+  margin-bottom: 15px;
+}
+
+.panel, .collapse-title {
+  margin-bottom: 10px;
+}
+
+.panel {
+  @include no-border;
+  .panel-heading {
+    @include no-border;
+    padding: 0;
+    .panel-title {
+      .collapse-title {}
+    }
+  }
+  .panel-collapse {
+    @include no-border;
+    .panel-body {
+      padding-bottom: 0px;
+      padding-top: 0px;
+      @include no-border;
+      p {
+        margin-bottom: 0px;
+      }
+    }
+  }
+  .role-subtitle {
+    margin-bottom: 10px;
+    text-decoration: underline;
+  }
+}
+
+.resume {
+  .main-resume-body {
+    margin-bottom: 100px;
+  }
+  .header-area {
+    margin-bottom: 50px;
+    background-color: $lightGray;
+    padding: 40px 0;
+  }
+  .header-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .header-text-section {
+    flex: 8;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    @media (max-width: $medium) {
+      font-size: 90% !important;
+    }
+  }
+  .name-and-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  .name {
+    color: $electricBlue;
+    margin: 0;
+    font-family: "Gotham-Ultra";
+    font-size: 55px;
+    display: inline;
+    @media (max-width: $medium) {
+      font-size: 45px;
+    }
+  }
+  .link-icons {
+    font-size: 110%;
+    display: inline-block;
+    margin: 0 0 15px 20px;
+    a {
+      margin-right: 10px;
+      color: black;
+      cursor: pointer;
+      &:hover {
+        color: $lightPink;
+      }
+      i {
+        margin-right: 0px;
+        font-size: 120%;
+        border-radius: 50%;
+      }
+    }
+    img {
+      margin: 0 4px 0 8px;
+    }
+    @media (max-width: $medium) {
+      display: none;
+    }
+  }
+  .self-description {
+    color: $lightPink;
+    margin: 0;
+  }
+  h1.section-header {
+    color: $electricBlue;
+    font-family: "Gotham-Ultra";
+    font-size: 50px;
+  }
+  .collapse-title {
+    margin-bottom: 0;
+    @include mixed-link;
+  }
+  .item-title {
+    margin-right: 0.5rem;
+  }
+  .panel, .collapse-title.top-level {
+    margin-bottom: 20px;
+  }
+  .panel-collapse {
+    margin-top: 20px;
+  }
+  .panel {
+    .paragraph {
+      a, strong {
+        font-family: Gotham;
+        font-size: 1em;
+      }
+    }
+    .subrole, .role-subtitle {}
+    .role-subtitle {
+      span.role-name {
+        font-family: Gotham-Bold;
+      }
+      small {
+        strong {
+          color: $electricBlue;
+        }
+      }
+    }
+    .roles {
+      margin-top: 20px;
+      margin-left: 35px;
+      .paragraph:first-child {
+        p {
+          margin-top: 0;
+        }
+      }
+    }
+    .roles, .fa {
+      overflow: hidden;
+      transition: all 0.5s ease;
+    }
+    .fa {
+      transform: rotate(45deg);
+    }
+    &.closed {
+      .roles {
+        opacity: 0;
+        max-height: 0;
+        margin-top: 0;
+      }
+      .fa {
+        transform: rotate(0deg);
+      }
+    }
+  }
+  .skills-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: $skillsZ;
+    width: 100%;
+    transition: all 0.7s ease;
+    height: 100%;
+    .skills {
+      margin: 100px 50px 50px 50px;
+    }
+    &.closed {
+      position: absolute;
+      transform: translateX(100%);
+    }
+    .container {
+      height: 100%;
+      width: calc(100% - 100px);
+      margin-left: 100px;
+      overflow: scroll;
+    }
+  }
+  .skill {
+    font-family: Gotham-Ultra;
+    color: $lightPink;
+    line-height: 65px;
+  }
+  .skills-tab, .experience-tab {
+    @media (max-width: $medium) {
+      display: none;
+    }
+    i:hover {
+      color: $lightPink;
+    }
+    i {
+      transition: color 0.5s ease;
+    }
+  }
+  .skills {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .skills-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      flex: 1;
+    }
+    .skill {
+      flex: 1;
+      align-self: center;
+      text-align: center;
+    }
+  }
+  .skills-tab {
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    font-size: 3rem;
+    color: $electricBlue;
+    cursor: pointer;
+    transition: all 0.7s ease;
+    &.left {
+      left: 2%;
+    }
+    &.right {
+      left: 94%;
+      transform: rotate(180deg);
+    }
+  }
+  .collapse-title {
+    i.fa {
+      margin-top: -1px;
+    }
+  }
+  .headshot-box {
+    flex: 2;
+    margin-right: 5%;
+    width: 150%;
+    @media (max-width: $small) {
+      display: none;
+    }
+    img {
+      max-width: 200px;
+      border-radius: 50%;
+    }
+  }
+}
