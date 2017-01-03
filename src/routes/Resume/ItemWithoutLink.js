@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'components/markdown';
 
 import { toggleSetting } from 'store/actions';
 
@@ -17,7 +17,7 @@ const ItemWithoutLink = ({ item, dispatch, openItemID }) => {
       className={ `panel ${ open ? '' : 'closed' }` }
       onClick={ () => { dispatch(toggleSetting('openItemID', open ? null : item.id)) }
     }>
-      <span className="collapse-title expandable-panel-title">
+      <p className="collapse-title expandable-panel-title">
         <span className="icon">
           <i className="fa fa-plus-circle" />
         </span>
@@ -25,17 +25,16 @@ const ItemWithoutLink = ({ item, dispatch, openItemID }) => {
         <small>
           <ItemSubtitle item={ item } />
         </small>
-      </span>
+      </p>
       <div className="roles">
         {
           item.roles.map((role, index) => (
-            <div key={ index }>
+            <p key={ index } style={{ marginTop: '5px' }}>
               { manyRoles && <RoleSubtitle role={ role } /> }
               <div className={ `paragraph ${item.roles.length > 1 ? 'subrole' : ''}` }>
-                <ReactMarkdown source={ role.description } />
+                <Markdown source={ role.description } />
               </div>
-              { index === item.roles.length - 1 ? null : <br /> }
-            </div>
+            </p>
           ))
         }
       </div>

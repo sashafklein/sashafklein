@@ -166,18 +166,18 @@
   .skills-overlay {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     background-color: white;
     z-index: $skillsZ;
     width: 100%;
     transition: all 0.7s ease;
     height: 100%;
+    transform: translateX(100%);
     .skills {
       margin: 100px 50px 50px 50px;
     }
-    &.closed {
-      position: absolute;
-      transform: translateX(100%);
+    &.open {
+      transform: translateX(0%);
     }
     .container {
       height: 100%;

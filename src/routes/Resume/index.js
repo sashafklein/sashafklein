@@ -23,18 +23,18 @@ export const Resume = ({ skills }) => (
             <div className="name-and-icons">
               <h1 className="name">Sasha Klein</h1>
               <div className="link-icons">
-                <Link to='https://git.io/sasha'>
+                <a href="https://git.io/sasha">
                   <i className="fa fa-github" />
-                </Link>
-                <Link to='https://www.linkedin.com/pub/sasha-klein/34/595/1b5'>
+                </a>
+                <a href="https://www.linkedin.com/pub/sasha-klein/34/595/1b5">
                   <i className="fa fa-linkedin-square" />
-                </Link>
-                <Link to='http://stackoverflow.com/users/1408935/sasha'>
+                </a>
+                <a href="http://stackoverflow.com/users/1408935/sasha">
                   <i className="fa fa-stack-overflow" />
-                </Link>
-                <Link to='/contact'>
+                </a>
+                <a href="/contact">
                   <i className="fa fa-envelope-o" />
-                </Link>
+                </a>
               </div>
             </div>
             <h2 className="self-description">Web and Mobile Developer</h2>

@@ -14,38 +14,41 @@ const userLinks = null; // TODO
 //     = safe_block_link_to destroy_user_session_path, method: :delete do
 //       = fa_icon "circle-o"
 
-const MainHeader = () => (
-  <div className="header-bar">
-    <div className="container undecorated top-section">
-      <div className="header-content">
-        <div className="left-section">
-          <div className="flex-link">
-            <Link to="/resume" className="pig-link">
-              <img src={ Pig } />
-              SASHA KLEIN
-            </Link>
-          </div>
-        </div>
-        <div className="right-section">
-          <div className="flex-link hamburger">
-            <img src="hamburger.png" />
-          </div>
-          <div className="flex-link full-link">
-            <Link to="/portfolio">PORTFOLIO</Link>
-          </div>
-          <div className="flex-link full-link">
-            <Link to="/posts">BLOG</Link>
-          </div>
-          { userLinks }
-        </div>
-      </div>
-    </div>
-  </div>
-)
+const links = ['resume', 'portfolio', 'blog']
 
 export const Header = ({ flash }) => (
   <div>
-    <MainHeader />
+    <div className="header-bar">
+      <div className="container undecorated top-section">
+        <div className="header-content">
+          <div className="left-section">
+            <div className="flex-link">
+              <Link to="/resume" className="pig-link">
+                <img src={ Pig } />
+                SASHA KLEIN
+              </Link>
+            </div>
+          </div>
+          <div className="right-section">
+            <div className="flex-link hamburger">
+              <img src="hamburger.png" />
+            </div>
+            {
+              links.filter(l => (
+                location.pathname
+                  ? !location.pathname.includes(l)
+                  : l !== 'resume'
+              )).map((l, i) => (
+                <div key={ i } className="flex-link full-link">
+                  <Link to={ `/${l}` }>{ l.toUpperCase() }</Link>
+                </div>
+              ))
+            }
+            { userLinks }
+          </div>
+        </div>
+      </div>
+    </div>
     <div className="header-spacer" />
     { flash &&
       <div className="alert center">

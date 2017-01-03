@@ -11,7 +11,7 @@ export const SkillOverlay = ({ skills, skillsTabOpen, dispatch }) => (
       <i className="fa fa-chevron-left" />
     </div>
 
-    <div className={ `skills-overlay ${skillsTabOpen ? '' : 'closed'}` }>
+    <div className={ `skills-overlay ${skillsTabOpen ? 'open' : ''}` }>
       <div className="container">
         <div className="skills hide-small">
           {

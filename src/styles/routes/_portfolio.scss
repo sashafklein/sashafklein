@@ -1,64 +1,62 @@
 .portfolio {
-  .portfolio-show {
-    margin-top: 50px;
-    .port-header {
-      h1 {
-        margin-top: 0;
-      }
-      &.linked {
-        cursor: pointer;
-        &:hover {
-          h1 {
-            color: $electricBlue;
-          }
-          h2 {
-            color: lighten($electricBlue, 10);
-          }
-        }
-      }
-    }
+  margin-top: 50px;
+  .port-header {
     h1 {
-      margin-bottom: 0px;
-      &.for-mobile {
-        margin-top: 30px;
-        margin-bottom: 30px;
-      }
+      margin-top: 0;
     }
-    h2 {
-      margin-bottom: 12px;
-    }
-    .not-top {
-      .left-bar {
-        margin-top: 30px;
+    &.linked {
+      cursor: pointer;
+      &:hover {
         h1 {
-          margin-top: -3px;
+          color: $electricBlue;
+        }
+        h2 {
+          color: lighten($electricBlue, 10);
         }
       }
     }
-    .black-links {
-      .port-photo {
-        border: 5px solid black;
-        width: 100%;
-        min-height: 150px;
-        margin-bottom: 10px;
-        &:hover {
-          border: 5px solid $lightPink;
-        }
+  }
+  h1 {
+    margin-bottom: 0px;
+    &.for-mobile {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+  h2 {
+    margin-bottom: 12px;
+  }
+  .not-top {
+    .left-bar {
+      margin-top: 30px;
+      h1 {
+        margin-top: -3px;
       }
     }
-    .port-list {
-      li {
-        text-align: center;
-        padding: 10px 0;
-        font-family: Gotham-Bold;
-        font-size: 14px;
-        &:hover {
-          background-color: lighten($electricBlue, 53);
-        }
+  }
+  .black-links {
+    .port-photo {
+      border: 5px solid black;
+      width: 100%;
+      min-height: 150px;
+      margin-bottom: 10px;
+      &:hover {
+        border: 5px solid $lightPink;
       }
     }
-    .header-spacer {
-      height: 90px;
+  }
+  .port-list {
+    li {
+      text-align: center;
+      padding: 10px 0;
+      font-family: Gotham-Bold;
+      font-size: 14px;
+      &:hover {
+        background-color: lighten($electricBlue, 53);
+      }
     }
+  }
+  .header-spacer {
+    height: 90px;
   }
 }

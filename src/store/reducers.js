@@ -2,12 +2,14 @@ import { constructReducers, curryMakeRootReducer, curryInjectReducer } from './b
 import work from './data/work';
 import education from './data/education';
 import skills from './data/skills';
+import portfolioItems from './data/portfolioItems';
+import posts from './data/posts';
 
 // HANDLERS
 // Handlers map actions to reducing functions.
 // Init and default states are added by constructReducers function.
 const data = {
-  _init: { work, education, skills },
+  _init: { work, education, skills, portfolioItems, posts },
 }
 
 const location = {

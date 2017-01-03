@@ -6,6 +6,9 @@
   background-color: rgba(1, 1, 1, 0.9);
   box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.4);
   z-index: $headerZ;
+  a {
+    @include responsiveFont($h3);
+  }
   .header-content {
     width: 100%;
   }
@@ -40,7 +43,6 @@
       justify-content: center;
       display: flex;
       opacity: 1;
-      transition: all 1s ease;
     }
     .left-section {
       align-self: flex-start;
@@ -56,7 +58,6 @@
     }
     .hamburger {
       display: flex;
-      transition: all 1s ease;
       opacity: 1;
       cursor: pointer;
     }
@@ -127,43 +128,7 @@
       }
     }
   }
-  .hamburger, .header-content, .left-section, .right-section, .full-link {
-    transition: all 1s ease;
-  }
-  &.hamburger-open {
-    @media (min-device-width: 300px) {
-      .hamburger {
-        opacity: 0.3;
-        flex: 0.5;
-        height: 24px;
-        width: 40px;
-      }
-      .header-content {
-        flex-direction: column;
-        padding-top: 0;
-      }
-      .left-section {
-        display: none;
-        flex: 0;
-      }
-      .right-section {
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: space-between;
-        flex: 1;
-        margin-top: 10px;
-        .flex-link {
-          display: flex;
-          margin: 10px 0;
-          a {
-            margin-right: 0;
-          }
-        }
-      }
-    }
-  }
   a {
-    font-size: 200%;
     &:link, &:visited {
       color: white;
     }

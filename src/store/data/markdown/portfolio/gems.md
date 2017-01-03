@@ -1,0 +1,5 @@
+[PG Clone](https://github.com/sashafklein/pgclone) is a stripped-down wrapper for Heroku's PG Backups tool that makes it simple (and worry-free) to pull down production data and restore it to a local database, either in the command line or the Rails console.
+
+[**MeFirst**](https://github.com/sashafklein/me_first) is another Ruby gem designed to make Active Record reordering a no-brainer. Using a simple ActiveRecord-like pattern, a coder can declare a given database column as an `attr_orderable`, and then easily reorder objects by that table column. `MeFirst` takes care of the insertion, re-ordering, and table collapsing, keeping your data neat, and removing the need to re-think table ordering app by app.
+
+[Falcon Deploy](https://github.com/sashafklein/falcon) is a simple wrapper to make it easier and less nerve-wracking to deploy to Heroku and roll code back when you mess things up. From the command line, you can simply orchestrate a deploy, a deploy with migrations, and a rollback of your latest code, on Heroku. Falcon will keep track of deploy tags and make it easy for you to batch deploy/migration and to roll your code back when you mess something up.

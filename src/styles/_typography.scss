@@ -1,6 +1,5 @@
 body, div, img, p, ol, em, input, small, br, strong, code, span, a, ul, li, td, th, h1, h2, h3, h4, h5, h6, label {
   text-align: left;
-  transition: color 0.2s ease;
   &::selection {
     background: $lightPink;
     color: white;
@@ -9,6 +8,34 @@ body, div, img, p, ol, em, input, small, br, strong, code, span, a, ul, li, td, 
     background: $lightPink;
     color: white;
   }
+}
+
+p, a, label, input, li {
+  @include responsiveFont($p);
+  line-height: #{$p * 1.7};
+}
+
+small {
+  @include responsiveFont($smallFont);
+}
+
+h5 {
+  @include responsiveFont($h5);
+}
+h4 {
+  @include responsiveFont($h4);
+}
+
+h3 {
+  @include responsiveFont($h3);
+}
+
+h2 {
+  @include responsiveFont($h2);
+}
+
+h1 {
+  @include responsiveFont($h1);
 }
 
 p {
@@ -24,12 +51,12 @@ h1, h2 {
 }
 
 strong {
-  font-family: "Gotham-Bold";
+  font-family: Gotham-Bold;
 }
 
 li {
   small {
-    font-family: "Gotham-Bold";
+    font-family: Gotham-Bold;
   }
 }
 
@@ -47,49 +74,7 @@ li {
   font-family: "Gotham-Italic";
 }
 
-/* specifics */
-
-h1 {
-  @media only screen and (min-device-width: 300px) {
-    font-size: 5rem;
-    margin-bottom: 3rem;
-  }
-  @media only screen and (min-device-width: 800px) {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-  }
-}
-
-h2 {
-  @media only screen and (min-device-width: 300px) {
-    font-size: 2rem;
-  }
-  @media only screen and (min-device-width: 800px) {
-    font-size: 1.7rem;
-    margin-bottom: 3rem;
-    font-weight: normal;
-  }
-}
-
-p {
-  line-height: 1.8rem;
-  @media only screen and (min-device-width: 300px) {
-    font-size: 1.8rem;
-  }
-  @media only screen and (min-device-width: 800px) {
-    font-size: 1rem;
-  }
-}
-
 /* links */
-
-a, span, strong {
-  font-size: 1rem;
-}
-
-small {
-  font-size: 0.8rem;
-}
 
 a {
   font-weight: bold;
