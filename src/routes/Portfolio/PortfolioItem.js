@@ -8,8 +8,16 @@ export class PortfolioItem extends React.Component {
   componentDidMount() {
     const { item } = this.props;
     if (location.hash && location.hash.includes(slug(item.title))) {
-      this.comp.scrollIntoView();
-      debugger
+      setTimeout(() => {
+        this.comp.scrollIntoView();
+        setTimeout(() => {
+          const scrolledY = window.scrollY;
+
+          if (scrolledY) {
+            window.scroll(0, scrolledY - 120);
+          }
+        }, 100);
+      }, 800);
     }
   }
 

@@ -1,35 +1,39 @@
 export default [
   {
-    name: 'RSpec / Capybara',
-    scale: 6
+    name: 'React / Redux',
+    scale: 8
   },
   {
-    name: 'Ruby',
-    scale: 6
+    name: 'Ruby / Rails',
+    scale: 7
   },
   {
-    name: 'Rails',
-    scale: 6
+    name: 'JavaScript / ES6',
+    scale: 7
   },
   {
-    name: 'React',
-    scale: 6
-  },
-  {
-    name: 'Javascript',
+    name: 'Testing (TDD/BDD)',
     scale: 6
   },
   {
     name: 'HTML(5)',
-    scale: 6
+    scale: 5
+  },
+  {
+    name: 'React Native',
+    scale: 5
   },
   {
     name: 'Heroku Deployment',
     scale: 5
   },
   {
-    name: 'AngularJS',
+    name: 'Node/Express',
     scale: 5
+  },
+  {
+    name: 'AngularJS',
+    scale: 4
   },
   {
     name: 'App Optimization',
@@ -40,23 +44,31 @@ export default [
     scale: 4
   },
   {
+    name: 'GraphQL',
+    scale: 3
+  },
+  {
     name: 'Responsive CSS / UX',
     scale: 3
   },
   {
-    name: 'Photoshop',
+    name: 'Prototyping',
     scale: 3
   },
   {
-    name: 'Node/Express',
+    name: 'Sketch / Adobe',
     scale: 3
-  },
-  {
-    name: 'Ember',
-    scale: 2
   },
   {
     name: 'Mongo DB',
+    scale: 2
+  },
+  {
+    name: 'Swift / iOS',
+    scale: 2
+  },
+  {
+    name: 'Ember',
     scale: 2
   },
   {
@@ -67,4 +79,4 @@ export default [
     name: 'Python',
     scale: 2
   }
-]
+];

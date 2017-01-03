@@ -22,7 +22,7 @@ export const SkillOverlay = ({ skills, skillsTabOpen, dispatch }) => (
                     <div
                       key={ skillIndex }
                       className="skill"
-                      style={ { fontSize: `${skill.scale * 6}px`,  opacity: `${0.3 + (skill.scale / 10.0)}` } }
+                      style={ { fontSize: `${skill.scale * 8}px`,  opacity: `${0.3 + (skill.scale / 10.0)}` } }
                     >
                       { skill.name }
                     </div>
