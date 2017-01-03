@@ -13,7 +13,6 @@ import 'styles/core.scss';
 export const Resume = ({ skills }) => (
   <CoreLayout className="resume">
     <div className="resume-container undecorated">
-      <SkillsOverlay />
       <div className="header-area">
         <div className="container med-and-up header-container">
           <div className="headshot-box">
@@ -32,9 +31,6 @@ export const Resume = ({ skills }) => (
                 <a href="http://stackoverflow.com/users/1408935/sasha">
                   <i className="fa fa-stack-overflow" />
                 </a>
-                <a href="/contact">
-                  <i className="fa fa-envelope-o" />
-                </a>
               </div>
             </div>
             <h2 className="self-description">Web and Mobile Developer</h2>
@@ -43,32 +39,8 @@ export const Resume = ({ skills }) => (
       </div>
       <div className="main-resume-body container blue-links">
         <EducationAndWork />
-        <div className="show-medium">
-          <h1 className="section-header">Skills</h1>
-        </div>
-        <div className="show-medium">
-          <div className="skills">
-            {
-              _.chunk(skills, 2).map((skillGroup, groupIndex) => (
-                <div className="skills-row" key={ groupIndex }>
-                  {
-                    skillGroup.map((skill, skillIndex) => (
-                      <div
-                        key={ skillIndex }
-                        className="skill"
-                        style={ { fontSize: `${skill.scale * 5}px`,  opacity: `${0.3 + (skill.scale / 10.0)}` } }
-                      >
-                        { skill.name }
-                      </div>
-                    ))
-                  }
-                  { skillGroup[1] ? null : <div className="skill" key="extra" /> }
-                </div>
-              ))
-            }
-          </div>
-        </div>
       </div>
+      <SkillsOverlay />
     </div>
   </CoreLayout>
 );

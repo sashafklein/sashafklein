@@ -1,0 +1,15 @@
+As I sit in a Shanghai café that could be effortlessly transplanted into New York City, sipping on my iced Americano while contemplating what cultural moments I can best spin into an interesting first blog post, I feel a certain sense of irony.
+
+Because my expectation of a western experience here was, despite its certainty, nonetheless simply insufficient. Shanghai offers hardly a single major moment of trans-cultural crisis – a “critical incident,” as we apprehensively referred to it in our company-wide orientation a week and a half ago. Sure, not dying while crossing the road here involves a radical reorientation of one’s Western conception of automobile-pedestrian relations; true, a ten-minute rush-hour metro ride means far more bodily contact than I’m accustomed to getting over the course of an average American week; and yes, I admit, the traffic jam that was my Ikea run yesterday had me clenching my fists in irritation at what appears to be a national pastime of drifting into the center of a locomotive thoroughfare and then stopping, rotating so as to block as much traffic as possible, and starting a casual conversation.
+
+But the fact is, I find myself in a city of skyscrapers and modern cars, with a cleaner, more efficient (and more extensive) metro system than NYC’s, rolling my shopping cart (at an interrupted snail’s pace) through an Ikea looking at the same 15$ table I bought two years ago in Boston.
+
+I was told by the first coworker I met upon arrival in Pudong International Airport to prepare myself for culture shock. “TIC: This is China,” she told me warningly. Steel yourself for the frustratingly foreign. Those first few days, I did just that; eyes alert, self ‘steeled’ as best as I was consciously able to accomplish, prepared for the inevitable barrage of completely shocking and rattling cross-cultural interactions.
+
+Then, about five days later, on the bus back from our company-wide orientation in Wuxi, two point five hours’ ride from Shanghai, I became absorbed in the book I was reading. After a few chapters of breathless reading, I set the Kindle down and looked up and out of the window and experienced a double shock:
+
+Firstly, I was in Shanghai. Wow. Somehow I had been so busy getting shuffled between meetings and hotel rooms that this fact seemed not to have registered. Only now, looking up from the different time and place I’d been holding in my hands, did the fact that I was in China, my new (temporary) home, sink in.
+
+Secondly, and more shockingly, this first shock was a minor one. OK. I was in China. But it didn’t feel particularly different. In fact, it hadn’t really felt all that different at all until I wrenched my head out of the drastically different world of fantasy fiction in which I’d been immersing myself. Shanghai vs. Hunger Games was a legitimate contrast. Shanghai vs. Washington DC, a good deal less so.
+
+I don’t yet know what to make of this visceral sense of comfort. But as I continue to figure out what I want this blog to be and what living in Shanghai means to me, expect, dear readers, a good amount of exposition on how very unexpectedly familiar everything feels.

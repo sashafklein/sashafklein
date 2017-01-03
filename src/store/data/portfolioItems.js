@@ -101,13 +101,5 @@ export default [
     subtitle: 'Straightforward and private book tracking',
     text: require('raw-loader!./markdown/portfolio/booktrail.md'),
     title: 'BookTrail'
-  },
-  {
-    bullets: [],
-    image: 'https://dl.dropboxusercontent.com/s/w1lmbhat88rll55/shang_low.png?dl=0',
-    link: 'http://shanglow.tumblr.com',
-    subtitle: 'A food and education blog written in China',
-    text: require('raw-loader!./markdown/portfolio/shanglow.md'),
-    title: 'The Shang Low'
-  },
+  }
 ];

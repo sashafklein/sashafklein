@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
+import { toggleSetting } from 'store/actions';
 import CoreLayout from 'containers/CoreLayout';
 
 export class BlogArchive extends React.Component {
@@ -11,16 +12,17 @@ export class BlogArchive extends React.Component {
   }
 
   render() {
-    const { posts } = this.props;
+    const { posts, open, dispatch } = this.props;
     return(
-      <CoreLayout className="blog">
-        <div className="container">
+      <CoreLayout>
+        <div className={ `blog-menu ${open ? 'open' : ''}` }>
           <div className="centerify archive">
-            <h1>The Archives</h1>
+            <div className="header-spacer" />
             <ul className="blog-links">
               <input
                 type="text"
-                style={ { textAlign: 'left', margin: 'auto',  fontSize: '30px' } }
+                placeholder="Search archives"
+                style={ { textAlign: 'left', margin: 'auto', fontSize: '30px', border: '1px solid #ccc', padding: '4px'  } }
                 onChange={ event => {
                   this.setState({ query: event.target.value })
                 }}
@@ -29,13 +31,24 @@ export class BlogArchive extends React.Component {
               <div className="centerify archive" id="list">
                 {
                   posts.filter(p => (p.name + p.text).toLowerCase().includes(this.state.query.toLowerCase()))
-                       .map((post, postIndex) => (
-                    <h2>
-                      <Link className="post-link" to={ `/blog/${post.slug}` }>
-                        { post.name }
-                        <small> { post.createdAt }</small>
-                      </Link>
-                    </h2>
+                       .reverse().map((post, postIndex) => (
+                    <h1>
+                      {
+                        location.pathname.includes(post.slug) ?
+                          <a
+                            className="post-link"
+                            onClick={ () => { dispatch(toggleSetting('blogMenuOpen', false)) } }
+                            style={{ textDecoration: 'underline' }}
+                          >
+                            { post.name }
+                            <small> ({ post.createdAt })</small>
+                          </a> :
+                          <Link className="post-link" to={ `/blog/${post.slug}` }>
+                            { post.name }
+                            <small> ({ post.createdAt })</small>
+                          </Link>
+                      }
+                    </h1>
                   ))
                 }
               </div>

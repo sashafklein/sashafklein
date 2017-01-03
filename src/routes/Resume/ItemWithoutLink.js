@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Markdown from 'components/markdown';
+import Markdown from 'components/Markdown';
 
 import { toggleSetting } from 'store/actions';
 
@@ -15,9 +15,11 @@ const ItemWithoutLink = ({ item, dispatch, openItemID }) => {
     <div
       key={ item.id }
       className={ `panel ${ open ? '' : 'closed' }` }
-      onClick={ () => { dispatch(toggleSetting('openItemID', open ? null : item.id)) }
-    }>
-      <p className="collapse-title expandable-panel-title">
+    >
+      <p
+        className="collapse-title expandable-panel-title"
+        onClick={ () => { dispatch(toggleSetting('openItemID', open ? null : item.id)) } }
+      >
         <span className="icon">
           <i className="fa fa-plus-circle" />
         </span>

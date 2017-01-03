@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-export const BlogSidebar = ({ posts, index }) => {
+export const BlogMenu = ({ posts, index }) => {
   const next = posts[index + 1];
   const prev = posts[index - 1];
 
@@ -11,7 +11,7 @@ export const BlogSidebar = ({ posts, index }) => {
       <h1>Recent Posts</h1>
       <ul className="blog-sidebar link-list">
         {
-          posts.slice(0, 8).map((post, postIndex) => (
+          posts.slice(posts.length - 8).reverse().map((post, postIndex) => (
             <li key={ postIndex }>
               <Link to={ `/blog/${post.slug}` }>
                 { post.name + ' ' }
@@ -48,4 +48,4 @@ export const BlogSidebar = ({ posts, index }) => {
   );
 };
 
-export default BlogSidebar;
+export default BlogMenu;

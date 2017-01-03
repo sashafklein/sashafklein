@@ -1,3 +1,0 @@
-A blog I kept while teaching and college counseling in Shanghai, China. I kept track of both my work and my travel, for friends and family, and it occurs to me now that the blog might be an easy way to get a sense of the person behind the freelancing profile.
-
-In China, I taught (English writing, French, and Psychology) and counseled students looking to go to college in the US, in addition to doing small amounts of editing work for my company's educational quarterly. Additionally, I did lots of traveling and eating; those last two motivated the bulk of the writings on my blog.

@@ -1,9 +1,10 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 import Highlight from 'react-highlight';
 import { Link } from 'react-router';
 
 import ReactMarkdown from 'react-markdown';
+import { toggleSetting } from 'store/actions';
 
 import './monokai.scss';
 
@@ -16,15 +17,27 @@ const LinkNode = ({ href, children, alt, title }) => {
   }
 };
 
-const Markdown = ({ source }) => (
-  <ReactMarkdown
-    source={ source }
-    escapeHTML={ true }
-    renderers={{
-      CodeBlock: Code,
-      Link: LinkNode
-    }}
-  />
-);
+class Markdown extends React.Component {
+  componentWillReceiveProps(newProps) {
+    if (newProps.source !== this.props.source) {
+      this.props.dispatch(toggleSetting('blogMenuOpen', false));
+    }
+  }
 
-export default Markdown;
+  render() {
+    const { source, className } = this.props;
+    return (
+      <ReactMarkdown
+        source={ source }
+        className={ className }
+        escapeHTML={ true }
+        renderers={{
+          CodeBlock: Code,
+          Link: LinkNode
+        }}
+      />
+    );
+  }
+};
+
+export default connect()(Markdown);

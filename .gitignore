@@ -8,4 +8,4 @@ coverage
 
 .idea/
 
-src/store/data/wikis.js
+src/store/data/notebook.js

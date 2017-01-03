@@ -1,5 +1,71 @@
 export default [
   {
+    createdAt: "9/5/11",
+    name: "Work (And Education) in China",
+    slug: 'work-and-education-in-china',
+    text: require('raw-loader!./markdown/blog/work-and-education-in-china.md')
+  },
+  {
+    createdAt: "9/5/11",
+    name: "Unearthing the Real Shanghai",
+    slug: 'unearthing-the-real-shanghai',
+    text: require('raw-loader!./markdown/blog/unearthing-the-real-shanghai.md')
+  },
+  {
+    createdAt: "9/6/11",
+    name: "Shanghai, USA",
+    slug: 'shanghai-usa',
+    text: require('raw-loader!./markdown/blog/shanghai-usa.md')
+  },
+  {
+    createdAt: "9/12/11",
+    name: "Shopping Wars",
+    slug: 'shopping-wars',
+    text: require('raw-loader!./markdown/blog/shopping-wars.md')
+  },
+  {
+    createdAt: "9/19/11",
+    name: "Millions in the Middle [Kingdom]",
+    slug: 'millions-in-the-middle-kingdom',
+    text: require('raw-loader!./markdown/blog/millions-in-the-middle-kingdom.md')
+  },
+  {
+    createdAt: "9/23/11",
+    name: "A Week and a Half in (i)Photos",
+    slug: 'a-week-and-a-half-in-photos',
+    text: require('raw-loader!./markdown/blog/a-week-and-a-half-in-photos.md')
+  },
+  {
+    createdAt: "9/30/11",
+    name: "Dipont Life",
+    slug: 'dipont-life',
+    text: require('raw-loader!./markdown/blog/dipont-life.md')
+  },
+  {
+    createdAt: "10/7/11",
+    name: "The Shan High",
+    slug: 'the-shan-high',
+    text: require('raw-loader!./markdown/blog/the-shan-high.md')
+  },
+  {
+    createdAt: "10/8/11",
+    name: "Weekly Updates 4 and 5",
+    slug: 'weekly-updates-4-and-5',
+    text: require('raw-loader!./markdown/blog/weekly-updates-4-and-5.md')
+  },
+  {
+    createdAt: "10/21/11",
+    name: "More Weekly Updates",
+    slug: 'more-weekly-updates',
+    text: require('raw-loader!./markdown/blog/more-weekly-updates.md')
+  },
+  {
+    createdAt: "10/25/11",
+    name: "Three Birds One Post",
+    slug: 'three-birds-one-post',
+    text: require('raw-loader!./markdown/blog/three-birds-one-post.md')
+  },
+  {
     createdAt: "2/08/13",
     name: "Expand/Collapse",
     slug: "expand-collapse",
