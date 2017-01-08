@@ -53,7 +53,7 @@ export default [
       'Downloaded over 2000 times',
       'Used in live production code'
     ],
-    image: 'https://dl.dropboxusercontent.com/s/qi9vq2kt72jeu09/Screenshot%202015-11-03%2016.47.13.png?dl=0',
+    image: 'https://dl.dropboxusercontent.com/s/t4smstgq66jnxpw/Screenshot%202017-01-08%2014.19.57.png?dl=0',
     link: 'https://github.com/sashafklein/shape',
     subtitle: 'AVA Describe and Shape',
     text: require('raw-loader!./markdown/portfolio/npm.md'),
@@ -66,7 +66,7 @@ export default [
       'Configurable option block (for PG Clone)',
       'Heroku and ActiveRecord integration'
     ],
-    image: 'https://dl.dropboxusercontent.com/s/qi9vq2kt72jeu09/Screenshot%202015-11-03%2016.47.13.png?dl=0',
+    image: 'https://dl.dropboxusercontent.com/s/wo4p4gqmagbh3yb/Screenshot%202017-01-08%2014.22.16.png?dl=0',
     link: 'https://github.com/sashafklein/me_first',
     subtitle: 'PG Clone, MeFirst, and Falcon Deploy',
     text: require('raw-loader!./markdown/portfolio/gems.md'),

@@ -1,3 +1,5 @@
 [AVA Describe](https://github.com/sashafklein/ava-describe) is an NPM package for nesting tests in AVA (a very lightweight testing runner/matching library) into more human-readable `describe` and `context` blocks, like those common with other JavaScript testing tools.
 
 [Shape](https://github.com/sashafklein/shape) (technically, `matches-shape`) is an NPM package for asserting and testing object shape in JavaScript. It provides a simple syntax for declaring what an object structure should be, and for testing that declared shape against the received object, and storing any failures for easy access. Particularly useful for testing the output of inconsistent APIs.
+
+[Redux Request Manager](https://github.com/sashafklein/redux-request-manager) is an NPM package which simplifies the staging and throttling of API requests through Redux API Middleware. It tracks API requests and provides a simple set of methods for making API requests only in certain cases (if a request hasn't been made before, for instance, or hasn't succeeded in the last 5 minutes).
