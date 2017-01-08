@@ -24,10 +24,10 @@
     }
   }
   code {
-    background-color: transparent;
+    // background-color: transparent;
     font-weight: bold;
     font-family: monospace;
-    color: #333333;
+    // color: #333333;
   }
   .codebox {
     margin: 20px 0;
@@ -67,7 +67,7 @@
   pre {
     border-top: none;
     // @include border-radius(3px);
-    background-color: #171717;
+    // background-color: #171717;
     margin: 20px 0;
     white-space: pre;
     overflow: scroll;
@@ -78,7 +78,7 @@
       white-space: pre;
       overflow-x: scroll;
       word-wrap: normal;
-      background-color: #171717;
+      // background-color: #171717;
       display: block;
       line-height: 1.5;
       span {
