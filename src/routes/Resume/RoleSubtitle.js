@@ -6,7 +6,7 @@ export const RoleSubtitle = ({ role }) => (
     <small>
       { role.location && <strong>({ role.location }) </strong> }
       { role.started && <span className='date'>{ role.started } </span> }
-      { role.started && role.ended && <span className='date'>, { role.ended }</span> }
+      { role.started && role.ended && <span className='date'>- { role.ended }</span> }
     </small>
   </div>
 );

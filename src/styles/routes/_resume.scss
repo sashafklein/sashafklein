@@ -103,7 +103,8 @@
   h1.section-header {
     color: $electricBlue;
     font-family: "Gotham-Ultra";
-    font-size: 50px;
+    @include responsiveFont($h1 * 1.2);
+    margin-bottom: 10px;
   }
   .collapse-title {
     margin-bottom: 0;
@@ -122,7 +123,7 @@
     .paragraph {
       a, strong {
         font-family: Gotham;
-        font-size: 1em;
+        font-weight: 500;
       }
     }
     .subrole, .role-subtitle {}
@@ -138,7 +139,6 @@
     }
     .roles {
       margin-top: 20px;
-      margin-left: 35px;
       .paragraph:first-child {
         p {
           margin-top: 0;
@@ -147,7 +147,7 @@
     }
     .roles, .fa {
       overflow: hidden;
-      transition: all 0.5s ease;
+      transition: all 0.7s ease;
     }
     .fa {
       transform: rotate(45deg);
@@ -165,25 +165,29 @@
   }
   .skills-overlay {
     position: fixed;
-    top: 0;
-    right: 0;
+    bottom: -100%;
+    left: 0;
     background-color: white;
     z-index: $skillsZ;
     width: 100%;
-    transition: all 0.7s ease;
+    transition: all 0.3s ease;
     height: 100%;
-    transform: translateX(100%);
+    overflow: hidden;
+    .section-header {
+      text-align: center;
+    }
     .skills {
-      margin: 100px 50px 50px 50px;
+      margin: 0px 50px 50px 50px;
+    }
+    .skills.show-medium {
+     margin: 0px 10px 50px 10px;
     }
     &.open {
-      transform: translateX(0%);
+      transform: translateY(-100%);
     }
     .container {
       height: 100%;
-      width: calc(100% - 100px);
-      margin-left: 100px;
-      overflow: scroll;
+      overflow-y: scroll;
     }
   }
   .skill {
@@ -191,15 +195,12 @@
     color: $lightPink;
     line-height: 65px;
   }
-  .skills-tab, .experience-tab {
-    @media (max-width: $medium) {
-      display: none;
-    }
+  .skills-tab {
     i:hover {
       color: $lightPink;
     }
     i {
-      transition: color 0.5s ease;
+      transition: color 0.3s ease;
     }
   }
   .skills {
@@ -207,33 +208,37 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+    overflow: hidden;
     .skills-row {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      height: 80px;
       flex: 1;
     }
     .skill {
       flex: 1;
       align-self: center;
       text-align: center;
+      margin: 0 5px;
     }
   }
   .skills-tab {
     position: fixed;
     z-index: 100;
-    top: 50%;
-    font-size: 3rem;
+    left: 50%;
+    margin-left: #{$h1 / 2}px;
     color: $electricBlue;
     cursor: pointer;
     transition: all 0.7s ease;
-    &.left {
-      left: 2%;
+    bottom: 2%;
+    @media only screen and (max-width: $medium) {
+      left: 45%;
     }
-    &.right {
-      left: 94%;
+    i {
+      @include responsiveFont($h1);
+    }
+    &.up {
       transform: rotate(180deg);
     }
   }
@@ -245,13 +250,11 @@
   .headshot-box {
     flex: 2;
     margin-right: 5%;
-    width: 150%;
-    @media (max-width: $small) {
-      display: none;
-    }
     img {
-      max-width: 200px;
       border-radius: 50%;
+      width: 25vw;
+      border-radius: 50%;
+      max-width: 200px;
     }
   }
 }

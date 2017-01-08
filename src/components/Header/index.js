@@ -4,19 +4,9 @@ import { Link } from 'react-router'
 
 import Pig from './pig.png'
 
-const userLinks = null; // TODO
+import { toggleSetting } from 'store/actions';
 
-// - if current_user
-//   <div className="flex-link full-link">
-//     = safe_block_link_to wikis_path do
-//       = fa_icon "file"
-//   <div className="flex-link full-link">
-//     = safe_block_link_to destroy_user_session_path, method: :delete do
-//       = fa_icon "circle-o"
-
-const links = ['resume', 'portfolio', 'blog']
-
-export const Header = ({ flash }) => (
+export const Header = ({ flash, navOpen, dispatch }) => (
   <div>
     <div className="header-bar">
       <div className="container undecorated top-section">
@@ -30,21 +20,14 @@ export const Header = ({ flash }) => (
             </div>
           </div>
           <div className="right-section">
-            <div className="flex-link hamburger">
-              <img src="hamburger.png" />
+            <div className="flex-link">
+              <a
+                className={ 'fa fa-bars'.concat(navOpen ? ' open' : '') }
+                onClick={
+                  () => { dispatch(toggleSetting('navOpen', !navOpen)) }
+                }
+              />
             </div>
-            {
-              links.filter(l => (
-                location.pathname
-                  ? !location.pathname.includes(l)
-                  : l !== 'resume'
-              )).map((l, i) => (
-                <div key={ i } className="flex-link full-link">
-                  <Link to={ `/${l}` }>{ l.toUpperCase() }</Link>
-                </div>
-              ))
-            }
-            { userLinks }
           </div>
         </div>
       </div>
@@ -59,7 +42,8 @@ export const Header = ({ flash }) => (
 )
 
 const mapStateToProps = state => ({
-  flashes: state.settings.flash
+  flashes: state.settings.flash,
+  navOpen: state.settings.navOpen
 });
 
 export default connect(mapStateToProps)(Header)

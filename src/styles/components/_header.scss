@@ -16,46 +16,22 @@
     display: flex;
     flex: 1;
   }
-  &.hamburger-open {
-    display: flex;
-    flex-direction: column;
-    height: calc(#{$headerHeight} * 2);
-    .container.top-section {
-      position: static;
-      flex: 1;
-      display: flex;
-    }
-    .container.mobile-option {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      justify-content: center;
-    }
-    .hamburger {
-      opacity: 0.3;
-      img {
-        margin-bottom: 0;
+  .right-section {
+    a.fa {
+      z-index: 1001;
+      color: white;
+      position: absolute;
+      right: 0;
+      @include responsiveFont($h3);
+      line-height: #{$p * 1.7};
+      margin-right: 0;
+      transition: color 1s ease;
+      &.open {
+        color: black;
       }
-    }
-    .left-section, .right-section {
-      flex: 1;
-      justify-content: center;
-      display: flex;
-      opacity: 1;
-    }
-    .left-section {
-      align-self: flex-start;
-    }
-    .right-section {
-      align-self: flex-end;
     }
   }
   @media only screen and (min-device-width: 300px) {
-    min-height: 100px;
-    .container {
-      margin-top: 1%;
-    }
     .hamburger {
       display: flex;
       opacity: 1;
@@ -87,47 +63,6 @@
       }
     }
   }
-  @media only screen and (min-device-width: 800px) {
-    .container {
-      margin-top: 0;
-    }
-    .header-content {
-      display: flex;
-      flex: 1;
-      flex-direction: row;
-      padding: 30px 0;
-    }
-    .left-section, .right-section {
-      display: flex;
-      .flex-link {
-        display: flex;
-        flex: 1;
-        align-items: flex-end;
-      }
-    }
-  }
-  .left-section {
-    flex: 1;
-    justify-content: flex-start;
-  }
-  .right-section {
-    flex: 0.5;
-    align-self: center;
-    justify-content: flex-end;
-    .flex-link {
-      justify-content: flex-end;
-    }
-    @media only screen and (min-width: $medium) and (min-device-width: 800px) {
-      .hamburger {
-        display: none;
-      }
-    }
-    @media only screen and (max-width: $medium) and (min-device-width: 800px) {
-      .full-link {
-        display: none;
-      }
-    }
-  }
   a {
     &:link, &:visited {
       color: white;
@@ -141,5 +76,10 @@
 }
 
 .header-spacer {
-  height: $headerHeight;
+  @media only screen and (min-device-width: 800px) {
+    height: 100px;
+  }
+  @media only screen and (min-device-width: 300px) {
+    height: 85px;
+  }
 }

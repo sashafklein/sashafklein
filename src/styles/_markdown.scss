@@ -33,12 +33,18 @@
     margin: 20px 0;
   }
   img {
+    @media (max-width: $large) {
+      &:hover {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
     border: 5px solid black;
     margin: 20px 0;
     width: 100%;
     &:hover {
-      width: 200%;
-      margin-left: -80%;
+      width: 150%;
+      margin-left: -25%;
     }
   }
   h2, h3 {

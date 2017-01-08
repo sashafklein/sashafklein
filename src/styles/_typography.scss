@@ -10,7 +10,7 @@ body, div, img, p, ol, em, input, small, br, strong, code, span, a, ul, li, td, 
   }
 }
 
-p, a, label, input, li {
+p, a, label, input, li, i {
   @include responsiveFont($p);
   line-height: #{$p * 1.7};
 }

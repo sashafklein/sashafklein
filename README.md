@@ -14,7 +14,7 @@ This app is based off of [React Redux Starter Kit](https://github.com/davezuko/r
 To build locally:
 
 ```
-npm install # or `yarn install` if using yarn
+npm install
 npm dev
 ```
 

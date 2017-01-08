@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Markdown from 'components/markdown';
+import Markdown from 'components/Markdown';
 
 const slug = title => title.toLowerCase().split(' ').join('-');
 
@@ -29,9 +29,9 @@ export class PortfolioItem extends React.Component {
         ref={ el => this.comp = el }
       >
         <div className="sidebar black-links">
-          <Link to={ item.link }>
+          <a href={ item.link }>
             <img src={ item.image } className="port-photo" alt={ item.title } />
-          </Link>
+          </a>
           <div className="show-medium">
             { item.bullets &&
                 <ul className="port-list hide-medium">

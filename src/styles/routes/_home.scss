@@ -3,15 +3,21 @@ $textAndBorder: lighten(#333333, 5);
 .landing {
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
+  background-color: white;
+  z-index: 1000;
   top: 0;
-  left: 0;
+  right: -100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: transform 0.5s ease;
+  &.open {
+    transform: translateX(-100%);
+  }
   .landing-buttons {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     margin: 0;
     .landing-button {
@@ -21,7 +27,7 @@ $textAndBorder: lighten(#333333, 5);
       text-align: center;
       vertical-align: middle;
       background-color: $textAndBorder;
-      transition: background-color 0.5s ease;
+      transition: background-color 0.7s ease;
       .inner-text {
         text-align: center;
         padding: 5% 0;
@@ -35,7 +41,6 @@ $textAndBorder: lighten(#333333, 5);
         }
         a {
           text-decoration: none;
-          text-transform: lowercase;
           font-family: Gotham-Ultra;
           padding: 8% 0;
           vertical-align: middle;
@@ -50,45 +55,67 @@ $textAndBorder: lighten(#333333, 5);
         cursor: pointer;
         background-color: $lightPink;
       }
-      &:active {
+      &:active, &.active {
         background-color: lighten($electricBlue, 25);
+      }
+      &:active.active {
+        background-color: $electricBlue;
+      }
+      &:hover.active {
+        cursor: pointer;
+        background-color: $lightPink;
       }
     }
   }
-  @media only screen and (min-device-width: 300px) {
-    .landing-buttons {
-      flex-direction: column;
-      .landing-button {
-        margin: 4%;
-        &:first-child {
-          margin-top: 8%;
+  a {
+    .inner-text {
+      a {
+        text-decoration: none !important;
+        &:hover {
+          text-decoration: none !important;
         }
-        &:last-child {
-          margin-bottom: 8%;
-        }
-        a {
-          font-size: 12vw;
-        }
+      }
+    }
+  }
+  .landing-button:hover {
+    .inner-text {
+      a {
+        text-decoration: none !important;
       }
     }
   }
   @media only screen and (min-device-width: 800px) {
-    .landing-buttons {
-      flex-direction: row;
-    }
     .landing-button {
-      margin-left: 1.5% !important;
-      margin-right: 1.5% !important;
-      margin-top: 0 !important;
-      margin-bottom: 0 !important;
+      a {
+        font-size: 6vw !important;
+      }
+    }
+  }
+  @media only screen and (min-device-width: 1000px) {
+    .landing-buttons {
+      .landing-button {
+        width: 70%;
+        margin-left: 15% !important;
+        a {
+          font-size: 6vw !important;
+        }
+      }
+    }
+  }
+  @media only screen and (min-device-width: 300px) {
+    .landing-button {
+      margin-top: 2vh !important;
+      margin-bottom: 2vh !important;
+      margin-right: 8vw !important;
+      margin-left: 8vw !important;
       &:first-child {
-        margin-left: 3% !important;
+        margin-top: 8vh !important;
       }
       &:last-child {
-        margin-right: 3% !important;
+        margin-bottom: 8vh !important;
       }
       a {
-        font-size: 5vw !important;
+        font-size: 8vw !important;
       }
     }
   }
