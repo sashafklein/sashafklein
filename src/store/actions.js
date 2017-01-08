@@ -5,7 +5,3 @@ export const locationChange = (location = '/') => ({
 export const toggleSetting = (key, value) => ({
   type: 'TOGGLE_SETTING', key, value
 });
-
-export const setDecryptor = (decryptor) => ({
-  type: 'SET_DECRYPTOR', decryptor
-});

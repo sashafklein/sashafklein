@@ -5,7 +5,7 @@ import Highlight from 'react-highlight';
 
 import Markdown from 'components/Markdown';
 import CoreLayout from 'containers/CoreLayout';
-import BlogMenu from '../BlogArchive';
+import BlogMenu from './BlogMenu';
 
 import { toggleSetting } from 'store/actions';
 

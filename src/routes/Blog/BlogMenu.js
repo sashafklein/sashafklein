@@ -2,50 +2,66 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-export const BlogMenu = ({ posts, index }) => {
-  const next = posts[index + 1];
-  const prev = posts[index - 1];
+import { toggleSetting } from 'store/actions';
+import CoreLayout from 'containers/CoreLayout';
 
-  return (
-    <div>
-      <h1>Recent Posts</h1>
-      <ul className="blog-sidebar link-list">
-        {
-          posts.slice(posts.length - 8).reverse().map((post, postIndex) => (
-            <li key={ postIndex }>
-              <Link to={ `/blog/${post.slug}` }>
-                { post.name + ' ' }
-                <small>{ post.createdAt }</small>
-              </Link>
-            </li>
-          ))
-        }
-      </ul>
-      <div className="centerify">
-        <h6>---</h6>
-        <p>Showing 8 most recent.</p>
-        <p className="blue-links">
-          <span>
-            See <Link to={ `/blog/archive` }>archive</Link> for more.
-          </span>
-        </p>
-      </div>
-      <br/>
-      <div className="prevnext">
-        {
-          prev && <div className="prev-post">
-            <Link to={ `/blog/${prev.slug}` }>PREV</Link>
-          </div>
-        }
-        {
-          next && <div className="next-post">
-            <Link to={ `/blog/${next.slug}` }>NEXT</Link>
-          </div>
-        }
-      </div>
-      <br/>
-    </div>
-  );
-};
+export class BlogMenu extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { query: '' }
+  }
 
-export default BlogMenu;
+  render() {
+    const { posts, open, dispatch } = this.props;
+    return(
+      <CoreLayout>
+        <div className={ `blog-menu ${open ? 'open' : ''}` }>
+          <div className="centerify archive">
+            <div className="header-spacer" />
+            <ul className="blog-links">
+              <input
+                type="text"
+                placeholder="Search archives"
+                style={ { textAlign: 'left', margin: 'auto', fontSize: '30px', border: '1px solid #ccc', padding: '4px'  } }
+                onChange={ event => {
+                  this.setState({ query: event.target.value })
+                }}
+              />
+
+              <div className="centerify archive" id="list">
+                {
+                  posts.filter(p => (p.name + p.text).toLowerCase().includes(this.state.query.toLowerCase()))
+                       .reverse().map((post, postIndex) => (
+                    <h1>
+                      {
+                        location.pathname.includes(post.slug) ?
+                          <a
+                            className="post-link"
+                            onClick={ () => { dispatch(toggleSetting('blogMenuOpen', false)) } }
+                            style={{ textDecoration: 'underline' }}
+                          >
+                            { post.name }
+                            <small> ({ post.createdAt })</small>
+                          </a> :
+                          <Link className="post-link" to={ `/blog/${post.slug}` }>
+                            { post.name }
+                            <small> ({ post.createdAt })</small>
+                          </Link>
+                      }
+                    </h1>
+                  ))
+                }
+              </div>
+            </ul>
+          </div>
+        </div>
+      </CoreLayout>
+    )
+  };
+}
+
+const mapStateToProps = state => ({
+  posts: state.data.posts
+});
+
+export default connect(mapStateToProps)(BlogMenu);

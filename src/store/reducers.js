@@ -5,8 +5,6 @@ import skills from './data/skills';
 import portfolioItems from './data/portfolioItems';
 import posts from './data/posts';
 
-const file = require('raw!./data/encryptedNotebook.txt');
-
 // HANDLERS
 // Handlers map actions to reducing functions.
 // Init and default states are added by constructReducers function.
@@ -24,20 +22,8 @@ const settings = {
   TOGGLE_SETTING: (state, action) => Object.assign({}, state, { [action.key]: action.value })
 }
 
-const notes = {
-  _init: file
-};
-
-const decryptor = {
-  _init: (window && window.localStorage && window.localStorage.decryptor) || '',
-  SET_DECRYPTOR: (state, action) => {
-    window.localStorage.decryptor = action.decryptor;
-    return action.decryptor
-  }
-};
-
 // DEFINE INIT STATES AND HANDLERS OBJ HERE
-const handlers = { data, location, settings, notes, decryptor };
+const handlers = { data, location, settings };
 
 // EXPORTS
 export const makeRootReducer = curryMakeRootReducer(constructReducers(handlers))
