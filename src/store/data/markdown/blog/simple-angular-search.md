@@ -24,8 +24,8 @@ By contrast, I just rewrote the search in Angular, and it's **stunningly simple*
 
 Step one, grab the data in Angular, instead of Ruby. So this view:
 
-**posts/_search.html.erb**
 ```erb
+# posts/_search.html.erb
 <% @posts.each do |post| %>
     <h2>
       <%= link_to post.name, post %>
@@ -36,8 +36,8 @@ Step one, grab the data in Angular, instead of Ruby. So this view:
 
 becomes this view (postList fetched via Angular's `$http` module):
 
-**posts/_search.html.haml**
 ```haml
+# posts/_search.html.haml
 %input{ type: 'text', ng_model: 'query' }
 %h2{ ng_repeat: 'post in postList | filter:query' }
   %a{ ng_href: '{{postShowPath(post)}}' } {{ post.name }}

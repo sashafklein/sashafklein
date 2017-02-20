@@ -2,9 +2,8 @@ So I was left looking for an a) [MVC](http://en.wikipedia.org/wiki/Model%E2%80%9
 
 I solved each of these problems individually using a variety of gems and homebrewed solutions. To automatically correct code indentation, I borrowed a beautiful string module I found on Stack Overflow which truncates each code snippet, removing all spaces and tabs before the lowest common indentation:
 
-**lib/ext/string.rb**
-
 ```text
+# lib/ext/string.rb
 def unindent
   gsub(/^\#{scan(\/^\\s+\/\).min\}/, \"\")
 end
@@ -18,9 +17,8 @@ Only one rather hairy problem remained: Markdown made the rendering of HTML and 
 
 The solution to this ended up being a single setting in my RedCarpet formatting helper. If I removed "filter_html: true" from the second line of the below, it would execute all styling HTML inside a ["notextile"](http://redcloth.org/textile/html-integration-and-escapement/) tag (and not within a delineated code box).
 
-**application_helper.rb**
-
 ```ruby
+# application_helper.rb
 def markdown(text)
   renderer = HTMLwithPygments.new(hard_wrap: true, filter_html: true)
   options = {
@@ -37,9 +35,8 @@ end
 
 This left me with an imperfect (still partially hardcoded) but relatively easy solution. ERB wouldn't execute, but any HTML images and links would render perfectly (with their classes), I didn't have to harcode paragraphs or codeboxes, all my posts would be stored in the database, and I could include a perfectly formatted, language-colored, titled code box like so.
 
-**example post codebox**
-
 ```
+# example post codebox
 <notextile><div class="codebox">example post codebox</notextile>
 
  ` ` `html

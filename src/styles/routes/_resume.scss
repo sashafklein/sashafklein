@@ -65,7 +65,8 @@
   .name {
     color: $electricBlue;
     margin: 0;
-    font-family: "Gotham-Ultra";
+    font-family: Montserrat;
+    font-weight: 900;
     font-size: 55px;
     display: inline;
     @media (max-width: $medium) {
@@ -102,7 +103,8 @@
   }
   h1.section-header {
     color: $electricBlue;
-    font-family: "Gotham-Ultra";
+    font-family: Montserrat;
+    font-weight: 900;
     @include responsiveFont($h1 * 1.2);
     margin-bottom: 10px;
   }
@@ -121,15 +123,15 @@
   }
   .panel {
     .paragraph {
-      a, strong {
-        font-family: Gotham;
-        font-weight: 500;
+      a {
+        font-family: Montserrat;
       }
     }
     .subrole, .role-subtitle {}
     .role-subtitle {
       span.role-name {
-        font-family: Gotham-Bold;
+        font-family: Montserrat;
+        font-weight: 600;
       }
       small {
         strong {
@@ -191,7 +193,8 @@
     }
   }
   .skill {
-    font-family: Gotham-Ultra;
+    font-family: Montserrat;
+    font-weight: 900;
     color: $lightPink;
     line-height: 65px;
   }

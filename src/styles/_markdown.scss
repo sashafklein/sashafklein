@@ -1,6 +1,20 @@
 .markdown-container {
   width: 100%;
 
+  h6 {
+    margin-bottom: -21px;
+    width: 100%;
+    background-color: #282c34;
+    color: white;
+    margin-top: 0;
+    padding: 0.5em;
+    padding-bottom: 0.5em;
+    font-family: Inconsolata;
+    font-weight: bold;
+    &:hover {
+      color: lighten($lightPink, 15);
+    }
+  }
   p, li {
     font-size: 16px;
     line-height: 1.5;
@@ -18,7 +32,7 @@
   }
   li {
     list-style: initial;
-    font-family: "Gotham-Light";
+    font-family: Montserrat;
     &:not(:first-child) {
       margin-top: 10px;
     }
@@ -60,13 +74,14 @@
   }
   p {
     code {
-      font-weight: lighter;
-      font-size: 16px;
+      font-family: Inconsolata;
+      font-size: 20px;
     }
   }
   pre {
     border-top: none;
-    // @include border-radius(3px);
+    font-family: Inconsolata;
+    border-radius: 3px;
     // background-color: #171717;
     margin: 20px 0;
     white-space: pre;
@@ -75,6 +90,7 @@
     font-size: 16px;
     max-width: 600px;
     code {
+      font-family: Inconsolata;
       white-space: pre;
       overflow-x: scroll;
       word-wrap: normal;

@@ -6,10 +6,8 @@ Take for example the "dashboard" we were working on. Without getting into propri
 
 A coder aiming to solve this problem as quickly as possible might be tempted to hack something ugly together and shove most of the code into the controller and view -- something like this (which I'm not even sure would work):
 
-**dashboard_controller.rb**
-
 ```ruby
-
+# dashboard_controller.rb
 @user = User.find(params[:id])
 
 # Only messages RECEIVED by @user, not those sent by him/her
@@ -21,10 +19,8 @@ A coder aiming to solve this problem as quickly as possible might be tempted to 
 
 ```
 
-**dashboard.html.haml**
-
 ```haml
-
+# dashboard.html.haml
 - @notifications.each do |n|
     - if n.notification_type == "Message"
         %tr
@@ -42,10 +38,8 @@ This is (maybe) faster at first, but it quickly gets absurd (and it's ugly and p
 
 The answer is to embrace the framework you're dealing with and push as much of the code as possible into the individual models, then sort through the calls to those models in a singular other place (like, say, a Dashboard model) so that you can call "message.subject" and "appointment.subject", or, simply, in the above, "n.subject", or even "n.subtitle" or "n.icon", without having to hash out all the alternatives in the view. Now, if I decide to add a display reading out whether a notification has been deleted, it involves adding a single line in the view, and a single method in a Dashboard model that deals with the interfaces between all the notification types:
 
-<notextile><div class="codebox"><p>good_dashboard.html.haml</p></notextile>
-
 ```haml
-
+# good_dashboard.html.haml
 - @notifications.each do |n|
         %tr
             %td

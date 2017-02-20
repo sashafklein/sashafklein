@@ -6,9 +6,8 @@ In particular, because HAML closes off all tags automatically, it prohibits half
 
 A good example is my [expand-collapse](/blog/1-expand-collapse) method, (now in HAML-inspired obsolescence), which involved opening three divs in a partial, then filling in the contents to be expanded/collapsed, and, finally, closing those divs in the main document calling the partial. In other words, in addition to other code, I'd put this in my partial:
 
-**partial.html.erb**
-
 ```
+# partial.html.erb
 <div class="cl">
     <div class="collapse-group">
         <div class="collapse">
@@ -16,9 +15,8 @@ A good example is my [expand-collapse](/blog/1-expand-collapse) method, (now in 
 
 and then this in the template, right after calling the partial:
 
-**page.html.erb**
-
 ```html
+# page.html.erb
         Some content to be toggled between visibility.
         </div>
     </div>
@@ -27,9 +25,8 @@ and then this in the template, right after calling the partial:
 
 I was pleased with this hack, but it was just that -- hacky. HAML forced me into a corner, and made me realize that this trick was more trouble than it was worth. In fact, the HAML equivalent was significantly cleaner, clearer, and easier to write than the ERB equivalent (which can be read in its entirety in that post):
 
-**page.html.haml**
-
 ```haml
+# page.html.haml
 .cl
   .collapse-group
     %h3.squeeze.bold

@@ -2,9 +2,8 @@ Coding with time (scheduling paychecks, appointments, and course launches for Bl
 
 Dealing with time is tough for a couple reasons -- even with all the incredible time functionality Ruby has baked in. The first is time's specificity. It may be obvious, but it bears being made explicit: The time taken now is different from time taken a fraction of a second from now. Because computers calculate time so specifically, if two objects are saved to the database 'concurrently' but really within a few milliseconds of one another, they won't be read as concurrent when you compare their created_at times.
 
-**console**
-
 ```
+# console
 irb(main):001:0> a = Time.now
 => 2013-09-18 21:08:07 -0700
 irb(main):002:0> b = Time.now
@@ -17,9 +16,8 @@ Then there's the time zone business. If a user in China types `Date.today` and I
 
 Ruby throws in some weird wrinkles of its own, including this gem of what feels like a bug but may have a fair explanation out there:
 
-**console**
-
 ```
+# console
 irb(main):032:0> DateTime.now.beginning_of_day
 => Wed, 18 Sep 2013 00:00:00 -0700
 irb(main):033:0> Time.now.beginning_of_day
@@ -32,9 +30,8 @@ Yup. That plus/minus business is time zone. Meaning that when I start with a Dat
 
 So if I want to see if a given time is on a given date, it's unexpectedly complicated:
 
-**console**
-
 ```
+# console
 irb(main):036:0> DateTime.now.beginning_of_day == Date.today.to_datetime
 => false
 irb(main):037:0> DateTime.now.zone
@@ -49,28 +46,26 @@ Sure. A lot of this is rooted in the unavoidable relatively of time. But much of
 
 Take, for example, these potential methods:
 
-**time.rb**
-
 ```ruby
-  class Time
-    def happened_on?(date)
-      # Auto-converting to UTC doesn't really make sense
-      # as a general policy, but given the above Date issue...
-      self.utc > date.beginning_of_day && self.utc < date.end_of_day
-    end
+# time.rb
+class Time
+  def happened_on?(date)
+    # Auto-converting to UTC doesn't really make sense
+    # as a general policy, but given the above Date issue...
+    self.utc > date.beginning_of_day && self.utc < date.end_of_day
   end
+end
 ```
 
 Putting aside the brittleness of a time method that can only take a Date object as input (without behaving *differently*, not breaking), this is additionally problematic because the language of the code is, well, super unintuitive for Ruby. Or take this just barely more complicated example (still a pleasant one-liner):
 
-**student.rb**
-
 ```ruby
-  class Student
-    def studying_during?(datetime)
-      course.start_date <= datetime && course.start_date + length_in_weeks.weeks >= datetime
-    end
+# student.rb
+class Student
+  def studying_during?(datetime)
+    course.start_date <= datetime && course.start_date + length_in_weeks.weeks >= datetime
   end
+end
 ```
 
 I don't know about you, but every time I see "`time_a` >= `time_b`" or whatever, my head goes completely blank for a few seconds before it (only sort-of) clicks.
@@ -79,9 +74,8 @@ Ideally, dealing with time should involve as little of this unnecessary head scr
 
 Please feel free to copy/adapt if you agree that time could use a little help.
 
-**lib/ext/time_methods.rb**
-
 ```ruby
+# lib/ext/time_methods.rb
 module TimeMethods
 
   module ClassMethods
@@ -135,9 +129,8 @@ end
 
 Then just include it like so:
 
-**lib/ext/date.rb**
-
 ```ruby
+# lib/ext/date.rb
 class Date
   require_relative './time_methods'
   include TimeMethods
@@ -151,9 +144,8 @@ end
 
 And, finally, by way of explaining what is already probably pretty transparent behavior, here are the specs that test this all out:
 
-**spec/lib/time_methods_spec.rb**
-
 ```ruby
+# spec/lib/time_methods_spec.rb
 require 'spec_helper'
 
 describe TimeMethods do

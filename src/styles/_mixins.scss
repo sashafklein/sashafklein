@@ -1,6 +1,7 @@
 @mixin mixed-link-base {
   margin-bottom: 0;
-  font-family: Gotham-Bold;
+  font-family: Montserrat;
+  font-weight: 500;
   cursor: pointer;
   color: black;
   small {
@@ -35,8 +36,8 @@
   a {
     span {
       color: black;
-      font-weight: normal;
-      font-family: Gotham-Bold;
+      font-weight: 500;
+      font-family: Montserrat;
     }
   }
   &:hover {

@@ -2,9 +2,8 @@ Writing about coding inevitably (and pretty immediately) means displaying code. 
 
 A basic code block involves either a "pre" or "code" tag, into which one inserts the code, and, in my case a div wrapping it and giving it some styling. As in the below:
 
-**view.html.erb**
-
 ```
+# view.html.erb
 <div class="codebox">
   <pre lang="html">
 <h4>Display code goes here.</h4>
@@ -16,9 +15,8 @@ A basic code block involves either a "pre" or "code" tag, into which one inserts
 
 To get this icky-looking and repetitive (read, not [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself)) code out of my view, my original solution was to define a partial, similar to those I used for expand/collapsing, into which one could feed the title, content, and language of a code block, and which would wrap the above in both pre tags and a div for formatting:
 
-**_box.html.erb**
-
 ```
+# _box.html.erb
 <% lang ||= "" %>
 <% language = "lang='#{lang}'" %>
 
@@ -33,9 +31,8 @@ To get this icky-looking and repetitive (read, not [DRY](http://en.wikipedia.org
 
 And I just call it like this:
 
-**view_page.html.erb**
-
 ```
+# view_page.html.erb
 <%= render partial: 'box', locals: { title: '_box.html.erb', lang: 'html', text: '
 <div class\"this\">
     <div class=\"solution\">

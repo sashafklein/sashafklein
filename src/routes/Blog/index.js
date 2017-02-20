@@ -23,23 +23,25 @@ export const Blog = ({ posts, dispatch, blogMenuOpen }) => {
 
   return (
     <CoreLayout className={ `blog ${blogMenuOpen ? 'menu-open' : ''}` }>
-      <div className="container posts-show">
-        <div className="content-section">
-          <h1 className="small-buffer-top">
-            { post.name }
-            <small> ({ post.createdAt })</small>
-          </h1>
+      <div>
+        <div className="container posts-show">
+          <div className="content-section">
+            <h1 className="small-buffer-top">
+              { post.name }
+              <small> ({ post.createdAt })</small>
+            </h1>
 
-          <Markdown className="markdown markdown-container" source={ post.text }/>
-          <div className="example" />
+            <Markdown className="markdown markdown-container" source={ post.text }/>
+            <div className="example" />
+          </div>
         </div>
-      </div>
-      <BlogMenu posts={ posts } index={ postIndex } open={ blogMenuOpen }/>
-      <div
-        className={ `menu-tab ${blogMenuOpen ? 'up' : 'down'}` }
-        onClick={ () => { dispatch(toggleSetting('blogMenuOpen', !blogMenuOpen)) } }
-      >
-        <i className="fa fa-chevron-up" />
+        <BlogMenu posts={ posts } index={ postIndex } open={ blogMenuOpen }/>
+        <div
+          className={ `menu-tab ${blogMenuOpen ? 'up' : 'down'}` }
+          onClick={ () => { dispatch(toggleSetting('blogMenuOpen', !blogMenuOpen)) } }
+        >
+          <i className="fa fa-chevron-up" />
+        </div>
       </div>
     </CoreLayout>
   );

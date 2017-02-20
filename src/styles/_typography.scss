@@ -39,39 +39,45 @@ h1 {
 }
 
 p {
-  font-family: Gotham-Light;
+  font-family: Montserrat;
+  font-weight: 300;
 }
 
-ol, em, small, ul, li, td, th, h1, h2, h3, h4, h5, h6, label, a {
-  font-family: Gotham;
+em {
+  font-family: Montserrat
+}
+ol, small, ul, li, td, th, h1, h2, h3, h4, h5, h6, label, a {
+  font-family: Montserrat;
+  font-weight: 400;
 }
 
 h1, h2 {
-  font-family: Gotham-Ultra;
+  font-family: Montserrat;
+  font-weight: 900;
 }
 
 strong {
-  font-family: Gotham-Bold;
+  font-family: Montserrat;
+  font-weight: 600;
 }
 
 li {
   small {
-    font-family: Gotham-Bold;
+    font-family: Montserrat;
+    font-weight: 600;
   }
 }
 
 /* custom weight and style */
 
-.unbold {
-  font-family: "Gotham";
-}
-
 .bold {
-  font-family: "Gotham-Bold";
+  font-family: Montserrat;
+  font-weight: 900;
 }
 
 .italic {
-  font-family: "Gotham-Italic";
+  font-family: Montserrat;
+  font-style: italic;
 }
 
 /* links */
@@ -88,10 +94,10 @@ a {
 
 .paragraph {
   p {
-    font-family: "Gotham-Light";
+    font-family: Montserrat;
     a {
-      font-family: "Gotham";
-      font-weight: normal;
+      font-family: Montserrat;
+      font-weight: 400;
     }
   }
 }

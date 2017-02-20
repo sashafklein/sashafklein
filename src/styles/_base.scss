@@ -67,7 +67,7 @@ body {
   transition: all 1s ease;
   p {
     color: white;
-    font-family: Gotham-Bold;
+    font-family: Montserrat;
     padding: 1.5em 0;
     margin: 0;
     text-align: center;
@@ -291,7 +291,17 @@ ul.link-list {
   list-style: none;
 }
 
-.posts-show, .portfolio-item {
+.portfolio {
+  .sidebar {
+    @media only screen and (max-device-width: 500px) {
+      display: none;
+    }
+    @media only screen and (min-device-width: 300px) {
+      width: 30%;
+    }
+  }
+}
+.posts-show {
   display: flex;
   flex-direction: row;
   .sidebar {
@@ -309,21 +319,6 @@ ul.link-list {
       width: 30%;
     }
   }
-  // .content-section {
-  //   display: inline-block;
-  //   @media only screen and (min-device-width: 300px) {
-  //     padding-left: 0;
-  //     margin-top: 20px;
-  //     width: 100%;
-  //     max-width: 100%;
-  //   }
-  //   @media only screen and (min-device-width: 800px) {
-  //     padding-left: 3%;
-  //     margin-top: 0;
-  //     width: 65%;
-  //     max-width: 65%;
-  //   }
-  // }
   @media only screen and (max-width: $large) and (min-device-width: 300px) {
     flex-direction: column;
   }

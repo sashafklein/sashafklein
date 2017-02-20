@@ -32,7 +32,7 @@ export class BlogMenu extends React.Component {
                 {
                   posts.filter(p => (p.name + p.text).toLowerCase().includes(this.state.query.toLowerCase()))
                        .reverse().map((post, postIndex) => (
-                    <h1>
+                    <h1 key={ postIndex }>
                       {
                         location.pathname.includes(post.slug) ?
                           <a

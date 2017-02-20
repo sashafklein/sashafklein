@@ -12,10 +12,8 @@ After installing the gem, you have to <a href="https://dev.twitter.com/apps/new"
 
 Then, create a config file to house this information:
 
-**config/initializers/twitter.rb**
-
 ```ruby
-
+# config/initializers/twitter.rb
 Twitter.configure do |config|
   config.consumer_key = ENV["TWITTER_CONSUMER_KEY"]
   config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
@@ -41,24 +39,21 @@ Twitter.update("My first tweet from my app!")
 
 If that's working (mine wasn't, cause I mistyped a variable name), you're close to having this up, and the only remaining step is to integrate the call into your program. In my posts controller:
 
-**posts_controller.rb**
-
 ```ruby
-
-  def create
-    @post = Post.new(params[:post])
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { redirect_to @post }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+# posts_controller.rb
+def create
+  @post = Post.new(params[:post])
+  respond_to do |format|
+    if @post.save
+      format.html { redirect_to @post, notice: 'Post was successfully created.' }
+      format.json { redirect_to @post }
+    else
+      format.html { render action: "new" }
+      format.json { render json: @post.errors, status: :unprocessable_entity }
     end
-    Twitter.update("New post on '#{@post.name}' -- #{@post.tinyfy}") if Rails.env.production?
   end
-
+  Twitter.update("New post on '#{@post.name}' -- #{@post.tinyfy}") if Rails.env.production?
+end
 ```
 
 
@@ -66,10 +61,8 @@ If that's working (mine wasn't, cause I mistyped a variable name), you're close 
 
 Note, in the above, the test for production environment (so that the gem doesn't try to tweet whenever I test out posts in development/test). Also note the tinyfy method, which creates a tinyurl address for the post, to make the Twitter presentation clean and short. The code (which piggybacks on my slugged-url methods, and uses Ruby's <a href="http://ruby-doc.org/stdlib-2.0/libdoc/net/http/rdoc/Net/HTTP.html">Net::HTTP</a> client) is below and is closely adapted from <a href="http://www.mikeheijmans.com/2008/09/getting-tinyurls-in-rails/">this post</a>:
 
-**post.rb**
-
 ```ruby
-
+# post.rb
 def tinyfy
    url = URI.parse('http://tinyurl.com/')
    # Collecting in the "res" variable the result of
@@ -84,5 +77,4 @@ def tinyfy
       return res.body
    end
 end
-
 ```

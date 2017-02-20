@@ -6,9 +6,8 @@ Then there's the simple inversion of thought process, when coming from a straigh
 
 And here's where `Angular` first begins to show its tremendous expressive and functional power.
 
-**fancy-page.html.haml**
-
 ```haml
+# fancy-page.html.haml
 %a#name-show-button{ href: '#' }
 %input#name-box.hidden{ type: 'text' }
 %p#thanks.hidden "Thanks for submitting your name!"
@@ -18,9 +17,8 @@ It's an excessive example, but it should be clear that the above `JQuery`-depend
 
 Here might be an example of backend `JQuery` behavior (written in `Coffeescript`). Did you correctly guess what was going on?
 
-**some-random-cs-file.coffee**
-
 ```coffeescript
+# some-random-cs-file.coffee
 $ ->
   $('#name-show-button').on 'click' ->
     $('name-box').removeClass('hidden')
@@ -32,9 +30,8 @@ $ ->
 
 In `Angular`, everything looks a good deal more messy at first:
 
-**fancy-page.html.haml**
-
 ```haml
+# fancy-page.html.haml
 %a{ href: '#', ng_click: 'showNameBox()' }
 %input{ type: 'text', ng_model: 'name', ng_enter: 'submitName()', ng_show: 'showName' }
 %p{ ng_show: 'nameSubmitted' } "Thanks for submitting your name!"

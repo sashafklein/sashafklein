@@ -8,9 +8,8 @@ Since every package was associated with a given user and had an expected and act
 
 To simplify the process both visually and practically, I looked into a simple Javascript expand/collapse function, and ended up homebrewing a neater, more adaptable version from something I found in a blog.
 
-**expand.js.coffee**
-
 ```coffeescript
+# expand.js.coffee
 jQuery ->
     $('.cl .bundle').on "click", (e) ->
         e.preventDefault()
@@ -20,9 +19,8 @@ jQuery ->
 
 The idea is to use JQuery to define links as collapse triggers (identified through the "cl" and "bundle" classes), then use Bootstrap's smoothly animated collapse function to toggle hidden material in a "collapse group" back and forth when the link is clicked. For example:
 
-**view.html.erb**
-
 ```html
+# view.html.erb
 <div class="cl" style="text-align:center">
     <div class="collapse-group">
             <h2>The "Title" of What I'm hiding<small>(the optional subtitle)<small>
@@ -41,9 +39,8 @@ The code works like a charm on the browser. The problem, though, is lack of code
 
 So, for [my home page](/resume), I turned the function into a rails partial with variables for altering display specifics relegated to locals.
 
-**_collapse_start.html.erb**
-
 ```erb
+# _collapse_start.html.erb
 <% sub ||= "" %>
 <% term ||= "(expand)" %>
 <% style ||= "" %>
@@ -62,9 +59,8 @@ So, for [my home page](/resume), I turned the function into a rails partial with
 
 It may look ugly, but the above code lets me turn any element into a neat, subtitled expand/collapse group of any tag type, with any term as the expand link. Calling the partial is as easy as the below, which produces the expand/collapse group right under it:
 
-**view.html.erb**
-
 ```erb
+# view.html.erb
 <%= render partial: "collapse_start", locals: {
                                         title: "Title",
                                         tag: "h2",

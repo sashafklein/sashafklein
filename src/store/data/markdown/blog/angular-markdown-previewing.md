@@ -5,9 +5,8 @@ I recently tackled this issue of markdown previewing, which used to be a pretty 
 
 First, we created a markdown directive using `showdown.js` and `highlight.js` for markdown syntax highlighting:
 
-
-**markdown.coffee**
 ```coffeescript
+# markdown.coffee
 #= require angular
 #= require libraries/showdown
 #= require libraries/highlight
@@ -31,10 +30,9 @@ angular.module("markdown", []).directive "markdown", ->
 
 It's attached to the view like this:
 
-**markdown_content.html.haml**
-
 ```haml
-  .display-md{ markdown: @content }
+# markdown_content.html.haml
+.display-md{ markdown: @content }
 ```
 
 The above angular just watches the element and displays the value assigned to the markdown attribute within the div it's assigned to.
@@ -45,9 +43,8 @@ The above angular just watches the element and displays the value assigned to th
 
 Using this markdown directive, one easy way to tackle the problem of markdown previewing would look like this:
 
-**hombrewed_preview.html.haml**
-
 ```haml
+# hombrewed_preview.html.haml
 %form
   %textarea{ ng_model: 'input', placeholder: 'Markdown input goes here...' , ng_show: 'writeMode' }
   %div.output{ ng_show: '!writeMode', markdown: 'input' }
@@ -61,9 +58,8 @@ Then there are issues of input sanitization (Angular must explicitly be told to 
 
 To solve this series of issues, I created a Preview directive that creates some defaults to simplify the previewing process:
 
-**preview.coffee**
-
 ```coffeescript
+# preview.coffee
 preview = angular.module("Preview")
 
 preview.factory 'Preview', ($sce) ->
@@ -96,10 +92,8 @@ preview.factory 'Preview', ($sce) ->
 
 The directive can be used as such:
 
-**multi_preview.coffee**
-
 ```coffeescript
-
+# multi_preview.coffee
 angular.module("MainApp").controller 'PreviewExampleController', ($scope, gon, Preview) ->
   $s = $scope
 
@@ -113,9 +107,8 @@ angular.module("MainApp").controller 'PreviewExampleController', ($scope, gon, P
 
 I pass the preview content in from a ruby controller:
 
-**previews_controller.rb**
-
 ```ruby
+# previews_controller.rb
 def show
   gon.first = %Q(
     # Here's a header
@@ -129,9 +122,8 @@ end
 
 Then I use the directive in the view like so:
 
-**multi_preview.html.haml**
-
 ```haml
+# multi_preview.html.haml
 %div{ ng_controller: 'previewExampleController', ng_init: 'init()' }
   %form.first
     %textarea.{ ng_model: "firstPreview.source", ng_show: '!firstPreview.showing' }
@@ -146,13 +138,12 @@ Then I use the directive in the view like so:
 
 There are future steps that would make this directive considerably neater to use -- basically, nesting other directives inside of it through `transclusion`, so that I could do something like this:
 
-**ideal.html.haml**
-
 ```haml
-  %previewForm{ content: @content, writeText: 'Edit', showText: 'Show', submitFunction: 'functionOnController()' }
-    %inputArea
-    %outputArea
-    %switchModeButton
+# ideal.html.haml
+%previewForm{ content: @content, writeText: 'Edit', showText: 'Show', submitFunction: 'functionOnController()' }
+  %inputArea
+  %outputArea
+  %switchModeButton
 ```
 
 Although the above allows for a reasonable amount of alteration (where to put various pieces, etc), you could even create a default version that is just a simple `%completePreviewForm` which takes the above arguments and produces the rest.

@@ -6,9 +6,8 @@ Assuming that at some point the number of posts I'd written would outgrow the li
 
 The first step was the Archive page. To remain restful, I wanted it associated with the Index action in my posts controller, but I also wanted it at sashafklein.com/archive, rather than sashafklein.com/posts. This required renaming the "index" action in my controller to be "archive" and putting the following in my routes file.
 
-**routes.rb**
-
 ```ruby
+# routes.rb
   resources :posts
   match '/archive', to: 'posts#archive'
 ```
@@ -19,9 +18,8 @@ The cast was almost 100% what I wanted, but it both contained a bug that took qu
 
 First, you create a search form in your view, like so:
 
-**index.html.erb**
-
 ```erb
+# index.html.erb
 <%= form_tag '/archive', method: 'get', id: "posts_search", class: "search_form squeeze form-inline" do %>
       <p style="text-align: center">
         Search:
@@ -34,9 +32,8 @@ There are a couple things to note about this form. Per [Rails Guides' suggestion
 
 This, of course, would do nothing, because my app has no idea what to do with the search. So the second step is to create a search method, like the below (taken from the Railscast):
 
-**post.rb**
-
 ```ruby
+# post.rb
 def self.search(search)
   if search
     where('name LIKE ?', "%#{search}%")
@@ -52,9 +49,8 @@ Now that I had a search method, however, I still had neither a place to post the
 
 The first step is to read and respond to user action. So I threw the following into my Posts coffeescript file, which called the search function (top) to respond to user action (keypress or submission, below) by returning a stripped form of the searched list:
 
-**posts.js.coffee**
-
 ```coffeescript
+# posts.js.coffee
 @search = ->
   $.get $('#posts_search').attr("action"), $('#posts_search').serialize(), null, "script"
 
@@ -68,9 +64,8 @@ $ ->
 
 This information would be run through the search method and stored in variables in my Posts Controller:
 
-**posts_controller.rb**
-
 ```ruby
+# posts_controller.rb
 def index
     @posts = Post.search(params[:search]).reverse
 
@@ -83,18 +78,16 @@ def index
 
 Only two things remained, and the first, creating a space in the view for search display, was easy. I just shuffled my posts list into a partial,
 
-**index.html.erb**
-
 ```erb
+# index.html.erb
 <div id="list"><%= render "search" %></div>
 ```
 
 and had that rendered directly under the search form:
 
 
-**_search.html.erb**
-
 ```erb
+# _search.html.erb
 <ul class="blog_links">
     <% @posts.each do |post| %>
       <h2>
@@ -107,21 +100,18 @@ and had that rendered directly under the search form:
 
 Finally, to tie this all together, I just created a Javascript template, with the same name as the page in which it was called (index), to render in the above div with the "list" id, the search partial with the Javascripted results:
 
-
-**index.js.erb**
-
 ```javascript
+# index.js.erb
 $('#list').html('<%= escape_javascript(render("search")) %>');
 ```
 
 Done -- almost. The one thing that left me confused for hours was that the Javascript was reading user input, as was clear from the server logs, but seemingly not acting upon it, a problem that resolved itself with a single short line of code added to the "respond to" block of the index action in my Posts Controller:
 
-**posts_controller.rb**
-
 ```ruby
+# posts_controller.rb
 format.js
 ```
 
 With that line, the Rails search method I wrote was made available to the JavaScript, to be called upon with the search criteria so that the Javascript could return the search list and render the search partial into my Archive page.
 
-Ta da. [Instant search](http://sashafklein.com/archive)).
+Ta da. [Instant search](http://sashafklein.com/archive).
