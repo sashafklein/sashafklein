@@ -7,6 +7,7 @@ import Headshot from './headshot.png';
 import CoreLayout from 'containers/CoreLayout';
 import SkillsOverlay from './SkillsOverlay';
 import EducationAndWork from './EducationAndWork';
+import Image from 'components/Image';
 
 import 'styles/core.scss';
 
@@ -16,7 +17,7 @@ export const Resume = ({ skills }) => (
       <div className="header-area">
         <div className="container med-and-up header-container">
           <div className="headshot-box">
-            <img src={ Headshot } className="headshot" />
+            <Image src={ Headshot } className="headshot" />
           </div>
           <div className="header-text-section">
             <div className="name-and-icons">

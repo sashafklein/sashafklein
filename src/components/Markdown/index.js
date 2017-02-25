@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Highlight from 'react-highlight';
 import { Link } from 'react-router';
-
 import ReactMarkdown from 'react-markdown';
+
+import Image from 'components/Image';
 import { toggleSetting } from 'store/actions';
 
 import './atom-dark.scss';
@@ -77,7 +78,8 @@ class Markdown extends React.Component {
         escapeHTML={ true }
         renderers={{
           CodeBlock: Code,
-          Link: LinkNode
+          Link: LinkNode,
+          // Image: Image
         }}
       />
     );

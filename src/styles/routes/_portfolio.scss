@@ -1,5 +1,8 @@
 .portfolio {
   margin-top: 50px;
+  .portfolio-item {
+    padding-top: 40px;
+  }
   .port-header {
     h1 {
       margin-top: 0;
@@ -37,7 +40,6 @@
   .black-links {
     .port-photo {
       border: 5px solid black;
-      width: 100%;
       min-height: 150px;
       margin-bottom: 10px;
       &:hover {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Markdown from 'components/Markdown';
+import Image from 'components/Image';
 
 const slug = title => title.toLowerCase().split(' ').join('-');
 
@@ -25,12 +26,12 @@ export class PortfolioItem extends React.Component {
     const { item } = this.props;
     return (
       <div
-        className="portfolio-item container"
+        className="portfolio-item container content-section"
         ref={ el => this.comp = el }
       >
         <div className="sidebar black-links">
           <a href={ item.link }>
-            <img src={ item.image } className="port-photo" alt={ item.title } />
+            <Image src={ item.image } className="port-photo content-section" alt={ item.title } />
           </a>
           <div className="show-medium">
             { item.bullets &&
@@ -44,7 +45,7 @@ export class PortfolioItem extends React.Component {
             }
           </div>
         </div>
-        <div className="content-section">
+        <div >
           <div className="port-header">
             <h1>{ item.title }</h1>
             <h2>{ item.subtitle }</h2>

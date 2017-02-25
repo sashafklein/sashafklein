@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router'
 
+import Image from 'components/Image';
 import Pig from './pig.png'
 
 import { toggleSetting } from 'store/actions';
@@ -14,7 +15,7 @@ export const Header = ({ flash, navOpen, dispatch }) => (
           <div className="left-section">
             <div className="flex-link">
               <Link to="/resume" className="pig-link">
-                <img src={ Pig } />
+                <Image src={ Pig } />
                 SASHA KLEIN
               </Link>
             </div>
