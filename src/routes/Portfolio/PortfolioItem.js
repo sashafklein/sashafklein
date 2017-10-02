@@ -33,9 +33,6 @@ export class PortfolioItem extends React.Component {
            ref={ el => this.comp = el }
         >
           <div className="sidebar black-links">
-            <a href={ item.link }>
-              <Image src={ item.image } className="port-photo content-section" alt={ item.title } />
-            </a>
             <div className="show-medium">
               { item.bullets &&
                   <ul className="port-list hide-medium">
@@ -48,7 +45,12 @@ export class PortfolioItem extends React.Component {
               }
             </div>
           </div>
-          <div >
+          <div className="black-links" style={ { width: '100%' } }>
+            <a href={ item.link } style={ { width: '100%' } }>
+              <Image src={ item.image } className="port-photo content-section" alt={ item.title } style={ { width: '100%' } } />
+            </a>
+          </div>
+          <div>
             <div className="port-header">
               <h1>{ item.title }</h1>
               <h2>{ item.subtitle }</h2>
