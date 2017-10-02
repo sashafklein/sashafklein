@@ -53,7 +53,7 @@ export default [
       'Downloaded over 2000 times',
       'Used in live production code'
     ],
-    image: 'https://dl.dropboxusercontent.com/s/t4smstgq66jnxpw/Screenshot%202017-01-08%2014.19.57.png?dl=0',
+    image: 'https://dl.dropboxusercontent.com/s/w4m3f7ryquzz768/Screenshot%202017-09-30%2009.50.11.png?dl=0',
     link: 'https://github.com/sashafklein/shape',
     subtitle: 'AVA Describe and Shape',
     text: require('raw-loader!./markdown/portfolio/npm.md'),

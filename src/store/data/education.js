@@ -6,7 +6,7 @@ export default [
     link: null,
     roles: [
       {
-        description: '[Bloc](https://www.bloc.io/users/sasha-klein) is an online web-development apprenticeship that turns students into well-versed developers over the course of 2-3 intensive months. I learned **Ruby**, **Rails**, **HTML**, **CSS**, **Git**, **RSpec**, **Javascript/JQuery**, and more. The mentor-guided learning is focused through, and culminates in, a final project of our own design; mine morphed into [MeatUp](/portfolio#meatup). Bloc got my developing feet wet and helped teach me how to teach myself to tackle any coding obstacle thrown my way.',
+        description: '[Bloc](https://www.bloc.io/users/sasha-klein) is an online web-development apprenticeship that turns students into well-versed developers over the course of 2-3 intensive months. I learned **Ruby**, **Rails**, **HTML**, **CSS**, **Git**, **RSpec**, **Javascript/JQuery**, and more. The mentor-guided learning is focused through, and culminates in, a final project of our own design; mine morphed into [MeatUp](/projects#meatup). Bloc got my developing feet wet and helped teach me how to teach myself to tackle any coding obstacle thrown my way.',
         ended: null,
         location: 'San Francisco',
         name: 'Web Development Student',

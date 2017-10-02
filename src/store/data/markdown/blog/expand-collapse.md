@@ -1,4 +1,4 @@
-[Meatup](/portfolio#meatup) involved lots of data. Certain pages, like the "log" page where butchers were to keep track of individual cuts, were completely oversaturated with information, and would take amounts of time to sort through that were simply prohibitive, given most butchers' lack of interest in computerizing their work flow.
+[Meatup](/projects#meatup) involved lots of data. Certain pages, like the "log" page where butchers were to keep track of individual cuts, were completely oversaturated with information, and would take amounts of time to sort through that were simply prohibitive, given most butchers' lack of interest in computerizing their work flow.
 
 Take a look at the below strangely named cow, and imagine sorting through all 93 packages of ground meat.
 

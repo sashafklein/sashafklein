@@ -8,15 +8,15 @@ export default [
         description: 'At [Redshift](redshiftdigital.com), an award-winning digital design agency, I work with a small team of designers and developers to build out interactive design prototypes and full-fledged applications for a variety of clients. Over nearly a year, I\'ve worked on a number of projects in multiple languages and frameworks and for a wide range of clients, including a building an energy management dashboard for [Advanced Microgrid Systems](advmicrogrid.com), a complete mock-up of [Kaiser Permanente](kp.org)\'s future website and mobile app, and the API for the agency\'s own social web app [Five](fiveapp.io).',
         ended: 'Present',
         location: 'San Francisco',
-        name: 'Senior Software Engineer',
-        started: '2016',
+        name: 'Senior Software Engineer / Project Lead',
+        started: 'Dec 2015',
       }
     ],
     title: 'Redshift'
   },
   {
     id: 'planit',
-    link: '/portfolio#planit',
+    link: '/projects#planit',
     roles: [
       {
         ended: 'Aug 2015',
@@ -30,7 +30,7 @@ export default [
     id: 'bloc-job',
     roles: [
       {
-        description: 'As one of Bloc\'s 3 main developers, working primarily in Rails and AngularJS, I was generally responsible for a huge number of major codebase changes. I built Bloc\'s **authentication framework**, overhauled its **curriculum tools**, including the **roadmap interface** and complete **Github and PR integration**, jointly constructed its cross-timezone, recurrent **mentor-appointment scheduler**, co-built our [integrated Meteor office-hours chat application](/portfolio#tweed), and orchestrated our backend switch from **group classes** to **one-on-one mentorship**, as well as our switches from one total course offering to 5 courses (and counting) and from one to multiple "track lengths".',
+        description: 'As one of Bloc\'s 3 main developers, working primarily in Rails and AngularJS, I was generally responsible for a huge number of major codebase changes. I built Bloc\'s **authentication framework**, overhauled its **curriculum tools**, including the **roadmap interface** and complete **Github and PR integration**, jointly constructed its cross-timezone, recurrent **mentor-appointment scheduler**, co-built our [integrated Meteor office-hours chat application](/projects#tweed), and orchestrated our backend switch from **group classes** to **one-on-one mentorship**, as well as our switches from one total course offering to 5 courses (and counting) and from one to multiple "track lengths".',
         ended: 'May 2014',
         location: 'San Francisco',
         name: 'Web Developer',
@@ -48,7 +48,7 @@ export default [
   },
   {
     id: 'meatup',
-    link: '/portfolio#meatup',
+    link: '/projects#meatup',
     roles: [
       {
         location: 'San Francisco',

@@ -107,6 +107,7 @@
     font-weight: 900;
     @include responsiveFont($h1 * 1.2);
     margin-bottom: 10px;
+    text-transform: uppercase;
   }
   .collapse-title {
     margin-bottom: 0;
@@ -166,23 +167,24 @@
     }
   }
   .skills-overlay {
+    background: linear-gradient(45deg, $lightPink, $darkPink);
     position: fixed;
     bottom: -100%;
     left: 0;
-    background-color: white;
     z-index: $skillsZ;
     width: 100%;
     transition: all 0.3s ease;
     height: 100%;
-    overflow: hidden;
+    overflow-y: scroll;
+
     .section-header {
       text-align: center;
+      color: white;
     }
+
     .skills {
-      margin: 0px 50px 50px 50px;
-    }
-    .skills.show-medium {
-     margin: 0px 10px 50px 10px;
+      max-width: 60rem;
+      margin: 20px auto 60px auto;
     }
     &.open {
       transform: translateY(-100%);
@@ -195,33 +197,25 @@
   .skill {
     font-family: Montserrat;
     font-weight: 900;
-    color: $lightPink;
+    color: white;
     line-height: 65px;
   }
+
   .skills-tab {
+    color: $lightPink;
+
     i:hover {
-      color: $lightPink;
+      color: $darkPink;
     }
     i {
       transition: color 0.3s ease;
     }
+    &.up {
+      color: white;
+    }
   }
   .skills {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    overflow: hidden;
-    .skills-row {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      flex: 1;
-    }
     .skill {
-      flex: 1;
-      align-self: center;
       text-align: center;
       margin: 0 5px;
     }
@@ -231,7 +225,6 @@
     z-index: 100;
     left: 50%;
     margin-left: #{$h1 / 2}px;
-    color: $electricBlue;
     cursor: pointer;
     transition: all 0.7s ease;
     bottom: 2%;

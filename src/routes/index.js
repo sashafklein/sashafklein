@@ -14,7 +14,7 @@ export const createRoutes = (store) => ({
   indexRoute: { component: Resume },
   childRoutes: [
     { path: 'resume', component: Resume },
-    { path: 'portfolio', component: Portfolio },
+    { path: 'projects', component: Portfolio },
     {
       path: 'blog',
       onEnter: (params, replace) => {

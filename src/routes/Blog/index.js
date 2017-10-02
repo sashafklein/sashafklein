@@ -9,7 +9,7 @@ import BlogMenu from './BlogMenu';
 
 import { toggleSetting } from 'store/actions';
 
-export const Blog = ({ posts, dispatch, blogMenuOpen }) => {
+export const Blog = ({ posts, dispatch, tabOpen }) => {
   const post = posts.find(p => location.pathname
     ? location.pathname.split('blog/')[1].includes(p.slug)
     : null)
@@ -22,7 +22,7 @@ export const Blog = ({ posts, dispatch, blogMenuOpen }) => {
   const postIndex = posts.indexOf(post);
 
   return (
-    <CoreLayout className={ `blog ${blogMenuOpen ? 'menu-open' : ''}` }>
+    <CoreLayout className={ `blog` }>
       <div>
         <div className="container posts-show">
           <div className="content-section">
@@ -35,13 +35,7 @@ export const Blog = ({ posts, dispatch, blogMenuOpen }) => {
             <div className="example" />
           </div>
         </div>
-        <BlogMenu posts={ posts } index={ postIndex } open={ blogMenuOpen }/>
-        <div
-          className={ `menu-tab ${blogMenuOpen ? 'up' : 'down'}` }
-          onClick={ () => { dispatch(toggleSetting('blogMenuOpen', !blogMenuOpen)) } }
-        >
-          <i className="fa fa-chevron-up" />
-        </div>
+        <BlogMenu posts={ posts } index={ postIndex } open={ tabOpen }/>
       </div>
     </CoreLayout>
   );
@@ -49,7 +43,7 @@ export const Blog = ({ posts, dispatch, blogMenuOpen }) => {
 
 const mapStateToProps = state => ({
   posts: state.data.posts,
-  blogMenuOpen: state.settings.blogMenuOpen
+  tabOpen: state.settings.tabOpen
 });
 
 export default connect(mapStateToProps)(Blog);

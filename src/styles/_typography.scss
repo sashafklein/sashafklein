@@ -12,10 +12,10 @@ body, div, img, p, ol, em, input, small, br, strong, code, span, a, ul, li, td, 
 
 p, a, label, input, li, i {
   @include responsiveFont($p);
-  line-height: #{$p * 1.7};
+  line-height: #{$p * 1.9};
 }
 
-small {
+small, .small {
   @include responsiveFont($smallFont);
 }
 
@@ -40,7 +40,7 @@ h1 {
 
 p {
   font-family: Montserrat;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 em {
@@ -58,7 +58,7 @@ h1, h2 {
 
 strong {
   font-family: Montserrat;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 li {
@@ -93,8 +93,11 @@ a {
 }
 
 .paragraph {
+  max-width: 50rem;
+
   p {
     font-family: Montserrat;
+
     a {
       font-family: Montserrat;
       font-weight: 400;

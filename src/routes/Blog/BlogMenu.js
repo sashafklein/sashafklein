@@ -14,48 +14,45 @@ export class BlogMenu extends React.Component {
   render() {
     const { posts, open, dispatch } = this.props;
     return(
-      <CoreLayout>
-        <div className={ `blog-menu ${open ? 'open' : ''}` }>
-          <div className="centerify archive">
-            <div className="header-spacer" />
-            <ul className="blog-links">
-              <input
-                type="text"
-                placeholder="Search archives"
-                style={ { textAlign: 'left', margin: 'auto', fontSize: '30px', border: '1px solid #ccc', padding: '4px'  } }
-                onChange={ event => {
-                  this.setState({ query: event.target.value })
-                }}
-              />
+      <div className={ `blog-menu ${open ? 'open' : ''}` }>
+        <div className="centerify archive">
+          <div className="header-spacer" />
+          <ul className="blog-links">
+            <input
+              type="text"
+              placeholder="Search archives"
+              style={ { textAlign: 'left', margin: 'auto', fontSize: '30px', border: '1px solid #ccc', padding: '4px'  } }
+              onChange={ event => {
+                this.setState({ query: event.target.value })
+              }}
+            />
 
-              <div className="centerify archive" id="list">
-                {
-                  posts.filter(p => (p.name + p.text).toLowerCase().includes(this.state.query.toLowerCase()))
-                       .reverse().map((post, postIndex) => (
-                    <h1 key={ postIndex }>
-                      {
-                        location.pathname.includes(post.slug) ?
-                          <a
-                            className="post-link"
-                            onClick={ () => { dispatch(toggleSetting('blogMenuOpen', false)) } }
-                            style={{ textDecoration: 'underline' }}
-                          >
-                            { post.name }
-                            <small> ({ post.createdAt })</small>
-                          </a> :
-                          <Link className="post-link" to={ `/blog/${post.slug}` }>
-                            { post.name }
-                            <small> ({ post.createdAt })</small>
-                          </Link>
-                      }
-                    </h1>
-                  ))
-                }
-              </div>
-            </ul>
-          </div>
+            <div className="centerify archive" id="list">
+              {
+                posts.filter(p => (p.name + p.text).toLowerCase().includes(this.state.query.toLowerCase()))
+                     .reverse().map((post, postIndex) => (
+                  <h1 key={ postIndex }>
+                    {
+                      location.pathname.includes(post.slug) ?
+                        <a
+                          className="post-link"
+                          style={{ textDecoration: 'underline' }}
+                        >
+                          { post.name }
+                          <small> ({ post.createdAt })</small>
+                        </a> :
+                        <Link className="post-link" to={ `/blog/${post.slug}` }>
+                          { post.name }
+                          <small> ({ post.createdAt })</small>
+                        </Link>
+                    }
+                  </h1>
+                ))
+              }
+            </div>
+          </ul>
         </div>
-      </CoreLayout>
+      </div>
     )
   };
 }

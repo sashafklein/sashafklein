@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Markdown from 'components/Markdown';
 
-import { toggleSetting } from 'store/actions';
+import { toggleOpenItem } from 'store/actions';
 
 import ItemSubtitle from './ItemSubtitle';
 import RoleSubtitle from './RoleSubtitle';
 
-const ItemWithoutLink = ({ item, dispatch, openItemID }) => {
+const ItemWithoutLink = ({ item, dispatch, openItems }) => {
   const manyRoles = item.roles.length > 1;
-  const open = openItemID === item.id;
+  const open = openItems.includes(item.id);
 
   return (
     <div
@@ -18,7 +18,7 @@ const ItemWithoutLink = ({ item, dispatch, openItemID }) => {
     >
       <p
         className="collapse-title expandable-panel-title"
-        onClick={ () => { dispatch(toggleSetting('openItemID', open ? null : item.id)) } }
+        onClick={ () => { dispatch(toggleOpenItem(item.id)) } }
       >
         <span className="icon">
           <i className="fa fa-plus-circle" />
@@ -44,15 +44,15 @@ const ItemWithoutLink = ({ item, dispatch, openItemID }) => {
   );
 };
 
-const { func, object, string } = React.PropTypes;
+const { func, object, array } = React.PropTypes;
 ItemWithoutLink.propTypes = {
   item: object,
   dispatch: func,
-  openItemID: string
+  openItems: array
 }
 
 const mapStateToProps = state => ({
-  openItemID: state.settings.openItemID
+  openItems: state.openItems
 });
 
 export default connect(mapStateToProps)(ItemWithoutLink);

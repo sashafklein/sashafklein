@@ -1,0 +1,40 @@
+.menu-tab {
+  transform: translateX(-50%);
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  bottom: 2%;
+
+  i {
+    @include responsiveFont($h1);
+  }
+
+  &.up {
+    color: white !important;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $lightGray !important;
+    }
+
+    i {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.blog {
+    color: $electricBlue;
+    &:hover {
+      color: darken($electricBlue, 20);
+    }
+  }
+
+  &.resume {
+    color: $lightPink;
+    &:hover {
+      color: darken($lightPink, 20);
+    }
+  }
+}

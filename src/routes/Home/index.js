@@ -6,7 +6,7 @@ import { toggleSetting } from 'store/actions';
 
 import 'styles/core.scss';
 
-const paths = ['Resume', 'Portfolio', 'Blog'];
+const paths = ['Resume', 'Projects', 'Blog'];
 const component = (path, location, dispatch) => {
   const isActive = location.pathname.includes(path.toLowerCase());
 
@@ -36,7 +36,7 @@ export const Home = ({ open, dispatch }) => (
   <div className={ 'landing'.concat(open && !location.pathname.includes('notes') ? ' open' : '') }>
     <div className="landing-buttons">
       {
-        ['Resume', 'Portfolio', 'Blog'].map((path) => (
+        paths.map((path) => (
           component(path, location, dispatch)
         ))
       }

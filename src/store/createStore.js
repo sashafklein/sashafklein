@@ -38,7 +38,10 @@ export default (initialState = {}) => {
   store.asyncReducers = {}
 
   const updateLocation = ({ dispatch }) => {
-    return (nextLocation) => dispatch(locationChange(nextLocation))
+    return (nextLocation) => {
+      dispatch(locationChange(nextLocation))
+      window && window.scrollTo(0, 0);
+    }
   }
 
   // To unsubscribe, invoke `store.unsubscribeHistory()` anytime

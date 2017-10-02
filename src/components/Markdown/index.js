@@ -63,12 +63,6 @@ class Code extends React.Component {
 };
 
 class Markdown extends React.Component {
-  componentWillReceiveProps(newProps) {
-    if (newProps.source !== this.props.source) {
-      this.props.dispatch(toggleSetting('blogMenuOpen', false));
-    }
-  }
-
   render() {
     const { source, className } = this.props;
     return (

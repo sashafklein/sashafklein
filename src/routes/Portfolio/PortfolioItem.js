@@ -26,34 +26,38 @@ export class PortfolioItem extends React.Component {
     const { item } = this.props;
     return (
       <div
-        className="portfolio-item container content-section"
-        ref={ el => this.comp = el }
+        className="portfolio-item"
       >
-        <div className="sidebar black-links">
-          <a href={ item.link }>
-            <Image src={ item.image } className="port-photo content-section" alt={ item.title } />
-          </a>
-          <div className="show-medium">
-            { item.bullets &&
-                <ul className="port-list hide-medium">
-                  {
-                    item.bullets.map((bullet, bulletIndex) => (
-                      <li key={ bulletIndex }>{ bullet }</li>
-                    ))
-                  }
-                </ul>
-            }
+        <div
+           className="container content-section"
+           ref={ el => this.comp = el }
+        >
+          <div className="sidebar black-links">
+            <a href={ item.link }>
+              <Image src={ item.image } className="port-photo content-section" alt={ item.title } />
+            </a>
+            <div className="show-medium">
+              { item.bullets &&
+                  <ul className="port-list hide-medium">
+                    {
+                      item.bullets.map((bullet, bulletIndex) => (
+                        <li key={ bulletIndex }>{ bullet }</li>
+                      ))
+                    }
+                  </ul>
+              }
+            </div>
           </div>
-        </div>
-        <div >
-          <div className="port-header">
-            <h1>{ item.title }</h1>
-            <h2>{ item.subtitle }</h2>
-          </div>
-          <div className="markdown-container">
-            {
-              <Markdown source={ item.text } />
-            }
+          <div >
+            <div className="port-header">
+              <h1>{ item.title }</h1>
+              <h2>{ item.subtitle }</h2>
+            </div>
+            <div className="markdown-container">
+              {
+                <Markdown source={ item.text } />
+              }
+            </div>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { toggleSetting } from 'store/actions';
 
 const skillComponent = (skill) => {
-  const style = { margin: 0, lineHeight: `${skill.scale * 6.5 + 12}px` };
+  const style = { margin: 0, lineHeight: `${skill.scale * 6 + 14}px` };
   const props = {
     className: 'skill',
     key: skill.name,
@@ -11,7 +11,7 @@ const skillComponent = (skill) => {
   };
 
   return {
-    2: <small { ...props }>{ skill.name }</small>,
+    2: <p className="small" { ...props }>{ skill.name }</p>,
     3: <p { ...props }>{ skill.name }</p>,
     4: <h5 { ...props }>{ skill.name }</h5>,
     5: <h4 { ...props }>{ skill.name }</h4>,
@@ -21,31 +21,12 @@ const skillComponent = (skill) => {
   }[skill.scale.toString()];
 }
 
-export const SkillOverlay = ({ skills, skillsTabOpen, dispatch }) => (
+export const SkillOverlay = ({ skills, tabOpen, dispatch }) => (
   <div>
-    <div
-      className={ `skills-tab ${skillsTabOpen ? 'up' : 'down'}` }
-      onClick={ () => {
-        dispatch(toggleSetting('skillsTabOpen', !skillsTabOpen))
-      } }
-    >
-      <i className="fa fa-chevron-up" />
-    </div>
-
-    <div className={ `skills-overlay ${skillsTabOpen ? 'open' : ''}` }>
-      <div className="container">
+    <div className={ `skills-overlay ${tabOpen ? 'open' : ''}` }>
+      <div>
         <h1 className="section-header">Skills</h1>
-        <div className="skills hide-medium">
-          {
-            _.chunk(skills, 2).map((skillGroup, groupIndex) => (
-              <div className="skills-row" key={ groupIndex }>
-                { skillGroup.map(skill => skillComponent(skill)) }
-                { skillGroup[1] ? null : <div className="skill" key="extra" /> }
-              </div>
-            ))
-          }
-        </div>
-        <div className="skills show-medium">
+        <div className="skills">
           {
             skills.map((skill, skillIndex) => (
               <div className="skills-row" key={ skillIndex }>
@@ -62,13 +43,13 @@ export const SkillOverlay = ({ skills, skillsTabOpen, dispatch }) => (
 const { array, bool, func } = React.PropTypes;
 SkillOverlay.propTypes = {
   skills: array,
-  skillsTabOpen: bool,
+  tabOpen: bool,
   dispatch: func
 };
 
 const mapStateToProps = state => ({
   skills: state.data.skills,
-  skillsTabOpen: state.settings.skillsTabOpen
+  tabOpen: state.settings.tabOpen
 });
 
 export default connect(mapStateToProps)(SkillOverlay);

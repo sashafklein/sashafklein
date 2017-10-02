@@ -12,7 +12,7 @@ export default [
     scale: 7
   },
   {
-    name: 'Testing (TDD/BDD)',
+    name: 'Testing (TDD / BDD)',
     scale: 6
   },
   {

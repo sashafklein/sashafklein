@@ -6,31 +6,10 @@
 .blog, .blog-menu {
   margin-top: 2rem;
 
-  .menu-tab {
-    position: fixed;
-    z-index: 100;
-    left: 50%;
-    margin-left: #{$h1 / 2}px;
-    color: $electricBlue;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    bottom: 2%;
-    @media only screen and (max-width: $medium) {
-      left: 45%;
-    }
-    i {
-      @include responsiveFont($h1);
-    }
-    &.up {
-      transform: rotate(180deg);
-    }
-    i:hover {
-      color: $lightPink;
-    }
-    i {
-      transition: color 0.3s ease;
-    }
+  &.open {
+    transform: translateY(-100%);
   }
+
   .o {
     margin-left: 7px;
   }
@@ -103,6 +82,10 @@
     margin-right: 10px;
   }
   .archive {
+    input {
+      padding: 10px;
+      font-size: 18px !important;
+    }
     ul {
       list-style: none;
       margin-top: 30px;
@@ -116,6 +99,7 @@
       }
     }
   }
+
   .blog-links {
     margin-left: 10px;
     list-style-type: disc;
@@ -125,14 +109,12 @@
     }
     a {
       cursor: pointer;
-      small {
-        color: $maroon;
-        &:hover {
-          color: $lightPink;
-        }
-      }
       &:hover {
         color: $lightPink;
+
+        small {
+          color: $lightPink;
+        }
       }
     }
     input {
@@ -153,6 +135,7 @@
     }
   }
 }
+
 .blog-menu {
   position: fixed;
   bottom: -100%;
@@ -162,7 +145,19 @@
   transition: all 0.3s ease;
   background-color: white;
   overflow-y: scroll;
+  background: linear-gradient(45deg, $electricBlue, lighten($electricBlue, 30));
+
   &.open {
     transform: translateY(-100%);
+  }
+}
+
+.blog-links {
+  .post-link, a.post-link {
+    color: white;
+
+    small {
+      color: darken($lightGray, 10);
+    }
   }
 }
