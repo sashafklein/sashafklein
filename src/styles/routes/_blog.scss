@@ -144,8 +144,9 @@
   height: 100%;
   transition: all 0.3s ease;
   background-color: white;
+  z-index: 99;
   overflow-y: scroll;
-  background: linear-gradient(45deg, $electricBlue, lighten($electricBlue, 30));
+  background: linear-gradient(145deg, lighten($electricBlue, 20), $electricBlue 40%, darken($electricBlue, 15));
 
   &.open {
     transform: translateY(-100%);

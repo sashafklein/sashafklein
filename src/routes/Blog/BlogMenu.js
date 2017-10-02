@@ -16,7 +16,6 @@ export class BlogMenu extends React.Component {
     return(
       <div className={ `blog-menu ${open ? 'open' : ''}` }>
         <div className="centerify archive">
-          <div className="header-spacer" />
           <ul className="blog-links">
             <input
               type="text"
