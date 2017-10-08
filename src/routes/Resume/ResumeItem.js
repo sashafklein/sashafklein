@@ -3,13 +3,13 @@ import ItemWithoutLink from './ItemWithoutLink';
 import ItemWithLink from './ItemWithLink';
 
 export const ResumeItem = ({ item }) => (
-  <div>
+  <ul>
     {
       item.link
         ? <ItemWithLink item={ item } />
         : <ItemWithoutLink item={ item } />
     }
-  </div>
+  </ul>
 );
 
 const { object } = React.PropTypes;

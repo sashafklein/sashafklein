@@ -12,17 +12,14 @@ const ItemWithoutLink = ({ item, dispatch, openItems }) => {
   const open = openItems.includes(item.id);
 
   return (
-    <div
+    <li
       key={ item.id }
       className={ `panel ${ open ? '' : 'closed' }` }
+      onClick={ () => { dispatch(toggleOpenItem(item.id)) } }
     >
       <p
         className="collapse-title expandable-panel-title"
-        onClick={ () => { dispatch(toggleOpenItem(item.id)) } }
       >
-        <span className="icon">
-          <i className="fa fa-plus-circle" />
-        </span>
         <span className="item-title">{ item.title }</span>
         <small>
           <ItemSubtitle item={ item } />
@@ -40,7 +37,7 @@ const ItemWithoutLink = ({ item, dispatch, openItems }) => {
           ))
         }
       </div>
-    </div>
+    </li>
   );
 };
 

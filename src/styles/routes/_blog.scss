@@ -83,8 +83,15 @@
   }
   .archive {
     input {
-      padding: 10px;
-      font-size: 18px !important;
+      padding: 10px 14px;
+      font-size: 20px !important;
+      border: none;
+      border-radius: 5px;
+      text-align: left;
+
+      &:focus {
+        box-shadow: 0px 0px 15px 2px darken($electricBlue, 20);
+      }
     }
     ul {
       list-style: none;
@@ -146,7 +153,8 @@
   background-color: white;
   z-index: 99;
   overflow-y: scroll;
-  background: linear-gradient(145deg, lighten($electricBlue, 20), $electricBlue 40%, darken($electricBlue, 15));
+  background: linear-gradient(145deg, lighten($electricBlue, 50), $electricBlue 60%, darken($electricBlue, 15));
+  padding-top: 60px;
 
   &.open {
     transform: translateY(-100%);

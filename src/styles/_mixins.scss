@@ -1,12 +1,18 @@
 @mixin mixed-link-base {
   margin-bottom: 0;
   font-family: Montserrat;
-  font-weight: 500;
+  font-weight: 400;
   cursor: pointer;
   color: black;
+
   small {
     color: $electricBlue;
   }
+
+  span.item-title {
+    font-weight: 500;
+  }
+
   span.icon {
     display: inline-block;
     width: 30px;

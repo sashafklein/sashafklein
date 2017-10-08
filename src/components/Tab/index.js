@@ -11,7 +11,7 @@ const Tab = ({ open, version, dispatch }) => {
 
   return (
     <div className={ `menu-tab ${version} ${direction}` } onClick={ toggle }>
-      <i className={ `fa fa-chevron-down` } />
+      <i className={ `fa fa-chevron-up` } />
     </div>
   );
 }

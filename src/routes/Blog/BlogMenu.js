@@ -20,7 +20,6 @@ export class BlogMenu extends React.Component {
             <input
               type="text"
               placeholder="Search archives"
-              style={ { textAlign: 'left', margin: 'auto', fontSize: '30px', border: '1px solid #ccc', padding: '4px'  } }
               onChange={ event => {
                 this.setState({ query: event.target.value })
               }}
@@ -36,6 +35,7 @@ export class BlogMenu extends React.Component {
                         <a
                           className="post-link"
                           style={{ textDecoration: 'underline' }}
+                          onClick={ () => dispatch(toggleSetting('tabOpen', false)) }
                         >
                           { post.name }
                           <small> ({ post.createdAt })</small>

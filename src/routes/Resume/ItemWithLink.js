@@ -3,11 +3,8 @@ import { Link } from 'react-router';
 import ItemSubtitle from './ItemSubtitle';
 
 export const ItemWithLink = ({ item }) => (
-  <div className="collapse-title top-level" key={ item.id }>
+  <li className="collapse-title top-level resume-link" key={ item.id }>
     <Link to={ item.link }>
-      <span className="icon">
-        <i className="fa fa-arrow-right" />
-      </span>
       <span className="item-title">
         { item.title }
       </span>
@@ -15,7 +12,7 @@ export const ItemWithLink = ({ item }) => (
         <ItemSubtitle item={ item } />
       </small>
     </Link>
-  </div>
+  </li>
 );
 
 export default ItemWithLink;

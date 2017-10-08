@@ -6,17 +6,26 @@
   cursor: pointer;
   transition: all 0.3s ease;
   bottom: 2%;
+  padding: 10px 12px 15px 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 
   i {
     @include responsiveFont($h1);
   }
 
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
   &.up {
-    color: white !important;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    bottom: 90%;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 15px 12px 10px 12px;
 
     &:hover {
-      color: $lightGray !important;
+      background-color: rgba(255, 255, 255, 0.6);
     }
 
     i {
@@ -26,15 +35,9 @@
 
   &.blog {
     color: $electricBlue;
-    &:hover {
-      color: darken($electricBlue, 20);
-    }
   }
 
   &.resume {
     color: $lightPink;
-    &:hover {
-      color: darken($lightPink, 20);
-    }
   }
 }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { toggleSetting } from 'store/actions';
 
 const skillComponent = (skill) => {
-  const style = { margin: 0, lineHeight: `${skill.scale * 6 + 14}px` };
+  const style = { margin: 0, lineHeight: `${skill.scale * 6 + 24}px` };
   const props = {
     className: 'skill',
     key: skill.name,

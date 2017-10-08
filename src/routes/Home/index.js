@@ -8,7 +8,8 @@ import 'styles/core.scss';
 
 const paths = ['Resume', 'Projects', 'Blog'];
 const component = (path, location, dispatch) => {
-  const isActive = location.pathname.includes(path.toLowerCase());
+  const isActive = location.pathname.includes(path.toLowerCase())
+    || (location.pathname === '/' && path === 'Resume');
 
   const props = {
     style: { textDecoration: 'none' },

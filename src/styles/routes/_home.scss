@@ -12,22 +12,34 @@ $textAndBorder: lighten(#333333, 5);
   flex-direction: column;
   justify-content: center;
   transition: transform 0.5s ease;
+
   &.open {
     transform: translateX(-100%);
   }
+
   .landing-buttons {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: 0;
+
     .landing-button {
       display: flex;
       flex: 1;
       border-radius: 10px;
       text-align: center;
       vertical-align: middle;
-      background-color: $textAndBorder;
-      transition: background-color 0.7s ease;
+      background-color: white;
+      transition: all 1s ease;
+
+      &:hover {
+        background-color: rgba(24, 113, 188, 0.3);
+
+        .inner-text a {
+          // color: white;
+        }
+      }
+
       .inner-text {
         text-align: center;
         padding: 5% 0;
@@ -36,9 +48,11 @@ $textAndBorder: lighten(#333333, 5);
         flex-direction: row;
         align-items: center;
         justify-content: center;
+
         &:hover {
           cursor: pointer;
         }
+
         a {
           text-decoration: none;
           font-family: Montserrat;
@@ -46,25 +60,30 @@ $textAndBorder: lighten(#333333, 5);
           padding: 8% 0;
           vertical-align: middle;
           text-align: center;
-          color: white;
+          color: black;
+          transition: color 0.7s ease;
+
           &:hover {
             cursor: pointer;
           }
         }
       }
+
       &:hover {
         cursor: pointer;
-        background-color: $lightPink;
       }
+
       &:active, &.active {
-        background-color: lighten($electricBlue, 25);
+        background-color: rgba(24, 113, 188, 0.5);
       }
+
       &:active.active {
-        background-color: $electricBlue;
+        background-color: rgba(24, 113, 188, 0.5);
       }
+
       &:hover.active {
         cursor: pointer;
-        background-color: $lightPink;
+        background-color: rgba(24, 113, 188, 0.7);
       }
     }
   }
