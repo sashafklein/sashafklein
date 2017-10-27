@@ -24,7 +24,7 @@ export default [
     scale: 5
   },
   {
-    name: 'Serverless',
+    name: 'AWS Serverless',
     scale: 4
   },
   {
