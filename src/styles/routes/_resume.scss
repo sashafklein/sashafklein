@@ -39,15 +39,27 @@
     margin-bottom: 100px;
 
     @media (max-width: $small) {
-      width: 95%;
+      width: 100%;
       margin: 0;
     }
   }
+
   .header-area {
     margin-bottom: 50px;
     background-color: $lightGray;
     padding: 40px 0;
+
+    @media (max-width: $small) {
+      h2 {
+        font-size: 1.5rem !important;
+      }
+    }
+
+    @media (max-width: $mobile) {
+      display: none;
+    }
   }
+
   .header-container {
     display: flex;
     flex: 1;

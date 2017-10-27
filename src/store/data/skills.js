@@ -16,20 +16,24 @@ export default [
     scale: 6
   },
   {
-    name: 'HTML(5)',
-    scale: 5
-  },
-  {
     name: 'React Native',
-    scale: 5
-  },
-  {
-    name: 'Heroku Deployment',
     scale: 5
   },
   {
     name: 'Node/Express',
     scale: 5
+  },
+  {
+    name: 'Serverless',
+    scale: 4
+  },
+  {
+    name: 'Dev Ops',
+    scale: 4
+  },
+  {
+    name: 'Responsive CSS / UX',
+    scale: 4
   },
   {
     name: 'AngularJS',
@@ -44,11 +48,11 @@ export default [
     scale: 4
   },
   {
-    name: 'GraphQL',
-    scale: 3
+    name: 'HTML(5)',
+    scale: 4
   },
   {
-    name: 'Responsive CSS / UX',
+    name: 'GraphQL',
     scale: 3
   },
   {
