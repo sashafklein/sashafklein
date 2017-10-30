@@ -5,7 +5,7 @@ export default [
     id: 'redshift',
     roles: [
       {
-        description: 'At [Redshift](redshiftdigital.com), an award-winning digital design agency, I work with a small team of designers and developers to build out interactive design prototypes and full-fledged applications. Over nearly two years, I\'ve worked on a number of projects in multiple languages and frameworks and for a wide range of clients, including a building an energy management dashboard for [Advanced Microgrid Systems](advmicrogrid.com), a complete mock-up of [Kaiser Permanente](kp.org)\'s future website and iOS/Android mobile app, the flagship website for the smart-lighting company [Noon](https://noonhome.com), and the API for the agency\'s own social web app [Five](fiveapp.io).',
+        description: 'At [Redshift](redshiftdigital.com), an award-winning digital design agency, I work with a small team of designers and developers to build out interactive design prototypes and full-fledged applications. Over nearly two years, I\'ve worked on a number of projects in multiple languages and frameworks and for a wide range of clients, including a building an energy management dashboard for [Advanced Microgrid Systems](http://advmicrogrid.com), a complete mock-up of [Kaiser Permanente](https://kp.org)\'s future website and iOS/Android mobile app, the flagship website for the smart-lighting company [Noon](https://noonhome.com), and the API for the agency\'s own social web app [Five](https://fiveapp.io/).',
         ended: 'Present',
         location: 'San Francisco',
         name: 'Senior Software Engineer / Project Lead',
