@@ -19,6 +19,14 @@ export default [
     title: 'PlanIt'
   },
   {
+    bullets: [],
+    image: 'https://dl.dropboxusercontent.com/s/kh9ayaud00urxid/LCS-1.jpg?dl=0',
+    link: 'http://leftcoastsauna.com',
+    subtitle: 'Building community through sweat',
+    text: require('raw-loader!./markdown/portfolio/leftcoastsauna.md'),
+    title: 'Left Coast Sauna'
+  },
+  {
     bullets: [
       'First major web app.',
       'Unique e-commerce solution.',
