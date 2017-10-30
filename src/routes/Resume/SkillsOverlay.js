@@ -25,7 +25,7 @@ export const SkillOverlay = ({ skills, tabOpen, dispatch }) => (
   <div>
     <div className={ `skills-overlay ${tabOpen ? 'open' : ''}` }>
       <div>
-        <h1 className="section-header">Skills</h1>
+        <h1 className="h0" style={ { textAlign: 'center', color: 'white' } }>(Tech) Skills</h1>
         <div className="skills">
           {
             skills.map((skill, skillIndex) => (

@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux'
 
-import Headshot from './headshot.png';
-
 import CoreLayout from 'containers/CoreLayout';
 import SkillsOverlay from './SkillsOverlay';
 import EducationAndWork from './EducationAndWork';
@@ -17,7 +15,7 @@ export const Resume = ({ skills }) => (
       <div className="header-area">
         <div className="container med-and-up header-container">
           <div className="headshot-box">
-            <Image src={ Headshot } className="headshot" />
+            <Image src="https://dl.dropboxusercontent.com/s/kbi6shbk5a5r54x/headshot2.jpg?dl=0" className="headshot" />
           </div>
           <div className="header-text-section">
             <div className="name-and-icons">

@@ -128,7 +128,6 @@
     color: $electricBlue;
     font-family: Montserrat;
     font-weight: 600;
-    @include responsiveFont($h1 * 1.4);
     margin-bottom: 30px;
     text-transform: uppercase;
   }
