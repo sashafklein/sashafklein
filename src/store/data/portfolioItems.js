@@ -27,6 +27,14 @@ export default [
     title: 'Left Coast Sauna'
   },
   {
+    bullets: [],
+    image: 'https://dl.dropboxusercontent.com/s/mcjh7t8qebawaty/Screenshot%202017-10-29%2019.57.14.png?dl=0',
+    link: 'https://github.com/sashafklein/ballot-marker',
+    subtitle: 'An accessible multi-platform ballot-marking tool',
+    text: require('raw-loader!./markdown/portfolio/ballot.md'),
+    title: 'OSET Ballot Marker'
+  },
+  {
     bullets: [
       'First major web app.',
       'Unique e-commerce solution.',
