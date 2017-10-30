@@ -13,58 +13,71 @@
   .o {
     margin-left: 7px;
   }
+
   /* code display */
   .show-medium {
     @media only screen and (min-device-width: 300px) {
       display: block;
     }
   }
+
   h2 {
     margin-bottom: 2rem;
     margin-top: 2rem;
   }
+
   pre {
     font-family: monospace;
     text-align: left;
+
     &::selection {
       background-color: $lightPink;
       color: white;
     }
+
     &::moz-selection {
       background-color: $lightPink;
       color: white;
     }
   }
+
   /* code display */
   .codebox {
     padding-right: 8px;
     padding-left: 8px;
     padding-bottom: 5px;
     padding-top: -20px;
+
     p {
       &::selection {
         background: $lightPink;
         color: white;
       }
+
       &::moz-selection {
         background: $lightPink;
         color: white;
       }
     }
+
     .highlight {
+
       pre {
         white-space: pre;
         overflow: scroll;
         word-wrap: normal;
+
         .o {
           margin-left: 0px;
         }
+
         .si {
           font-style: normal;
         }
       }
     }
   }
+
   /* archive */
   #archived {
     display: none;
@@ -73,34 +86,59 @@
       margin-bottom: -15px;
     }
   }
+
   .search {
     width: 175px;
     text-align: left;
   }
+
   #search_field {
     width: 160px;
     margin-right: 10px;
   }
+
   .archive {
     input {
       padding: 10px 14px;
-      font-size: 20px !important;
+      font-size: 35px !important;
       border: none;
-      border-radius: 5px;
-      text-align: left;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      -webkit-appearance: none;
+      outline: none;
 
       &:focus {
-        box-shadow: 0px 0px 15px 2px darken($electricBlue, 20);
+        outline: none;
       }
     }
+
+    input::-webkit-input-placeholder {
+      color: white !important;
+    }
+
+    input:-moz-placeholder { /* Firefox 18- */
+      color: white !important;
+    }
+
+    input::-moz-placeholder {  /* Firefox 19+ */
+      color: white !important;
+    }
+
+    input:-ms-input-placeholder {
+      color: white !important;
+    }
+
     ul {
       list-style: none;
       margin-top: 30px;
       margin-left: 0;
       padding: 0;
     }
+
     h2 {
       margin-bottom: 5px;
+
       .red {
         color: $maroon;
       }

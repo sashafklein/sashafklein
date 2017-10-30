@@ -8,18 +8,26 @@ import CoreLayout from 'containers/CoreLayout';
 export class BlogMenu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { query: '' }
+    this.state = { query: '', searching: false }
   }
 
   render() {
     const { posts, open, dispatch } = this.props;
+    const { searching, query } = this.state;
+
     return(
       <div className={ `blog-menu ${open ? 'open' : ''}` }>
         <div className="centerify archive">
           <ul className="blog-links">
             <input
               type="text"
-              placeholder="Search archives"
+              placeholder={ searching || query.length ? '' : 'Search...' }
+              onFocus={ () => {
+                this.setState({ searching: true });
+              } }
+              onBlur={ () => {
+                this.setState({ searching: false });
+              } }
               onChange={ event => {
                 this.setState({ query: event.target.value })
               }}
