@@ -26,7 +26,7 @@ const config = {
   server_host : process.env.HOST || '0.0.0.0', // Use string 'localhost' to
                                                // prevent exposure on local
                                                // network
-  server_port : process.env.PORT || 3000,
+  server_port : process.env.PORT || 80,
 
   // ----------------------------------
   // Compiler Configuration
