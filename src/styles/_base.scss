@@ -371,3 +371,18 @@ input[type="text"], input[type="password"] {
   font-size: #{$h2}rem !important;
   border: 2px solid black;
 }
+
+.mask {
+  width: 100vw;
+  height: 100vh;
+  z-index: 40;
+  background-color: rgba(255, 255, 255, 0);
+  transition: background-color 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &.blank {
+    background-color: rgba(255, 255, 255, 1);
+  }
+}

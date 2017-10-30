@@ -1,5 +1,21 @@
 export default [
   {
+    bullets: [],
+    image: 'https://dl.dropboxusercontent.com/s/kh9ayaud00urxid/LCS-1.jpg?dl=0',
+    link: 'http://leftcoastsauna.com',
+    subtitle: 'Building community through sweat',
+    text: require('raw-loader!./markdown/portfolio/leftcoastsauna.md'),
+    title: 'Left Coast Sauna'
+  },
+  {
+    bullets: [],
+    image: 'https://dl.dropboxusercontent.com/s/mcjh7t8qebawaty/Screenshot%202017-10-29%2019.57.14.png?dl=0',
+    link: 'https://github.com/sashafklein/ballot-marker',
+    subtitle: 'An accessible multi-platform ballot-marking tool',
+    text: require('raw-loader!./markdown/portfolio/ballot.md'),
+    title: 'OSET Ballot Marker'
+  },
+  {
     bullets: [
       'Seamless Angular/Rails integration.',
       'Hand-rolled Angular Single-Page Application.',
@@ -17,22 +33,6 @@ export default [
     subtitle: 'Friend-approved travel',
     text: require('raw-loader!./markdown/portfolio/planit.md'),
     title: 'PlanIt'
-  },
-  {
-    bullets: [],
-    image: 'https://dl.dropboxusercontent.com/s/kh9ayaud00urxid/LCS-1.jpg?dl=0',
-    link: 'http://leftcoastsauna.com',
-    subtitle: 'Building community through sweat',
-    text: require('raw-loader!./markdown/portfolio/leftcoastsauna.md'),
-    title: 'Left Coast Sauna'
-  },
-  {
-    bullets: [],
-    image: 'https://dl.dropboxusercontent.com/s/mcjh7t8qebawaty/Screenshot%202017-10-29%2019.57.14.png?dl=0',
-    link: 'https://github.com/sashafklein/ballot-marker',
-    subtitle: 'An accessible multi-platform ballot-marking tool',
-    text: require('raw-loader!./markdown/portfolio/ballot.md'),
-    title: 'OSET Ballot Marker'
   },
   {
     bullets: [
@@ -90,6 +90,17 @@ export default [
   },
   {
     bullets: [
+      'Basic bi-directional Sendgrid integration.',
+      'Simple task scheduling.',
+      'Subscriptions/community lists.'
+    ],
+    image: 'https://dl.dropboxusercontent.com/s/4ev2cn2rggos3pn/owl.gif?dl=0',
+    subtitle: 'Simple daily email-based inspiration',
+    text: require('raw-loader!./markdown/portfolio/owl.md'),
+    title: 'Quote Owl'
+  },
+  {
+    bullets: [
       '4 nested React components',
       'Lightweight single-page Express app with Gulp build',
       'Responsive Design using SASS and Skeleton.css'
@@ -99,17 +110,6 @@ export default [
     subtitle: 'A responsive image gallery built in Express with nested and separable React components',
     text: require('raw-loader!./markdown/portfolio/gallery.md'),
     title: 'Express/React Gallery'
-  },
-  {
-    bullets: [
-      'Basic bi-directional Sendgrid integration.',
-      'Simple task scheduling.',
-      'Subscriptions/community lists.'
-    ],
-    image: 'https://dl.dropboxusercontent.com/s/4ev2cn2rggos3pn/owl.gif?dl=0',
-    subtitle: 'Simple daily email-based inspiration',
-    text: require('raw-loader!./markdown/portfolio/owl.md'),
-    title: 'Quote Owl'
   },
   {
     bullets: [],

@@ -8,6 +8,8 @@ import Header from 'components/Header';
 import Tab from 'components/Tab';
 import NavMenu from 'routes/Home';
 
+// <div className={ `mask ${ navOpen || tabOpen ? 'blank' : '' }` } />
+
 export class CoreLayout extends React.Component {
   constructor(props) {
     super(props);
@@ -30,10 +32,10 @@ export class CoreLayout extends React.Component {
   }
 
   render() {
-    const { children, className, navOpen, dispatch } = this.props;
+    const { children, className, navOpen, dispatch, tabOpen } = this.props;
 
     return(
-      <div className={ className  }>
+      <div className={ className }>
         <Header />
         <div className={ `core-layout` }>
           { children }
@@ -55,4 +57,4 @@ CoreLayout.defaultProps = {
   className: ''
 };
 
-export default connect(s => ({ navOpen: s.settings.navOpen }))(CoreLayout);
+export default connect(s => ({ navOpen: s.settings.navOpen, tabOpen: s.settings.tabOpen }))(CoreLayout);
