@@ -16,13 +16,18 @@ body {
   width: $large;
   display: block;
   margin: auto;
+
   @media (max-width: $large) {
     width: $medium;
   }
+
   @media (max-width: $medium) {
     width: $small;
   }
   @media (max-width: $small) {
+    width: $mobile;
+  }
+  @media (max-width: $mobile) {
     width: 90%;
     margin: 0 5%;
   }
