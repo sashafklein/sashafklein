@@ -21,6 +21,7 @@
       @media only screen and (min-device-width: 300px) {
         font-size: 1.8em;
       }
+
       @media only screen and (min-device-width: 800px) {
         font-size: 1.1em;
       }
@@ -86,9 +87,15 @@
   @media only screen and (min-device-width: 800px) {
     font-size: #{$base}rem !important;
   }
+
+  @media only screen and (min-device-width: 800px) {
+    font-size: #{$base * $medMult}rem !important;
+  }
+
   @media only screen and (min-device-width: 300px) {
     font-size: #{$base * $smallMult}rem !important;
   }
+
   &::selection {
     background: $lightPink;
     color: white;
