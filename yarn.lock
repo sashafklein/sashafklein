@@ -6021,7 +6021,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.8:
+prop-types@^15.5.8, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -6203,6 +6203,12 @@ react-markdown@^2.4.2:
     commonmark "^0.24.0"
     commonmark-react-renderer "^4.2.4"
     in-publish "^2.0.0"
+
+react-meta-tags@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-meta-tags/-/react-meta-tags-0.2.0.tgz#58751fa36ef06e2d5b98af3d35968067af873391"
+  dependencies:
+    prop-types "^15.6.0"
 
 react-motion@^0.5.1:
   version "0.5.1"

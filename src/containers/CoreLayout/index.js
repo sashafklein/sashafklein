@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import Meta from 'react-meta-tags';
 
 import { toggleSetting } from 'store/actions';
 
@@ -34,8 +35,24 @@ export class CoreLayout extends React.Component {
   render() {
     const { children, className, navOpen, dispatch, tabOpen } = this.props;
 
+    const page = location.pathname.split('/')[1] || 'resume';
+
+    const desc = {
+      blog: 'Very occasional thoughts about coding, travel, and life.',
+      projects: 'Saunas, web apps, and random junk.',
+      resume: 'Work and education.'
+    }[page];
+
+    const title =  `Sasha Klein - ${ page[0].toUpperCase().concat(page.slice(1)) }`;
+
     return(
       <div className={ className }>
+        <Meta>
+          <title>{ title }</title>
+          <meta id="meta-description" name="description" content={ desc } />
+          <meta id="og-title" property="og:title" content={ title } />
+          <meta id="og-image" property="og:image" content="https://dl.dropboxusercontent.com/s/kbi6shbk5a5r54x/headshot2.jpg?dl=0" />
+        </Meta>
         <Header />
         <div className={ `core-layout` }>
           { children }
