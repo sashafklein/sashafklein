@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import CoreLayout from 'containers/CoreLayout'
 import PortfolioItem from './PortfolioItem';
+import PortfolioGrid from './PortfolioGrid';
 
 export const Portfolio = ({ portfolioItems }) => {
 
@@ -17,6 +18,7 @@ export const Portfolio = ({ portfolioItems }) => {
           />
         ))
       }
+      <PortfolioGrid />
     </CoreLayout>
   );
 };

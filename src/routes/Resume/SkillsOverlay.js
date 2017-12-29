@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import SlideMenu from 'components/SlideMenu';
 import { toggleSetting } from 'store/actions';
 
 const skillComponent = (skill) => {
@@ -21,35 +23,31 @@ const skillComponent = (skill) => {
   }[skill.scale.toString()];
 }
 
-export const SkillOverlay = ({ skills, tabOpen, dispatch }) => (
-  <div>
-    <div className={ `skills-overlay ${tabOpen ? 'open' : ''}` }>
-      <div>
-        <h1 className="h0" style={ { textAlign: 'center', color: 'white' } }>(Tech) Skills</h1>
-        <div className="skills">
-          {
-            skills.map((skill, skillIndex) => (
-              <div className="skills-row" key={ skillIndex }>
-                { skillComponent(skill) }
-              </div>
-            ))
-          }
-        </div>
+export const SkillOverlay = ({ skills, dispatch }) => (
+  <SlideMenu className="skills-overlay">
+    <div>
+      <h1 className="h0" style={ { textAlign: 'center', color: 'white' } }>(Tech) Skills</h1>
+      <div className="skills">
+        {
+          skills.map((skill, skillIndex) => (
+            <div className="skills-row" key={ skillIndex }>
+              { skillComponent(skill) }
+            </div>
+          ))
+        }
       </div>
     </div>
-  </div>
+  </SlideMenu>
 );
 
-const { array, bool, func } = React.PropTypes;
+const { array, func } = React.PropTypes;
 SkillOverlay.propTypes = {
   skills: array,
-  tabOpen: bool,
   dispatch: func
 };
 
 const mapStateToProps = state => ({
-  skills: state.data.skills,
-  tabOpen: state.settings.tabOpen
+  skills: state.data.skills
 });
 
 export default connect(mapStateToProps)(SkillOverlay);

@@ -69,3 +69,14 @@
     }
   }
 }
+
+.portfolio-grid {
+  background: linear-gradient(145deg, lighten(black, 13), lighten(black, 20) 60%, lighten(black, 40));
+
+  .portfolio-grid__image-container {
+    width: 350px;
+    height: 250px;
+    display: inline-block;
+    margin: 50px;
+  }
+}
