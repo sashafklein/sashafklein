@@ -10,7 +10,7 @@ const dateString = (item) => {
 
 export const ItemSubtitle = ({ item }) => (
   <strong>
-    ({ dateString(item) }, <em>{ item.roles.map(r => r.name).join(', ') }</em>)
+    ({ dateString(item) }) - <em>{ item.roles.map(r => r.name).join(', ') }</em>
   </strong>
 )
 

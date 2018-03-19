@@ -72,11 +72,62 @@
 
 .portfolio-grid {
   background: linear-gradient(145deg, lighten(black, 13), lighten(black, 20) 60%, lighten(black, 40));
+  width: 100%;
+  padding: 2%;
 
   .portfolio-grid__image-container {
-    width: 350px;
-    height: 250px;
     display: inline-block;
-    margin: 50px;
+    background-color: black;
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    margin: 1% 0%;
+    height: 350px;
+
+    @media only screen and (min-width: 800px) {
+      width: 48%;
+      margin: 1%;
+      height: 300px;
+    }
+
+    @media only screen and (min-width: 1200px) {
+      width: 30%;
+      margin: 1.625%;
+      height: 250px;
+    }
+
+    &:hover {
+      .portfolio-grid__image {
+        opacity: 0.2;
+      }
+
+      .portfolio-grid__title {
+        opacity: 1;
+      }
+    }
+  }
+
+  .portfolio-grid__title {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    left: 50%;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .portfolio-grid__image {
+    transition: opacity 0.5s ease;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }

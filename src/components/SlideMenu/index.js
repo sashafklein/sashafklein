@@ -16,7 +16,7 @@ export class SlideMenu extends React.Component {
     const { searching, query } = this.state;
 
     return(
-      <div className={ `slide-menu ${open ? 'open' : ''} ${className }` }>
+      <div className={ `slide-menu ${open ? 'open' : ''} ${className}` }>
         { children }
       </div>
     )

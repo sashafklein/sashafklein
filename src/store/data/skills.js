@@ -16,16 +16,20 @@ export default [
     scale: 6
   },
   {
+    name: 'Team/Client Management',
+    scale: 5
+  },
+  {
+    name: 'AWS / Serverless',
+    scale: 5
+  },
+  {
     name: 'React Native',
     scale: 5
   },
   {
     name: 'Node/Express',
     scale: 5
-  },
-  {
-    name: 'AWS Serverless',
-    scale: 4
   },
   {
     name: 'Dev Ops',

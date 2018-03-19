@@ -9,7 +9,7 @@ export default [
   },
   {
     bullets: [],
-    image: 'https://dl.dropboxusercontent.com/s/mcjh7t8qebawaty/Screenshot%202017-10-29%2019.57.14.png?dl=0',
+    image: 'https://dl.dropboxusercontent.com/s/mq7hxz1lzgws89o/oset.png?dl=0',
     link: 'https://github.com/sashafklein/ballot-marker',
     subtitle: 'An accessible multi-platform ballot-marking tool',
     text: require('raw-loader!./markdown/portfolio/ballot.md'),
@@ -69,9 +69,9 @@ export default [
       'Downloaded over 2000 times',
       'Used in live production code'
     ],
-    image: 'https://dl.dropboxusercontent.com/s/w4m3f7ryquzz768/Screenshot%202017-09-30%2009.50.11.png?dl=0',
+    image: 'https://dl.dropboxusercontent.com/s/wz0cs8vzorugupc/npm-packages.png?dl=0',
     link: 'https://github.com/sashafklein/shape',
-    subtitle: 'AVA Describe and Shape',
+    subtitle: 'AVA Describe, Shape, Redux Request Manager, and RS Components',
     text: require('raw-loader!./markdown/portfolio/npm.md'),
     title: 'NPM Packages'
   },
@@ -82,7 +82,7 @@ export default [
       'Configurable option block (for PG Clone)',
       'Heroku and ActiveRecord integration'
     ],
-    image: 'https://dl.dropboxusercontent.com/s/wo4p4gqmagbh3yb/Screenshot%202017-01-08%2014.22.16.png?dl=0',
+    image: 'https://dl.dropboxusercontent.com/s/8wrxs0lctjbota1/ruby-gems.png?dl=0',
     link: 'https://github.com/sashafklein/me_first',
     subtitle: 'PG Clone, MeFirst, and Falcon Deploy',
     text: require('raw-loader!./markdown/portfolio/gems.md'),
