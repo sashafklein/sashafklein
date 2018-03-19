@@ -1,6 +1,4 @@
-Nicknamed Tweed, the Bloc Office Hours chat room was built over the course of a few days by fellow developer [Christian Schlensker](https://www.github.com/wordofchristian) and me.
-
-We built it to address a wide variety of concerns elucidated at length in [this post](/blog/blocchat-part-1).
+[Christian Schlensker](https://www.github.com/wordofchristian) and I built the Bloc Office Hours chat application (nicknamed "Tweed") over several days to address a wide variety of concerns elucidated at length in [this post](/blog/blocchat-part-1).
 
 We'd been using a private HipChat app, but found that no option -- paid or free -- allowed us all of the funcationality we needed to offer functional and trackable office hours. So we decided to build our own.
 
