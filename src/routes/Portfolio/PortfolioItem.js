@@ -3,25 +3,9 @@ import { Link } from 'react-router';
 import Markdown from 'components/Markdown';
 import Image from 'components/Image';
 
-const slug = title => title.toLowerCase().split(' ').join('-');
+export const slug = title => title.toLowerCase().split(' ').join('-');
 
 export class PortfolioItem extends React.Component {
-  componentDidMount() {
-    const { item } = this.props;
-    if (location.hash && location.hash.includes(slug(item.title))) {
-      setTimeout(() => {
-        this.comp.scrollIntoView();
-        setTimeout(() => {
-          const scrolledY = window.scrollY;
-
-          if (scrolledY) {
-            window.scroll(0, scrolledY - 120);
-          }
-        }, 100);
-      }, 800);
-    }
-  }
-
   render() {
     const { item } = this.props;
     return (
@@ -29,8 +13,8 @@ export class PortfolioItem extends React.Component {
         className="portfolio-item"
       >
         <div
-           className="container content-section"
-           ref={ el => this.comp = el }
+          className="container content-section"
+          id={ slug(item.title) }
         >
           <div className="sidebar black-links">
             <div className="show-medium">

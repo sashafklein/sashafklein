@@ -17,11 +17,7 @@ const Tab = ({ open, version, dispatch }) => {
 }
 
 const mapStateToProps = state => {
-  if (window.location.pathname.includes('/projects')) return null;
-
-  const version = window.location.pathname.includes('/blog')
-    ? 'blog'
-    : 'resume';
+  const version = window.location.pathname.split('/')[1] || 'resume';
 
   return {
     open: state.settings.tabOpen,

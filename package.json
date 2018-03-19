@@ -1,10 +1,9 @@
 {
-  "name": "rs-starter",
+  "name": "sashafklein",
   "version": "3.0.0-alpha.2",
-  "description": "RS Starter app",
+  "description": "My personal website",
   "main": "index.js",
   "engines": {
-    "node": "^6.11.1",
     "npm": "^3.0.0"
   },
   "scripts": {

@@ -182,21 +182,7 @@
 }
 
 .blog-menu {
-  position: fixed;
-  bottom: -100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: all 0.3s ease;
-  background-color: white;
-  z-index: 99;
-  overflow-y: scroll;
   background: linear-gradient(145deg, lighten($electricBlue, 35), darken($electricBlue, 10) 60%, darken($electricBlue, 25));
-  padding-top: 60px;
-
-  &.open {
-    transform: translateY(-100%);
-  }
 }
 
 .blog-links {

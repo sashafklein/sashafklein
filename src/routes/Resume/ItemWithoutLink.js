@@ -15,10 +15,17 @@ const ItemWithoutLink = ({ item, dispatch, openItems }) => {
     <li
       key={ item.id }
       className={ `panel ${ open ? '' : 'closed' }` }
-      onClick={ () => { dispatch(toggleOpenItem(item.id)) } }
+      onClick={ (el) => {
+        if (el.target.className.split(' ').indexOf('panel') !== -1) {
+          dispatch(toggleOpenItem(item.id))
+        }
+      } }
     >
       <p
         className="collapse-title expandable-panel-title"
+        onClick={ () => {
+          dispatch(toggleOpenItem(item.id))
+        } }
       >
         <span className="item-title">{ item.title }</span>
         <small>

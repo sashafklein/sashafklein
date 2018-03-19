@@ -4,6 +4,7 @@ import { browserHistory } from 'react-router';
 import Highlight from 'react-highlight';
 
 import Markdown from 'components/Markdown';
+import SlideMenu from 'components/SlideMenu';
 import CoreLayout from 'containers/CoreLayout';
 import BlogMenu from './BlogMenu';
 
@@ -35,7 +36,9 @@ export const Blog = ({ posts, dispatch, tabOpen }) => {
             <div className="example" />
           </div>
         </div>
-        <BlogMenu posts={ posts } index={ postIndex } open={ tabOpen }/>
+        <SlideMenu className="blog-menu" >
+          <BlogMenu />
+        </SlideMenu>
       </div>
     </CoreLayout>
   );
