@@ -11,6 +11,10 @@
     cursor: pointer;
   }
 
+  .fa-bars:hover:before {
+    color: $lightPink;
+  }
+
   a {
     @include responsiveFont($h3);
   }
@@ -47,6 +51,7 @@
       padding: 20px 0;
     }
     .pig-link {
+      letter-spacing: 1px;
       img {
         display: none;
       }
