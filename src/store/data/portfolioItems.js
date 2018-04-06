@@ -98,24 +98,5 @@ export default [
     subtitle: 'Simple daily email-based inspiration',
     text: require('raw-loader!./markdown/portfolio/owl.md'),
     title: 'Quote Owl'
-  },
-  // {
-  //   bullets: [
-  //     '4 nested React components',
-  //     'Lightweight single-page Express app with Gulp build',
-  //     'Responsive Design using SASS and Skeleton.css'
-  //   ],
-  //   image: 'https://dl.dropboxusercontent.com/s/6qq89s7pkye7ory/node-gallery.gif?dl=0',
-  //   link: 'https://github.com/sashafklein/express-react-gallery',
-  //   subtitle: 'A responsive image gallery built in Express with nested and separable React components',
-  //   text: require('raw-loader!./markdown/portfolio/gallery.md'),
-  //   title: 'Express/React Gallery'
-  // },
-  // {
-  //   bullets: [],
-  //   image: 'https://dl.dropboxusercontent.com/s/e8tpdp1moua0y0h/booktrail.png?dl=0',
-  //   subtitle: 'Straightforward and private book tracking',
-  //   text: require('raw-loader!./markdown/portfolio/booktrail.md'),
-  //   title: 'BookTrail'
-  // }
+  }
 ];
