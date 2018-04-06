@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router'
 
 import Image from 'components/Image';
-import Pig from './pig.png'
+import Pig from './pig2.png'
 
 import { toggleSetting } from 'store/actions';
 
