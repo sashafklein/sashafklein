@@ -9,6 +9,22 @@ import Image from 'components/Image';
 
 import 'styles/core.scss';
 
+export const professionalTitle = "Senior Web Developer / Tech Lead";
+const descriptionText = [
+  <strong>Full-stack developer</strong>,
+  ' and ',
+  <strong>entrepreneur</strong>,
+  ', comfortable with a ',
+  <strong>wide range of technologies</strong>,
+  ' and experienced ',
+  <strong>leading teams</strong>,
+  ' and ',
+  <strong>running client projects</strong>,
+  '.'
+];
+
+const description = <p>{ descriptionText }</p>;
+
 export const Resume = ({ skills }) => (
   <CoreLayout className="resume">
     <div className="resume-container undecorated">
@@ -32,7 +48,8 @@ export const Resume = ({ skills }) => (
                 </a>
               </div>
             </div>
-            <h2 className="self-description">Web and Mobile Developer</h2>
+            <h2 className="self-description">{ professionalTitle }</h2>
+            { description }
           </div>
         </div>
       </div>

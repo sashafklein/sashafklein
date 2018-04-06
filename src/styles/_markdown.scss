@@ -51,11 +51,6 @@
     margin: 20px 0;
     width: 100%;
 
-    &:hover {
-      width: 150%;
-      margin-left: -25%;
-    }
-
     @media (max-width: $large) {
       &:hover {
         width: 100%;

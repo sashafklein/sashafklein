@@ -5,6 +5,7 @@ import Meta from 'react-meta-tags';
 
 import { toggleSetting } from 'store/actions';
 
+import { professionalTitle } from 'routes/Resume';
 import Header from 'components/Header';
 import Tab from 'components/Tab';
 import NavMenu from 'routes/Home';
@@ -40,7 +41,7 @@ export class CoreLayout extends React.Component {
     const desc = {
       blog: 'Very occasional thoughts about coding, travel, and life.',
       projects: 'Saunas, web apps, and random junk.',
-      resume: 'Work and education.'
+      resume: professionalTitle
     }[page];
 
     const title =  `Sasha Klein - ${ page[0].toUpperCase().concat(page.slice(1)) }`;
