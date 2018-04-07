@@ -35,12 +35,12 @@ const ItemWithoutLink = ({ item, dispatch, openItems }) => {
       <div className="roles">
         {
           item.roles.map((role, index) => (
-            <p key={ index } style={{ marginTop: '5px' }}>
+            <div className="subsection" key={ index } style={{ marginTop: '5px' }}>
               { manyRoles && <RoleSubtitle role={ role } /> }
               <div className={ `paragraph ${item.roles.length > 1 ? 'subrole' : ''}` }>
                 <Markdown source={ role.description } />
               </div>
-            </p>
+            </div>
           ))
         }
       </div>
