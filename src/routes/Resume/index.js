@@ -11,19 +11,19 @@ import 'styles/core.scss';
 
 export const professionalTitle = "Senior Web Developer / Tech Lead";
 const descriptionText = [
-  <strong>Full-stack developer</strong>,
+  'Full-stack developer',
   ' and ',
-  <strong>entrepreneur</strong>,
+  'entrepreneur',
   ', comfortable with a ',
-  <strong>wide range of technologies</strong>,
+  'wide range of technologies',
   ' and experienced ',
-  <strong>leading teams</strong>,
+  'leading teams',
   ' and ',
-  <strong>running client projects</strong>,
+  'running client projects',
   '.'
 ];
 
-const description = <p>{ descriptionText }</p>;
+const description = <p>{ descriptionText.map((t, i) => i % 2 === 0 ? <strong key={i}>{t}</strong> : t) }</p>;
 
 export const Resume = ({ skills }) => (
   <CoreLayout className="resume">

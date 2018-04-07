@@ -6188,6 +6188,13 @@ react-element-to-jsx-string@^5.0.0:
     stringify-object "2.4.0"
     traverse "^0.6.6"
 
+react-ga@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.4.1.tgz#dfbd5f028ed39a07067f7a8bf57dc0d240000767"
+  optionalDependencies:
+    prop-types "^15.6.0"
+    react "^15.6.2 || ^16.0"
+
 react-highlight@^0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/react-highlight/-/react-highlight-0.9.0.tgz#d5edee744ccb8689f7938794b6a1b554bb150eb7"
@@ -6244,6 +6251,15 @@ react-router@^3.0.0:
     fbjs "^0.8.4"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+
+"react@^15.6.2 || ^16.0":
+  version "16.3.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
 
 read-all-stream@^3.0.0:
   version "3.1.0"

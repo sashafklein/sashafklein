@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import Meta from 'react-meta-tags';
+import ReactGA from 'react-ga';
 
 import { toggleSetting } from 'store/actions';
 
@@ -10,7 +11,7 @@ import Header from 'components/Header';
 import Tab from 'components/Tab';
 import NavMenu from 'routes/Home';
 
-// <div className={ `mask ${ navOpen || tabOpen ? 'blank' : '' }` } />
+ReactGA.initialize('UA-117151476-1');
 
 export class CoreLayout extends React.Component {
   constructor(props) {
@@ -21,16 +22,24 @@ export class CoreLayout extends React.Component {
     setTimeout(() => {
       this.props.dispatch(toggleSetting('navOpen', false));
     }, 0);
+    this.trackVisit();
   }
 
   componentWillReceiveProps (newProps) {
     if (newProps.location !== this.props.location) {
       this.props.dispatch(toggleSetting('tabOpen', false));
     }
+    this.trackVisit();
   }
 
   componentWillUnmount () {
     this.props.dispatch(toggleSetting('tabOpen', false));
+  }
+
+  trackVisit () {
+    if (window.location.href.indexOf('localhost') === -1) {
+      ReactGA.pageview(window.location.href);
+    }
   }
 
   render() {
