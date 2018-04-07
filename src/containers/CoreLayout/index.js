@@ -37,7 +37,7 @@ export class CoreLayout extends React.Component {
   }
 
   trackVisit () {
-    if (window.location.href.indexOf('localhost') === -1) {
+    if (window.location.href.indexOf('sashafklein.com') !== -1) {
       ReactGA.pageview(window.location.href);
     }
   }
