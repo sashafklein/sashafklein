@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { connect } from 'react-redux'
 
 import CoreLayout from 'containers/CoreLayout';
 import SkillsOverlay from './SkillsOverlay';
@@ -9,7 +7,7 @@ import Image from 'components/Image';
 
 import 'styles/core.scss';
 
-export const professionalTitle = "Senior Full Stack Engineer / Tech Lead";
+export const professionalTitle = 'Senior Full Stack Engineer / Tech Lead';
 const descriptionText = [
   'Full-stack developer',
   ' and ',
@@ -23,9 +21,9 @@ const descriptionText = [
   '.'
 ];
 
-const description = <p>{ descriptionText.map((t, i) => i % 2 === 0 ? <strong key={i}>{t}</strong> : t) }</p>;
+const description = <p>{ descriptionText.map((t, i) => i % 2 === 0 ? <strong key={ i }>{t}</strong> : t) }</p>;
 
-export const Resume = ({ skills }) => (
+export const Resume = () => (
   <CoreLayout className="resume">
     <div className="resume-container undecorated">
       <div className="header-area">
@@ -61,8 +59,4 @@ export const Resume = ({ skills }) => (
   </CoreLayout>
 );
 
-const mapStateToProps = state => ({
-  skills: state.data.skills
-});
-
-export default connect(mapStateToProps)(Resume);
+export default Resume;

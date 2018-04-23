@@ -20,7 +20,7 @@ const Tab = ({ open, version, dispatch }) => {
       <i className={ `fa fa-chevron-up` } />
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   const version = window.location.pathname.split('/')[1] || 'resume';
@@ -29,6 +29,13 @@ const mapStateToProps = state => {
     open: state.settings.tabOpen,
     version
   };
+};
+
+const { bool, string, func } = React.PropTypes;
+Tab.propTypes = {
+  open: bool,
+  version: string,
+  dispatch: func
 };
 
 export default connect(mapStateToProps)(Tab);

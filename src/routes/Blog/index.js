@@ -1,26 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
-import Highlight from 'react-highlight';
 
 import Markdown from 'components/Markdown';
 import SlideMenu from 'components/SlideMenu';
 import CoreLayout from 'containers/CoreLayout';
 import BlogMenu from './BlogMenu';
 
-import { toggleSetting } from 'store/actions';
-
-export const Blog = ({ posts, dispatch, tabOpen }) => {
+export const Blog = ({ posts }) => {
   const post = posts.find(p => location.pathname
     ? location.pathname.split('blog/')[1].includes(p.slug)
-    : null)
+    : null);
 
   if (!post) {
     browserHistory.push('/blog');
     return null;
   }
-
-  const postIndex = posts.indexOf(post);
 
   return (
     <CoreLayout className={ `blog` }>
@@ -32,7 +27,7 @@ export const Blog = ({ posts, dispatch, tabOpen }) => {
               <small> ({ post.createdAt })</small>
             </h1>
 
-            <Markdown className="markdown markdown-container" source={ post.text }/>
+            <Markdown className="markdown markdown-container" source={ post.text } />
             <div className="example" />
           </div>
         </div>
@@ -44,9 +39,13 @@ export const Blog = ({ posts, dispatch, tabOpen }) => {
   );
 };
 
+const { array } = React.PropTypes;
+Blog.propTypes = {
+  posts: array
+};
+
 const mapStateToProps = state => ({
-  posts: state.data.posts,
-  tabOpen: state.settings.tabOpen
+  posts: state.data.posts
 });
 
 export default connect(mapStateToProps)(Blog);

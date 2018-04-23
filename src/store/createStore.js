@@ -1,26 +1,26 @@
-import { applyMiddleware, compose, createStore } from 'redux'
-import thunk from 'redux-thunk'
-import { browserHistory } from 'react-router'
-import makeRootReducer from './reducers'
-import { locationChange, toggleSetting } from './actions'
+import { applyMiddleware, compose, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import { browserHistory } from 'react-router';
+import makeRootReducer from './reducers';
+import { locationChange, toggleSetting } from './actions';
 
 export default (initialState = {}) => {
   // ======================================================
   // Middleware Configuration
   // ======================================================
-  const middleware = [thunk]
+  const middleware = [thunk];
 
   // ======================================================
   // Store Enhancers
   // ======================================================
-  const enhancers = []
+  const enhancers = [];
 
-  let composeEnhancers = compose
+  let composeEnhancers = compose;
 
   if (__DEV__) {
-    const composeWithDevToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    const composeWithDevToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
     if (typeof composeWithDevToolsExtension === 'function') {
-      composeEnhancers = composeWithDevToolsExtension
+      composeEnhancers = composeWithDevToolsExtension;
     }
   }
 
@@ -36,25 +36,23 @@ export default (initialState = {}) => {
     )
   );
 
-  store.asyncReducers = {}
+  store.asyncReducers = {};
 
-  const updateLocationAndCloseTab = ({ dispatch }) => {
-    return (nextLocation) => {
-      dispatch(toggleSetting('tabOpen', false));
-      dispatch(locationChange(nextLocation))
-      window && window.scrollTo(0, 0);
-    }
+  const updateLocationAndCloseTab = ({ dispatch }) => (nextLocation) => {
+    dispatch(toggleSetting('tabOpen', false));
+    dispatch(locationChange(nextLocation));
+    window && window.scrollTo(0, 0);
   };
 
   // To unsubscribe, invoke `store.unsubscribeHistory()` anytime
-  store.unsubscribeHistory = browserHistory.listen(updateLocationAndCloseTab(store))
+  store.unsubscribeHistory = browserHistory.listen(updateLocationAndCloseTab(store));
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
-      const reducers = require('./reducers').default
-      store.replaceReducer(reducers(store.asyncReducers))
-    })
+      const reducers = require('./reducers').default;
+      store.replaceReducer(reducers(store.asyncReducers));
+    });
   }
 
-  return store
-}
+  return store;
+};

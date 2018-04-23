@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import Meta from 'react-meta-tags';
 import ReactGA from 'react-ga';
@@ -14,11 +13,7 @@ import NavMenu from 'routes/Home';
 ReactGA.initialize('UA-117151476-1');
 
 export class CoreLayout extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
+  componentDidMount () {
     setTimeout(() => {
       this.props.dispatch(toggleSetting('navOpen', false));
     }, 0);
@@ -42,8 +37,8 @@ export class CoreLayout extends React.Component {
     }
   }
 
-  render() {
-    const { children, className, navOpen, dispatch, tabOpen } = this.props;
+  render () {
+    const { children, className, navOpen } = this.props;
 
     const page = location.pathname.split('/')[1] || 'resume';
 
@@ -53,9 +48,9 @@ export class CoreLayout extends React.Component {
       resume: professionalTitle
     }[page];
 
-    const title =  `Sasha Klein - ${ page[0].toUpperCase().concat(page.slice(1)) }`;
+    const title = `Sasha Klein - ${page[0].toUpperCase().concat(page.slice(1))}`;
 
-    return(
+    return (
       <div className={ className }>
         <Meta>
           <title>{ title }</title>
@@ -74,14 +69,17 @@ export class CoreLayout extends React.Component {
   }
 };
 
-const { element, string } = React.PropTypes;
+const { element, string, func, bool, object } = React.PropTypes;
 CoreLayout.propTypes = {
   children: element.isRequired,
-  className: string
+  className: string,
+  navOpen: bool,
+  dispatch: func,
+  location: object
 };
 
 CoreLayout.defaultProps = {
   className: ''
 };
 
-export default connect(s => ({ navOpen: s.settings.navOpen, tabOpen: s.settings.tabOpen }))(CoreLayout);
+export default connect(s => ({ navOpen: s.settings.navOpen }))(CoreLayout);

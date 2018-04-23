@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 import Image from 'components/Image';
-import Pig from './pig.png'
+import Pig from './pig.png';
 
 import { toggleSetting } from 'store/actions';
 
@@ -25,7 +25,7 @@ export const Header = ({ flash, navOpen, dispatch }) => (
               <a
                 className={ 'fa fa-bars'.concat(navOpen ? ' open' : '') }
                 onClick={
-                  () => { dispatch(toggleSetting('navOpen', !navOpen)) }
+                  () => { dispatch(toggleSetting('navOpen', !navOpen)); }
                 }
               />
             </div>
@@ -40,11 +40,18 @@ export const Header = ({ flash, navOpen, dispatch }) => (
       </div>
     }
   </div>
-)
+);
 
 const mapStateToProps = state => ({
   flashes: state.settings.flash,
   navOpen: state.settings.navOpen
 });
 
-export default connect(mapStateToProps)(Header)
+const { string, bool, func } = React.PropTypes;
+Header.propTypes = {
+  flash: string,
+  navOpen: bool,
+  dispatch: func
+};
+
+export default connect(mapStateToProps)(Header);
