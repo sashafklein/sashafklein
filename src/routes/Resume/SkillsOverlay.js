@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import SlideMenu from 'components/SlideMenu';
-import { toggleSetting } from 'store/actions';
 
 const skillComponent = (skill) => {
   const style = { margin: 0, lineHeight: `${skill.scale * 6 + 24}px` };
@@ -21,9 +20,9 @@ const skillComponent = (skill) => {
     7: <h2 { ...props }>{ skill.name }</h2>,
     8: <h1 { ...props }>{ skill.name }</h1>
   }[skill.scale.toString()];
-}
+};
 
-export const SkillOverlay = ({ skills, dispatch }) => (
+export const SkillOverlay = ({ skills }) => (
   <SlideMenu className="skills-overlay">
     <div>
       <h1 className="h0" style={ { textAlign: 'center', color: 'white' } }>(Tech) Skills</h1>
@@ -40,10 +39,9 @@ export const SkillOverlay = ({ skills, dispatch }) => (
   </SlideMenu>
 );
 
-const { array, func } = React.PropTypes;
+const { array } = React.PropTypes;
 SkillOverlay.propTypes = {
-  skills: array,
-  dispatch: func
+  skills: array
 };
 
 const mapStateToProps = state => ({

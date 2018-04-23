@@ -8,35 +8,34 @@ import 'styles/core.scss';
 
 const paths = ['Resume', 'Projects', 'Blog'];
 const component = (path, location, dispatch) => {
-  const isActive = location.pathname.includes(path.toLowerCase())
-    || (location.pathname === '/' && path === 'Resume');
+  const isActive = location.pathname.includes(path.toLowerCase()) ||
+    (location.pathname === '/' && path === 'Resume');
 
   const props = {
     style: { textDecoration: 'none' },
-    className: `landing-button${ isActive ? ' active' : ''}`,
+    className: `landing-button${isActive ? ' active' : ''}`,
     key: path
   };
 
-  const content = <div className="inner-text">
-    <a style={{ textDecoration: 'none' }}>{ path.toUpperCase() }</a>
-  </div>
-
+  const content = (<div className="inner-text">
+    <a style={ { textDecoration: 'none' } }>{ path.toUpperCase() }</a>
+  </div>);
 
   if (isActive) {
-    return <a { ...props } onClick={ () => {
+    return (<a { ...props } onClick={ () => {
       if (location.pathname.includes('/projects') && open) {
         browserHistory.push('/projects');
       }
       dispatch(toggleSetting('navOpen', false));
     } }>
       { content }
-    </a>
+    </a>);
   } else {
-    return <Link { ...props} to={ `/${path.toLowerCase()}`}>
+    return (<Link { ...props } to={ `/${path.toLowerCase()}` }>
       { content }
-    </Link>
+    </Link>);
   }
-}
+};
 
 export const Home = ({ open, dispatch }) => (
   <div className={ 'landing'.concat(open && !location.pathname.includes('notes') ? ' open' : '') }>
@@ -49,6 +48,12 @@ export const Home = ({ open, dispatch }) => (
     </div>
   </div>
 );
+
+const { bool, func } = React.PropTypes;
+Home.propTypes = {
+  open: bool,
+  dispatch: func
+};
 
 Home.defaultProps = {
   open: true

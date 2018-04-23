@@ -39,7 +39,7 @@
     ],
     "react/jsx-boolean-value": [2, "always"],
     "react/no-did-mount-set-state": 1,
-    "react/wrap-multilines": 1,
+    "react/jsx-wrap-multilines": 1,
     "new-cap": 0,
     "babel/new-cap": 0,
     "no-else-return": 0,

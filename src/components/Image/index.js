@@ -17,7 +17,7 @@ export class Image extends React.Component {
       classes += ' '.concat(loadedClass || 'image-loaded');
     }
     if (className) {
-      classes += ' '.concat(className)
+      classes += ' '.concat(className);
     }
 
     return (

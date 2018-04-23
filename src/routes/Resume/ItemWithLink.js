@@ -15,4 +15,9 @@ export const ItemWithLink = ({ item }) => (
   </li>
 );
 
+const { object } = React.PropTypes;
+ItemWithLink.propTypes = {
+  item: object
+};
+
 export default ItemWithLink;

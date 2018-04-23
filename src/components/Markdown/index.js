@@ -4,9 +4,6 @@ import Highlight from 'react-highlight';
 import { Link } from 'react-router';
 import ReactMarkdown from 'react-markdown';
 
-import Image from 'components/Image';
-import { toggleSetting } from 'store/actions';
-
 import './atom-dark.scss';
 
 const LinkNode = ({ href, children, alt, title }) => {
@@ -18,18 +15,18 @@ const LinkNode = ({ href, children, alt, title }) => {
 };
 
 class Code extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = { width: window.innerWidth };
   }
 
   componentDidMount () {
     this.updateDimensions();
-    window.addEventListener("resize", () => { this.updateDimensions(); });
+    window.addEventListener('resize', () => { this.updateDimensions(); });
   }
 
   componentWillUnmount () {
-    window.removeEventListener("resize", () => { this.updateDimensions(); });
+    window.removeEventListener('resize', () => { this.updateDimensions(); });
   }
 
   updateDimensions () {
@@ -42,7 +39,7 @@ class Code extends React.Component {
     let lines = literal.split('\n');
 
     if (lines.length > 0) {
-      const reg = new RegExp(/\#\s*[a-z|A-Z|0-9|\-|_|\/]*(\.[a-z]{2,}){1,}/g)
+      const reg = new RegExp(/#\s*[a-z|A-Z|0-9|\-|_|/]*(\.[a-z]{2,}){1,}/g);
       let title;
 
       if (reg.test(lines[0]) || ['bash', 'console'].some(w => lines[0].includes(w))) {
@@ -50,7 +47,7 @@ class Code extends React.Component {
         lines = lines.slice(1);
       }
 
-      return(
+      return (
         <div style={ { maxWidth: `${width - 40}px` } }>
           { title }
           <Highlight className={ language }>{ lines.join('\n') }</Highlight>
@@ -63,21 +60,40 @@ class Code extends React.Component {
 };
 
 class Markdown extends React.Component {
-  render() {
+  render () {
     const { source, className } = this.props;
+
     return (
       <ReactMarkdown
         source={ source }
         className={ className }
         escapeHTML={ true }
-        renderers={{
+        renderers={ {
           CodeBlock: Code,
           Link: LinkNode,
           // Image: Image
-        }}
+        } }
       />
     );
   }
+};
+
+const { string, node } = React.PropTypes;
+LinkNode.propTypes = {
+  href: string,
+  children: node,
+  alt: string,
+  title: string
+};
+
+Markdown.propTypes = {
+  source: string,
+  className: string
+};
+
+Code.propTypes = {
+  language: string,
+  literal: string
 };
 
 export default connect()(Markdown);

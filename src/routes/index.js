@@ -1,8 +1,6 @@
 import _ from 'lodash';
-import React from 'react';
-import Home from './Home'
-import Resume from './Resume'
-import Portfolio from './Portfolio'
+import Resume from './Resume';
+import Portfolio from './Portfolio';
 import Blog from './Blog';
 
 if (window) {
@@ -20,7 +18,7 @@ export const createRoutes = (store) => ({
       onEnter: (params, replace) => {
         const state = store.getState();
         const newest = state.data.posts[state.data.posts.length - 1];
-        return replace(`/blog/${newest.slug}`)
+        return replace(`/blog/${newest.slug}`);
       }
     },
     {
@@ -30,9 +28,9 @@ export const createRoutes = (store) => ({
     {
       path: '*',
       component: Resume,
-      onEnter: (params, replace) => { return replace('/resume'); }
+      onEnter: (params, replace) => replace('/resume')
     }
   ]
-})
+});
 
-export default createRoutes
+export default createRoutes;

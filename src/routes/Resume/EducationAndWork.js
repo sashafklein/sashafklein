@@ -31,7 +31,7 @@ const { array } = React.PropTypes;
 EducationAndWork.propTypes = {
   work: array,
   education: array
-}
+};
 const mapStateToProps = state => ({
   work: state.data.work,
   education: state.data.education

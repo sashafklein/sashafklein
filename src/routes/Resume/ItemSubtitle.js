@@ -6,12 +6,17 @@ const dateString = (item) => {
   } else {
     return [item.roles[0].started, item.roles[item.roles.length - 1].ended].filter(d => d).join('-');
   }
-}
+};
 
 export const ItemSubtitle = ({ item }) => (
   <strong>
     ({ dateString(item) }) - <em>{ item.roles.map(r => r.name).join(', ') }</em>
   </strong>
-)
+);
+
+const { object } = React.PropTypes;
+ItemSubtitle.propTypes = {
+  item: object
+};
 
 export default ItemSubtitle;
