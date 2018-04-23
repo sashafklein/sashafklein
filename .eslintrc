@@ -45,7 +45,7 @@
     "no-else-return": 0,
     "no-extend-native": 1,
     "no-negated-condition": 2,
-    "jsx-quotes": [2, "always"],
+    "jsx-quotes": [2, "prefer-double"],
     "no-param-reassign": 1,
     "semi": [2, "always"],
     "object-curly-spacing": [
