@@ -9,7 +9,7 @@ import Image from 'components/Image';
 
 import 'styles/core.scss';
 
-export const professionalTitle = "Senior Web Developer / Tech Lead";
+export const professionalTitle = "Senior Full Stack Engineer / Tech Lead";
 const descriptionText = [
   'Full-stack developer',
   ' and ',

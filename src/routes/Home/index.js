@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 import { toggleSetting } from 'store/actions';
@@ -23,7 +23,12 @@ const component = (path, location, dispatch) => {
 
 
   if (isActive) {
-    return <a { ...props } onClick={ () => { dispatch(toggleSetting('navOpen', false)) } }>
+    return <a { ...props } onClick={ () => {
+      if (location.pathname.includes('/projects') && open) {
+        browserHistory.push('/projects');
+      }
+      dispatch(toggleSetting('navOpen', false));
+    } }>
       { content }
     </a>
   } else {

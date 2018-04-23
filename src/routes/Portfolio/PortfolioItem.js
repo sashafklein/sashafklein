@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { connect } from 'react-redux';
 import Markdown from 'components/Markdown';
 import Image from 'components/Image';
 
 export const slug = title => title.toLowerCase().split(' ').join('-');
 
 export class PortfolioItem extends React.Component {
-  render() {
+  render () {
     const { item } = this.props;
+
     return (
       <div
         className="portfolio-item"
@@ -19,13 +20,13 @@ export class PortfolioItem extends React.Component {
           <div className="sidebar black-links">
             <div className="show-medium">
               { item.bullets &&
-                  <ul className="port-list hide-medium">
-                    {
-                      item.bullets.map((bullet, bulletIndex) => (
-                        <li key={ bulletIndex }>{ bullet }</li>
-                      ))
-                    }
-                  </ul>
+                <ul className="port-list hide-medium">
+                  {
+                    item.bullets.map((bullet, bulletIndex) => (
+                      <li key={ bulletIndex }>{ bullet }</li>
+                    ))
+                  }
+                </ul>
               }
             </div>
           </div>
@@ -51,4 +52,8 @@ export class PortfolioItem extends React.Component {
   }
 };
 
-export default PortfolioItem;
+const mapStateToProps = state => ({
+  portfolioItems: state.data.portfolioItems
+});
+
+export default connect(mapStateToProps)(PortfolioItem);

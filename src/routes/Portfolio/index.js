@@ -1,51 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import CoreLayout from 'containers/CoreLayout'
+import CoreLayout from 'containers/CoreLayout';
 import PortfolioItem, { slug } from './PortfolioItem';
 import PortfolioGrid from './PortfolioGrid';
 
 export class Portfolio extends React.Component {
-  componentWillMount() {
-
-  }
-
-  componentDidMount () {
-    setTimeout(() => {
-      this.jumpToSpecified();
-    }, 800)
-  }
-
-  componentWillReceiveProps() {
-    this.jumpToSpecified();
-  }
-
-  jumpToSpecified() {
+  render () {
     const { portfolioItems } = this.props;
+    const specified = this.props.location.hash && this.props.location.hash.replace('#', '');
 
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
-      const item = portfolioItems.find(i => slug(i.title) === id);
-
-      if (item) {
-        const element = document.getElementById(id);
-
-        element.parentElement.scrollIntoView();
-      }
-    }
-  }
-
-  render() {
-    const { portfolioItems } = this.props;
+    const items = specified && specified.length && portfolioItems.find(i => slug(i.title) === specified)
+      ? portfolioItems.filter(i => slug(i.title) === specified)
+      : portfolioItems;
 
     return (
       <CoreLayout className="portfolio">
         {
-          portfolioItems.map((item, index) => (
+          items.map((item, index) => (
             <PortfolioItem
               key={ index }
               item={ item }
-              nextItem={ portfolioItems[index + 1] }
             />
           ))
         }
@@ -55,9 +30,10 @@ export class Portfolio extends React.Component {
   }
 };
 
-const { array } = React.PropTypes;
+const { array, object } = React.PropTypes;
 Portfolio.propTypes = {
-  portfolioItems: array
+  portfolioItems: array,
+  location: object
 };
 
 const mapStateToProps = state => ({
