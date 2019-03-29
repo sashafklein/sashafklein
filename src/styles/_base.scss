@@ -6,9 +6,30 @@ body {
 }
 
 .core-layout {
-  transition: 0.7s opacity ease;
-  opacity: 1;
+  transition: 1s opacity ease;
+  transition: transform 500ms ease, opacity 800ms ease;
+  opacity: 0;
+  height: 100%;
+
+  &.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.loading {
+    transform: translateY(-40px);
+  }
+
   &.hidden {
+    opacity: 0;
+  }
+
+  .page-container {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+
+  &.tab-open .page-container {
     opacity: 0;
   }
 }

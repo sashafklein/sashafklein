@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import SlideMenu from 'components/SlideMenu';
 
@@ -12,7 +13,8 @@ const skillComponent = (skill) => {
   };
 
   return {
-    2: <p className="small" { ...props }>{ skill.name }</p>,
+    1: <p { ...props } className="skill xs">{ skill.name }</p>,
+    2: <p { ...props } className="skill small">{ skill.name }</p>,
     3: <p { ...props }>{ skill.name }</p>,
     4: <h5 { ...props }>{ skill.name }</h5>,
     5: <h4 { ...props }>{ skill.name }</h4>,
@@ -28,8 +30,8 @@ export const SkillOverlay = ({ skills }) => (
       <h1 className="h0" style={ { textAlign: 'center', color: 'white' } }>(Tech) Skills</h1>
       <div className="skills">
         {
-          skills.map((skill, skillIndex) => (
-            <div className="skills-row" key={ skillIndex }>
+          skills.map(skill => (
+            <div className="skills-row" key={ skill.name }>
               { skillComponent(skill) }
             </div>
           ))
@@ -39,7 +41,7 @@ export const SkillOverlay = ({ skills }) => (
   </SlideMenu>
 );
 
-const { array } = React.PropTypes;
+const { array } = PropTypes;
 SkillOverlay.propTypes = {
   skills: array
 };

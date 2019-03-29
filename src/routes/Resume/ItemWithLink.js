@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import ItemSubtitle from './ItemSubtitle';
 
 export const ItemWithLink = ({ item }) => (
@@ -15,7 +16,7 @@ export const ItemWithLink = ({ item }) => (
   </li>
 );
 
-const { object } = React.PropTypes;
+const { object } = PropTypes;
 ItemWithLink.propTypes = {
   item: object
 };

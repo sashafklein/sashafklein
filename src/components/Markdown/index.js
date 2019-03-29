@@ -1,8 +1,10 @@
+/* eslint react/no-multi-comp: 0 */
 import React from 'react';
 import { connect } from 'react-redux';
 import Highlight from 'react-highlight';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import PropTypes from 'prop-types';
 
 import './atom-dark.scss';
 
@@ -57,28 +59,22 @@ class Code extends React.Component {
       return <Highlight className={ language }>{ literal }</Highlight>;
     }
   }
-};
+}
 
-class Markdown extends React.Component {
-  render () {
-    const { source, className } = this.props;
+const Markdown = ({ source, className }) => (
+  <ReactMarkdown
+    source={ source }
+    className={ className }
+    escapeHTML={ true }
+    renderers={ {
+      CodeBlock: Code,
+      Link: LinkNode,
+      // Image: Image
+    } }
+  />
+);
 
-    return (
-      <ReactMarkdown
-        source={ source }
-        className={ className }
-        escapeHTML={ true }
-        renderers={ {
-          CodeBlock: Code,
-          Link: LinkNode,
-          // Image: Image
-        } }
-      />
-    );
-  }
-};
-
-const { string, node } = React.PropTypes;
+const { string, node } = PropTypes;
 LinkNode.propTypes = {
   href: string,
   children: node,

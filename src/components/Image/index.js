@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Image.scss';
 
@@ -22,19 +23,20 @@ export class Image extends React.Component {
 
     return (
       <img
-        ref={ el => { this.img = el; } }
+        ref={ (el) => { this.img = el; } }
         className={ classes }
         src={ src }
         onLoad={ () => {
           this.setState({ loaded: true });
         } }
+        alt={ props.alt || props.src }
         { ...props }
       />
     );
   }
-};
+}
 
-const { string, bool } = React.PropTypes;
+const { string, bool } = PropTypes;
 Image.propTypes = {
   className: string,
   show: bool,

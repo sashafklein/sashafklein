@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import Markdown from 'components/Markdown';
 
-import { toggleOpenItem } from 'store/actions';
+import { toggleOpenItem } from 'redux/actions';
 
 import ItemSubtitle from './ItemSubtitle';
 import RoleSubtitle from './RoleSubtitle';
@@ -34,8 +36,8 @@ const ItemWithoutLink = ({ item, dispatch, openItems }) => {
       </p>
       <div className="roles">
         {
-          item.roles.map((role, index) => (
-            <div className="subsection" key={ index } style={ { marginTop: '5px' } }>
+          item.roles.map(role => (
+            <div className="subsection" key={ role.started } style={ { marginTop: '5px' } }>
               { manyRoles && <RoleSubtitle role={ role } /> }
               <div className={ `paragraph ${item.roles.length > 1 ? 'subrole' : ''}` }>
                 <Markdown source={ role.description } />
@@ -48,7 +50,7 @@ const ItemWithoutLink = ({ item, dispatch, openItems }) => {
   );
 };
 
-const { func, object, array } = React.PropTypes;
+const { func, object, array } = PropTypes;
 ItemWithoutLink.propTypes = {
   item: object,
   dispatch: func,

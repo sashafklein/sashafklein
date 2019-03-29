@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Markdown from 'components/Markdown';
 import Image from 'components/Image';
 
@@ -14,18 +15,18 @@ export const PortfolioItem = ({ item }) => (
     >
       <div className="sidebar black-links">
         <div className="show-medium">
-          { item.bullets &&
+          { item.bullets && (
             <ul className="port-list hide-medium">
               {
-                item.bullets.map((bullet, bulletIndex) => (
-                  <li key={ bulletIndex }>{ bullet }</li>
+                item.bullets.map(bullet => (
+                  <li key={ bullet.split(' ').join('-') }>{ bullet }</li>
                 ))
               }
             </ul>
-          }
+          ) }
         </div>
       </div>
-      <div className="black-links" style={ { width: '100%' } }>
+      <div className="black-links">
         <a href={ item.link } style={ { width: '100%' } }>
           <Image src={ item.image } className="port-photo content-section" alt={ item.title } style={ { width: '100%' } } />
         </a>
@@ -45,7 +46,7 @@ export const PortfolioItem = ({ item }) => (
   </div>
 );
 
-const { object } = React.PropTypes;
+const { object } = PropTypes;
 PortfolioItem.propTypes = {
   item: object
 };

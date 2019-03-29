@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ItemWithoutLink from './ItemWithoutLink';
 import ItemWithLink from './ItemWithLink';
 
@@ -12,7 +13,7 @@ export const ResumeItem = ({ item }) => (
   </ul>
 );
 
-const { object } = React.PropTypes;
+const { object } = PropTypes;
 ResumeItem.propTypes = {
   item: object
 };

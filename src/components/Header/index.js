@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Image from 'components/Image';
+import { toggleSetting } from 'redux/actions';
 import Pig from './pig.png';
-
-import { toggleSetting } from 'store/actions';
 
 export const Header = ({ flash, navOpen, dispatch }) => (
   <div>
@@ -33,11 +33,12 @@ export const Header = ({ flash, navOpen, dispatch }) => (
         </div>
       </div>
     </div>
-    <div className="header-spacer" />
     { flash &&
-      <div className="alert center">
-        <p>{ flash }</p>
-      </div>
+      (
+        <div className="alert center">
+          <p>{ flash }</p>
+        </div>
+      )
     }
   </div>
 );
@@ -47,7 +48,7 @@ const mapStateToProps = state => ({
   navOpen: state.settings.navOpen
 });
 
-const { string, bool, func } = React.PropTypes;
+const { string, bool, func } = PropTypes;
 Header.propTypes = {
   flash: string,
   navOpen: bool,

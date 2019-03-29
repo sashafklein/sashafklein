@@ -1,2 +1,8 @@
-redirects = [
-  {from = "/*", to = "/index.html", status = 200}]
+[build]
+  Command = "yarn build"
+  Publish = "build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

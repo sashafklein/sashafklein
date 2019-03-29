@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import ResumeItem from './ResumeItem';
 
@@ -8,8 +9,8 @@ const EducationAndWork = ({ work, education }) => (
     <h1 className="section-header">Work Experience</h1>
     <div className="inset experience">
       {
-        work.map((job, index) => (
-          <ResumeItem key={ index } item={ job } />
+        work.map(job => (
+          <ResumeItem key={ job.title.split(' ').join('-') } item={ job } />
         ))
       }
     </div>
@@ -19,15 +20,15 @@ const EducationAndWork = ({ work, education }) => (
     <h1 className="section-header">Education</h1>
     <div className="inset education">
       {
-        education.map((school, index) => (
-          <ResumeItem key={ index } item={ school } />
+        education.map(school => (
+          <ResumeItem key={ school.title.split(' ').join('-') } item={ school } />
         ))
       }
     </div>
   </div>
 );
 
-const { array } = React.PropTypes;
+const { array } = PropTypes;
 EducationAndWork.propTypes = {
   work: array,
   education: array

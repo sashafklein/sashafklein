@@ -1,28 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-export class SlideMenu extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = { query: '', searching: false };
-  }
-
-  render () {
-    const { open, className, children } = this.props;
-
-    return (
-      <div className={ `slide-menu ${open ? 'open' : ''} ${className}` }>
-        { children }
-      </div>
-    );
-  };
-}
+export const SlideMenu = ({ open, className, children }) => (
+  <div className={ `slide-menu ${open ? 'open' : ''} ${className}` }>
+    { children }
+  </div>
+);
 
 const mapStateToProps = state => ({
   open: state.settings.tabOpen
 });
 
-const { bool, string, node } = React.PropTypes;
+const { bool, string, node } = PropTypes;
 SlideMenu.propTypes = {
   open: bool,
   className: string,

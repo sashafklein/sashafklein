@@ -1,85 +1,70 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Meta from 'react-meta-tags';
-import ReactGA from 'react-ga';
+import PropTypes from 'prop-types';
 
-import { toggleSetting } from 'store/actions';
+import { toggleSetting } from 'redux/actions';
 
 import { professionalTitle } from 'routes/Resume';
 import Header from 'components/Header';
 import Tab from 'components/Tab';
 import NavMenu from 'routes/Home';
 
-ReactGA.initialize('UA-117151476-1');
+export const CoreLayout = ({ dispatch, children, className, navOpen, location, tabOpen }) => {
+  const [loaded, setLoaded] = useState(false);
 
-export class CoreLayout extends React.Component {
-  componentDidMount () {
-    setTimeout(() => {
-      this.props.dispatch(toggleSetting('navOpen', false));
-    }, 0);
-    this.trackVisit();
-  }
+  useEffect(() => {
+    setTimeout(() => dispatch(toggleSetting('navOpen', false)), 0);
+    setTimeout(() => setLoaded(true), 0);
+  }, () => {
+    dispatch(toggleSetting('tabOpen', false));
+  });
 
-  componentWillReceiveProps (newProps) {
-    if (newProps.location !== this.props.location) {
-      this.props.dispatch(toggleSetting('tabOpen', false));
-    }
-    this.trackVisit();
-  }
+  const page = location.pathname.split('/')[1] || 'resume';
 
-  componentWillUnmount () {
-    this.props.dispatch(toggleSetting('tabOpen', false));
-  }
+  const desc = {
+    blog: 'Very occasional thoughts about coding, travel, and life.',
+    projects: 'Saunas, web apps, and random junk.',
+    resume: professionalTitle
+  }[page];
 
-  trackVisit () {
-    if (window.location.href.indexOf('sashafklein.com') !== -1) {
-      ReactGA.pageview(window.location.href);
-    }
-  }
+  const title = `Sasha Klein - ${page[0].toUpperCase().concat(page.slice(1))}`;
 
-  render () {
-    const { children, className, navOpen } = this.props;
-
-    const page = location.pathname.split('/')[1] || 'resume';
-
-    const desc = {
-      blog: 'Very occasional thoughts about coding, travel, and life.',
-      projects: 'Saunas, web apps, and random junk.',
-      resume: professionalTitle
-    }[page];
-
-    const title = `Sasha Klein - ${page[0].toUpperCase().concat(page.slice(1))}`;
-
-    return (
-      <div className={ className }>
-        <Meta>
-          <title>{ title }</title>
-          <meta id="meta-description" name="description" content={ desc } />
-          <meta id="og-title" property="og:title" content={ title } />
-          <meta id="og-image" property="og:image" content="https://dl.dropboxusercontent.com/s/kbi6shbk5a5r54x/headshot2.jpg?dl=0" />
-        </Meta>
-        <Header />
-        <div className={ `core-layout` }>
-          { children }
-        </div>
-        <NavMenu open={ navOpen } />
-        <Tab />
+  return (
+    <div className={ className }>
+      <Meta>
+        <title>{ title }</title>
+        <meta id="meta-description" name="description" content={ desc } />
+        <meta id="og-title" property="og:title" content={ title } />
+        <meta id="og-image" property="og:image" content="https://dl.dropboxusercontent.com/s/kbi6shbk5a5r54x/headshot2.jpg?dl=0" />
+      </Meta>
+      <Header />
+      <div className="header-spacer" />
+      <div className={ `core-layout ${loaded ? 'loaded' : 'loading'} ${tabOpen ? 'tab-open' : ''}` }>
+        { children }
       </div>
-    );
-  }
+      <NavMenu open={ navOpen } />
+      <Tab />
+    </div>
+  );
 };
 
-const { element, string, func, bool, object } = React.PropTypes;
+const { element, string, func, bool, object } = PropTypes;
 CoreLayout.propTypes = {
   children: element.isRequired,
   className: string,
   navOpen: bool,
   dispatch: func,
-  location: object
+  location: object,
+  tabOpen: bool
 };
 
 CoreLayout.defaultProps = {
   className: ''
 };
 
-export default connect(s => ({ navOpen: s.settings.navOpen }))(CoreLayout);
+export default connect(s => ({
+  navOpen: s.settings.navOpen,
+  location: s.router.location,
+  tabOpen: s.settings.tabOpen
+}))(CoreLayout);

@@ -1,31 +1,21 @@
 import React from 'react';
+import Markdown from 'react-markdown';
 
 import CoreLayout from 'containers/CoreLayout';
+import Image from 'components/Image';
 import SkillsOverlay from './SkillsOverlay';
 import EducationAndWork from './EducationAndWork';
-import Image from 'components/Image';
 
 import 'styles/core.scss';
 
 export const professionalTitle = 'Senior Full Stack Engineer / Tech Lead';
-const descriptionText = [
-  'Full-stack developer',
-  ' and ',
-  'entrepreneur',
-  ', comfortable with a ',
-  'wide range of technologies',
-  ' and experienced ',
-  'leading teams',
-  ' and ',
-  'running client projects',
-  '.'
-];
+const descriptionMd = 'Full-stack **engineer**, engineering **manager**, and **entrepreneur**, confident with a **wide range of technologies** and experienced **leading teams** and running client projects.';
 
-const description = <p>{ descriptionText.map((t, i) => i % 2 === 0 ? <strong key={ i }>{t}</strong> : t) }</p>;
+const description = <Markdown source={ descriptionMd } />;
 
 export const Resume = () => (
   <CoreLayout className="resume">
-    <div className="resume-container undecorated">
+    <div className="page-container resume-container undecorated">
       <div className="header-area">
         <div className="container med-and-up header-container">
           <div className="headshot-box">
@@ -54,8 +44,8 @@ export const Resume = () => (
       <div className="main-resume-body container blue-links">
         <EducationAndWork />
       </div>
-      <SkillsOverlay />
     </div>
+    <SkillsOverlay />
   </CoreLayout>
 );
 

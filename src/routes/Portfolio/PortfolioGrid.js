@@ -1,21 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import { slug } from './PortfolioItem';
 import SlideMenu from 'components/SlideMenu';
+import { slug } from './PortfolioItem';
 
 export function PortfolioGrid ({ items }) {
   return (
     <SlideMenu className="portfolio-grid">
       <div className="portfolio-grid__inner">
         {
-          items.map((item, index) => (
-            <Link key={ index } className="portfolio-grid__image-container" to={ `/projects#${slug(item.title)}` }>
+          items.map(item => (
+            <Link key={ slug(item.title) } className="portfolio-grid__image-container" to={ `/projects#${slug(item.title)}` }>
               <div
                 className="portfolio-grid__image"
                 style={ { backgroundImage: `url(${item.image})` } }
-               />
+              />
               <h1 className="portfolio-grid__title">{ item.title }</h1>
             </Link>
           ))
@@ -25,7 +26,7 @@ export function PortfolioGrid ({ items }) {
   );
 }
 
-const { array } = React.PropTypes;
+const { array } = PropTypes;
 PortfolioGrid.propTypes = {
   items: array
 };

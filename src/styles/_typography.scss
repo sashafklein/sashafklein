@@ -19,6 +19,10 @@ small, .small {
   @include responsiveFont($smallFont);
 }
 
+.xs {
+  @include responsiveFont($tinyFont);
+}
+
 h5 {
   @include responsiveFont($h5);
 }
