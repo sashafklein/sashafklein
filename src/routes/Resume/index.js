@@ -11,7 +11,7 @@ import EducationAndWork from './EducationAndWork';
 import 'styles/core.scss';
 
 export const professionalTitle = 'Senior Full Stack Engineer & Manager';
-const descriptionMd = 'Full-stack **engineer**, and engineering **manager**, comfortable with a **wide range of technologies** and experienced **leading teams** and running client projects.';
+const descriptionMd = 'Full-stack **engineer** and engineering **manager**, comfortable with a **wide range of technologies** and experienced **leading teams** and running projects.';
 
 const description = <Markdown source={ descriptionMd } />;
 
