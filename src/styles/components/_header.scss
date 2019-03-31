@@ -9,6 +9,7 @@
 
   .fa-bars {
     cursor: pointer;
+    @include responsiveFont($h3);
   }
 
   .fa-bars:hover:before {
@@ -21,12 +22,14 @@
   .header-content {
     width: 100%;
   }
+
   .flex-link {
     display: flex;
     flex: 1;
   }
+
   .right-section {
-    a.fa {
+    .fa {
       z-index: 1001;
       color: white;
       position: absolute;
@@ -35,35 +38,25 @@
       line-height: #{$p * 1.7};
       margin-right: 0;
       transition: color 1s ease;
+
       &.open {
         color: black;
       }
     }
   }
+
   @media only screen and (min-device-width: 300px) {
-    .hamburger {
-      display: flex;
-      opacity: 1;
-      cursor: pointer;
-    }
     .header-content {
       display: flex;
       padding: 20px 0;
     }
-    .pig-link {
-      letter-spacing: 1px;
-      img {
-        display: none;
-      }
-    }
-    .full-link {
-      display: none;
-    }
   }
+
   .container.top-section {
     position: relative;
     top: 30%;
   }
+
   .pig-link {
     img {
       margin: (-15px) 15px -5px 0;
@@ -73,15 +66,19 @@
       }
     }
   }
+
   a {
+    margin-right: 15px;
+
     &:link, &:visited {
       color: white;
     }
+
     &:hover {
       color: $lightPink;
       text-decoration: none;
     }
-    margin-right: 15px;
+
   }
 }
 

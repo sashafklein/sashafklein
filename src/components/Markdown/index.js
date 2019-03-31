@@ -11,7 +11,7 @@ import './atom-dark.scss';
 
 const LinkNode = ({ href, children, alt, title }) => {
   if (href.includes('http')) {
-    return (<a href={ href } target="_blank" alt={ alt } title={ title }>{ children }</a>);
+    return (<a href={ href } target="blank" rel="noopener noreferrer" alt={ alt } title={ title }>{ children }</a>);
   } else {
     return (<Link to={ href } alt={ alt } title={ title }>{ children }</Link>);
   }

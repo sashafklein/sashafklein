@@ -21,10 +21,10 @@ export const Image = (props) => {
     <Img
       ref={ image }
       className={ classes.join(' ') }
-      src={ src }
       onLoad={ () => { setLoaded(true); } }
-      alt={ props.alt || props.src }
-      loader={ <img className={ `image-comp image-loader-gradient ${className}` } /> }
+      alt={ props.alt || props.src || '' }
+      src={ src }
+      loader={ <img alt="Loading" className={ `image-comp image-loader-gradient ${className}` } /> }
       {
       ...Object.keys(props)
         .filter(k => !['show'].includes(k)).reduce((obj, k) => ({

@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import Image from 'components/Image';
 import { toggleSetting } from 'redux/actions';
-import Pig from './pig.png';
 
 export const Header = ({ navOpen, dispatch }) => (
   <div className="header-bar">
@@ -14,14 +12,13 @@ export const Header = ({ navOpen, dispatch }) => (
         <div className="left-section">
           <div className="flex-link">
             <Link to="/resume" className="pig-link">
-              <Image src={ Pig } alt="pig" />
               Sasha Klein
             </Link>
           </div>
         </div>
         <div className="right-section">
           <div className="flex-link">
-            <a
+            <span
               className={ 'fa fa-bars'.concat(navOpen ? ' open' : '') }
               onClick={
                 () => { dispatch(toggleSetting('navOpen', !navOpen)); }

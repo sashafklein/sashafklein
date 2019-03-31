@@ -30,13 +30,13 @@ export const Resume = () => (
           <div className="name-and-icons">
             <h1 className="name">Sasha Klein</h1>
             <div className="link-icons">
-              <a target="_blank" href="https://git.io/sasha">
+              <a target="blank" rel="noopener noreferrer" href="https://git.io/sasha">
                 <i className="fa fa-github" />
               </a>
-              <a target="_blank" href="https://www.linkedin.com/pub/sasha-klein/34/595/1b5">
+              <a target="blank" rel="noopener noreferrer" href="https://www.linkedin.com/pub/sasha-klein/34/595/1b5">
                 <i className="fa fa-linkedin-square" />
               </a>
-              <a target="_blank" href="http://stackoverflow.com/users/1408935/sasha">
+              <a target="blank" rel="noopener noreferrer" href="http://stackoverflow.com/users/1408935/sasha">
                 <i className="fa fa-stack-overflow" />
               </a>
             </div>

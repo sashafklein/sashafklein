@@ -14,7 +14,7 @@ export const PortfolioItem = ({ item }) => (
       id={ slug(item.title) }
     >
       <div className="black-links">
-        <a target="_blank" href={ item.link } style={ { width: '100%' } }>
+        <a target="blank" rel="noopener noreferrer" href={ item.link } style={ { width: '100%' } }>
           <Image src={ item.image } className="port-photo content-section" alt={ item.title } style={ { width: '100%' } } />
         </a>
       </div>
