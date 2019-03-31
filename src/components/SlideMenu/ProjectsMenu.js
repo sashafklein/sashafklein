@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { slug } from 'routes/Portfolio/PortfolioItem';
+import { slug } from 'routes/Projects/ProjectItem';
 import AnimatedLoader from 'components/AnimatedLoader';
 
 export function PortfolioGrid ({ items, tabOpen }) {
