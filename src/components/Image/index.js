@@ -1,47 +1,47 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+import Img from 'react-image';
 
 import './Image.scss';
 
-export class Image extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = { loaded: false };
-  }
+export const Image = (props) => {
+  const { className, show, src, loadedClass } = props;
+  const [loaded, setLoaded] = useState(false);
+  const image = useRef(null);
 
-  render () {
-    const { className, show, src, loadedClass, ...props } = this.props;
-    const { loaded } = this.state;
+  const classes = [
+    'image image-comp',
+    (loaded && show)
+      ? loadedClass || 'image-loaded'
+      : null,
+    className
+  ].filter(c => c);
 
-    let classes = 'image';
-    if (loaded && show) {
-      classes += ' '.concat(loadedClass || 'image-loaded');
-    }
-    if (className) {
-      classes += ' '.concat(className);
-    }
-
-    return (
-      <img
-        ref={ (el) => { this.img = el; } }
-        className={ classes }
-        src={ src }
-        onLoad={ () => {
-          this.setState({ loaded: true });
-        } }
-        alt={ props.alt || props.src }
-        { ...props }
-      />
-    );
-  }
-}
+  return (
+    <Img
+      ref={ image }
+      className={ classes.join(' ') }
+      src={ src }
+      onLoad={ () => { setLoaded(true); } }
+      alt={ props.alt || props.src }
+      loader={ <img className={ `image-comp image-loader-gradient ${className}` } /> }
+      {
+      ...Object.keys(props)
+        .filter(k => !['show'].includes(k)).reduce((obj, k) => ({
+          [k]: obj[k]
+        }), {})
+      }
+    />
+  );
+};
 
 const { string, bool } = PropTypes;
 Image.propTypes = {
   className: string,
   show: bool,
   src: string,
-  loadedClass: string
+  loadedClass: string,
+  alt: string
 };
 
 Image.defaultProps = {

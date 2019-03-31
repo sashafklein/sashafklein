@@ -15,6 +15,7 @@ const locationMiddleware = store => next => (action) => {
   if (action.type === '@@router/LOCATION_CHANGE') {
     const route = action.payload;
     const nextPage = `${route.location.pathname}${route.location.search}`;
+    window.scrollTo(0, 0);
 
     if (window.location.href.includes('sashafklein.com')) {
       ReactGA.pageview(nextPage);

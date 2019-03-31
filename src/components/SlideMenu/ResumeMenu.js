@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import SlideMenu from 'components/SlideMenu';
+import AnimatedLoader from 'components/AnimatedLoader';
 
 const skillComponent = (skill) => {
   const style = { margin: 0, lineHeight: `${skill.scale * 6 + 24}px` };
@@ -24,30 +24,34 @@ const skillComponent = (skill) => {
   }[skill.scale.toString()];
 };
 
-export const SkillOverlay = ({ skills }) => (
-  <SlideMenu className="skills-overlay">
-    <div>
-      <h1 className="h0" style={ { textAlign: 'center', color: 'white' } }>(Tech) Skills</h1>
-      <div className="skills">
-        {
-          skills.map(skill => (
-            <div className="skills-row" key={ skill.name }>
-              { skillComponent(skill) }
-            </div>
-          ))
-        }
-      </div>
+export const SkillOverlay = ({ skills, tabOpen }) => (
+  <div className="skills-overlay">
+    <div className="skills">
+      <h1 className="h0" style={ { textAlign: 'center', color: 'white' } }>Skills</h1>
+      {
+        tabOpen && skills.map((skill, index) => (
+          <AnimatedLoader
+            className="skills-row fade-and-slide-up"
+            key={ skill.name }
+            waitMs={ 200 + index * 50 }
+          >
+            { skillComponent(skill) }
+          </AnimatedLoader>
+        ))
+      }
     </div>
-  </SlideMenu>
+  </div>
 );
 
-const { array } = PropTypes;
+const { array, bool } = PropTypes;
 SkillOverlay.propTypes = {
-  skills: array
+  skills: array,
+  tabOpen: bool
 };
 
 const mapStateToProps = state => ({
-  skills: state.data.skills
+  skills: state.data.skills,
+  tabOpen: state.settings.tabOpen
 });
 
 export default connect(mapStateToProps)(SkillOverlay);

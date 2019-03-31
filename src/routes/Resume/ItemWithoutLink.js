@@ -37,7 +37,7 @@ const ItemWithoutLink = ({ item, dispatch, openItems }) => {
       <div className="roles">
         {
           item.roles.map(role => (
-            <div className="subsection" key={ role.started } style={ { marginTop: '5px' } }>
+            <div className="subsection" key={ role.started.concat(role.ended) } style={ { marginTop: '5px' } }>
               { manyRoles && <RoleSubtitle role={ role } /> }
               <div className={ `paragraph ${item.roles.length > 1 ? 'subrole' : ''}` }>
                 <Markdown source={ role.description } />

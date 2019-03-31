@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 import { object } from 'prop-types';
 
 import AppContainer from 'containers/AppContainer';
+import CoreLayout from 'containers/CoreLayout';
 
 import Resume from './Resume';
-import Projects from './Portfolio';
+import Projects from './Projects';
 import Blog from './Blog';
 import BlogLanding from './Blog/BlogLanding';
 
@@ -24,10 +25,7 @@ export const routes = [
   { path: '/', component: Resume },
   { path: '/projects', component: Projects },
   { path: '/resume', component: Resume },
-  {
-    path: '/blog',
-    component: BlogLanding
-  },
+  { path: '/blog', component: BlogLanding },
   { path: '/blog/:postSlug', component: Blog }
 ];
 
@@ -36,18 +34,23 @@ export const routes = [
  */
 const Routes = ({ router }) => {
   const { location } = router;
+  const page = location.pathname.split('/')[1] || 'resume';
+
   return (
     <AppContainer>
-      <Switch location={ location }>
-        {
-          routes.map(route => (
-            <Route
-              { ..._.pick(route, 'path', 'component', 'onEnter') }
-              exact={ true }
-            />
-          ))
-        }
-      </Switch>
+      <CoreLayout page={ page }>
+        <Switch location={ location }>
+          {
+            routes.map(route => (
+              <Route
+                { ..._.pick(route, 'path', 'component', 'onEnter') }
+                key={ route.path }
+                exact={ true }
+              />
+            ))
+          }
+        </Switch>
+      </CoreLayout>
     </AppContainer>
   );
 };

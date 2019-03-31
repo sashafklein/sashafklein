@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { push } from 'connected-react-router';
 import PropTypes from 'prop-types';
 
 import { toggleSetting } from 'redux/actions';
 
-const Tab = ({ open, version, dispatch, history, router }) => {
+const Tab = ({ open, version, dispatch, router }) => {
   if (!version) return null;
 
   const direction = open ? 'up' : 'down';
   const toggle = () => {
     if (router.location.pathname.includes('/projects') && open) {
-      history.push('/projects');
+      dispatch(push('/projects'));
     }
     dispatch(toggleSetting('tabOpen', !open));
   };
@@ -30,9 +31,8 @@ const mapStateToProps = (state) => {
 
   return {
     open: state.settings.tabOpen,
-    version,
     router: state.router,
-    history: state.history
+    version
   };
 };
 
@@ -41,7 +41,6 @@ Tab.propTypes = {
   open: bool,
   version: string,
   dispatch: func,
-  history: shape({ push: func }),
   router: shape({ location: shape({ pathname: string }) })
 };
 

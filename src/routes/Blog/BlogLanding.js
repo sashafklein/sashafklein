@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
-import { object } from 'prop-types';
+import { object, func } from 'prop-types';
+import { push } from 'connected-react-router';
 
-export const BlogLanding = ({ post, history }) => {
+export const BlogLanding = ({ post, dispatch }) => {
   const path = post ? `/blog/${post.slug}` : '/';
-  history.push(path);
+  dispatch(push(path));
   return null;
 };
 
 BlogLanding.propTypes = {
   post: object,
-  history: object
+  dispatch: func
 };
 
 const mapStateToProps = state => ({

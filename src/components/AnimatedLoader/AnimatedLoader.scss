@@ -1,0 +1,10 @@
+.loader.fade-and-slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 300ms ease, opacity 800ms ease;
+
+  &.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

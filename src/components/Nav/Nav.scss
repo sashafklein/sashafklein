@@ -1,54 +1,49 @@
 $textAndBorder: lighten(#333333, 5);
 
-.landing {
+.nav {
   height: 100%;
   width: 100%;
   position: fixed;
   background-color: white;
   z-index: 1000;
   top: 0;
-  right: -100%;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: transform 0.4s ease;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
 
   &.open {
-    transform: translateX(-100%);
-
-    .landing-buttons {
-      opacity: 1;
-    }
+    opacity: 1;
+    pointer-events: all;
   }
 
-  .landing-buttons {
+  .nav-buttons {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: 0;
-    opacity: 0;
-    transition: opacity 1s ease;
+    height: 100vh;
+    padding: 3vh 0;
+    align-items: center;
 
-    .landing-button {
-      display: flex;
-      flex: 1;
+    .nav-button {
       border-radius: 10px;
       text-align: center;
       vertical-align: middle;
       background-color: white;
-      transition: all 1s ease;
+      display: flex;
+      margin-top: 1rem;
+      width: 100%;
 
       &:hover {
         background-color: rgba(24, 113, 188, 0.3);
-
-        .inner-text a {
-          // color: white;
-        }
       }
 
       .inner-text {
         text-align: center;
-        padding: 5% 0;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -59,11 +54,10 @@ $textAndBorder: lighten(#333333, 5);
           cursor: pointer;
         }
 
-        a {
+        span {
           text-decoration: none;
           font-family: Montserrat;
           font-weight: 900;
-          padding: 8% 0;
           vertical-align: middle;
           text-align: center;
           color: black;
@@ -93,9 +87,10 @@ $textAndBorder: lighten(#333333, 5);
       }
     }
   }
+
   a {
     .inner-text {
-      a {
+      span {
         text-decoration: none !important;
         &:hover {
           text-decoration: none !important;
@@ -103,46 +98,32 @@ $textAndBorder: lighten(#333333, 5);
       }
     }
   }
-  .landing-button:hover {
+
+  .nav-button:hover {
     .inner-text {
-      a {
+      span {
         text-decoration: none !important;
       }
     }
   }
-  @media only screen and (min-device-width: 800px) {
-    .landing-button {
-      a {
-        font-size: 6vw !important;
-      }
+
+  .nav-button {
+    a, span {
+      font-size: 7vw !important;
     }
   }
-  @media only screen and (min-device-width: 1000px) {
-    .landing-buttons {
-      .landing-button {
-        width: 70%;
-        margin-left: 15% !important;
-        a {
-          font-size: 6vw !important;
-        }
-      }
+
+  @media only screen and (max-device-width: 800px) {
+    a, span {
+      font-size: 14vw !important;
     }
   }
-  @media only screen and (min-device-width: 300px) {
-    .landing-button {
-      margin-top: 2vh !important;
-      margin-bottom: 2vh !important;
-      margin-right: 8vw !important;
-      margin-left: 8vw !important;
-      &:first-child {
-        margin-top: 8vh !important;
-      }
-      &:last-child {
-        margin-bottom: 8vh !important;
-      }
-      a {
-        font-size: 8vw !important;
-      }
-    }
+
+  .nav-button-loader {
+    height: 25%;
+    display: flex;
+    flex: 1;
+    width: 90%;
+    max-width: 600px;
   }
 }

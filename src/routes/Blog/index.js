@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Markdown from 'components/Markdown';
-import SlideMenu from 'components/SlideMenu';
-import CoreLayout from 'containers/CoreLayout';
-import BlogMenu from './BlogMenu';
 
 export const Blog = ({ history, posts, pathname }) => {
   const post = posts.find(p => (
@@ -20,29 +17,20 @@ export const Blog = ({ history, posts, pathname }) => {
   }
 
   return (
-    <CoreLayout className="page-container blog">
-      <div>
-        <div className="container posts-show">
-          <div className="content-section">
-            <h1 className="small-buffer-top">
-              { post.name }
-              <small>
-                {' '}
-(
-                { post.createdAt }
-)
-              </small>
-            </h1>
+    <div className="container posts-show">
+      <div className="content-section">
+        <h1 className="small-buffer-top">
+          { post.name }
+          <small>
+            {' '}
+            ({ post.createdAt })
+          </small>
+        </h1>
 
-            <Markdown className="markdown markdown-container" source={ post.text } />
-            <div className="example" />
-          </div>
-        </div>
-        <SlideMenu className="blog-menu">
-          <BlogMenu />
-        </SlideMenu>
+        <Markdown className="markdown markdown-container" source={ post.text } />
+        <div className="example" />
       </div>
-    </CoreLayout>
+    </div>
   );
 };
 

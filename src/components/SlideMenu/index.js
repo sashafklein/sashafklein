@@ -2,21 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-export const SlideMenu = ({ open, className, children }) => (
-  <div className={ `slide-menu ${open ? 'open' : ''} ${className}` }>
-    { children }
-  </div>
-);
+import ResumeMenu from './ResumeMenu';
+import ProjectsMenu from './ProjectsMenu';
+import BlogMenu from './BlogMenu';
+
+const menus = {
+  resume: ResumeMenu,
+  projects: ProjectsMenu,
+  blog: BlogMenu
+};
+
+export const SlideMenu = ({ open, pageName }) => {
+  const Menu = menus[pageName];
+
+  if (!Menu) {
+    return null;
+  }
+
+  return (
+    <div className={ `slide-menu ${open ? 'open' : ''} ${pageName}-menu` }>
+      <Menu />
+    </div>
+  );
+};
 
 const mapStateToProps = state => ({
   open: state.settings.tabOpen
 });
 
-const { bool, string, node } = PropTypes;
+const { bool, string } = PropTypes;
 SlideMenu.propTypes = {
   open: bool,
-  className: string,
-  children: node
+  pageName: string
 };
 
 export default connect(mapStateToProps)(SlideMenu);

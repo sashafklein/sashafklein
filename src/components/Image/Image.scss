@@ -1,8 +1,37 @@
+.image-comp {
+  transition: opacity 1s ease, height 500ms ease;
+  height: auto;
+}
+
 .image {
   opacity: 0;
-  transition: opacity 1s ease;
 }
 
 .image.image-loaded {
   opacity: 1;
+}
+
+.image-loader-gradient {
+  background: linear-gradient(270deg, lighten(#ccc, 20), lighten(#ccc, 10));
+  background-size: 600% 600%;
+
+  -webkit-animation: AnimationName 1500ms ease infinite;
+  -moz-animation: AnimationName 1500ms ease infinite;
+  animation: AnimationName 1500ms ease infinite;
+
+  @-webkit-keyframes AnimationName {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+  @-moz-keyframes AnimationName {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
+  @keyframes AnimationName {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+  }
 }

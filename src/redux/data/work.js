@@ -7,7 +7,7 @@ export default [
     title: 'Blink UX',
     roles: [
       {
-        description: 'I\'ve worked as Lead Software Engineer and Director of Engineering for over 3 years at the digital design firm [Blink UX](https://blinkux.com), and [Redshift Digital](https://redshiftdigital.com) (acquired Dec 2018) before that. As Director of Engineering at Blink\'s San Francisco office, I manage a remote engineering team, lead client relationships, and estimate, architect, pitch, and build a wide variety of full-stack and frontend applications for a range of name-brand clients.',
+        description: 'For over 3 years, I\'ve worked as Lead Software Engineer and Director of Engineering at the digital design firm [Blink UX](https://blinkux.com), and [Redshift Digital](https://redshiftdigital.com) (acquired Dec 2018) before that. As Director of Engineering at Blink\'s San Francisco office, I manage a remote engineering team, lead client relationships, and estimate, architect, pitch, and build a wide variety of full-stack and frontend applications for a range of both start-up and name-brand clients.',
         started: 'June 2018',
         location: 'San Francisco',
         name: 'Director of Engineering'

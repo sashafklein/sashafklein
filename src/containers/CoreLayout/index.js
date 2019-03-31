@@ -5,12 +5,14 @@ import PropTypes from 'prop-types';
 
 import { toggleSetting } from 'redux/actions';
 
+import Headshot from 'assets/img/headshot.jpg';
 import { professionalTitle } from 'routes/Resume';
 import Header from 'components/Header';
 import Tab from 'components/Tab';
-import NavMenu from 'routes/Home';
+import Nav from 'components/Nav';
+import SlideMenu from 'components/SlideMenu';
 
-export const CoreLayout = ({ dispatch, children, className, navOpen, location, tabOpen }) => {
+export const CoreLayout = ({ dispatch, children, page, tabOpen }) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -19,8 +21,6 @@ export const CoreLayout = ({ dispatch, children, className, navOpen, location, t
   }, () => {
     dispatch(toggleSetting('tabOpen', false));
   });
-
-  const page = location.pathname.split('/')[1] || 'resume';
 
   const desc = {
     blog: 'Very occasional thoughts about coding, travel, and life.',
@@ -31,36 +31,31 @@ export const CoreLayout = ({ dispatch, children, className, navOpen, location, t
   const title = `Sasha Klein - ${page[0].toUpperCase().concat(page.slice(1))}`;
 
   return (
-    <div className={ className }>
+    <div className={ `page-container ${page}` }>
       <Meta>
         <title>{ title }</title>
         <meta id="meta-description" name="description" content={ desc } />
         <meta id="og-title" property="og:title" content={ title } />
-        <meta id="og-image" property="og:image" content="https://dl.dropboxusercontent.com/s/kbi6shbk5a5r54x/headshot2.jpg?dl=0" />
+        <meta id="og-image" property="og:image" content={ Headshot } />
       </Meta>
       <Header />
       <div className="header-spacer" />
       <div className={ `core-layout ${loaded ? 'loaded' : 'loading'} ${tabOpen ? 'tab-open' : ''}` }>
         { children }
       </div>
-      <NavMenu open={ navOpen } />
+      <SlideMenu pageName={ page } />
+      <Nav />
       <Tab />
     </div>
   );
 };
 
-const { element, string, func, bool, object } = PropTypes;
+const { element, string, func, bool, arrayOf, oneOfType } = PropTypes;
 CoreLayout.propTypes = {
-  children: element.isRequired,
-  className: string,
-  navOpen: bool,
+  children: oneOfType([arrayOf(element.isRequired), element]),
+  page: string,
   dispatch: func,
-  location: object,
   tabOpen: bool
-};
-
-CoreLayout.defaultProps = {
-  className: ''
 };
 
 export default connect(s => ({

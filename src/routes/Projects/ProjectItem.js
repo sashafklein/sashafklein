@@ -13,21 +13,8 @@ export const PortfolioItem = ({ item }) => (
       className="container content-section"
       id={ slug(item.title) }
     >
-      <div className="sidebar black-links">
-        <div className="show-medium">
-          { item.bullets && (
-            <ul className="port-list hide-medium">
-              {
-                item.bullets.map(bullet => (
-                  <li key={ bullet.split(' ').join('-') }>{ bullet }</li>
-                ))
-              }
-            </ul>
-          ) }
-        </div>
-      </div>
       <div className="black-links">
-        <a href={ item.link } style={ { width: '100%' } }>
+        <a target="_blank" href={ item.link } style={ { width: '100%' } }>
           <Image src={ item.image } className="port-photo content-section" alt={ item.title } style={ { width: '100%' } } />
         </a>
       </div>

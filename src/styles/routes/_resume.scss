@@ -54,10 +54,6 @@
         font-size: 1.5rem !important;
       }
     }
-
-    @media (max-width: $mobile) {
-      display: none;
-    }
   }
 
   .header-container {
@@ -273,6 +269,7 @@
       overflow-y: scroll;
     }
   }
+
   .skill {
     font-family: Montserrat;
     font-weight: 900;
@@ -293,12 +290,14 @@
       color: white;
     }
   }
+
   .skills {
     .skill {
       text-align: center;
       margin: 0 5px;
     }
   }
+
   .skills-tab {
     position: fixed;
     z-index: 100;
@@ -317,11 +316,13 @@
       transform: rotate(180deg);
     }
   }
+
   .collapse-title {
     i.fa {
       margin-top: -1px;
     }
   }
+
   .headshot-box {
     flex: 2;
     margin-right: 5%;
