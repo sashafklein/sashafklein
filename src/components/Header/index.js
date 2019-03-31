@@ -14,7 +14,7 @@ export const Header = ({ navOpen, dispatch }) => (
         <div className="left-section">
           <div className="flex-link">
             <Link to="/resume" className="pig-link">
-              <Image src={ Pig } />
+              <Image src={ Pig } alt="pig" />
               Sasha Klein
             </Link>
           </div>

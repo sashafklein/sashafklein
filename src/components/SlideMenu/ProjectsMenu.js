@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { slug } from 'routes/Projects/ProjectItem';
 import AnimatedLoader from 'components/AnimatedLoader';
 
-export function PortfolioGrid ({ items, tabOpen }) {
+export function ProjectsMenu ({ items, tabOpen }) {
   const [open, setOpen] = useState(tabOpen);
 
   useEffect(() => {
@@ -20,8 +20,12 @@ export function PortfolioGrid ({ items, tabOpen }) {
       {
         open
           ? items.map((item, index) => (
-            <AnimatedLoader className="portfolio-grid-loader fade-and-slide-up" waitMs={ index * 50 }>
-              <Link key={ slug(item.title) } className="portfolio-grid__image-container" to={ `/projects#${slug(item.title)}` }>
+            <AnimatedLoader
+              key={ slug(item.title) }
+              className="portfolio-grid-loader fade-and-slide-up"
+              waitMs={ index * 50 }
+            >
+              <Link className="portfolio-grid__image-container" to={ `/projects#${slug(item.title)}` }>
                 <div
                   className="portfolio-grid__image"
                   style={ { backgroundImage: `url(${item.image})` } }
@@ -37,7 +41,7 @@ export function PortfolioGrid ({ items, tabOpen }) {
 }
 
 const { array, bool } = PropTypes;
-PortfolioGrid.propTypes = {
+ProjectsMenu.propTypes = {
   items: array,
   tabOpen: bool
 };
@@ -47,4 +51,4 @@ const mapStateToProps = state => ({
   tabOpen: state.settings.tabOpen
 });
 
-export default connect(mapStateToProps)(PortfolioGrid);
+export default connect(mapStateToProps)(ProjectsMenu);

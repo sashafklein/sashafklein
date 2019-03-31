@@ -7,10 +7,10 @@
   height: 100vh;
   transition: all 200ms ease;
   z-index: 99;
-  top: 100%;
+  top: 120%;
 
   &.open {
-    transform: translateY(-100%);
+    transform: translateY(-120%);
   }
 
   > div {
