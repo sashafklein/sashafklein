@@ -28,7 +28,7 @@ export default [
     scale: 6
   },
   {
-    name: 'AngularJS',
+    name: 'Angular',
     scale: 6
   },
   {

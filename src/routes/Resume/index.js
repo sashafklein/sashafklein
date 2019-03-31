@@ -30,14 +30,17 @@ export const Resume = () => (
           <div className="name-and-icons">
             <h1 className="name">Sasha Klein</h1>
             <div className="link-icons">
-              <a target="blank" rel="noopener noreferrer" href="https://git.io/sasha">
+              <a title="Github" target="blank" rel="noopener noreferrer" href="https://git.io/sasha">
                 <i className="fa fa-github" />
               </a>
-              <a target="blank" rel="noopener noreferrer" href="https://www.linkedin.com/pub/sasha-klein/34/595/1b5">
+              <a title="LinkedIn" target="blank" rel="noopener noreferrer" href="https://www.linkedin.com/pub/sasha-klein/34/595/1b5">
                 <i className="fa fa-linkedin-square" />
               </a>
-              <a target="blank" rel="noopener noreferrer" href="http://stackoverflow.com/users/1408935/sasha">
+              <a title="Stack Overflow" target="blank" rel="noopener noreferrer" href="http://stackoverflow.com/users/1408935/sasha">
                 <i className="fa fa-stack-overflow" />
+              </a>
+              <a title="Resume" target="blank" rel="noopener noreferrer" href={ `${process.env.PUBLIC_URL}/Sasha Klein Resume.pdf` }>
+                <i className="fa fa-file-text" />
               </a>
             </div>
           </div>
