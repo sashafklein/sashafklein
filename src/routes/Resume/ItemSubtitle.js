@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const dateString = (item) => {
   if (item.started) {
@@ -10,11 +11,12 @@ const dateString = (item) => {
 
 export const ItemSubtitle = ({ item }) => (
   <strong>
-    ({ dateString(item) }) - <em>{ item.roles.map(r => r.name).join(', ') }</em>
+    ({ dateString(item) }) - {' '}
+    <em>{ item.roleTitle || item.roles.map(r => r.name).join(', ') }</em>
   </strong>
 );
 
-const { object } = React.PropTypes;
+const { object } = PropTypes;
 ItemSubtitle.propTypes = {
   item: object
 };

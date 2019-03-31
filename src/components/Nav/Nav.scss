@@ -1,0 +1,129 @@
+$textAndBorder: lighten(#333333, 5);
+
+.nav {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+
+  &.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .nav-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    height: 100vh;
+    padding: 3vh 0;
+    align-items: center;
+
+    .nav-button {
+      border-radius: 10px;
+      text-align: center;
+      vertical-align: middle;
+      background-color: white;
+      display: flex;
+      margin-top: 1rem;
+      width: 100%;
+
+      &:hover {
+        background-color: rgba(24, 113, 188, 0.3);
+      }
+
+      .inner-text {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        span {
+          text-decoration: none;
+          font-family: Montserrat;
+          font-weight: 900;
+          vertical-align: middle;
+          text-align: center;
+          color: black;
+          transition: color 0.7s ease;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:active, &.active {
+        background-color: rgba(24, 113, 188, 0.5);
+      }
+
+      &:active.active {
+        background-color: rgba(24, 113, 188, 0.5);
+      }
+
+      &:hover.active {
+        cursor: pointer;
+        background-color: rgba(24, 113, 188, 0.7);
+      }
+    }
+  }
+
+  a {
+    .inner-text {
+      span {
+        text-decoration: none !important;
+        &:hover {
+          text-decoration: none !important;
+        }
+      }
+    }
+  }
+
+  .nav-button:hover {
+    .inner-text {
+      span {
+        text-decoration: none !important;
+      }
+    }
+  }
+
+  .nav-button {
+    a, span {
+      font-size: 7vw !important;
+    }
+  }
+
+  @media only screen and (max-device-width: 800px) {
+    a, span {
+      font-size: 14vw !important;
+    }
+  }
+
+  .nav-button-loader {
+    height: 25%;
+    display: flex;
+    flex: 1;
+    width: 90%;
+    max-width: 600px;
+  }
+}

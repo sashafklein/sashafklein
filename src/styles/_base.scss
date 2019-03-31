@@ -6,12 +6,9 @@ body {
 }
 
 .core-layout {
-  transition: 0.7s opacity ease;
-  opacity: 1;
-  &.hidden {
-    opacity: 0;
-  }
+  height: 100%;
 }
+
 .container {
   width: $large;
   display: block;
@@ -127,6 +124,7 @@ button.close {
   p, ol, table, em, input, small, br, strong, pre, code, span, a, ul, li, td, th, h1, h2, h3, h4, h5, h6, label {
     text-align: center;
   }
+
   table {
     margin: 0;
   }
@@ -291,21 +289,12 @@ form.restful-item-form {
   display: block;
 }
 
-ul.link-list {
-  padding-left: 0;
-  list-style: none;
+.content-section {
+  max-width: 700px;
+  margin: auto;
+  width: 100%;
 }
 
-.portfolio {
-  .sidebar {
-    @media only screen and (max-device-width: 500px) {
-      display: none;
-    }
-    @media only screen and (min-device-width: 300px) {
-      width: 30%;
-    }
-  }
-}
 .posts-show {
   display: flex;
   flex-direction: row;
@@ -326,6 +315,7 @@ ul.link-list {
       width: 30%;
     }
   }
+
   @media only screen and (max-width: $large) and (min-device-width: 300px) {
     flex-direction: column;
   }
@@ -334,38 +324,6 @@ ul.link-list {
   }
 }
 
-.show-small {
-  @media only screen and (min-width: $small) {
-    display: none;
-  }
-}
-
-.hide-small {
-  @media only screen and (max-width: $small) {
-    display: none;
-  }
-  @media only screen and (min-device-width: 300px) {
-    display: none;
-  }
-}
-
-.show-medium {
-  @media only screen and (min-width: $medium) {
-    display: none !important;
-  }
-}
-
-.hide-medium {
-  @media only screen and (max-width: $medium) {
-    display: none !important;
-  }
-  @media only screen and (min-device-width: 300px) {
-    display: none;
-  }
-  @media only screen and (min-device-width: 800px) {
-    display: block;
-  }
-}
 input[type="text"], input[type="password"] {
   margin-bottom: 30px !important;
   font-size: #{$h2}rem !important;

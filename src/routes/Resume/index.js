@@ -1,62 +1,68 @@
 import React from 'react';
+import Markdown from 'react-markdown';
 
-import CoreLayout from 'containers/CoreLayout';
-import SkillsOverlay from './SkillsOverlay';
-import EducationAndWork from './EducationAndWork';
+import Headshot from 'assets/img/headshot.jpg';
 import Image from 'components/Image';
+import AnimatedLoader from 'components/AnimatedLoader';
+import BP from 'components/BP';
+
+import EducationAndWork from './EducationAndWork';
 
 import 'styles/core.scss';
 
-export const professionalTitle = 'Senior Full Stack Engineer / Tech Lead';
-const descriptionText = [
-  'Full-stack developer',
-  ' and ',
-  'entrepreneur',
-  ', comfortable with a ',
-  'wide range of technologies',
-  ' and experienced ',
-  'leading teams',
-  ' and ',
-  'running client projects',
-  '.'
-];
+export const professionalTitle = 'Senior Full Stack Engineer & Manager';
+const descriptionMd = 'Full-stack **engineer**, and engineering **manager**, comfortable with a **wide range of technologies** and experienced **leading teams** and running client projects.';
 
-const description = <p>{ descriptionText.map((t, i) => i % 2 === 0 ? <strong key={ i }>{t}</strong> : t) }</p>;
+const description = <Markdown source={ descriptionMd } />;
 
 export const Resume = () => (
-  <CoreLayout className="resume">
-    <div className="resume-container undecorated">
-      <div className="header-area">
-        <div className="container med-and-up header-container">
+  <div className="resume-container undecorated">
+    <AnimatedLoader className="header-area fade-and-slide-up">
+      <div className="container header-container">
+        <BP type="above" name="mobileMd">
           <div className="headshot-box">
-            <Image src="https://dl.dropboxusercontent.com/s/kbi6shbk5a5r54x/headshot2.jpg?dl=0" className="headshot" />
+            <AnimatedLoader className="fade-and-slide-up" waitMs={ 400 }>
+              <Image src={ Headshot } className="headshot" />
+            </AnimatedLoader>
           </div>
-          <div className="header-text-section">
-            <div className="name-and-icons">
-              <h1 className="name">Sasha Klein</h1>
-              <div className="link-icons">
-                <a href="https://git.io/sasha">
-                  <i className="fa fa-github" />
-                </a>
-                <a href="https://www.linkedin.com/pub/sasha-klein/34/595/1b5">
-                  <i className="fa fa-linkedin-square" />
-                </a>
-                <a href="http://stackoverflow.com/users/1408935/sasha">
-                  <i className="fa fa-stack-overflow" />
-                </a>
-              </div>
+        </BP>
+        <div className="header-text-section">
+          <div className="name-and-icons">
+            <h1 className="name">Sasha Klein</h1>
+            <div className="link-icons">
+              <a target="_blank" href="https://git.io/sasha">
+                <i className="fa fa-github" />
+              </a>
+              <a target="_blank" href="https://www.linkedin.com/pub/sasha-klein/34/595/1b5">
+                <i className="fa fa-linkedin-square" />
+              </a>
+              <a target="_blank" href="http://stackoverflow.com/users/1408935/sasha">
+                <i className="fa fa-stack-overflow" />
+              </a>
             </div>
-            <h2 className="self-description">{ professionalTitle }</h2>
-            { description }
           </div>
+          <AnimatedLoader className="fade-and-slide-up" waitMs={ 200 }>
+            <h2 className="self-description">{ professionalTitle }</h2>
+          </AnimatedLoader>
+          <BP type="above" name="mobileLg">
+            <AnimatedLoader className="fade-and-slide-up" waitMs={ 400 }>
+              { description }
+            </AnimatedLoader>
+          </BP>
         </div>
       </div>
-      <div className="main-resume-body container blue-links">
+      <BP type="below" name="tabletSm">
+        <AnimatedLoader className="container fade-and-slide-up" waitMs={ 400 }>
+          { description }
+        </AnimatedLoader>
+      </BP>
+    </AnimatedLoader>
+    <div className="main-resume-body container blue-links">
+      <AnimatedLoader className="fade-and-slide-up" waitMs={ 400 }>
         <EducationAndWork />
-      </div>
-      <SkillsOverlay />
+      </AnimatedLoader>
     </div>
-  </CoreLayout>
+  </div>
 );
 
 export default Resume;

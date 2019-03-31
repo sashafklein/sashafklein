@@ -1,29 +1,40 @@
-import React, { Component, PropTypes } from 'react';
-import { browserHistory, Router } from 'react-router';
-import { Provider } from 'react-redux';
+import React from 'react';
+import { connect } from 'react-redux';
+import { func, oneOfType, node, array } from 'prop-types';
 
-class AppContainer extends Component {
-  shouldComponentUpdate () {
-    return false;
+import { setActiveBreakpoint } from 'redux/actions';
+import { initReduxBreakpoints } from 'utils/responsiveHelpers';
+
+import 'styles/core.scss';
+
+class AppContainer extends React.Component {
+  componentDidMount () {
+    const { dispatch } = this.props;
+
+    // Track window changes and update global breakpoint object accordingly
+    initReduxBreakpoints.call(
+      this, window, (breakpointName, breakpointSize, mediaQueryState) => dispatch(
+        setActiveBreakpoint(breakpointName, breakpointSize, mediaQueryState)
+      )
+    );
   }
 
   render () {
-    const { routes, store } = this.props;
+    const { children } = this.props;
 
     return (
-      <Provider store={store}>
-        <div style={{ height: '100%' }}>
-          <Router history={browserHistory} children={routes} />
+      <div className="app">
+        <div className="pagecontent">
+          { children }
         </div>
-      </Provider>
+      </div>
     );
   }
 }
 
-const { object } = PropTypes;
 AppContainer.propTypes = {
-  routes: object,
-  store: object
+  children: oneOfType([node, array]),
+  dispatch: func
 };
 
-export default AppContainer;
+export default connect()(AppContainer);
