@@ -24,7 +24,7 @@ export const Image = (props) => {
       onLoad={ () => { setLoaded(true); } }
       alt={ props.alt || props.src || '' }
       src={ src }
-      loader={ <img alt="Loading" className={ `image-comp image-loader-gradient ${className}` } /> }
+      loader={ <span className={ `image-comp image-loader-gradient ${className}` } /> }
       {
       ...Object.keys(props)
         .filter(k => !['show'].includes(k)).reduce((obj, k) => ({

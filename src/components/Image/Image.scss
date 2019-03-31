@@ -5,6 +5,7 @@
 
 .image {
   opacity: 0;
+  color: transparent;
 }
 
 .image.image-loaded {
@@ -14,6 +15,9 @@
 .image-loader-gradient {
   background: linear-gradient(270deg, lighten(#ccc, 20), lighten(#ccc, 10));
   background-size: 600% 600%;
+  color: transparent;
+  width: 100%;
+  display: block;
 
   -webkit-animation: AnimationName 1500ms ease infinite;
   -moz-animation: AnimationName 1500ms ease infinite;
