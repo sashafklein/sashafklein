@@ -10,7 +10,7 @@ export default [
     title: 'Left Coast Sauna'
   },
   {
-    bullets: [],
+    bullets: ['React Native', 'Open Source'],
     image: 'https://dl.dropboxusercontent.com/s/mq7hxz1lzgws89o/oset.png?dl=0',
     link: 'https://github.com/sashafklein/ballot-marker',
     subtitle: 'An accessible multi-platform ballot-marking tool',
@@ -18,19 +18,7 @@ export default [
     title: 'OSET Ballot Marker'
   },
   {
-    bullets: [
-      'Seamless Angular/Rails integration.',
-      'Hand-rolled Angular Single-Page Application.',
-      'Universal scraper bookmarklet for travel information.',
-      'Intelligent script for guessing and completing insufficient data.',
-      'Integrated Angular, Leaflet, and Geonames.',
-      'Address and language internationalization.',
-      'Backgrounded data completion, with Pusher integration.',
-      'Angular testing with Teaspoon and Jasmine.',
-      'Large scale Ruby/Rails best practices - rich PORO object backend.',
-      'Foursquare, Yelp, and Google Maps API integration.',
-      'Automated, auto-growing scraper test suite.'
-    ],
+    bullets: ['Angular', 'Rails', 'SPA', 'Scraping', 'Leaflet', 'TDD'],
     image: 'https://dl.dropboxusercontent.com/s/a7cc664bp39kzrj/planit-gif.gif?dl=0',
     subtitle: 'Friend-approved travel',
     text: raw('./markdown/portfolio/planit.md'),
@@ -38,12 +26,9 @@ export default [
   },
   {
     bullets: [
-      'First major web app.',
-      'Unique e-commerce solution.',
-      'Home-made authorization and authentication authentication.',
-      '5 user roles, custom security.',
-      'Integrated email, JS plugins.',
-      '9 interrelated models.'
+      'E-Commerce',
+      'Rails',
+      'PostgreSQL'
     ],
     image: 'https://dl.dropboxusercontent.com/s/bf9o7nkimmslvid/meatup.png?dl=0',
     subtitle: 'Outside-the-box thinking on meat CSAs',
@@ -52,13 +37,8 @@ export default [
   },
   {
     bullets: [
-      'Mongo-based data storage.',
-      'Visual and auditory message notifications.',
-      'Multiple rooms and private messages.',
-      'Three roles: students, mentors, and admins.',
-      'Integration with hand-rolled event tracker.',
-      'Authentication with the main Bloc app.',
-      'Markdown support with code snippets.'
+      'Meteor',
+      'MongoDB'
     ],
     image: 'https://dl.dropboxusercontent.com/s/gmjewlx6agw0fqd/tweed-gif.gif?dl=0',
     subtitle: 'Polished and feature-rich Meteor-powered chat',
@@ -67,9 +47,12 @@ export default [
   },
   {
     bullets: [
-      'Lightweight and reusable',
-      'Downloaded over 2000 times',
-      'Used in live production code'
+      'Node',
+      'React',
+      'Redux',
+      'JavaScript',
+      'Testing',
+      'Open Source'
     ],
     image: 'https://dl.dropboxusercontent.com/s/wz0cs8vzorugupc/npm-packages.png?dl=0',
     link: 'https://github.com/sashafklein/shape',
@@ -79,10 +62,11 @@ export default [
   },
   {
     bullets: [
-      'Published to rubygems.org',
-      'Lightweight and reusable',
-      'Configurable option block (for PG Clone)',
-      'Heroku and ActiveRecord integration'
+      'Rails',
+      'Ruby',
+      'PostgreSQL',
+      'Deployment',
+      'Open Source'
     ],
     image: 'https://dl.dropboxusercontent.com/s/8wrxs0lctjbota1/ruby-gems.png?dl=0',
     link: 'https://github.com/sashafklein/me_first',
@@ -92,9 +76,8 @@ export default [
   },
   {
     bullets: [
-      'Basic bi-directional Sendgrid integration.',
-      'Simple task scheduling.',
-      'Subscriptions/community lists.'
+      'Sendgrid',
+      'Rails'
     ],
     image: 'https://dl.dropboxusercontent.com/s/4ev2cn2rggos3pn/owl.gif?dl=0',
     subtitle: 'Simple daily email-based inspiration',

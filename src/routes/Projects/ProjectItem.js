@@ -22,6 +22,19 @@ export const PortfolioItem = ({ item }) => (
         <div className="port-header">
           <h1>{ item.title }</h1>
           <h2>{ item.subtitle }</h2>
+          {
+            item.bullets.length
+              ? <ul>
+                {
+                  item.bullets.map(bullet => (
+                    <li key={ bullet } className="bullet-tag">
+                      <span>{ bullet }</span>
+                    </li>
+                  ))
+                }
+              </ul>
+              : null
+          }
         </div>
         <div className="markdown-container">
           {

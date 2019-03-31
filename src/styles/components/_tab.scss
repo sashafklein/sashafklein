@@ -31,6 +31,10 @@
     i {
       transform: rotate(180deg);
     }
+
+    @media only screen and (max-device-width: 600px) {
+      bottom: 85%;
+    }
   }
 
   &.blog {

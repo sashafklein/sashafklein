@@ -76,9 +76,14 @@
     outline: none;
     border-radius: 10px;
     text-align: left;
+    max-width: 80%;
 
     &:focus {
       outline: none;
+    }
+
+    @media only screen and (max-device-width: 600px) {
+      display: none;
     }
   }
 
