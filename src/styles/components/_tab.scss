@@ -1,3 +1,9 @@
+@keyframes BOUNCE {
+  0%   { margin-bottom: 0px; }
+  50% { margin-bottom: 8px; }
+  100%   { margin-bottom: 0px; }
+}
+
 .menu-tab {
   transform: translateX(-50%);
   position: fixed;
@@ -9,6 +15,12 @@
   padding: 10px 12px 15px 12px;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+
+  animation-name: BOUNCE;
+  animation-duration: 0.3s; /* or: Xms */
+  animation-iteration-count: 3;
+  animation-timing-function: ease;
+  animation-delay: 0.5s; /* or: Xms */
 
   i {
     @include responsiveFont($h1);
