@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import AnimatedLoader from 'components/AnimatedLoader';
-import ProjectItem, { slug } from './ProjectItem';
+import AnimatedLoader from "components/AnimatedLoader";
+import ProjectItem, { slug } from "./ProjectItem";
 
 export const Portfolio = ({ portfolioItems, location, navOpen, tabOpen }) => {
-  const specified = location.hash && location.hash.replace('#', '');
+  const specified = location.hash && location.hash.replace("#", "");
   const [loaded, setLoaded] = useState(navOpen || tabOpen);
 
   useEffect(() => {
@@ -20,28 +20,24 @@ export const Portfolio = ({ portfolioItems, location, navOpen, tabOpen }) => {
     }
   });
 
-  const items = (specified &&
+  const items =
+    specified &&
     specified.length &&
     portfolioItems.find(i => slug(i.title) === specified)
-  )
-    ? portfolioItems.filter(i => slug(i.title) === specified)
-    : portfolioItems;
+      ? portfolioItems.filter(i => slug(i.title) === specified)
+      : portfolioItems;
 
   return (
     <div>
-      {
-        items.map(item => (
-          <AnimatedLoader
-            key={ slug(item.title) }
-            className="fade-and-slide-up"
-            hide={ !loaded }
-          >
-            <ProjectItem
-              item={ item }
-            />
-          </AnimatedLoader>
-        ))
-      }
+      {items.map(item => (
+        <AnimatedLoader
+          key={slug(item.title)}
+          className="fade-and-slide-up"
+          hide={!loaded}
+        >
+          <ProjectItem item={item} />
+        </AnimatedLoader>
+      ))}
     </div>
   );
 };

@@ -1,16 +1,16 @@
-import React from 'react';
-import _ from 'lodash';
-import { Route, Switch } from 'react-router';
-import { connect } from 'react-redux';
-import { object } from 'prop-types';
+import React from "react";
+import _ from "lodash";
+import { Route, Switch } from "react-router";
+import { connect } from "react-redux";
+import { object } from "prop-types";
 
-import AppContainer from 'containers/AppContainer';
-import CoreLayout from 'containers/CoreLayout';
+import AppContainer from "containers/AppContainer";
+import CoreLayout from "containers/CoreLayout";
 
-import Resume from './Resume';
-import Projects from './Projects';
-import Blog from './Blog';
-import BlogLanding from './Blog/BlogLanding';
+import Resume from "./Resume";
+import Projects from "./Projects";
+import Blog from "./Blog";
+import BlogLanding from "./Blog/BlogLanding";
 
 if (window) {
   window._ = _;
@@ -22,11 +22,11 @@ if (window) {
  * Additional fields can be added
  */
 export const routes = [
-  { path: '/', component: Resume },
-  { path: '/projects', component: Projects },
-  { path: '/resume', component: Resume },
-  { path: '/blog', component: BlogLanding },
-  { path: '/blog/:postSlug', component: Blog }
+  { path: "/", component: Resume },
+  { path: "/projects", component: Projects },
+  { path: "/resume", component: Resume },
+  { path: "/blog", component: BlogLanding },
+  { path: "/blog/:postSlug", component: Blog }
 ];
 
 /**
@@ -34,21 +34,19 @@ export const routes = [
  */
 const Routes = ({ router }) => {
   const { location } = router;
-  const page = location.pathname.split('/')[1] || 'resume';
+  const page = location.pathname.split("/")[1] || "resume";
 
   return (
     <AppContainer>
-      <CoreLayout page={ page }>
-        <Switch location={ location }>
-          {
-            routes.map(route => (
-              <Route
-                { ..._.pick(route, 'path', 'component', 'onEnter') }
-                key={ route.path }
-                exact={ true }
-              />
-            ))
-          }
+      <CoreLayout page={page}>
+        <Switch location={location}>
+          {routes.map(route => (
+            <Route
+              {..._.pick(route, "path", "component", "onEnter")}
+              key={route.path}
+              exact={true}
+            />
+          ))}
         </Switch>
       </CoreLayout>
     </AppContainer>

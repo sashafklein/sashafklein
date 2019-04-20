@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { node, string, number, bool } from 'prop-types';
+import React, { useEffect, useState } from "react";
+import { node, string, number, bool } from "prop-types";
 
-import './AnimatedLoader.scss';
+import "./AnimatedLoader.scss";
 
 export const AnimatedLoader = ({ waitMs, className, children, hide }) => {
   const [loaded, setLoaded] = useState(false);
@@ -17,8 +17,8 @@ export const AnimatedLoader = ({ waitMs, className, children, hide }) => {
   });
 
   return (
-    <div className={ `${loaded && !hide ? 'loaded' : ''} loader ${className}` }>
-      { children }
+    <div className={`${loaded && !hide ? "loaded" : ""} loader ${className}`}>
+      {children}
     </div>
   );
 };

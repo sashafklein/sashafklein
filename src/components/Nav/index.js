@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { push } from "connected-react-router";
+import PropTypes from "prop-types";
 
-import { toggleSetting } from 'redux/actions';
-import AnimatedLoader from 'components/AnimatedLoader';
+import { toggleSetting } from "redux/actions";
+import AnimatedLoader from "components/AnimatedLoader";
 
-import './Nav.scss';
+import "./Nav.scss";
 
-const paths = ['Resume', 'Projects', 'Blog'];
+const paths = ["Resume", "Projects", "Blog"];
 
 export const Nav = ({ navOpen, dispatch, pathname }) => {
   const [itemShowing, showItem] = useState(false);
@@ -26,46 +26,43 @@ export const Nav = ({ navOpen, dispatch, pathname }) => {
     }
   });
 
-  const component = (path) => {
-    const isActive = pathname.includes(path.toLowerCase()) ||
-      (pathname === '/' && path === 'Resume');
+  const component = path => {
+    const isActive =
+      pathname.includes(path.toLowerCase()) ||
+      (pathname === "/" && path === "Resume");
 
     const props = {
-      style: { textDecoration: 'none' },
-      className: `nav-button ${isActive ? 'active' : ''}`,
+      style: { textDecoration: "none" },
+      className: `nav-button ${isActive ? "active" : ""}`,
       key: path,
       onClick: () => {
         dispatch(push(`/${path.toLowerCase()}`));
-        dispatch(toggleSetting('navOpen', false));
+        dispatch(toggleSetting("navOpen", false));
       }
     };
 
     const content = (
       <div className="inner-text">
-        <span style={ { textDecoration: 'none' } }>
-          { path }
-        </span>
+        <span style={{ textDecoration: "none" }}>{path}</span>
       </div>
     );
 
-    return (<a { ...props }>{ content }</a>);
+    return <a {...props}>{content}</a>;
   };
 
   return (
-    <div className={ `nav ${navShowing ? 'open' : ''}` }>
+    <div className={`nav ${navShowing ? "open" : ""}`}>
       <div className="nav-buttons">
-        {
-          paths.map((path, index) => (
-            <AnimatedLoader
-              className="nav-button-loader fade-and-slide-up testing"
-              hide={ !itemShowing }
-              waitMs={ 200 + index * 100 }
-              key={ path }
-            >
-              { component(path) }
-            </AnimatedLoader>
-          ))
-        }
+        {paths.map((path, index) => (
+          <AnimatedLoader
+            className="nav-button-loader fade-and-slide-up testing"
+            hide={!itemShowing}
+            waitMs={200 + index * 100}
+            key={path}
+          >
+            {component(path)}
+          </AnimatedLoader>
+        ))}
       </div>
     </div>
   );

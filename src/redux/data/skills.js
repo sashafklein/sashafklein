@@ -1,102 +1,102 @@
 export default [
   {
-    name: 'React / Redux',
+    name: "React / Redux",
     scale: 8
   },
   {
-    name: 'JavaScript / ES6',
+    name: "JavaScript / ES6",
     scale: 8
   },
   {
-    name: 'Ruby / Rails',
+    name: "Ruby / Rails",
     scale: 7
   },
   {
-    name: 'JAMstack',
+    name: "JAMstack",
     scale: 7
   },
   {
-    name: 'Client Management',
+    name: "Client Management",
     scale: 6
   },
   {
-    name: 'Engineering Management',
+    name: "Engineering Management",
     scale: 6
   },
   {
-    name: 'Testing (TDD / BDD)',
+    name: "Testing (TDD / BDD)",
     scale: 6
   },
   {
-    name: 'Angular',
+    name: "Angular",
     scale: 6
   },
   {
-    name: 'AWS / Serverless',
+    name: "AWS / Serverless",
     scale: 5
   },
   {
-    name: 'React Native',
+    name: "React Native",
     scale: 5
   },
   {
-    name: 'Node/Express',
+    name: "Node/Express",
     scale: 5
   },
   {
-    name: 'Dev Ops',
+    name: "Dev Ops",
     scale: 5
   },
   {
-    name: 'Responsive CSS / UX',
+    name: "Responsive CSS / UX",
     scale: 5
   },
   {
-    name: 'HTML(5)',
+    name: "HTML(5)",
     scale: 5
   },
   {
-    name: 'App Optimization',
+    name: "App Optimization",
     scale: 4
   },
   {
-    name: 'PostgreSQL',
+    name: "PostgreSQL",
     scale: 4
   },
   {
-    name: 'CMS Websites',
+    name: "CMS Websites",
     scale: 4
   },
   {
-    name: 'GraphQL',
+    name: "GraphQL",
     scale: 3
   },
   {
-    name: 'Prototyping',
+    name: "Prototyping",
     scale: 3
   },
   {
-    name: 'Sketch / Adobe',
+    name: "Sketch / Adobe",
     scale: 3
   },
   {
-    name: 'Mongo DB',
+    name: "Mongo DB",
     scale: 2
   },
   {
-    name: 'Python',
+    name: "Python",
     scale: 2
   },
   {
-    name: 'Swift / iOS',
+    name: "Swift / iOS",
     scale: 2
   },
   {
-    name: 'Ember',
+    name: "Ember",
     scale: 1
   },
   {
-    name: 'Meteor',
+    name: "Meteor",
     scale: 1
   }
 ];

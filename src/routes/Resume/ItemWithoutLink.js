@@ -1,13 +1,13 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import Markdown from 'components/Markdown';
+import Markdown from "components/Markdown";
 
-import { toggleOpenItem } from 'redux/actions';
+import { toggleOpenItem } from "redux/actions";
 
-import ItemSubtitle from './ItemSubtitle';
-import RoleSubtitle from './RoleSubtitle';
+import ItemSubtitle from "./ItemSubtitle";
+import RoleSubtitle from "./RoleSubtitle";
 
 const ItemWithoutLink = ({ item, dispatch, openItems }) => {
   const manyRoles = item.roles.length > 1;
@@ -15,36 +15,40 @@ const ItemWithoutLink = ({ item, dispatch, openItems }) => {
 
   return (
     <li
-      key={ item.id }
-      className={ `panel ${open ? '' : 'closed'}` }
-      onClick={ (el) => {
-        if (el.target.className.split(' ').indexOf('panel') !== -1) {
+      key={item.id}
+      className={`panel ${open ? "" : "closed"}`}
+      onClick={el => {
+        if (el.target.className.split(" ").indexOf("panel") !== -1) {
           dispatch(toggleOpenItem(item.id));
         }
-      } }
+      }}
     >
       <p
         className="collapse-title expandable-panel-title"
-        onClick={ () => {
+        onClick={() => {
           dispatch(toggleOpenItem(item.id));
-        } }
+        }}
       >
-        <span className="item-title">{ item.title }</span>
+        <span className="item-title">{item.title}</span>
         <small>
-          <ItemSubtitle item={ item } />
+          <ItemSubtitle item={item} />
         </small>
       </p>
       <div className="roles">
-        {
-          item.roles.map(role => (
-            <div className="subsection" key={ role.started.concat(role.ended) } style={ { marginTop: '5px' } }>
-              { manyRoles && <RoleSubtitle role={ role } /> }
-              <div className={ `paragraph ${item.roles.length > 1 ? 'subrole' : ''}` }>
-                <Markdown source={ role.description } />
-              </div>
+        {item.roles.map(role => (
+          <div
+            className="subsection"
+            key={role.started.concat(role.ended)}
+            style={{ marginTop: "5px" }}
+          >
+            {manyRoles && <RoleSubtitle role={role} />}
+            <div
+              className={`paragraph ${item.roles.length > 1 ? "subrole" : ""}`}
+            >
+              <Markdown source={role.description} />
             </div>
-          ))
-        }
+          </div>
+        ))}
       </div>
     </li>
   );
