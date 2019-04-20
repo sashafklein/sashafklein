@@ -1,15 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ItemWithoutLink from './ItemWithoutLink';
-import ItemWithLink from './ItemWithLink';
+import React from "react";
+import PropTypes from "prop-types";
+import ItemWithoutLink from "./ItemWithoutLink";
+import ItemWithLink from "./ItemWithLink";
 
 export const ResumeItem = ({ item }) => (
   <ul>
-    {
-      item.link
-        ? <ItemWithLink item={ item } />
-        : <ItemWithoutLink item={ item } />
-    }
+    {item.link ? <ItemWithLink item={item} /> : <ItemWithoutLink item={item} />}
   </ul>
 );
 

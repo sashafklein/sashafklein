@@ -1,9 +1,9 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-import { toggleSetting } from 'redux/actions';
+import { toggleSetting } from "redux/actions";
 
 export const Header = ({ navOpen, dispatch }) => (
   <div className="header-bar">
@@ -19,10 +19,10 @@ export const Header = ({ navOpen, dispatch }) => (
         <div className="right-section">
           <div className="flex-link">
             <span
-              className={ 'fa fa-bars'.concat(navOpen ? ' open' : '') }
-              onClick={
-                () => { dispatch(toggleSetting('navOpen', !navOpen)); }
-              }
+              className={"fa fa-bars".concat(navOpen ? " open" : "")}
+              onClick={() => {
+                dispatch(toggleSetting("navOpen", !navOpen));
+              }}
             />
           </div>
         </div>

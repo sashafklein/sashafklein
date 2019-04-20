@@ -1,19 +1,20 @@
-import React from 'react';
-import Markdown from 'react-markdown';
+import React from "react";
+import Markdown from "react-markdown";
 
-import Headshot from 'assets/img/headshot.jpg';
-import Image from 'components/Image';
-import AnimatedLoader from 'components/AnimatedLoader';
-import BP from 'components/BP';
+import Headshot from "assets/img/headshot.jpg";
+import Image from "components/Image";
+import AnimatedLoader from "components/AnimatedLoader";
+import BP from "components/BP";
 
-import EducationAndWork from './EducationAndWork';
+import EducationAndWork from "./EducationAndWork";
 
-import 'styles/core.scss';
+import "styles/core.scss";
 
-export const professionalTitle = 'Senior Full Stack Engineer & Manager';
-const descriptionMd = 'Full-stack **engineer** and engineering **manager**, comfortable with a **wide range of technologies** and experienced **leading teams** and running projects.';
+export const professionalTitle = "Senior Full Stack Engineer & Manager";
+const descriptionMd =
+  "Full-stack **engineer** and engineering **manager**, comfortable with a **wide range of technologies** and experienced **leading teams** and running projects.";
 
-const description = <Markdown source={ descriptionMd } />;
+const description = <Markdown source={descriptionMd} />;
 
 export const Resume = () => (
   <div className="resume-container undecorated">
@@ -21,8 +22,8 @@ export const Resume = () => (
       <div className="container header-container">
         <BP type="above" name="mobileMd">
           <div className="headshot-box">
-            <AnimatedLoader className="fade-and-slide-up" waitMs={ 400 }>
-              <Image src={ Headshot } className="headshot" />
+            <AnimatedLoader className="fade-and-slide-up" waitMs={400}>
+              <Image src={Headshot} className="headshot" />
             </AnimatedLoader>
           </div>
         </BP>
@@ -30,38 +31,58 @@ export const Resume = () => (
           <div className="name-and-icons">
             <h1 className="name">Sasha Klein</h1>
             <div className="link-icons">
-              <a title="Github" target="blank" rel="noopener noreferrer" href="https://git.io/sasha">
+              <a
+                title="Github"
+                target="blank"
+                rel="noopener noreferrer"
+                href="https://git.io/sasha"
+              >
                 <i className="fa fa-github" />
               </a>
-              <a title="LinkedIn" target="blank" rel="noopener noreferrer" href="https://www.linkedin.com/pub/sasha-klein/34/595/1b5">
+              <a
+                title="LinkedIn"
+                target="blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/pub/sasha-klein/34/595/1b5"
+              >
                 <i className="fa fa-linkedin-square" />
               </a>
-              <a title="Stack Overflow" target="blank" rel="noopener noreferrer" href="http://stackoverflow.com/users/1408935/sasha">
+              <a
+                title="Stack Overflow"
+                target="blank"
+                rel="noopener noreferrer"
+                href="http://stackoverflow.com/users/1408935/sasha"
+              >
                 <i className="fa fa-stack-overflow" />
               </a>
-              <a title="Resume" target="blank" rel="noopener noreferrer" href={ `${process.env.PUBLIC_URL}/Sasha Klein Resume.pdf` }>
+              <a
+                title="Resume"
+                target="blank"
+                rel="noopener noreferrer"
+                href={`${process.env.PUBLIC_URL}/Sasha Klein Resume.pdf`}
+              >
                 <i className="fa fa-file-text" />
               </a>
             </div>
           </div>
-          <AnimatedLoader className="fade-and-slide-up" waitMs={ 200 }>
-            <h2 className="self-description">{ professionalTitle }</h2>
+          <AnimatedLoader className="fade-and-slide-up" waitMs={200}>
+            <h2 className="self-description">{professionalTitle}</h2>
           </AnimatedLoader>
           <BP type="above" name="mobileLg">
-            <AnimatedLoader className="fade-and-slide-up" waitMs={ 400 }>
-              { description }
+            <AnimatedLoader className="fade-and-slide-up" waitMs={400}>
+              {description}
             </AnimatedLoader>
           </BP>
         </div>
       </div>
       <BP type="below" name="tabletSm">
-        <AnimatedLoader className="container fade-and-slide-up" waitMs={ 400 }>
-          { description }
+        <AnimatedLoader className="container fade-and-slide-up" waitMs={400}>
+          {description}
         </AnimatedLoader>
       </BP>
     </AnimatedLoader>
     <div className="main-resume-body container blue-links">
-      <AnimatedLoader className="fade-and-slide-up" waitMs={ 400 }>
+      <AnimatedLoader className="fade-and-slide-up" waitMs={400}>
         <EducationAndWork />
       </AnimatedLoader>
     </div>

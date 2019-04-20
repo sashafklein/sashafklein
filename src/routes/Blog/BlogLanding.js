@@ -1,9 +1,9 @@
-import { connect } from 'react-redux';
-import { object, func } from 'prop-types';
-import { push } from 'connected-react-router';
+import { connect } from "react-redux";
+import { object, func } from "prop-types";
+import { push } from "connected-react-router";
 
 export const BlogLanding = ({ post, dispatch }) => {
-  const path = post ? `/blog/${post.slug}` : '/';
+  const path = post ? `/blog/${post.slug}` : "/";
   dispatch(push(path));
   return null;
 };

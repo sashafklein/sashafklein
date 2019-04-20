@@ -1,18 +1,16 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import Markdown from 'components/Markdown';
+import Markdown from "components/Markdown";
 
 export const Blog = ({ history, posts, pathname }) => {
-  const post = posts.find(p => (
-    pathname
-      ? pathname.split('blog/')[1].includes(p.slug)
-      : null
-  ));
+  const post = posts.find(p =>
+    pathname ? pathname.split("blog/")[1].includes(p.slug) : null
+  );
 
   if (!post) {
-    history.push('/blog');
+    history.push("/blog");
     return null;
   }
 
@@ -20,14 +18,11 @@ export const Blog = ({ history, posts, pathname }) => {
     <div className="container posts-show">
       <div className="content-section">
         <h1 className="small-buffer-top">
-          { post.name }
-          <small>
-            {' '}
-            ({ post.createdAt })
-          </small>
+          {post.name}
+          <small> ({post.createdAt})</small>
         </h1>
 
-        <Markdown className="markdown markdown-container" source={ post.text } />
+        <Markdown className="markdown markdown-container" source={post.text} />
         <div className="example" />
       </div>
     </div>

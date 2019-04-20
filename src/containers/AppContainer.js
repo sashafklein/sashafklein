@@ -1,32 +1,33 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { func, oneOfType, node, array } from 'prop-types';
+import React from "react";
+import { connect } from "react-redux";
+import { func, oneOfType, node, array } from "prop-types";
 
-import { setActiveBreakpoint } from 'redux/actions';
-import { initReduxBreakpoints } from 'utils/responsiveHelpers';
+import { setActiveBreakpoint } from "redux/actions";
+import { initReduxBreakpoints } from "utils/responsiveHelpers";
 
-import 'styles/core.scss';
+import "styles/core.scss";
 
 class AppContainer extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     const { dispatch } = this.props;
 
     // Track window changes and update global breakpoint object accordingly
     initReduxBreakpoints.call(
-      this, window, (breakpointName, breakpointSize, mediaQueryState) => dispatch(
-        setActiveBreakpoint(breakpointName, breakpointSize, mediaQueryState)
-      )
+      this,
+      window,
+      (breakpointName, breakpointSize, mediaQueryState) =>
+        dispatch(
+          setActiveBreakpoint(breakpointName, breakpointSize, mediaQueryState)
+        )
     );
   }
 
-  render () {
+  render() {
     const { children } = this.props;
 
     return (
       <div className="app">
-        <div className="pagecontent">
-          { children }
-        </div>
+        <div className="pagecontent">{children}</div>
       </div>
     );
   }
