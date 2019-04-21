@@ -48,7 +48,7 @@ ProjectsMenu.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  items: state.data.portfolioItems,
+  items: state.data.projects,
   tabOpen: state.settings.tabOpen
 });
 
