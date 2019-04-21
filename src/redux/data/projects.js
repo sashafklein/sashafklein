@@ -1,69 +1,73 @@
 import raw from "raw.macro";
 
+import LCS from "assets/img/LCS-1.jpg";
+import OSET from "assets/img/oset.jpg";
+import planit from "assets/img/planit.gif";
+import meatup from "assets/img/meatup.jpg";
+import tweed from "assets/img/tweed.gif";
+import gems from "assets/img/gems.jpg";
+import npms from "assets/img/npms.jpg";
+import owl from "assets/img/owl.gif";
+
 export default [
   {
     bullets: [],
-    image: "https://dl.dropboxusercontent.com/s/kh9ayaud00urxid/LCS-1.jpg?dl=0",
+    image: LCS,
     link: "http://leftcoastsauna.com",
     subtitle: "Building community through sweat",
-    text: raw("./markdown/portfolio/leftcoastsauna.md"),
+    text: raw("./markdown/projects/leftcoastsauna.md"),
     title: "Left Coast Sauna"
   },
   {
     bullets: ["React Native", "Open Source"],
-    image: "https://dl.dropboxusercontent.com/s/mq7hxz1lzgws89o/oset.png?dl=0",
+    image: OSET,
     link: "https://github.com/sashafklein/ballot-marker",
     subtitle: "An accessible multi-platform ballot-marking tool",
-    text: raw("./markdown/portfolio/ballot.md"),
+    text: raw("./markdown/projects/ballot.md"),
     title: "OSET Ballot Marker"
   },
   {
     bullets: ["Angular", "Rails", "SPA", "Scraping", "Leaflet", "TDD"],
-    image:
-      "https://dl.dropboxusercontent.com/s/a7cc664bp39kzrj/planit-gif.gif?dl=0",
+    image: planit,
     subtitle: "Friend-approved travel",
-    text: raw("./markdown/portfolio/planit.md"),
+    text: raw("./markdown/projects/planit.md"),
     title: "PlanIt"
   },
   {
     bullets: ["E-Commerce", "Rails", "PostgreSQL"],
-    image:
-      "https://dl.dropboxusercontent.com/s/bf9o7nkimmslvid/meatup.png?dl=0",
+    image: meatup,
     subtitle: "Outside-the-box thinking on meat CSAs",
-    text: raw("./markdown/portfolio/meatup.md"),
+    text: raw("./markdown/projects/meatup.md"),
     title: "MeatUp"
   },
   {
     bullets: ["Meteor", "MongoDB"],
-    image:
-      "https://dl.dropboxusercontent.com/s/gmjewlx6agw0fqd/tweed-gif.gif?dl=0",
+    image: tweed,
     subtitle: "Polished and feature-rich Meteor-powered chat",
-    text: raw("./markdown/portfolio/tweed.md"),
+    text: raw("./markdown/projects/tweed.md"),
     title: "Tweed"
   },
   {
     bullets: ["Node", "React", "Redux", "JavaScript", "Testing", "Open Source"],
-    image:
-      "https://dl.dropboxusercontent.com/s/wz0cs8vzorugupc/npm-packages.png?dl=0",
+    image: npms,
     link: "https://github.com/sashafklein/shape",
     subtitle: "AVA Describe, Shape, Redux Request Manager, and RS Components",
-    text: raw("./markdown/portfolio/npm.md"),
+    text: raw("./markdown/projects/npm.md"),
     title: "NPM Packages"
   },
   {
     bullets: ["Rails", "Ruby", "PostgreSQL", "Deployment", "Open Source"],
-    image:
-      "https://dl.dropboxusercontent.com/s/8wrxs0lctjbota1/ruby-gems.png?dl=0",
+    image: gems,
     link: "https://github.com/sashafklein/me_first",
     subtitle: "PG Clone, MeFirst, and Falcon Deploy",
-    text: raw("./markdown/portfolio/gems.md"),
+    text: raw("./markdown/projects/gems.md"),
     title: "Ruby Gems"
   },
   {
     bullets: ["Sendgrid", "Rails"],
-    image: "https://dl.dropboxusercontent.com/s/4ev2cn2rggos3pn/owl.gif?dl=0",
+    image: owl,
     subtitle: "Simple daily email-based inspiration",
-    text: raw("./markdown/portfolio/owl.md"),
+    text: raw("./markdown/projects/owl.md"),
     title: "Quote Owl"
   }
 ];

@@ -7,4 +7,3 @@ Rather than buying into a preexisting quote list, or dealing with a clunky inter
 A simple point tracker ensures that you don't see the same quote too frequently, and a basic subscription system allows multiple people (ex: me, my brother, and my uncle) to subscribe and add to the same list of quotes.
 
 Lightweight and straightforward, this one-day Rails app has added a lot of happiness to my life.
-

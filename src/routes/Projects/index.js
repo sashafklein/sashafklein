@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import AnimatedLoader from "components/AnimatedLoader";
 import ProjectItem, { slug } from "./ProjectItem";
 
-export const Portfolio = ({ portfolioItems, location, navOpen, tabOpen }) => {
+export const Portfolio = ({ projects, location, navOpen, tabOpen }) => {
   const specified = location.hash && location.hash.replace("#", "");
   const [loaded, setLoaded] = useState(navOpen || tabOpen);
 
@@ -23,9 +23,9 @@ export const Portfolio = ({ portfolioItems, location, navOpen, tabOpen }) => {
   const items =
     specified &&
     specified.length &&
-    portfolioItems.find(i => slug(i.title) === specified)
-      ? portfolioItems.filter(i => slug(i.title) === specified)
-      : portfolioItems;
+    projects.find(i => slug(i.title) === specified)
+      ? projects.filter(i => slug(i.title) === specified)
+      : projects;
 
   return (
     <div>
@@ -44,14 +44,14 @@ export const Portfolio = ({ portfolioItems, location, navOpen, tabOpen }) => {
 
 const { array, object, bool } = PropTypes;
 Portfolio.propTypes = {
-  portfolioItems: array,
+  projects: array,
   location: object,
   navOpen: bool,
   tabOpen: bool
 };
 
 const mapStateToProps = state => ({
-  portfolioItems: state.data.portfolioItems,
+  projects: state.data.projects,
   navOpen: state.settings.navOpen,
   tabOpen: state.settings.tabOpen
 });

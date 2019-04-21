@@ -5,7 +5,3 @@ node_modules
 
 dist
 coverage
-
-.idea/
-
-src/store/data/notebook.js
