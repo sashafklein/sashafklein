@@ -16,7 +16,7 @@ Tweed was built on the foundation of a basic Meteor chat app like that described
 
 - We added private chat, exclusively at the command of mentors, so that mentors could keep track of the "queue" of questions while addressing them with minimal confusion one (or multiple) at a time.
 
-![tweed-gif2](https://dl.dropboxusercontent.com/s/scvlkf1fdu8ds6m/tweed-gif2.gif?dl=0)
+![tweed-gif2](https://s3-us-west-1.amazonaws.com/sasha-public-assets/sashafklein/tweed-gif2.gif)
 
 The app was my first foray into Meteor, as well as Christian's first major Meteor app. It immediately saved considerable amounts of time and money, as well as improving student experience and admin insight. And it taught me a good deal about Meteor and server-side JavaScript frameworks.
 

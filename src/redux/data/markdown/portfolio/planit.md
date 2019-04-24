@@ -8,7 +8,7 @@ We streamlined the list concept by **auto-clustering locational data** by Geonam
 
 We layered on top of all of this a robust and completely **hand-rolled Angular SPA** architecture, which allowed users to move from world-level browsing to city-level note-addition or bookmarking, without ever reloading the page. Users could toggle between map and list views, take a large variety of actions, and manipulate a large and growing body of frontend data, all of which was **lazily cached** and shared between the "horizontal" and "vertical" layers of our SPA.
 
-![planit-gif](https://dl.dropboxusercontent.com/s/a7cc664bp39kzrj/planit-gif.gif?dl=0)
+![planit-gif](https://s3-us-west-1.amazonaws.com/sasha-public-assets/sashafklein/planit-gif.gif)
 
 To spare our server and keep the user experience fast, we backgrounded a large number of application tasks -- place addition, bookmarklet functions, note-taking, bulk actions -- while maintaining the interactiveness of the platform by opening a line of communication between backgrounded and current tasks using **Pusher** and an **internal API**.
 

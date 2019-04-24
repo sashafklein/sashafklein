@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import Img from "react-image";
+import { omit } from "lodash";
 
 import "./Image.scss";
 
@@ -15,28 +16,21 @@ export const Image = props => {
     className
   ].filter(c => c);
 
-  return (
-    <Img
-      ref={image}
-      className={classes.join(" ")}
-      onLoad={() => {
-        setLoaded(true);
-      }}
-      alt={props.alt || props.src || ""}
-      src={src}
-      loader={
-        <span className={`image-comp image-loader-gradient ${className}`} />
-      }
-      {...Object.keys(props)
-        .filter(k => !["show"].includes(k))
-        .reduce(
-          (obj, k) => ({
-            [k]: obj[k]
-          }),
-          {}
-        )}
-    />
-  );
+  const allProps = {
+    ...omit(props, "show"),
+    ref: image,
+    onLoad: () => setLoaded(true),
+    alt: props.alt || src || "",
+    loader: (
+      <span className={`image-comp image-loader-gradient ${className}`} />
+    ),
+    unloader: (
+      <span className={`image-comp image-loader-gradient ${className}`} />
+    ),
+    className: classes.join(" ")
+  };
+
+  return <Img {...allProps} />;
 };
 
 const { string, bool } = PropTypes;

@@ -12,30 +12,27 @@
   opacity: 1;
 }
 
+@keyframes PULSE {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .image-loader-gradient {
-  background: linear-gradient(270deg, lighten(#ccc, 20), lighten(#ccc, 10));
-  background-size: 600% 600%;
+  background: linear-gradient(270deg, lighten(#ccc, 20), darken(#ccc, 10));
+  background-size: 150% 150%;
   color: transparent;
   width: 100%;
   display: block;
 
-  -webkit-animation: AnimationName 1500ms ease infinite;
-  -moz-animation: AnimationName 1500ms ease infinite;
-  animation: AnimationName 1500ms ease infinite;
-
-  @-webkit-keyframes AnimationName {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-  }
-  @-moz-keyframes AnimationName {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-  }
-  @keyframes AnimationName {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-  }
+  animation-name: PULSE;
+  animation-duration: 1.25s; /* or: Xms */
+  animation-iteration-count: 8;
+  animation-timing-function: ease;
 }

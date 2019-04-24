@@ -1,7 +1,6 @@
 import React from "react";
 import Markdown from "react-markdown";
 
-import Headshot from "assets/img/headshot.jpg";
 import Image from "components/Image";
 import AnimatedLoader from "components/AnimatedLoader";
 import BP from "components/BP";
@@ -23,7 +22,10 @@ export const Resume = () => (
         <BP type="above" name="mobileMd">
           <div className="headshot-box">
             <AnimatedLoader className="fade-and-slide-up" waitMs={400}>
-              <Image src={Headshot} className="headshot" />
+              <Image
+                src="https://s3-us-west-1.amazonaws.com/sasha-public-assets/sashafklein/headshot.jpg"
+                className="headshot"
+              />
             </AnimatedLoader>
           </div>
         </BP>
@@ -59,7 +61,7 @@ export const Resume = () => (
                 title="Resume"
                 target="blank"
                 rel="noopener noreferrer"
-                href={`${process.env.PUBLIC_URL}/Sasha Klein Resume.pdf`}
+                href="https://s3-us-west-1.amazonaws.com/sasha-public-assets/sashafklein/Sasha Klein Resume.pdf"
               >
                 <i className="fa fa-file-text" />
               </a>
