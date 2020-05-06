@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 
 import { toggleSetting } from "redux/actions";
 
-import Headshot from "assets/img/headshot.jpg";
 import { professionalTitle } from "routes/Resume";
 import Header from "components/Header";
 import Tab from "components/Tab";
@@ -32,6 +31,8 @@ export const CoreLayout = ({ dispatch, children, page, tabOpen }) => {
   }[page];
 
   const title = `Sasha Klein - ${page[0].toUpperCase().concat(page.slice(1))}`;
+  const image =
+    "https://sasha-public-assets.s3-us-west-1.amazonaws.com/sashafklein/og-image.jpg";
 
   return (
     <div className={`page-container ${page}`}>
@@ -39,7 +40,20 @@ export const CoreLayout = ({ dispatch, children, page, tabOpen }) => {
         <title>{title}</title>
         <meta id="meta-description" name="description" content={desc} />
         <meta id="og-title" property="og:title" content={title} />
-        <meta id="og-image" property="og:image" content={Headshot} />
+        <meta id="og-image" property="og:image" content={image} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="@sashafklein" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={desc} />
+        <meta name="twitter:image" content={image} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={desc} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:alt" content={title} />
+        <meta property="og:image:secure_url" content={image} />
       </Meta>
       <Header />
       <div className="header-spacer" />
