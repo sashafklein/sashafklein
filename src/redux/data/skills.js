@@ -16,11 +16,19 @@ export default [
     scale: 7
   },
   {
+    name: "Solutions Architecting",
+    scale: 7
+  },
+  {
     name: "Client Management",
-    scale: 6
+    scale: 7
   },
   {
     name: "Engineering Management",
+    scale: 6
+  },
+  {
+    name: "Engineering Sales",
     scale: 6
   },
   {
@@ -32,11 +40,19 @@ export default [
     scale: 6
   },
   {
-    name: "AWS / Serverless",
-    scale: 5
+    name: "Responsive CSS / UX",
+    scale: 6
+  },
+  {
+    name: "Serverless Infrastructures (AWS/Azure)",
+    scale: 6
   },
   {
     name: "React Native",
+    scale: 5
+  },
+  {
+    name: "GraphQL",
     scale: 5
   },
   {
@@ -48,11 +64,15 @@ export default [
     scale: 5
   },
   {
-    name: "Responsive CSS / UX",
+    name: "HTML(5)",
     scale: 5
   },
   {
-    name: "HTML(5)",
+    name: "Serverless CMSs",
+    scale: 5
+  },
+  {
+    name: "PostgreSQL",
     scale: 5
   },
   {
@@ -60,23 +80,11 @@ export default [
     scale: 4
   },
   {
-    name: "PostgreSQL",
-    scale: 4
-  },
-  {
-    name: "CMS Websites",
-    scale: 4
-  },
-  {
-    name: "GraphQL",
-    scale: 3
-  },
-  {
     name: "Prototyping",
     scale: 3
   },
   {
-    name: "Sketch / Adobe",
+    name: "Sketch / Adobe / Figma",
     scale: 3
   },
   {
@@ -90,13 +98,5 @@ export default [
   {
     name: "Swift / iOS",
     scale: 2
-  },
-  {
-    name: "Ember",
-    scale: 1
-  },
-  {
-    name: "Meteor",
-    scale: 1
   }
 ];
