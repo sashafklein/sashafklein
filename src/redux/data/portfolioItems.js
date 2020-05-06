@@ -3,6 +3,15 @@ import raw from "raw.macro";
 export default [
   {
     bullets: [],
+    title: "ImSafe Health",
+    link: "https://imsafehealth.com",
+    image:
+      "https://sasha-public-assets.s3-us-west-1.amazonaws.com/sashafklein/ImSafe.png",
+    subtitle: "A secure and private way to share your immune status",
+    text: raw("./markdown/portfolio/imsafe.md")
+  },
+  {
+    bullets: [],
     image:
       "https://s3-us-west-1.amazonaws.com/sasha-public-assets/sashafklein/LCS-1.jpg",
     link: "http://leftcoastsauna.com",
