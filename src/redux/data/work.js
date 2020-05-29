@@ -2,9 +2,24 @@
 
 export default [
   {
+    id: "imsafe",
+    title: "ImSafe Health",
+    link: "/projects#imsafe-health",
+    roles: [
+      {
+        name: "Co-Founder / Frontend Engineer",
+        started: "Mar",
+        ended: "May 2020",
+        location: "San Francisco"
+      }
+    ]
+  },
+  {
     id: "blink",
     roleTitle: "Director of Engineering & Solutions Architect",
     title: "Blink UX",
+    started: "Dec 2015",
+    ended: "Present",
     roles: [
       {
         description:
