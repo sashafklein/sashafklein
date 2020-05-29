@@ -9,9 +9,10 @@ import EducationAndWork from "./EducationAndWork";
 
 import "styles/core.scss";
 
-export const professionalTitle = "Senior Full Stack Engineer & Manager";
+export const professionalTitle =
+  "Director of Engineering / Solutions Architect";
 const descriptionMd =
-  "Full Stack **director of engineering** and **solutions architect**, fluent in a wide range of frontend and backend technologies, and experienced **leading** teams, **designing** systems, and **running** projects.";
+  "I **build teams** and **design technical systems** to solve problems **across technologies and industries**. Currently at Blink UX, where I lead our engineering practice and directç projects for both startups and name-brand clients.";
 
 const description = <Markdown source={descriptionMd} />;
 
