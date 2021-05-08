@@ -5,7 +5,7 @@
   "dependencies": {
     "connected-react-router": "^6.8.0",
     "history": "^4.9.0",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.21",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "raw.macro": "^0.3.0",
