@@ -12,7 +12,7 @@ import "styles/core.scss";
 export const professionalTitle =
   "Director of Engineering / Solutions Architect";
 const descriptionMd =
-  "I **build teams** and **design technical systems** to solve problems **across technologies and industries**. Currently at Blink UX, where I lead our engineering practice and direct projects for both startups and name-brand clients.";
+  "I **build teams** and **design technical systems** to solve problems **across technologies and industries**. Recent Director of Engineering and Solutions Architect at Blink UX, where I led our engineering practice for a range of startup and name-brand projects.\n\nI'm looking to help Bitcoin grow.";
 
 const description = <Markdown source={descriptionMd} />;
 

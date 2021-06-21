@@ -2,6 +2,21 @@
 
 export default [
   {
+    id: "bitcoin-ed",
+    title: "Programming Bitcoin",
+    link: null,
+    roles: [
+      {
+        description:
+          "[Attended](https://programmingblockchain.com/certificates/1d68f11829fd44d44294.txt) the 2021 Miami [Programming Blockchain](https://programmingbitcoin.com/programming-blockchain/) seminar with Jimmy Song, where we built out basic wallet software in Python, from finite field implementation through elliptic field cryptography, transaction construction, and propagation on the testnet node network.",
+        ended: null,
+        location: "Miami",
+        name: "Bitcoin Developer",
+        started: "2021"
+      }
+    ]
+  },
+  {
     id: "bloc-ed",
     link: null,
     roles: [

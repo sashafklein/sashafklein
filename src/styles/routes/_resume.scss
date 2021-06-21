@@ -2,7 +2,8 @@
   margin-bottom: 15px;
 }
 
-.panel, .collapse-title {
+.panel,
+.collapse-title {
   margin-bottom: 10px;
 }
 
@@ -12,7 +13,8 @@
     @include no-border;
     padding: 0;
     .panel-title {
-      .collapse-title {}
+      .collapse-title {
+      }
     }
   }
   .panel-collapse {
@@ -31,9 +33,13 @@
   }
 }
 
+.education-and-work-container {
+  padding-bottom: 40px;
+}
+
 .resume {
-  .main-resume-body, .header-area {
-    padding: 0 20px;
+  .main-resume-body {
+    padding: 20px;
   }
   .main-resume-body.container {
     margin-bottom: 100px;
@@ -47,7 +53,7 @@
   .header-area {
     margin-bottom: 50px;
     background-color: $lightGray;
-    padding: 40px 0;
+    padding: 60px 0;
 
     @media (max-width: $small) {
       h2 {
@@ -134,7 +140,8 @@
   .item-title {
     margin-right: 0.5rem;
   }
-  .panel, .collapse-title.top-level {
+  .panel,
+  .collapse-title.top-level {
     margin-bottom: 20px;
   }
   .panel-collapse {
@@ -145,14 +152,14 @@
     padding-left: 0;
   }
 
-  li:hover.panel, li:hover.resume-link {
+  li:hover.panel,
+  li:hover.resume-link {
     &:before {
       color: darken($lightPink, 20);
     }
   }
 
   li.panel {
-
     > p {
       position: relative;
       top: 0;
@@ -171,7 +178,9 @@
       margin-left: 30px;
     }
 
-    .subrole, .role-subtitle {}
+    .subrole,
+    .role-subtitle {
+    }
 
     .role-subtitle {
       text-decoration: underline;
@@ -197,7 +206,8 @@
         }
       }
     }
-    .roles, .fa {
+    .roles,
+    .fa {
       overflow: hidden;
       transition: all 0.7s ease;
     }
@@ -244,7 +254,8 @@
     transition: all 0.5s ease;
   }
 
-  li.panel, li.resume-link {
+  li.panel,
+  li.resume-link {
     list-style-type: none;
     list-style-position: inside;
     position: relative;

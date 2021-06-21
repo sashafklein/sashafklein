@@ -1,4 +1,27 @@
-body, div, img, p, ol, em, input, small, br, strong, code, span, a, ul, li, td, th, h1, h2, h3, h4, h5, h6, label {
+body,
+div,
+img,
+p,
+ol,
+em,
+input,
+small,
+br,
+strong,
+code,
+span,
+a,
+ul,
+li,
+td,
+th,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
   text-align: left;
   &::selection {
     background: $lightPink;
@@ -10,12 +33,18 @@ body, div, img, p, ol, em, input, small, br, strong, code, span, a, ul, li, td, 
   }
 }
 
-p, a, label, input, li, i {
+p,
+a,
+label,
+input,
+li,
+i {
   @include responsiveFont($p);
   line-height: #{$p * 1.9};
 }
 
-small, .small {
+small,
+.small {
   @include responsiveFont($smallFont);
 }
 
@@ -44,13 +73,26 @@ h1 {
 
 p {
   font-family: Montserrat;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 em {
-  font-family: Montserrat
+  font-family: Montserrat;
 }
-ol, small, ul, li, td, th, h1, h2, h3, h4, h5, h6, label, a {
+ol,
+small,
+ul,
+li,
+td,
+th,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+a {
   font-family: Montserrat;
   font-weight: 400;
 }

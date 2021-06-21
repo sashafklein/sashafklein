@@ -19,12 +19,13 @@ export default [
     roleTitle: "Director of Engineering & Solutions Architect",
     title: "Blink UX",
     started: "Dec 2015",
-    ended: "Present",
+    ended: "Jul 2020",
     roles: [
       {
         description:
           "For over 3 years, I've worked as Lead Software Engineer and Director of Engineering at the digital design firm [Blink UX](https://blinkux.com), and [Redshift Digital](https://redshiftdigital.com) (acquired Dec 2018) before that. As Director of Engineering/SA at Blink's San Francisco office, I manage Blink's remote engineering team, lead client relationships, and estimate, architect, pitch, and build a wide variety of full-stack and frontend applications for a range of both start-up and name-brand clients, including Amazon, First American, and Unisys.",
         started: "June 2018",
+        ended: "Jul 2020",
         location: "San Francisco",
         name: "Director of Engineering & Solutions Architect"
       },

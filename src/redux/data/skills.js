@@ -8,10 +8,6 @@ export default [
     scale: 8
   },
   {
-    name: "Ruby / Rails",
-    scale: 7
-  },
-  {
     name: "JAMstack",
     scale: 7
   },
@@ -36,6 +32,10 @@ export default [
     scale: 6
   },
   {
+    name: "Ruby / Rails",
+    scale: 6
+  },
+  {
     name: "Angular",
     scale: 6
   },
@@ -44,7 +44,7 @@ export default [
     scale: 6
   },
   {
-    name: "Serverless Infrastructures (AWS/Azure)",
+    name: "Serverless Infra (AWS/Azure)",
     scale: 6
   },
   {
@@ -76,12 +76,20 @@ export default [
     scale: 5
   },
   {
+    name: "Bitcoin Script",
+    scale: 4
+  },
+  {
     name: "App Optimization",
     scale: 4
   },
   {
+    name: "Python",
+    scale: 4
+  },
+  {
     name: "Prototyping",
-    scale: 3
+    scale: 4
   },
   {
     name: "Sketch / Adobe / Figma",
@@ -92,11 +100,7 @@ export default [
     scale: 2
   },
   {
-    name: "Python",
-    scale: 2
-  },
-  {
     name: "Swift / iOS",
-    scale: 2
+    scale: 1
   }
 ];

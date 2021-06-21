@@ -11,12 +11,20 @@ const dateString = item => {
   }
 };
 
-export const ItemSubtitle = ({ item }) => (
-  <strong>
-    ({dateString(item)}) -{" "}
-    <em>{item.roleTitle || item.roles.map(r => r.name).join(", ")}</em>
-  </strong>
-);
+export const ItemSubtitle = ({ item }) => {
+  const roleTitle =
+    item.roleTitle ||
+    item.roles
+      .map(r => r.name)
+      .filter(n => n)
+      .join(", ");
+  return (
+    <strong>
+      ({dateString(item)}) {roleTitle ? "- " : null}
+      {roleTitle ? <em>{roleTitle}</em> : null}
+    </strong>
+  );
+};
 
 const { object } = PropTypes;
 ItemSubtitle.propTypes = {
