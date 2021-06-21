@@ -48,6 +48,10 @@ export default [
     scale: 6
   },
   {
+    name: "Bitcoin Scripting",
+    scale: 5
+  },
+  {
     name: "React Native",
     scale: 5
   },
@@ -74,10 +78,6 @@ export default [
   {
     name: "PostgreSQL",
     scale: 5
-  },
-  {
-    name: "Bitcoin Script",
-    scale: 4
   },
   {
     name: "App Optimization",
