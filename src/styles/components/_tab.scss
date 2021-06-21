@@ -1,7 +1,13 @@
 @keyframes BOUNCE {
-  0%   { margin-bottom: 0px; }
-  50% { margin-bottom: 6px; }
-  100%   { margin-bottom: 0px; }
+  0% {
+    margin-bottom: 0px;
+  }
+  50% {
+    margin-bottom: 6px;
+  }
+  100% {
+    margin-bottom: 0px;
+  }
 }
 
 .menu-tab {
@@ -17,10 +23,10 @@
   border-radius: 50%;
 
   animation-name: BOUNCE;
-  animation-duration: 0.3s; /* or: Xms */
-  animation-iteration-count: 2;
-  animation-timing-function: ease;
-  animation-delay: 1.3s; /* or: Xms */
+  animation-duration: 0.25s; /* or: Xms */
+  animation-iteration-count: 3;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.5s; /* or: Xms */
 
   i {
     @include responsiveFont($h1);
