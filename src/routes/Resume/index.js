@@ -62,7 +62,7 @@ export const Resume = () => (
                 title="Resume"
                 target="blank"
                 rel="noopener noreferrer"
-                href="https://s3-us-west-1.amazonaws.com/sasha-public-assets/sashafklein/Sasha Klein Resume.pdf"
+                href="https://sasha-public-assets.s3.us-west-1.amazonaws.com/sashafklein/Sasha+Klein+Resume.pdf"
               >
                 <i className="fa fa-file-text" />
               </a>
