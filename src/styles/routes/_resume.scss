@@ -176,10 +176,34 @@
 
     .roles > div.subsection {
       margin-left: 30px;
+      p,
+      a {
+        @include responsiveFont($smallFont);
+      }
     }
 
-    .subrole,
-    .role-subtitle {
+    .subrole {
+      li {
+        list-style-position: outside;
+        margin-left: 20px;
+        font-weight: 300;
+      }
+
+      li:not(:last-child) {
+        margin-bottom: 5px;
+      }
+
+      li:last-child {
+        margin-bottom: 15px;
+      }
+
+      li a {
+        font-weight: 500;
+      }
+
+      li strong {
+        font-weight: 500;
+      }
     }
 
     .role-subtitle {
@@ -199,7 +223,7 @@
     }
 
     .roles {
-      margin-top: 20px;
+      margin-top: 10px;
       .paragraph:first-child {
         p {
           margin-top: 0;

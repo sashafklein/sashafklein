@@ -48,7 +48,11 @@ export default [
     scale: 6
   },
   {
-    name: "Bitcoin Scripting",
+    name: "Bitcoin Script",
+    scale: 5
+  },
+  {
+    name: "Python",
     scale: 5
   },
   {
@@ -80,11 +84,11 @@ export default [
     scale: 5
   },
   {
-    name: "App Optimization",
-    scale: 4
+    name: "Agile / Scrum",
+    scale: 5
   },
   {
-    name: "Python",
+    name: "App Optimization",
     scale: 4
   },
   {

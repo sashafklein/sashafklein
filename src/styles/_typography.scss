@@ -43,6 +43,13 @@ i {
   line-height: #{$p * 1.9};
 }
 
+.subrole li {
+  @include responsiveFont($smallFont);
+  a {
+    @include responsiveFont($smallFont);
+  }
+}
+
 small,
 .small {
   @include responsiveFont($smallFont);

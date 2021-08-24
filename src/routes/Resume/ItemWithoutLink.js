@@ -38,7 +38,7 @@ const ItemWithoutLink = ({ item, dispatch, openItems }) => {
         {item.roles.map(role => (
           <div
             className="subsection"
-            key={role.started.concat(role.ended)}
+            key={(role.started || "").concat(role.ended)}
             style={{ marginTop: "5px" }}
           >
             {manyRoles && <RoleSubtitle role={role} />}

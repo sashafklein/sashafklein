@@ -24,9 +24,9 @@
 
   animation-name: BOUNCE;
   animation-duration: 0.25s; /* or: Xms */
-  animation-iteration-count: 3;
+  animation-iteration-count: 4;
   animation-timing-function: ease-in-out;
-  animation-delay: 1.5s; /* or: Xms */
+  animation-delay: 2s; /* or: Xms */
 
   i {
     @include responsiveFont($h1);

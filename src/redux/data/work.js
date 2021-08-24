@@ -22,20 +22,24 @@ export default [
     ended: "Jul 2020",
     roles: [
       {
-        description:
-          "For over 3 years, I worked as Lead Software Engineer and Director of Engineering at the digital design firm [Blink UX](https://blinkux.com), and [Redshift Digital](https://redshiftdigital.com) (acquired Dec 2018) before that. As Director of Engineering/SA at Blink's SF office, I managed Blink's remote engineering team, led client relationships, and estimated, architected, pitched, and built a wide variety of full-stack and frontend applications for both start-up and name-brand clients -- including Amazon, First American, and Unisys.",
-        started: "June 2018",
-        ended: "Jul 2020",
-        location: "San Francisco",
+        description: `
+  - **Defined and built Blink’s engineering practice**, a new **multi-million-dollar vertical** for the company. Determined areas of focus, built and trained our remote team, and **scoped**, **pitched**, and **led all dev projects**.
+  - Architected and built **custom technical solutions** for a diverse set of clients, including **4 Fortune 500 companies**. Projects included an **award-winning cybersecurity dashboard** for Unisys, the beta of a new car-sales platform and mobile app for JD Power, and real-time energy load **data visualization** and management software.
+  - Led remote, local, and outsourced engineering, research, and UX teams to **design, build, manage, and deploy** that work, managing up to **5 distinct teams** on a given project.
+  - **Scoped, tracked, planned sprints** for, and managed client communications for **all 15+ dev projects**, ensuring cross-team work was coordinated and delivered on time.`,
+        started: "2018",
+        ended: "2020",
         name: "Director of Engineering & Solutions Architect"
       },
       {
-        description:
-          "Collaborating as Lead Engineer with small teams of designers and researchers, I built a range of web and mobile apps, including a **realtime data visualization** dashboard for [Advanced Microgrid Systems](http://advmicrogrid.com), a complete interactive prototype of [Kaiser Permanente](https://kp.org)'s future website (and prototype of KP's future iOS/Android mobile app), and the flagship sales and e-commerce hub for the smart-lighting startup [Noon](https://noonhome.com).",
-        ended: "Dec 2017",
-        location: "San Francisco",
-        name: "Lead Software Engineer",
-        started: "Dec 2015"
+        description: `
+- Architected, built, deployed, and managed **6 web and mobile apps** integrating **React/Redux, React Native, Node/Express, Rails, AWS**, and external APIs.
+- Led cross-disciplinary team and managed clients for our **2 largest dev projects**, totalling over **$2 million in revenue**.
+- Developed **test-driven development** patterns, and built core **open-source NPM libraries** to share tools across projects.
+        `,
+        ended: "2018",
+        name: "Lead Engineer",
+        started: "2015"
       }
     ]
   },
@@ -54,22 +58,23 @@ export default [
   {
     id: "bloc-job",
     title: "Bloc",
+    started: "Feb 2013",
+    ended: "Oct 2014",
     roles: [
       {
-        description:
-          'As Bloc\'s Full Stack Course Director, I incorporated **test-driven development** and **debugging skills** into the curriculum, reworked our **Ruby "fundamentals"** section, and pushed multiple curricular overhauls. I worked in a marketing capacity, running a number of Full Stack info sessions for the sales team, and also as a manager, **hiring, managing, and building training systems** for several dozen international mentors. I also proposed, coded, and oversaw the movement to a more sustainable Stack-Overflow based **QA system**, and a **resource library** to increase cooperation among course directors.',
-        ended: "Oct 2014",
-        location: "San Francisco",
-        name: "Full Stack Course Director",
-        started: "May 2014"
+        description: `
+- Updated Rails curriculum, added **test-driven-development** and debugging sections, and reworked Ruby "fundamentals."
+- **Hired, managed, and trained ~50 international mentors**. More than **doubled the mentoring team** and simultaneously **raised student NPS scores**.
+- Defined and built key course tools: Stack-Overflow-based QA system and resource library.`,
+        ended: "~2014",
+        name: "Full Stack Course Director"
       },
       {
-        description:
-          "As one of Bloc's 3 main developers, working primarily in Rails and AngularJS, I led a large number of major codebase changes. I built Bloc's **authentication framework**, overhauled its **curriculum tools**, including the **roadmap interface** and complete **Github and PR integration**, jointly constructed its cross-timezone, recurrent **mentor-appointment scheduler**, co-built our [integrated Meteor office-hours chat application](/projects#tweed), and orchestrated our backend switch from **group classes** to **one-on-one mentorship**, as well as our switches from 1 total course offering to 5 courses (and counting) and from one to multiple \"track lengths\".",
-        ended: "May 2014",
-        location: "San Francisco",
-        name: "Web Developer",
-        started: "May 2013"
+        description: `
+- Built the core curriculum tools, authentication framework, **cross-timezone, recurrent scheduler** for mentor-appointments, and **Meteor chat application** for "office-hours".
+- **Orchestrated key codebase migrations**: From group classes to personal mentorship, 1 curriculum to 5, one-time to subscription payments, and 1 to multiple "track lengths."`,
+        ended: "~2013",
+        name: "Full Stack Engineer"
       }
     ]
   },
@@ -79,9 +84,8 @@ export default [
     title: "MeatUp",
     roles: [
       {
-        location: "San Francisco",
         name: "Founder and Coder",
-        started: "2012"
+        ended: "2012"
       }
     ]
   },
@@ -91,7 +95,7 @@ export default [
     roles: [
       {
         description:
-          "As a Dipont Fellow, I taught (English exposition, French, and Psychology) to Chinese high schoolers and helped students applying to college in the US through the foreign application process. I also edited and wrote for the Dipont quarterly, co-designed the future of Dipont's counseling program and alumni outreach, and participated in panel discussions on American education. I wrote a blog ([now hosted here](/blog/millions-in-the-middle-kingdom)) about my experience (and all the eating I did) there.",
+          "As a Dipont Fellow in Shanghai, China, I taught (English exposition, French, and Psychology) to Chinese high schoolers and helped students applying to college in the US through the foreign application process. I also edited and wrote for the Dipont quarterly, co-designed the future of Dipont's counseling program and alumni outreach, and participated in panel discussions on American education. I wrote a blog ([now hosted here](/blog/millions-in-the-middle-kingdom)) about my experience (and all the eating I did) there.",
         ended: "Jun 2012",
         location: "Shanghai, China",
         name: "Dipont Fellow",

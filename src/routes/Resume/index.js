@@ -9,10 +9,10 @@ import EducationAndWork from "./EducationAndWork";
 
 import "styles/core.scss";
 
-export const professionalTitle =
-  "Director of Engineering / Solutions Architect";
-const descriptionMd =
-  "I **build teams** and **design technical systems** to solve problems **across technologies and industries**. Recent Director of Engineering and Solutions Architect at Blink UX, where I led our engineering practice for a range of startup and name-brand projects.\n\nI'm looking to help Bitcoin grow.";
+export const professionalTitle = "Director of Engineering";
+const descriptionMd = `I build teams and design technical systems to solve problems across technologies and industries.
+
+I’m looking to apply my cross-disciplinary technical, UX, team leadership, and product experience to help Bitcoin take over the world.`;
 
 const description = <Markdown source={descriptionMd} />;
 

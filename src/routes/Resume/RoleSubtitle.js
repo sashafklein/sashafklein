@@ -5,9 +5,10 @@ export const RoleSubtitle = ({ role }) => (
   <div className="role-subtitle">
     <span className="role-name">{role.name} </span>
     <small>
-      {role.location && <strong>({role.location}) </strong>}
-      {role.started && <span className="date">{role.started} </span>}
-      {role.started && <span className="date">-{role.ended || "Present"}</span>}
+      <strong>
+        ({[role.started, role.ended || "Present"].filter(d => d).join("-")}){" "}
+      </strong>
+      {role.location ? <>- {role.location} </> : null}
     </small>
   </div>
 );
