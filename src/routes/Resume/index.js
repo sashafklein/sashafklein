@@ -10,9 +10,9 @@ import EducationAndWork from "./EducationAndWork";
 import "styles/core.scss";
 
 export const professionalTitle = "Director of Engineering";
-const descriptionMd = `I build teams and design technical systems to solve problems across technologies and industries.
+const descriptionMd = `I build teams and technical systems to solve problems across technologies and industries.
 
-I’m looking to apply my cross-disciplinary technical, UX, team leadership, and product experience to help Bitcoin take over the world.`;
+I’m looking to apply my cross-disciplinary engineering, team leadership, and product experience to help Bitcoin take over the world.`;
 
 const description = <Markdown source={descriptionMd} />;
 

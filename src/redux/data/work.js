@@ -23,17 +23,18 @@ export default [
     roles: [
       {
         description: `
-  - **Defined and built Blink’s engineering practice**, a new **multi-million-dollar vertical** for the company. Determined areas of focus, built and trained our remote team, and **scoped**, **pitched**, and **led all dev projects**.
-  - Architected and built **custom technical solutions** for a diverse set of clients, including **4 Fortune 500 companies**. Projects included an **award-winning cybersecurity dashboard** for Unisys, the beta of a new car-sales platform and mobile app for JD Power, and real-time energy load **data visualization** and management software.
-  - Led remote, local, and outsourced engineering, research, and UX teams to **design, build, manage, and deploy** that work, managing up to **5 distinct teams** on a given project.
-  - **Scoped, tracked, planned sprints** for, and managed client communications for **all 15+ dev projects**, ensuring cross-team work was coordinated and delivered on time.`,
+- **Defined and built Blink’s engineering practice**, a new **multi-million-dollar vertical** for the company. Determined areas of focus, built and trained our remote team, and **scoped**, **pitched**, and **led all dev projects**.
+- Architected and coded **web and mobile apps** in a range of front- and backend techs for a diverse set of clients, including **4 Fortune 500 companies**. Projects included an **award-winning cybersecurity dashboard** for Unisys, the beta of a new car-sales platform and mobile app for JD Power, and real-time energy load **data visualization dashboard**.
+- Built projects using **React/Redux, RN, NodeJS, Angular, AWS, GraphQL**, and **PostgreSQL**.
+- Led remote, local, and outsourced engineering, research, and UX teams to **design, build, manage, and deploy** that work, managing up to **5 distinct teams** on a given project.
+- **Scoped, tracked, planned sprints** for, and managed client communications for **all 15+ dev projects**, ensuring cross-team work was coordinated and delivered on time.`,
         started: "2018",
         ended: "2020",
         name: "Director of Engineering & Solutions Architect"
       },
       {
         description: `
-- Architected, built, deployed, and managed **6 web and mobile apps** integrating **React/Redux, React Native, Node/Express, Rails, AWS**, and external APIs.
+- Architected, built, deployed, and managed **6 web and mobile apps** integrating **React/Redux, React Native, Rails, AWS**, and external APIs.
 - Led cross-disciplinary team and managed clients for our **2 largest dev projects**, totalling over **$2 million in revenue**.
 - Developed **test-driven development** patterns, and built core **open-source NPM libraries** to share tools across projects.
         `,
