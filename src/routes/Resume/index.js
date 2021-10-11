@@ -4,6 +4,7 @@ import Markdown from "react-markdown";
 import Image from "components/Image";
 import AnimatedLoader from "components/AnimatedLoader";
 import BP from "components/BP";
+import Headshot from "../../assets/img/headshot.jpg";
 
 import EducationAndWork from "./EducationAndWork";
 
@@ -20,16 +21,11 @@ export const Resume = () => (
   <div className="resume-container undecorated">
     <AnimatedLoader className="header-area fade-and-slide-up">
       <div className="container header-container">
-        <BP type="above" name="mobileMd">
-          <div className="headshot-box">
-            <AnimatedLoader className="fade-and-slide-up" waitMs={400}>
-              <Image
-                src="https://s3-us-west-1.amazonaws.com/sasha-public-assets/sashafklein/headshot.jpg"
-                className="headshot"
-              />
-            </AnimatedLoader>
-          </div>
-        </BP>
+        <div className="headshot-box">
+          <AnimatedLoader className="fade-and-slide-up" waitMs={400}>
+            <Image src={Headshot} className="headshot" />
+          </AnimatedLoader>
+        </div>
         <div className="header-text-section">
           <div className="name-and-icons">
             <h1 className="name">Sasha Klein</h1>
