@@ -10,12 +10,13 @@ $small: 600px;
 $mobile: 450px;
 
 // Colors
-$maroon: #8a0b0b;
 
-$lightPink: #ff6262;
-$darkPink: darken($lightPink, 20);
+$pink: #9d1515;
+$lightPink: lighten($pink, 20);
+$darkPink: darken($pink, 20);
+$maroon: darken($pink, 30);
 
-$electricBlue: #1871bc;
+$electricBlue: #064c87;
 $lightBlue: lighten($electricBlue, 15);
 $darkBlue: darken($electricBlue, 15);
 

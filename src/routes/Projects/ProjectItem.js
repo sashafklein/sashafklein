@@ -12,19 +12,9 @@ export const slug = title =>
 export const PortfolioItem = ({ item }) => (
   <div className="portfolio-item">
     <div className="container content-section" id={slug(item.title)}>
-      <div className="black-links">
-        <a
-          target="blank"
-          rel="noopener noreferrer"
-          href={item.link}
-          style={{ width: "100%" }}
-        >
-          <Image
-            src={item.image}
-            className="port-photo content-section"
-            alt={item.title}
-            style={{ width: "100%" }}
-          />
+      <div>
+        <a target="blank" rel="noopener noreferrer" href={item.link}>
+          <Image src={item.image} alt={item.title} />
         </a>
       </div>
       <div>

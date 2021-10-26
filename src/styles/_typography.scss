@@ -177,15 +177,6 @@ a {
   }
 }
 
-.black-links {
-  a {
-    color: black;
-    &:hover {
-      color: $lightPink;
-    }
-  }
-}
-
 a.undecorated {
   text-decoration: none;
 }

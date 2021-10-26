@@ -48,24 +48,15 @@
     border-color: $lightPink;
   }
 
-  .black-links {
+  .portfolio-item a img {
+    border: 5px solid black;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    background-color: gray;
     width: 100%;
 
-    img {
-      min-height: 300px;
-      min-width: 100%;
-      width: 100%;
-      background-color: $lightPink;
-    }
-
-    a > img:hover {
+    &:hover {
       border-color: $lightPink;
-    }
-
-    .port-photo {
-      border: 5px solid black;
-      min-height: 150px;
-      margin-bottom: 10px;
     }
   }
 
